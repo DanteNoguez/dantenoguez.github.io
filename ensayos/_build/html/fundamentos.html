@@ -423,14 +423,16 @@ Ingredientes -&gt; Receta (preparación) -&gt; Pizza
 </pre></div>
 </div>
 <p>Matemáticamente, las funciones son lo mismo (aunque con algún ligero matiz; en rigor, se trata de una relación unívoca de dependencia entre un elemento de un conjunto y otro elemento de otro conjunto), pero se escriben y representan de distinta manera. La notación matemática de función es <span class="math notranslate nohighlight">\(f(x)\)</span>; su representación más común es una gráfica. Ejemplifiquemos con el caso <span class="math notranslate nohighlight">\(f(x) = x^{2}\)</span>. Según nuestro esquema, la entrada es cualquier número (que representaremos con una <span class="math notranslate nohighlight">\(x\)</span>), la operación (función) que realizaremos sobre ella es elevarla al cuadrado y eso tendrá como resultado otro número, que podemos denominar con la letra <span class="math notranslate nohighlight">\(y\)</span>:</p>
-<p>\begin{align}
-\ x \to f(x) \to y \
-\end{align}</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\ x \to f(x) \to y \\
+\end{split}\]</div>
 <p>El hecho de que esta notación matemática nos resulte más confusa se debe a su nivel de abstracción. En realidad, el uso de letras (<span class="math notranslate nohighlight">\(x, y\)</span>, etcétera) en lugar de números es una convención académica utilizada para facilitar la definición de reglas generales. Dichas letras comunican al lector que son variables, es decir, que su valor puede variar dependiendo del contexto. Las matemáticas siempre demandan la generalización abstracta de las formulaciones y expresiones propias de su campo, de manera que este tipo de «tecniquerías» son indispensables. Además, sería increíblemente trabajoso —e incluso confuso— escribir expresiones matemáticas complejas con un estilo diferente (<em>e. g</em>., «si tenemos una función matemática de cualquier número que es igual a dicho número elevado al cuadrado») al tradicional <span class="math notranslate nohighlight">\(f(x) = x^{2}\)</span> (se lee: «efe de equis igual a equis cuadrada»).</p>
 <p>A veces, la función se acompaña de la definición de su dominio, es decir, se puede señalar qué tipo de objeto es la entrada que introduciremos en la función. Por ejemplo:</p>
-<p>\begin{align}
-\ f(x) = x^{2}, \ \ \ x\in\mathbb{R}<br />
-\end{align}</p>
+<div class="math notranslate nohighlight">
+\[
+\ f(x) = x^{2}, \ \ \ x\in\mathbb{R}\
+\]</div>
 <p><span class="math notranslate nohighlight">\(\in\)</span> significa «pertenece a» y <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> se utiliza para representar a los números reales. Entonces la última expresión la leeríamos como «donde equis pertenece al conjunto de los números reales».</p>
 <p>Un principio elemental de la comunicación es la economía del lenguaje: el lenguaje siempre debe ser lo más claro y simple posible. Paradójicamente, esta notación es la más simple que existe, y cualquier otra forma de comunicar fórmulas matemáticas sería ineficiente y confusa. En realidad, la notación matemática solo nos resulta extraña por falta de hábito y eso es algo completamente normal.</p>
 <p>Volviendo a lo nuestro, veamos por fin la representación gráfica de una función matemática:</p>
@@ -558,15 +560,14 @@ Ingredientes -&gt; Receta (preparación) -&gt; Pizza
 </div></div>
 </div>
 <p>Como se ve, nuestros valores de <span class="math notranslate nohighlight">\(y\)</span> son el resultado de la función <span class="math notranslate nohighlight">\(f(x) = x^2\)</span>. La <span class="math notranslate nohighlight">\(x\)</span> va tomando el valor de cada número que va del 0 al 10 y, como consecuencia, sobre él se realiza la operación que define la función para finalmente dar un resultado. Mostremos algunas equivalencias nuevamente:</p>
-<br>
-\begin{align}
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \ x \to f(x) \to y \\
 \ x \to x^2 \to y \\
 \ 2 \to 2^2 \to 4 \\
 \ 4 \to 4^2 \to 16 \\
-\ 5 \to 5^2 \to 25 \\[1em]
-\end{align}
-<br>
+\ 5 \to 5^2 \to 25 \\
+\end{split}\]</div>
 <p>La función es exactamente la misma tanto en la notación matemática, como en la notación programática, en la gráfica que hicimos, en la tablita de arriba y en este último esquema. Al final, solo estamos utilizando distintos signos propios de nuestros lenguajes (números, letras, líneas, flechas) para representar lo mismo de distintas maneras. Todas estas formas de representación son válidas, pero usaremos una u otra dependiendo del contexto y de nuestro propio gusto.</p>
 <p>En este punto, merece la pena apuntar que «abstracto» es, por definición, una forma de representar simbólicamente ideas u objetos de la realidad. Etimológicamente, la palabra «abstraer» se compone de <a class="reference external" href="https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.04.0057%3Aalphabetic+letter%3D*a%3Aentry+group%3D245%3Aentry%3Da%29po%2F"><em>ab-</em></a> —«alejar», «alejado (de algo)»— y <a class="reference external" href="http://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.04.0059:entry=traho"><em>trahēre</em></a> —«arrastrar», «tirar (de algo)»—, de manera que «abstraer» significa arrastrar algo fuera de su forma primigenia. Abstraer, pues, implica separar algo de sus demás partes o de su situación inicial para representarlo de otra forma. En aritmética, por ejemplo, se separan las propiedades numéricas de las propiedades cromáticas, sensitivas, químicas, nutrimentales de dos pares de manzanas para representar —e incluso generalizar— de manera abstracta (<em>i. e.</em>,mediante signos «<span class="math notranslate nohighlight">\(2, +, 4\)</span>») las propiedades estrictamente matemáticas de esos dos pares, como <span class="math notranslate nohighlight">\(2 + 2 = 4\)</span>.</p>
 <p>En algún momento, las propiedades numéricas de distintos objetos llegaron a consolidarse de tal forma que una nueva ciencia se constituyó, disociada de nuestro criterio personal y de las formas físicas concretas de nuestro entorno. Esa nueva ciencia, soberana sobre su propio campo, fue y sigue siendo hoy capaz de ir descubriendo nuevas configuraciones matemáticas a través de las relaciones y operaciones que pueden darse dentro de sí misma, sin atención explícita a la realidad que la rodea; pero este proceso «artificioso» o formal no debe llevarnos nunca a creer que las operaciones matemáticas tienen que ver con realidades distintas a la nuestra. Todo pensamiento posible, sea científico, delirante o fantasioso, toma siempre origen a flor de tierra, por mucho que nuestros aparatosos sistemas de pensamiento aparenten lo contrario.</p>
@@ -600,21 +601,9 @@ Ingredientes -&gt; Receta (preparación) -&gt; Pizza
 </div>
 </div>
 <p>Una función cúbica:
-\begin{align}
+$<span class="math notranslate nohighlight">\(
 \ Cúbica(x) = x^3
-\end{align}</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span><span class="o">**</span><span class="mi">3</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1000
-</pre></div>
-</div>
-</div>
-</div>
+\)</span>$</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cubica</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -636,13 +625,14 @@ Ingredientes -&gt; Receta (preparación) -&gt; Pizza
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/fundamentos_10_0.png" src="_images/fundamentos_10_0.png" />
+<img alt="_images/fundamentos_9_0.png" src="_images/fundamentos_9_0.png" />
 </div>
 </div>
 <p>La función de activación ReLU (<em>Rectified Linear Unit</em>, «unidad lineal rectificada»), ampliamente utilizada en <em>deep learning</em>, se define como:</p>
-<p>\begin{align}
+<div class="math notranslate nohighlight">
+\[
 \ ReLU(x) = max(0, x)
-\end{align}</p>
+\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ReLU</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -664,13 +654,14 @@ Ingredientes -&gt; Receta (preparación) -&gt; Pizza
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/fundamentos_12_0.png" src="_images/fundamentos_12_0.png" />
+<img alt="_images/fundamentos_11_0.png" src="_images/fundamentos_11_0.png" />
 </div>
 </div>
 <p>Incluso podemos graficar funciones que matemáticamente podrían parecernos jeroglíficos, pero que programáticamente son bastante sencillas. La función <em>softmax</em> está dada por:</p>
-<p>\begin{align}
-\ Softmax(x_i) = \frac{e^{x_i}}{\sum_{j=1}^{K} e^{x_j}}<br />
-\end{align}</p>
+<div class="math notranslate nohighlight">
+\[
+\ Softmax(x_i) = \frac{e^{x_i}}{\sum_{j=1}^{K} e^{x_j}}\
+\]</div>
 <p>Para entenderla mejor, podemos hacer un desglose de sus términos:</p>
 <table class="table">
 <thead>
@@ -705,27 +696,32 @@ Ingredientes -&gt; Receta (preparación) -&gt; Pizza
 <br>
 <p>En términos simples, esta fórmula dice que la función softmax consiste en dividir el número <span class="math notranslate nohighlight">\(e\)</span> elevado a la potencia <span class="math notranslate nohighlight">\(x_i\)</span> –es decir, a la potencia del valor correspondiente de <span class="math notranslate nohighlight">\(x\)</span>— entre la sumatoria de todos los valores de <span class="math notranslate nohighlight">\(x\)</span> como potencias del número <span class="math notranslate nohighlight">\(e\)</span>. Si lo escribiéramos paso por paso, quedaría como:</p>
 <br>
-<p>\begin{align}
-\ Softmax(x_i) = \frac{2.71828^{x_i}}{2.71828^{x_j} + 2.71828^{x_2} + 2.71828^{x_3}, … 2.71828^{x_K}}<br />
-\end{align}</p>
+<div class="math notranslate nohighlight">
+\[
+\ Softmax(x_i) = \frac{2.71828^{x_i}}{2.71828^{x_j} + 2.71828^{x_2} + 2.71828^{x_3}, ... 2.71828^{x_K}}\
+\]</div>
 <br>
 <p>Supongamos que nuestras <span class="math notranslate nohighlight">\(x\)</span> son los números del -2 al 1, entonces reemplazamos valores y aplicamos la fórmula:</p>
 <br>
-<p>\begin{align}
-\ Softmax(x_1) = Softmax(-2) = \frac{2.71828^{-2}}{2.71828^{-2} + 2.71828^{-1} + 2.71828^{0} + 2.71828^{1}}<br />
-\end{align}</p>
+<div class="math notranslate nohighlight">
+\[
+\ Softmax(x_1) = Softmax(-2) = \frac{2.71828^{-2}}{2.71828^{-2} + 2.71828^{-1} + 2.71828^{0} + 2.71828^{1}}\
+\]</div>
 <br>
-<p>\begin{align}
-\ Softmax(x_2) = Softmax(-1) = \frac{2.71828^{-1}}{2.71828^{-2} + 2.71828^{-1} + 2.71828^{0} + 2.71828^{1}}<br />
-\end{align}</p>
+<div class="math notranslate nohighlight">
+\[
+\ Softmax(x_2) = Softmax(-1) = \frac{2.71828^{-1}}{2.71828^{-2} + 2.71828^{-1} + 2.71828^{0} + 2.71828^{1}}\
+\]</div>
 <br>
-<p>\begin{align}
-\ Softmax(x_3) = Softmax(0) = \frac{2.71828^{0}}{2.71828^{-2} + 2.71828^{-1} + 2.71828^{0} + 2.71828^{1}}<br />
-\end{align}</p>
+<div class="math notranslate nohighlight">
+\[
+\ Softmax(x_3) = Softmax(0) = \frac{2.71828^{0}}{2.71828^{-2} + 2.71828^{-1} + 2.71828^{0} + 2.71828^{1}}\
+\]</div>
 <br>
-<p>\begin{align}
-\ Softmax(x_4) = Softmax(1) = \frac{2.71828^{1}}{2.71828^{-2} + 2.71828^{-1} + 2.71828^{0} + 2.71828^{1}}<br />
-\end{align}</p>
+<div class="math notranslate nohighlight">
+\[
+\ Softmax(x_4) = Softmax(1) = \frac{2.71828^{1}}{2.71828^{-2} + 2.71828^{-1} + 2.71828^{0} + 2.71828^{1}}\
+\]</div>
 <br>
 <p>Nuestros resultados —o valores de <span class="math notranslate nohighlight">\(y\)</span>, si se quiere— serían 0.032, 0.087, 0.236 y 0.643, respectivamente.</p>
 <p>Podemos ahora apreciar mejor la simplicidad de la fórmula inicial, en comparación al trabajoso desglose que debemos hacer al momento de calcular valor por valor. Esta es una de las razones por las que la notación matemática es tan abstracta.</p>
@@ -754,7 +750,7 @@ Ingredientes -&gt; Receta (preparación) -&gt; Pizza
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Todos los valores de y sumados siempre dan como resultado: 1.0.
 </pre></div>
 </div>
-<img alt="_images/fundamentos_14_1.png" src="_images/fundamentos_14_1.png" />
+<img alt="_images/fundamentos_13_1.png" src="_images/fundamentos_13_1.png" />
 </div>
 </div>
 <p>En primer lugar, enfoquémonos en entender que estas funciones implican un patrón, el cual define la manera en que obtendremos <span class="math notranslate nohighlight">\(y\)</span>. En la función ReLU, por ejemplo, podemos ver que todo valor de <span class="math notranslate nohighlight">\(x\)</span> menor a 0 da como resultado un valor de <span class="math notranslate nohighlight">\(y\)</span> que es exactamente igual a 0; todo valor mayor de 0, conserva para <span class="math notranslate nohighlight">\(y\)</span> el mismo valor que <span class="math notranslate nohighlight">\(x\)</span>.</p>
@@ -763,9 +759,10 @@ Ingredientes -&gt; Receta (preparación) -&gt; Pizza
 <p>Por otro lado, como digo, su uso dependerá de nosotros. En el caso de una función, por ejemplo, a un matemático le interesan las propiedades lógicas, numéricas, geométricas y abstractas de la función; a un informático, saber qué es una función y cómo se relaciona eso con el funcionamiento de una computadora; a un programador, saber qué propiedades tienen las funciones de cierto lenguaje. Nosotros podemos darles esa o cualquier otra utilidad que nos venga en gana.</p>
 <p>Digamos, por ejemplo, que acabamos de descubrir que los lenguajes cambian a un ritmo que se puede representar con una función sigmoide: primero, nadie utiliza la expresión que queremos estudiar; en algún momento, una nueva expresión aparece y comienza a utilizarse por unas cuantas personas; después, llega un punto en el que se extiende rápidamente entre la población; y finalmente, al adoptarse universalmente, su uso cambia muy poco, puesto que ya nadie deja de usarla, ni tampoco nadie comienza a usarla por primera vez.</p>
 <p>La fórmula para generar una gráfica de esta naturaleza es:</p>
-<p>\begin{align}
-\ Sigmoide(x) = \sigma(x) = \frac{1}{1 + e^{-x}}<br />
-\end{align}</p>
+<div class="math notranslate nohighlight">
+\[
+\ Sigmoide(x) = \sigma(x) = \frac{1}{1 + e^{-x}}\
+\]</div>
 <p>Programáticamente:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -788,7 +785,7 @@ Ingredientes -&gt; Receta (preparación) -&gt; Pizza
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/fundamentos_16_0.png" src="_images/fundamentos_16_0.png" />
+<img alt="_images/fundamentos_15_0.png" src="_images/fundamentos_15_0.png" />
 </div>
 </div>
 <p>Como decíamos: primero nadie la usa, después pocas personas, luego crece rápidamente y al final se estanca. En este caso, <span class="math notranslate nohighlight">\(x\)</span> representa el paso en el tiempo e <span class="math notranslate nohighlight">\(y\)</span> el número de personas que utilizan una palabra.</p>
@@ -914,32 +911,39 @@ Ingredientes -&gt; Receta (preparación) -&gt; Pizza
 <p>Tomemos el siguiente número en sistema decimal:</p>
 <p><code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">2</span> <span class="pre">3</span></code></p>
 <p>Aquí, el 3 está en el lugar de las unidades; el dos, en las decenas; y el tres, en las centenas. Entonces,</p>
-<p><span class="math notranslate nohighlight">\((100 \times 1) + (10 \times 2) + (1 \times 3) = 100 + 20 + 3 = 123\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+(100 \times 1) + (10 \times 2) + (1 \times 3) = 100 + 20 + 3 = 123
+\]</div>
 <p>Cada lugar de cada dígito representa una potencia de 10, por lo que hay diez posibles dígitos en cada lugar (ahora ya empieza a tener sentido el término «sistema decimal»). El primer lugar de la derecha representa un <span class="math notranslate nohighlight">\(10^0\)</span>; el de en medio, <span class="math notranslate nohighlight">\(10^1\)</span>; el tercero, <span class="math notranslate nohighlight">\(10^2\)</span>, y así sucesivamente:</p>
 <br>
-\begin{align}
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \ 10^2\ 10^1\ 10^0\
 \\ 1 \ \ \ \ \ \ \ 2 \ \ \ \ \ \ \ 3
-\end{align}
+\end{split}\]</div>
 <br>
 <p>En binario, por otro lado, solo tenemos dos dígitos y los exponentes del dos en cada lugar:</p>
 <br>
-\begin{align}
+<div class="math notranslate nohighlight">
+\[
 \ ... 2^2\ 2^1\ 2^0\
-\end{align}
+\]</div>
 <br>
 <p>Que es equivalente a:</p>
 <br>
-\begin{align}
+<div class="math notranslate nohighlight">
+\[
 \ ... 4\ 2\ 1\
-\end{align}
+\]</div>
 <br>
 <p>Entonces, si quisiéramos representar el valor decimal 3, tendríamos que añadir 2 y 1 en sistema binario así:</p>
 <br>
-\begin{align}
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \ 2^2\ 2^1\ 2^0\
 \\ 0 \ \ \ \ 1 \ \ \ \ 1
-\end{align}
+\end{split}\]</div>
 <br>
 <p>La mayoría de las computadoras utilizan 8 dígitos o <em>bits</em> (lo cual quiere decir «dígito binario», en inglés «<em>bi</em>nary dig<em>it</em>») a la vez, de manera que el número 3 sería <code class="docutils literal notranslate"><span class="pre">00000011</span></code>. Cada conjunto de 8 <em>bits</em> se denomina <em>byte</em>.</p>
 <p>Aunque en los humanos el sistema decimal prevalezca por sernos más intuitivo, lo cierto es que una vez más estamos hablando de una convención. Xul Solar, por ejemplo, fue un hombre singular que sostuvo durante mucho tiempo que el sistema duodecimal de numeración es superior al decimal. En su vida personal y profesional, Xul Solar utilizaba ese sistema.</p>
@@ -996,7 +1000,7 @@ Ingredientes -&gt; Receta (preparación) -&gt; Pizza
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/fundamentos_27_0.png" src="_images/fundamentos_27_0.png" />
+<img alt="_images/fundamentos_26_0.png" src="_images/fundamentos_26_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1063,7 +1067,7 @@ Ingredientes -&gt; Receta (preparación) -&gt; Pizza
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f759b285650&gt;
 </pre></div>
 </div>
-<img alt="_images/fundamentos_30_1.png" src="_images/fundamentos_30_1.png" />
+<img alt="_images/fundamentos_29_1.png" src="_images/fundamentos_29_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1077,7 +1081,7 @@ Ingredientes -&gt; Receta (preparación) -&gt; Pizza
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f759bb8a450&gt;
 </pre></div>
 </div>
-<img alt="_images/fundamentos_31_1.png" src="_images/fundamentos_31_1.png" />
+<img alt="_images/fundamentos_30_1.png" src="_images/fundamentos_30_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2014,7 +2018,7 @@ Ingredientes -&gt; Receta (preparación) -&gt; Pizza
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/fundamentos_39_0.png" src="_images/fundamentos_39_0.png" />
+<img alt="_images/fundamentos_38_0.png" src="_images/fundamentos_38_0.png" />
 </div>
 </div>
 <div class="cell docutils container">

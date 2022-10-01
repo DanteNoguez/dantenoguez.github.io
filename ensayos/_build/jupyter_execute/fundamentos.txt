@@ -57,8 +57,6 @@ ax.vlines(x=0, ymin=0, ymax=400, linewidth=1, color='white', linestyles='dotted'
 ax.hlines(y=0, xmin=xs[0], xmax=xs[-1], linewidth=1, color='white', linestyles='dotted')
 plt.show()
 
-10**3
-
 def cubica(x):
   return x**3
 
