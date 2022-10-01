@@ -1,11 +1,10 @@
-# Welcome to your Jupyter Book
+# Welcome!
 
-This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out [the Jupyter Book documentation](https://jupyterbook.org) for more information.
+Hello, my name is Dante. I'm a machine learning engineer who also happens to be the CEO of an e-commerce company, a lawyer, a Jorge Luis Borges scholar (*cfr*. my book [*Oh tiempo tus pirámides*](https://www.amazon.com/Oh-tiempo-tus-pirámides-ensayos-ebook/dp/B08K3QGZTM/)), a former professional Halo player (*cfr*. [my latest stats](https://halotracker.com/halo-infinite/profile/xbl/Magnustein/overview)) and an African-American music, Austrian economics, behavioral biology and philosophical materialism aficionado.
 
-Check out the content pages bundled with this sample book to see more.
+This is the place where I share new insights about the things that I love.
+
+Check out some of my essays:
 
 ```{tableofcontents}
 ```
