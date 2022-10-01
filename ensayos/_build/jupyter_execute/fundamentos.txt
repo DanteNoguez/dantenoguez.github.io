@@ -1,0 +1,247 @@
+!pip install matplotlib --upgrade
+
+import math
+import numpy as np
+import pandas as pd
+import seaborn as sns
+import random
+import torch
+from torch import nn
+import torchvision
+from torchvision import transforms
+import requests
+from pathlib import Path
+import matplotlib.pyplot as plt
+
+# Para representar gráficamente la función, traduciremos ahora esto a código:
+
+def f(x): # <- Definimos una función de x
+  return x**2 # <- El resultado de esa función es x al cuadrado
+
+# Ahora creamos nuestros valores usando la función:
+xs = np.arange(0, 11, 1) #<- Las X serán números del 0 al 10 con intervalos de 1
+ys = f(xs) # <- Las Y serán el resultado de aplicar la función a las X
+
+# Graficamos las xs y las ys:
+fig, ax = plt.subplots(figsize=(10, 7))
+ax.plot(xs, ys, marker='o', color='blue') 
+ax.set_facecolor('black')
+ax.set_xlabel('Valores de x')
+ax.set_ylabel('Valores de y')
+ax.hlines(y=16, xmin=0, xmax=4, linewidth=1, color='white', linestyles='dashed')
+ax.vlines(x=4, ymin=0, ymax=16, linewidth=1, color='white', linestyles='dashed')
+plt.show()
+
+# Podemos también representar esto como una tabla:
+
+d = {'Valores de x': xs, 'Valores de y': ys}
+tabla = pd.DataFrame(data=d)
+tabla = tabla.style.hide_index()
+tabla
+
+# Ya vimos una parte de la función cuadrática, pero ahora veámosla con más valores
+def f(x):
+  return x**2
+
+xs = np.arange(-20, 21, 1) # Nuestras X ahora irán del -20 al 20 en intervalos de 1
+ys = f(xs)
+
+fig, ax = plt.subplots(figsize=(10, 7))
+ax.plot(xs, ys, marker='o', color='blue') 
+ax.set_facecolor('black')
+ax.set_xlabel('Valores de x')
+ax.set_ylabel('Valores de y')
+ax.hlines(y=ys[5], xmin=0, xmax=xs[5], linewidth=1, color='white', linestyles='dashed')
+ax.vlines(x=xs[5], ymin=0, ymax=ys[5], linewidth=1, color='white', linestyles='dashed')
+ax.vlines(x=0, ymin=0, ymax=400, linewidth=1, color='white', linestyles='dotted')
+ax.hlines(y=0, xmin=xs[0], xmax=xs[-1], linewidth=1, color='white', linestyles='dotted')
+plt.show()
+
+10**3
+
+def cubica(x):
+  return x**3
+
+ys = cubica(xs)
+
+fig, ax = plt.subplots(figsize=(10, 7))
+ax.plot(xs, ys, marker='o', color='blue') 
+ax.set_facecolor('black')
+ax.set_xlabel('Valores de x')
+ax.set_ylabel('Valores de y')
+ax.hlines(y=ys[5], xmin=0, xmax=xs[5], linewidth=1, color='white', linestyles='dashed')
+ax.vlines(x=xs[5], ymin=0, ymax=ys[5], linewidth=1, color='white', linestyles='dashed')
+ax.vlines(x=0, ymin=ys[0], ymax=ys[-1], linewidth=1, color='white', linestyles='dotted')
+ax.hlines(y=0, xmin=xs[0], xmax=xs[-1], linewidth=1, color='white', linestyles='dotted')
+plt.show()
+
+def ReLU(x):
+  return np.maximum(0, x)
+
+ys = ReLU(xs)
+
+fig, ax = plt.subplots(figsize=(10, 7))
+ax.plot(xs, ys, marker='o', color='blue') 
+ax.set_facecolor('black')
+ax.set_xlabel('Valores de x')
+ax.set_ylabel('Valores de y')
+ax.hlines(y=ys[-6], xmin=0, xmax=xs[-6], linewidth=1, color='white', linestyles='dashed')
+ax.vlines(x=xs[-6], ymin=0, ymax=ys[-6], linewidth=1, color='white', linestyles='dashed')
+ax.vlines(x=0, ymin=ys[0], ymax=ys[-1], linewidth=1, color='white', linestyles='dotted')
+ax.hlines(y=0, xmin=xs[0], xmax=xs[-1], linewidth=1, color='white', linestyles='dotted')
+plt.show()
+
+def Softmax(x):
+  return np.exp(x) / sum(np.exp(x))
+
+ys = Softmax(xs)
+
+fig, ax = plt.subplots(figsize=(10, 7))
+ax.plot(xs, ys, marker='o', color='blue') 
+ax.set_facecolor('black')
+ax.set_xlabel('Valores de x')
+ax.set_ylabel('Valores de y')
+ax.hlines(y=ys[-3], xmin=0, xmax=xs[-3], linewidth=1, color='white', linestyles='dashed')
+ax.vlines(x=xs[-3], ymin=0, ymax=ys[-3], linewidth=1, color='white', linestyles='dashed')
+ax.vlines(x=0, ymin=ys[0], ymax=ys[-1], linewidth=1, color='white', linestyles='dotted')
+ax.hlines(y=0, xmin=xs[0], xmax=xs[-1], linewidth=1, color='white', linestyles='dotted')
+print(f'Todos los valores de y sumados siempre dan como resultado: {np.sum(ys)}.\n')
+
+def Sigmoide(x):
+  return 1 / (1 + np.exp(-x))
+
+ys = Sigmoide(xs)
+
+fig, ax = plt.subplots(figsize=(10, 7))
+ax.plot(xs, ys, marker='o', color='blue') 
+ax.set_facecolor('black')
+ax.set_xlabel('Línea del tiempo')
+ax.set_ylabel('Número de personas que utilizan la nueva palabra')
+ax.hlines(y=ys[20], xmin=0, xmax=xs[20], linewidth=1, color='white', linestyles='dashed')
+ax.vlines(x=xs[20], ymin=0, ymax=ys[20], linewidth=1, color='white', linestyles='dashed')
+ax.vlines(x=0, ymin=ys[0], ymax=ys[-1], linewidth=1, color='white', linestyles='dotted')
+ax.hlines(y=0, xmin=xs[0], xmax=xs[-1], linewidth=1, color='white', linestyles='dotted')
+plt.show()
+
+def AlgoritmoE(m, n):
+  if m < n:
+    m, n = n, m
+  r = m%n
+  if r == 0:
+    return n
+  else:
+    while r != 0:
+      m, n = n, r
+      r = m%n
+      if r == 0:
+        return n
+
+# Una versión simplificada del algoritmo:
+
+def Euclides(a, b):
+    while b != 0:
+        a, b = b, a % b
+    return a
+
+# Ponemos a prueba los algoritmos:
+
+resultados_1 = AlgoritmoE(544, 119), AlgoritmoE(2166, 6099)
+resultados_2 = Euclides(544, 119), Euclides(2166, 6099)
+
+print(f'Resultados del primer algoritmo: {resultados_1} | Resultados del segundo algoritmo: {resultados_2}')
+
+import requests
+from pathlib import Path
+import torch
+import torchvision
+from torchvision import transforms
+import matplotlib.pyplot as plt
+
+data_path = Path("/content/")
+taco_path = data_path / "taco.png"
+
+taco_image = "taco.png"
+with open("taco.png", "wb") as f:
+  request = requests.get("https://raw.githubusercontent.com/DanteNoguez/CalculusRatiocinator/main/data/img/taco.jpg")
+  f.write(request.content)
+
+taco_tensor = torchvision.io.read_image(str(taco_path)).type(torch.float32) / 255
+transform_taco = transforms.Compose([transforms.Resize(size=(64*4, 64*4))])
+taco = transform_taco(taco_tensor)
+
+transform_taco = transforms.Compose([transforms.Resize(size=(32, 32))])
+taco = transform_taco(taco_tensor)
+
+fig, axs = plt.subplots(1, 2, figsize=(10, 7), sharey=True)
+axs[0].imshow(taco.permute(1, 2, 0))
+axs[1].imshow(taco.permute(1, 2, 0))
+axs[1].set_xlim(16, 32)
+axs[1].set_ylim(32, 0)
+plt.axis('off')
+plt.show()
+
+transform_taco = transforms.Compose([transforms.Resize(size=(16, 16))])
+taco = transform_taco(taco_tensor)
+taco.permute(1, 2, 0)[6]
+
+from torchvision import datasets
+from torchvision.transforms import ToTensor
+
+test_data = datasets.MNIST(
+    root = 'data',
+    train = False,
+    transform = ToTensor(),
+    download = True,
+    target_transform = None)
+
+from torch.utils.data import DataLoader
+ 
+BATCH_SIZE = 32
+
+test_dataloader = DataLoader(dataset=test_data,
+                             batch_size=BATCH_SIZE,
+                             shuffle=False)
+
+test_features_batch, test_labels_batch = next(iter(test_dataloader))
+image = test_features_batch[4]
+plt.imshow(image.squeeze().cpu(), cmap='gray')
+
+df = pd.DataFrame(np.array(image.squeeze(0)[4:23, 4:27]))
+plt.imshow(df)
+
+df.style.set_properties(**{'font-size':'6pt'}).background_gradient('Greys')
+
+a = torch.arange(1, 10, 0.25).requires_grad_()
+a
+
+def f(a): 
+  return (a**2).sum()
+
+b = f(a)
+b
+
+b.backward()
+c = a.grad
+c, b
+
+d = a**2
+
+a = a.detach().numpy()
+b = b.detach().numpy()
+c = c.numpy()
+d = d.detach().numpy()
+
+len(a)
+
+fig, ax = plt.subplots()
+ax.plot(a, d, label='función')
+ax.axline((a[20], d[20]), slope=c[20], color='red', label='pendiente')
+ax.legend()
+plt.show()
+
+#from google.colab import drive
+#drive.mount('/content/drive')
+
+#!jupyter nbconvert --to html "/content/drive/MyDrive/Colab Notebooks/AI.ipynb"
+
+
