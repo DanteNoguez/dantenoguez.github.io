@@ -3,6 +3,12 @@
 
 format: jb-book
 root: intro
-chapters:
-- file: elementos-program
-- file: iurisprudentiae
+parts:
+
+- caption: Elementorum Physicæ Mathematicæ
+  chapters:
+  - file: elementos-program
+
+- caption: Elementorum Iurisprudentiæ
+  chapters:
+  - file: iurisprudentiae
