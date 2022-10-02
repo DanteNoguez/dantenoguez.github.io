@@ -1,4 +1,4 @@
-# Elementos de Derecho, o Nova Methodus Discendæ Iurisprudentiæ
+# Elementos de leyes, o Nova methodus discendæ iurisprudentiæ
 
 En pocas palabras, el Derecho nace de la necesidad de regular las relaciones de los integrantes de una sociedad. Dichas reglas se caracterizan por ser «vinculatorias» (obligatorias, coactivas, impositivas). Para que una regla sea obligatoria y, por tanto, se convierta en ley, debe haber una autoridad asignada para vigilar su cumplimiento y castigar su incumplimiento. Esta autoridad —que llamamos gobierno— se arroga el «monopolio de la violencia» (para decirlo con Max Weber) de manera que él y solamente él pueda castigar o sancionar a quien incumpla la ley[^1].
 
