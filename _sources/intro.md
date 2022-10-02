@@ -1,10 +1,7 @@
-# Welcome!
+# Welcome
 
 Hello, my name is Dante and this is the place where I share new insights about the things that I love.
 
-I'm a machine learning engineer from Mexico who also happens to be the CEO of an e-commerce company, a lawyer, a Jorge Luis Borges scholar (*cfr*. my book [*Oh tiempo tus pirámides*](https://www.amazon.com/Oh-tiempo-tus-pirámides-ensayos-ebook/dp/B08K3QGZTM/)), a former professional Halo player (*cfr*. [my latest stats](https://halotracker.com/halo-infinite/profile/xbl/Magnustein/overview)) and an African-American music, Austrian economics, behavioral biology, philosophical materialism, chess and mixed martial arts aficionado.
+I'm a machine learning engineer, CEO of a Mexican e-commerce company, lawyer, [Jorge Luis Borges](https://www.amazon.com/Oh-tiempo-tus-pirámides-ensayos-ebook/dp/B08K3QGZTM/) scholar, former professional [Halo player](https://halotracker.com/halo-infinite/profile/xbl/Magnustein/overview)) and African-American music, Austrian economics, behavioral biology, philosophical materialism, chess and mixed martial arts aficionado.
 
-**Music references**
-
-```{bibliography}
-```
+Email: dante@dezvolta.com.mx
