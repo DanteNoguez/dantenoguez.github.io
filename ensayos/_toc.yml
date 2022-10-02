@@ -13,3 +13,8 @@ parts:
 - caption: Elementorum Iurisprudentiæ
   chapters:
   - file: iurisprudentiae
+
+- caption: Exagium
+  chapters:
+  - file: tzompantli
+  - file: castillos
