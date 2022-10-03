@@ -1,14 +1,15 @@
+!pip install matplotlib --upgrade
+
 import math
+import matplotlib.pyplot as plt
+import numpy as np
+
 class Numero:
   def __init__(self, valor, _previos=(), _op='', etiqueta=''):
     self.valor = valor
     self._previos = set(_previos)
     self._op = _op
     self.etiqueta = etiqueta
-    eps = 1e-5
-
-  def __repr__(self):
-    return f'Valor={self.valor}' # esta función determina cómo se representa nuestro número
 
   def __add__(self, otro): # adición
     otro = otro if isinstance(otro, Numero) else Numero(otro) # nos cercioramos de que el otro valor sea un Número
@@ -38,13 +39,16 @@ class Numero:
     return resultado
 
   def __truediv__(self, otro): # división
-    return otro * self**-1 #dividir es lo mismo que multiplicar por el dividendo elevado a la menos 1
+    return self * otro**-1 #dividir es lo mismo que multiplicar por el dividendo elevado a la menos 1
   
   def __rtruediv__(self, otro):
     return otro * self**-1
 
   def __neg__(self): # volver negativo un número
     return self * -1
+
+  def __repr__(self):
+    return f'Valor={self.valor}' # esta función determina cómo se representa nuestro número
 
 
 a = Numero(2, etiqueta='a') # definimos dos Números: a y b
@@ -90,20 +94,61 @@ def graficar(origen):
 c.etiqueta = 'c'
 graficar(c)
 
-a = Numero(2.0, etiqueta='a')
-b = Numero(-3.0, etiqueta='b')
-c = Numero(10.0, etiqueta='c')
-d = a*b; d.etiqueta='d'
-e = d+c; e.etiqueta='e'
+a2 = np.arange(0, 13, 2)
+def f(a): return a*5
+b2 = f(a2)
 
-graficar(e)
+fig, ax = plt.subplots(figsize=(10, 7))
+ax.plot(a2, b2, marker='o', color='blue') 
+ax.set_facecolor('black')
+ax.set_xlabel('Valores de a')
+ax.set_ylabel('Valores de b')
+#ax.axline((a2[1], b2[1]), slope=derivada, color='red', label='pendiente')
+#ax.hlines(y=16, xmin=0, xmax=4, linewidth=1, color='white', linestyles='dashed')
+#ax.vlines(x=4, ymin=0, ymax=16, linewidth=1, color='white', linestyles='dashed')
+plt.show()
 
-aumento = 0.001
-a = Numero(2.0, etiqueta='a')
-a += aumento
-b = Numero(-3.0, etiqueta='b')
-c = Numero(10.0, etiqueta='c')
-d = a*b; d.etiqueta='d'
-e = d+c; e.etiqueta='e'
+import pandas as pd
+d = {'Valores de a': a2, 'Valores de b': b2}
+tabla = pd.DataFrame(data=d)
+tabla = tabla.style.hide_index()
+tabla
 
-e
+a2 = np.arange(0, 13, 2)
+def f(a): return a*5
+b2 = f(a2)
+
+derivada = (b2[2] - b2[1]) / (a2[2] - a2[1])
+
+fig, ax = plt.subplots(figsize=(10, 7))
+ax.plot(a2, b2, marker='o', color='blue', label='recta de la función') 
+ax.set_facecolor('black')
+ax.set_xlabel('Valores de a')
+ax.set_ylabel('Valores de b')
+ax.axline((a2[1], b2[1]), slope=derivada, color='red', label='pendiente') # <- Aquí está definida la derivada
+ax.hlines(y=10, xmin=0, xmax=2, linewidth=1, color='white', linestyles='dashed')
+ax.vlines(x=2, ymin=0, ymax=10, linewidth=1, color='white', linestyles='dashed')
+ax.legend()
+plt.show()
+
+x = np.arange(0, 13, 2)
+def f(x): return x+6
+y = f(x)
+
+z = {'Valores de x': x, 'Valores de y': y}
+tabla = pd.DataFrame(data=z)
+tabla = tabla.style.hide_index()
+tabla
+
+derivada = (y[2] - y[1]) / (x[2] - x[1])
+
+fig, ax = plt.subplots(figsize=(10, 7))
+ax.plot(x, y, marker='o', color='blue', label='recta de la función') 
+ax.set_facecolor('black')
+ax.set_xlabel('Valores de x')
+ax.set_ylabel('Valores de y')
+ax.axline((x[1], y[1]), slope=derivada, color='red', label='pendiente') # <- Aquí está definida la derivada
+ax.hlines(y=10, xmin=0, xmax=4, linewidth=1, color='white', linestyles='dashed')
+ax.vlines(x=4, ymin=0, ymax=10, linewidth=1, color='white', linestyles='dashed')
+ax.legend()
+plt.show()

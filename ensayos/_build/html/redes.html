@@ -56,7 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="_static/logo.png"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Elementos de Derecho, o Nova Methodus Discendæ Iurisprudentiæ" href="iurisprudentiae.html" />
+    <link rel="next" title="Elementos de leyes, o Nova methodus discendæ iurisprudentiæ" href="iurisprudentiae.html" />
     <link rel="prev" title="Elementos de programación" href="programacion.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
@@ -142,7 +142,24 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="iurisprudentiae.html">
-   Elementos de Derecho, o Nova Methodus Discendæ Iurisprudentiæ
+   Elementos de leyes, o Nova methodus discendæ iurisprudentiæ
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Exagium
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="tzompantli.html">
+   Breve ensayo sobre el tzompantli
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="castillos.html">
+   La importancia de ser olvidado
   </a>
  </li>
 </ul>
@@ -355,20 +372,36 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="elementos-de-redes-neuronales">
 <h1>Elementos de redes neuronales<a class="headerlink" href="#elementos-de-redes-neuronales" title="Permalink to this heading">#</a></h1>
-<p>Sin preámbulo alguno, construiremos una red neuronal desde cero, explicando a detalle cada paso. En primer lugar, crearemos la «clase» <code class="docutils literal notranslate"><span class="pre">Numero</span></code>, es decir, formularemos una estructura que nos permita definir, modificar y operar con números. Dado que las redes neuronales son gigantescas expresiones matemáticas, los números serán nuestros átomos. De momento, cada número tendrá las siguientes propiedades: un valor, un par de valores previos que pueden generarlo (por ejemplo, 1 y 1 en el caso de que sumados nos den el número 2), la operación que genera al número y una etiqueta en caso de que queramos asociarlo a una variable. Por último, agregaremos la suma, la resta y la multiplicación para poder operar con nuestros números:</p>
+<p>Este ensayo estará inspirado en <a class="reference external" href="https://github.com/karpathy/micrograd">micrograd</a> de Andrej Karpathy. En esencia, construiremos una red neuronal desde cero, explicando a detalle cada uno de sus elementos.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<p><em>Como prerrequisitos para esta lección, sugiero leer la <a class="reference external" href="https://dantenoguez.github.io/Ensayos/elementos-program.html">lección anterior</a> y el artículo de Khan Academy sobre la <a class="reference external" href="https://es.khanacademy.org/math/cc-eighth-grade-math/cc-8th-linear-equations-functions/8th-slope/a/slope-from-two-points">pendiente matemática</a>.</em></p>
+</aside>
+<p>En primer lugar, crearemos la «clase» <code class="docutils literal notranslate"><span class="pre">Numero</span></code>, es decir, formularemos una estructura que nos permita definir, modificar y operar con números. Dado que las redes neuronales son gigantescas expresiones matemáticas, los números serán nuestros elementos primarios. De momento, cada número tendrá las siguientes propiedades: un valor, un par de valores previos que pueden generarlo (por ejemplo, 1 y 1 en el caso de que sumados nos den el número 2), la operación que genera al número (en nuestro ejemplo, la suma) y una etiqueta en caso de que queramos asociar nuestro número a una variable. Agregaremos también funciones (suma, resta, etcétera) para operar con nuestros números:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install matplotlib --upgrade
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
-<span class="k">class</span> <span class="nc">Numero</span><span class="p">:</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Numero</span><span class="p">:</span>
   <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">valor</span><span class="p">,</span> <span class="n">_previos</span><span class="o">=</span><span class="p">(),</span> <span class="n">_op</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">etiqueta</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">valor</span> <span class="o">=</span> <span class="n">valor</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_previos</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">_previos</span><span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_op</span> <span class="o">=</span> <span class="n">_op</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">etiqueta</span> <span class="o">=</span> <span class="n">etiqueta</span>
-    <span class="n">eps</span> <span class="o">=</span> <span class="mf">1e-5</span>
-
-  <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;Valor=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">valor</span><span class="si">}</span><span class="s1">&#39;</span> <span class="c1"># esta función determina cómo se representa nuestro número</span>
 
   <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">otro</span><span class="p">):</span> <span class="c1"># adición</span>
     <span class="n">otro</span> <span class="o">=</span> <span class="n">otro</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">otro</span><span class="p">,</span> <span class="n">Numero</span><span class="p">)</span> <span class="k">else</span> <span class="n">Numero</span><span class="p">(</span><span class="n">otro</span><span class="p">)</span> <span class="c1"># nos cercioramos de que el otro valor sea un Número</span>
@@ -398,13 +431,16 @@ title="Print to PDF"
     <span class="k">return</span> <span class="n">resultado</span>
 
   <span class="k">def</span> <span class="fm">__truediv__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">otro</span><span class="p">):</span> <span class="c1"># división</span>
-    <span class="k">return</span> <span class="n">otro</span> <span class="o">*</span> <span class="bp">self</span><span class="o">**-</span><span class="mi">1</span> <span class="c1">#dividir es lo mismo que multiplicar por el dividendo elevado a la menos 1</span>
+    <span class="k">return</span> <span class="bp">self</span> <span class="o">*</span> <span class="n">otro</span><span class="o">**-</span><span class="mi">1</span> <span class="c1">#dividir es lo mismo que multiplicar por el dividendo elevado a la menos 1</span>
   
   <span class="k">def</span> <span class="fm">__rtruediv__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">otro</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">otro</span> <span class="o">*</span> <span class="bp">self</span><span class="o">**-</span><span class="mi">1</span>
 
   <span class="k">def</span> <span class="fm">__neg__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1"># volver negativo un número</span>
     <span class="k">return</span> <span class="bp">self</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>
+
+  <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;Valor=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">valor</span><span class="si">}</span><span class="s1">&#39;</span> <span class="c1"># esta función determina cómo se representa nuestro número</span>
 </pre></div>
 </div>
 </div>
@@ -425,7 +461,11 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>Antes de pasar a revisar conceptos más complicados, podemos visualizar de mejor manera lo que acabamos de hacer. A continuación, programaremos una función para graficar, pero explicarla queda fuera del enfoque de este texto.</p>
+<p>Antes de pasar a revisar conceptos más complicados, podemos visualizar de mejor manera lo que acabamos de hacer.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>El código para graficar no tiene que ver con las redes neuronales, de manera que queda fuera de nuestro enfoque explicarlo.</p>
+</aside>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">graphviz</span> <span class="kn">import</span> <span class="n">Digraph</span>
@@ -465,11 +505,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<aside class="margin sidebar">
-<p class="sidebar-title"></p>
-<p><em>Para saber más sobre funciones, véase nuestra <a class="reference external" href="https://dantenoguez.github.io/Ensayos/elementos-program.html">lección anterior</a>.</em></p>
-</aside>
-<p>Una vez definida la función, podemos graficar los resultados que vimos para la variable <span class="math notranslate nohighlight">\(c\)</span>:</p>
+<p>Ahora ya podemos graficar los resultados que vimos para la variable <span class="math notranslate nohighlight">\(c\)</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">etiqueta</span> <span class="o">=</span> <span class="s1">&#39;c&#39;</span>
@@ -478,46 +514,215 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/redes_6_0.svg" src="_images/redes_6_0.svg" /></div>
-</div>
-<p>En este esquema queda más claro que la multiplicación es una función. Podemos ahora definir una función más compleja:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">Numero</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">etiqueta</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">Numero</span><span class="p">(</span><span class="o">-</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">etiqueta</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
-<span class="n">c</span> <span class="o">=</span> <span class="n">Numero</span><span class="p">(</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">etiqueta</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>
-<span class="n">d</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="p">;</span> <span class="n">d</span><span class="o">.</span><span class="n">etiqueta</span><span class="o">=</span><span class="s1">&#39;d&#39;</span>
-<span class="n">e</span> <span class="o">=</span> <span class="n">d</span><span class="o">+</span><span class="n">c</span><span class="p">;</span> <span class="n">e</span><span class="o">.</span><span class="n">etiqueta</span><span class="o">=</span><span class="s1">&#39;e&#39;</span>
-
-<span class="n">graficar</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
 <img alt="_images/redes_8_0.svg" src="_images/redes_8_0.svg" /></div>
 </div>
-<p>Ahora, supongamos que, a través de los valores <span class="math notranslate nohighlight">\(a\)</span> o <span class="math notranslate nohighlight">\(b\)</span>, queremos influir en el valor de <span class="math notranslate nohighlight">\(e\)</span> para llevarlo a 0. ¿Cómo podríamos hacerlo? Con fuerza bruta, podríamos aumentar <span class="math notranslate nohighlight">\(a\)</span> (ojo: si lo disminuyéramos, aumentaríamos el valor de <span class="math notranslate nohighlight">\(e\)</span>, puesto que <span class="math notranslate nohighlight">\(a\)</span> está siendo multiplicada por un valor negativo: <span class="math notranslate nohighlight">\(b = -3\)</span>) por un valor pequeño y hacer pruebas hasta conseguir 0.</p>
+<p>Ahora, consideraremos a la función multiplicación como nuestro primer ejemplo para entender las derivadas: en rigor, la derivada es lo mismo que la pendiente, y mide la <strong>proporción del cambio</strong> que una variable provoca en el resultado de una función. En nuestro ejemplo, el cambio que <span class="math notranslate nohighlight">\(a\)</span> provoca en el resultado <span class="math notranslate nohighlight">\(c\)</span> (o sea <span class="math notranslate nohighlight">\(10\)</span>), es de cinco veces sí misma. Veámoslo geométricamente para entenderlo mejor:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">aumento</span> <span class="o">=</span> <span class="mf">0.001</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">Numero</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">etiqueta</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
-<span class="n">a</span> <span class="o">+=</span> <span class="n">aumento</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">Numero</span><span class="p">(</span><span class="o">-</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">etiqueta</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
-<span class="n">c</span> <span class="o">=</span> <span class="n">Numero</span><span class="p">(</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">etiqueta</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>
-<span class="n">d</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="p">;</span> <span class="n">d</span><span class="o">.</span><span class="n">etiqueta</span><span class="o">=</span><span class="s1">&#39;d&#39;</span>
-<span class="n">e</span> <span class="o">=</span> <span class="n">d</span><span class="o">+</span><span class="n">c</span><span class="p">;</span> <span class="n">e</span><span class="o">.</span><span class="n">etiqueta</span><span class="o">=</span><span class="s1">&#39;e&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">):</span> <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="mi">5</span>
+<span class="n">b2</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">a2</span><span class="p">)</span>
 
-<span class="n">e</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">a2</span><span class="p">,</span> <span class="n">b2</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span> 
+<span class="n">ax</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Valores de a&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Valores de b&#39;</span><span class="p">)</span>
+<span class="c1">#ax.axline((a2[1], b2[1]), slope=derivada, color=&#39;red&#39;, label=&#39;pendiente&#39;)</span>
+<span class="c1">#ax.hlines(y=16, xmin=0, xmax=4, linewidth=1, color=&#39;white&#39;, linestyles=&#39;dashed&#39;)</span>
+<span class="c1">#ax.vlines(x=4, ymin=0, ymax=16, linewidth=1, color=&#39;white&#39;, linestyles=&#39;dashed&#39;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Valor=3.997
+<img alt="_images/redes_10_0.png" src="_images/redes_10_0.png" />
+</div>
+</div>
+<p>Hemos asignado más valores a nuestras variables, pero el patrón sigue siendo el mismo: cada <span class="math notranslate nohighlight">\(a\)</span> aumenta de dos en dos y se multiplica por cinco. Al final, nuestras correspondencias lucen así:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Valores de a&#39;</span><span class="p">:</span> <span class="n">a2</span><span class="p">,</span> <span class="s1">&#39;Valores de b&#39;</span><span class="p">:</span> <span class="n">b2</span><span class="p">}</span>
+<span class="n">tabla</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">d</span><span class="p">)</span>
+<span class="n">tabla</span> <span class="o">=</span> <span class="n">tabla</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">hide_index</span><span class="p">()</span>
+<span class="n">tabla</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+</style>
+<table id="T_7acce_" class="dataframe">
+  <thead>
+    <tr>
+      <th class="col_heading level0 col0" >Valores de a</th>
+      <th class="col_heading level0 col1" >Valores de b</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="T_7acce_row0_col0" class="data row0 col0" >0</td>
+      <td id="T_7acce_row0_col1" class="data row0 col1" >0</td>
+    </tr>
+    <tr>
+      <td id="T_7acce_row1_col0" class="data row1 col0" >2</td>
+      <td id="T_7acce_row1_col1" class="data row1 col1" >10</td>
+    </tr>
+    <tr>
+      <td id="T_7acce_row2_col0" class="data row2 col0" >4</td>
+      <td id="T_7acce_row2_col1" class="data row2 col1" >20</td>
+    </tr>
+    <tr>
+      <td id="T_7acce_row3_col0" class="data row3 col0" >6</td>
+      <td id="T_7acce_row3_col1" class="data row3 col1" >30</td>
+    </tr>
+    <tr>
+      <td id="T_7acce_row4_col0" class="data row4 col0" >8</td>
+      <td id="T_7acce_row4_col1" class="data row4 col1" >40</td>
+    </tr>
+    <tr>
+      <td id="T_7acce_row5_col0" class="data row5 col0" >10</td>
+      <td id="T_7acce_row5_col1" class="data row5 col1" >50</td>
+    </tr>
+    <tr>
+      <td id="T_7acce_row6_col0" class="data row6 col0" >12</td>
+      <td id="T_7acce_row6_col1" class="data row6 col1" >60</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
 </div>
-<p>Hemos conseguido disminuir el valor de <span class="math notranslate nohighlight">\(e\)</span>, pero nuestro método no parece eficiente. Si pudiéramos alterar <span class="math notranslate nohighlight">\(b\)</span> y <span class="math notranslate nohighlight">\(a\)</span> al mismo tiempo, en la dirección correcta y en la magnitud adecuada, nuestro método mejoraría.</p>
+<p>Lo que la pendiente y la derivada nos señalan, como digo, es cuánto influye <span class="math notranslate nohighlight">\(a\)</span> en el valor de <span class="math notranslate nohighlight">\(b\)</span>: si yo aumento 2 a mi primer valor de <span class="math notranslate nohighlight">\(a\)</span>, es decir, si paso de 0 a 2, ¿cuánto aumenta <span class="math notranslate nohighlight">\(b\)</span>? <span class="math notranslate nohighlight">\(b\)</span> aumenta 5 veces <span class="math notranslate nohighlight">\(a\)</span>. Si doy otro paso en <span class="math notranslate nohighlight">\(a\)</span>, es decir, de 2 a 4. ¿cuánto aumenta <span class="math notranslate nohighlight">\(b\)</span>? Nuevamente, <span class="math notranslate nohighlight">\(b\)</span> aumenta 5 veces <span class="math notranslate nohighlight">\(a\)</span>: <span class="math notranslate nohighlight">\(4 \times 5 = 20\)</span>. Así, la derivada de la función <span class="math notranslate nohighlight">\(b\)</span> con respecto a <span class="math notranslate nohighlight">\(a\)</span> es 5. Trazaremos la derivada para entenderlo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">):</span> <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="mi">5</span>
+<span class="n">b2</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">a2</span><span class="p">)</span>
+
+<span class="n">derivada</span> <span class="o">=</span> <span class="p">(</span><span class="n">b2</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">b2</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">a2</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">a2</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">a2</span><span class="p">,</span> <span class="n">b2</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;recta de la función&#39;</span><span class="p">)</span> 
+<span class="n">ax</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Valores de a&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Valores de b&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axline</span><span class="p">((</span><span class="n">a2</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">b2</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">slope</span><span class="o">=</span><span class="n">derivada</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;pendiente&#39;</span><span class="p">)</span> <span class="c1"># &lt;- Aquí está definida la derivada</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/redes_14_0.png" src="_images/redes_14_0.png" />
+</div>
+</div>
+<p>Veamos ahora un ejemplo con la función suma: mi variable <span class="math notranslate nohighlight">\(x\)</span> tendrá valores del 0 al al 12 con intervalos de 2, mientras que mi función es <span class="math notranslate nohighlight">\(x+6\)</span>. Mi tabla de valores entonces debería quedar así:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="mi">6</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">z</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Valores de x&#39;</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="s1">&#39;Valores de y&#39;</span><span class="p">:</span> <span class="n">y</span><span class="p">}</span>
+<span class="n">tabla</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">z</span><span class="p">)</span>
+<span class="n">tabla</span> <span class="o">=</span> <span class="n">tabla</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">hide_index</span><span class="p">()</span>
+<span class="n">tabla</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+</style>
+<table id="T_266a1_" class="dataframe">
+  <thead>
+    <tr>
+      <th class="col_heading level0 col0" >Valores de x</th>
+      <th class="col_heading level0 col1" >Valores de y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="T_266a1_row0_col0" class="data row0 col0" >0</td>
+      <td id="T_266a1_row0_col1" class="data row0 col1" >6</td>
+    </tr>
+    <tr>
+      <td id="T_266a1_row1_col0" class="data row1 col0" >2</td>
+      <td id="T_266a1_row1_col1" class="data row1 col1" >8</td>
+    </tr>
+    <tr>
+      <td id="T_266a1_row2_col0" class="data row2 col0" >4</td>
+      <td id="T_266a1_row2_col1" class="data row2 col1" >10</td>
+    </tr>
+    <tr>
+      <td id="T_266a1_row3_col0" class="data row3 col0" >6</td>
+      <td id="T_266a1_row3_col1" class="data row3 col1" >12</td>
+    </tr>
+    <tr>
+      <td id="T_266a1_row4_col0" class="data row4 col0" >8</td>
+      <td id="T_266a1_row4_col1" class="data row4 col1" >14</td>
+    </tr>
+    <tr>
+      <td id="T_266a1_row5_col0" class="data row5 col0" >10</td>
+      <td id="T_266a1_row5_col1" class="data row5 col1" >16</td>
+    </tr>
+    <tr>
+      <td id="T_266a1_row6_col0" class="data row6 col0" >12</td>
+      <td id="T_266a1_row6_col1" class="data row6 col1" >18</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>Ahora preguntémonos: ¿en qué proporción cambia <span class="math notranslate nohighlight">\(y\)</span> cuando aumentamos <span class="math notranslate nohighlight">\(x\)</span>? Si paso de mi primer valor de <span class="math notranslate nohighlight">\(x\)</span> al segundo, es decir, si aumento 2 al 0, ¿cuánto estoy aumentando a mi primer valor de <span class="math notranslate nohighlight">\(y\)</span>? ¡También dos! Es decir, que la proporción de los cambios entre <span class="math notranslate nohighlight">\(x\)</span> e <span class="math notranslate nohighlight">\(y\)</span> es 1: si aumento dos a <span class="math notranslate nohighlight">\(x\)</span>, también aumento 2 a <span class="math notranslate nohighlight">\(y\)</span>. Anteriormente, si agregábamos 2 a <span class="math notranslate nohighlight">\(a\)</span>, nuestro valor de <span class="math notranslate nohighlight">\(b\)</span> aumentaba cinco veces.</p>
+<p>Grafiquemos nuestra nueva función de suma:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">derivada</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;recta de la función&#39;</span><span class="p">)</span> 
+<span class="n">ax</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Valores de x&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Valores de y&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axline</span><span class="p">((</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">slope</span><span class="o">=</span><span class="n">derivada</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;pendiente&#39;</span><span class="p">)</span> <span class="c1"># &lt;- Aquí está definida la derivada</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/redes_18_0.png" src="_images/redes_18_0.png" />
+</div>
+</div>
+<p>Ahora ya entendemos conceptualmente los términos «derivada» y «pendiente», que en realidad son lo mismo. Estudiemos brevemente las fórmulas, para ver cómo se refleja nuestro concepto en ellas:</p>
+<p>Una fórmula de la derivada luce así:
+$<span class="math notranslate nohighlight">\(
+f^{\prime}(a)=\lim _{h \rightarrow 0} \frac{f(a+h)-f(a)}{h}
+\)</span>$</p>
+<p>Otra fórmula luce así:
+$<span class="math notranslate nohighlight">\(
+\frac{\partial f(x, y)}{\partial x}=\frac{f(x+h, y)-f(x, y)}{h}
+\)</span>$</p>
+<p>Y la fórmula de la pendiente:
+$<span class="math notranslate nohighlight">\(
+\text { Pendiente }=\frac{\text { Cambio en } \mathrm{y}}{\text { Cambio en } \mathrm{x}}
+\)</span>$</p>
+<p>O también:
+$<span class="math notranslate nohighlight">\(
+\text { Pendiente }=\frac{\Delta \mathrm{y}}{\Delta \mathrm{x}}
+\)</span>$</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Sobre límites se puede leer <a class="reference external" href="https://es.khanacademy.org/math/ap-calculus-ab/ab-limits-new/ab-1-2/a/limits-intro?modal=1">este artículo</a>; sobre derivadas, <a class="reference external" href="https://es.khanacademy.org/math/ap-calculus-ab/ab-differentiation-1-new">estos videos</a>.</p>
+</aside>
+<p>Es importante familiarizarnos con los símbolos para identificar estos conceptos y fórmulas en los textos académicos. Los signos <span class="math notranslate nohighlight">\(\delta, \Delta\)</span> son letras del alfabeto griego llamadas «delta», y generalmente se utilizan para representar un cambio. El símbolo <span class="math notranslate nohighlight">\(\lim _{h \rightarrow 0}\)</span> significa «el límite de la función cuando <span class="math notranslate nohighlight">\(h\)</span> tiende a 0»</p>
+<p>Todas estas fórmulas significan lo mismo. En Wikipedia, se define a la derivada de una función como una «razón de cambio instantánea con la que varía el valor de dicha función matemática», según se modifique el valor de su variable independiente. En otras palabras, es lo que decíamos: la derivada mide la proporción (o razón, o tasa) del cambio que una variable provoca en la función.</p>
+<p>Por completitud, podemos utilizar estas fórmulas matemáticas para demostrar que son equivalentes entre sí, demostrando a la vez que nuestros resultados programáticos son correctos.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -557,7 +762,7 @@ title="Print to PDF"
     <a class='right-next' id="next-link" href="iurisprudentiae.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Elementos de Derecho, o Nova Methodus Discendæ Iurisprudentiæ</p>
+        <p class="prev-next-title">Elementos de leyes, o Nova methodus discendæ iurisprudentiæ</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
