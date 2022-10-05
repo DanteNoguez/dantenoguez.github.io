@@ -94,35 +94,33 @@ def graficar(origen):
 c.etiqueta = 'c'
 graficar(c)
 
-a2 = np.arange(0, 13, 2)
-def f(a): return a*5
-b2 = f(a2)
+a2 = np.arange(0, 13, 2) 
+b2 = [5 for i in a2]
+def f(a, b): return a*b
+c = f(a2, b2)
 
 fig, ax = plt.subplots(figsize=(10, 7))
-ax.plot(a2, b2, marker='o', color='blue') 
+ax.plot(a2, c, marker='o', color='blue') 
 ax.set_facecolor('black')
 ax.set_xlabel('Valores de a')
 ax.set_ylabel('Valores de b')
 plt.show()
 
 import pandas as pd
-d = {'Valores de a': a2, 'Valores de b': b2}
+d = {'Valores de a': a2, 'Valores de b': b2, 'Valores de c': c}
 tabla = pd.DataFrame(data=d)
 tabla = tabla.style.hide_index()
 tabla
 
-a2 = np.arange(0, 13, 2)
-def f(a): return a*5
-b2 = f(a2)
-
-derivada = (b2[2] - b2[1]) / (a2[2] - a2[1])
+deriv = (f(a2+0.00001, b2) - f(a2, b2)) / 0.00001
+print(f'Valores de la derivada en cada punto: {deriv}')
 
 fig, ax = plt.subplots(figsize=(10, 7))
-ax.plot(a2, b2, marker='o', color='blue', label='recta de la función') 
+ax.plot(a2, c, marker='o', color='blue', label='recta de la función') 
 ax.set_facecolor('black')
 ax.set_xlabel('Valores de a')
-ax.set_ylabel('Valores de b')
-ax.axline((a2[1], b2[1]), slope=derivada, color='red', label='pendiente') # <- Aquí está definida la derivada
+ax.set_ylabel('Valores de c')
+ax.axline((a2[1], c[1]), slope=deriv[1], color='red', label='pendiente') # <- La pendiente es la derivada
 ax.hlines(y=10, xmin=0, xmax=2, linewidth=1, color='white', linestyles='dashed')
 ax.vlines(x=2, ymin=0, ymax=10, linewidth=1, color='white', linestyles='dashed')
 ax.legend()
@@ -161,19 +159,54 @@ ax.plot(x, y, marker='o', color='blue', label='recta de la función')
 ax.set_facecolor('black')
 ax.set_xlabel('Valores de x')
 ax.set_ylabel('Valores de y')
-ax.axline((x[1], y[1]), slope=derivada, color='red', label='pendiente') # <- Aquí está definida la derivada
+ax.axline((x[1], y[1]), slope=derivada, color='red', label='pendiente')
 ax.hlines(y=10, xmin=0, xmax=4, linewidth=1, color='white', linestyles='dashed')
 ax.vlines(x=4, ymin=0, ymax=10, linewidth=1, color='white', linestyles='dashed')
 ax.legend()
 plt.show()
 
-def pendiente(x, y, j, i):
-  return (y[j] - y[i]) / (x[j] - x[i])
+xs = np.arange(1, 11, 1)
+ys = [3 for i in xs]
+def cub(x, y): return x**y
+r = cub(xs, ys)
 
-pendiente(x, y, 2, 1)
+derivs = (cub(xs+0.00001, ys) - cub(xs, ys)) / 0.00001
 
-def derivada(x, f, i):
-  h = 0.000001
-  return (f(x[i]+h) - f(x[i])) / h
+fig, ax = plt.subplots(ncols=2, figsize=(10, 7))
+ax[0].plot(xs, r, marker='o', color='blue', label='gráfica de la función')
+ax[0].set_title('Gráfica')
+ax[0].set_facecolor('black')
+ax[0].set_xlabel('Valores de x')
+ax[0].set_ylabel('Valores de r')
+ax[0].axline((xs[5], r[5]), slope=derivs[5], color='red', label='tangente')
+ax[0].legend()
+ax[1].plot(xs, r, marker='o', color='blue', label='gráfica de la función') 
+ax[1].set_title('Zoom a la gráfica')
+ax[1].set_facecolor('black')
+ax[1].set_xlabel('Valores de x')
+ax[1].set_ylabel('Valores de r')
+ax[1].axline((xs[5], r[5]), slope=derivs[5], color='red', label='tangente')
+ax[1].set_xlim(xs[1], xs[7])
+ax[1].set_ylim(r[0], 600)
+ax[1].legend()
+plt.show()
 
-derivada(x, f, 2)
+# Tres variables
+
+def ft(x, y, z):
+  return x*y + z
+
+def deriv2(x, y, z):
+  h = 0.00001
+  return (ft(x+h, y, z) - ft(x, y, z)) / h
+
+def deriv3(x, y, z):
+  h = 0.00001
+  return (ft(x, y, z+h) - ft(x, y, z)) / h
+
+zs = np.arange(10, 111, 10)
+len(zs)
+
+deriv2(xs, ys, zs) * deriv3(xs, ys, zs)
+
+
