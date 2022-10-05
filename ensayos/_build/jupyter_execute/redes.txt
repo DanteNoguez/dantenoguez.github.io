@@ -103,9 +103,6 @@ ax.plot(a2, b2, marker='o', color='blue')
 ax.set_facecolor('black')
 ax.set_xlabel('Valores de a')
 ax.set_ylabel('Valores de b')
-#ax.axline((a2[1], b2[1]), slope=derivada, color='red', label='pendiente')
-#ax.hlines(y=16, xmin=0, xmax=4, linewidth=1, color='white', linestyles='dashed')
-#ax.vlines(x=4, ymin=0, ymax=16, linewidth=1, color='white', linestyles='dashed')
 plt.show()
 
 import pandas as pd
@@ -131,6 +128,23 @@ ax.vlines(x=2, ymin=0, ymax=10, linewidth=1, color='white', linestyles='dashed')
 ax.legend()
 plt.show()
 
+# Supongamos que quiero medir la distancia que recorro en 20 segundos:
+# Si con el paso de tiempo no avanzo o, lo que es lo mismo,
+# si mi variable tiempo no influye en la función distancia, entonces mi función y mi derivada lucen así:
+
+tiempo = np.arange(0, 21, 1)
+def f(t): return t*0
+distancia = f(tiempo)
+
+fig, ax = plt.subplots(figsize=(10, 7))
+ax.plot(tiempo, distancia, marker='o', color='blue', label='recta de la función') 
+ax.set_facecolor('black')
+ax.set_xlabel('Tiempo (segundos)')
+ax.set_ylabel('Distancia (metros)')
+ax.axline((tiempo[0], distancia[0]), slope=0, color='red', label='Pendiente')
+ax.legend()
+plt.show()
+
 x = np.arange(0, 13, 2)
 def f(x): return x+6
 y = f(x)
@@ -153,4 +167,13 @@ ax.vlines(x=4, ymin=0, ymax=10, linewidth=1, color='white', linestyles='dashed')
 ax.legend()
 plt.show()
 
+def pendiente(x, y, j, i):
+  return (y[j] - y[i]) / (x[j] - x[i])
 
+pendiente(x, y, 2, 1)
+
+def derivada(x, f, i):
+  h = 0.000001
+  return (f(x[i]+h) - f(x[i])) / h
+
+derivada(x, f, 2)
