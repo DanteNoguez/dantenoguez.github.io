@@ -4,98 +4,8 @@ import math
 import matplotlib.pyplot as plt
 import numpy as np
 
-class Numero:
-  def __init__(self, valor, _previos=(), _op='', etiqueta=''):
-    self.valor = valor
-    self._previos = set(_previos)
-    self._op = _op
-    self.etiqueta = etiqueta
-
-  def __add__(self, otro): # adición
-    otro = otro if isinstance(otro, Numero) else Numero(otro) # nos cercioramos de que el otro valor sea un Número
-    resultado = Numero(self.valor + otro.valor, (self, otro), '+')
-    return resultado
-
-  def __radd__(self, otro): # en Python, debemos apoyarnos de una función extra (con prefijo r) para casos en los que la función anterior no funcione
-    return self + otro
-
-  def __mul__(self, otro): # multiplicación
-    otro = otro if isinstance(otro, Numero) else Numero(otro)
-    resultado = Numero(self.valor * otro.valor, (self, otro), '*')
-    return resultado
-
-  def __rmul__(self, otro):
-    return self * otro
-
-  def __sub__(self, otro): # resta, substracción
-    return self + (-otro)
-
-  def __rsub__(self, otro):
-    return otro + (-self)
-
-  def __pow__(self, otro):
-    assert isinstance(otro, (int, float))
-    resultado = Numero(self.valor**otro, (self,), f'**{otro}')
-    return resultado
-
-  def __truediv__(self, otro): # división
-    return self * otro**-1 #dividir es lo mismo que multiplicar por el dividendo elevado a la menos 1
-  
-  def __rtruediv__(self, otro):
-    return otro * self**-1
-
-  def __neg__(self): # volver negativo un número
-    return self * -1
-
-  def __repr__(self):
-    return f'Valor={self.valor}' # esta función determina cómo se representa nuestro número
-
-
-a = Numero(2, etiqueta='a') # definimos dos Números: a y b
-b = Numero(5, etiqueta='b')
-c = a*b # definimos c, que es el resultado de multiplicar a y b
-
-print(f'{c} | Valores previos: {c._previos}, | Operación realizada para generar c: {c._op}')
-
-from graphviz import Digraph
-
-def rastreo(origen):
-  # construye un conjunto de todos los nodos en un gráfico
-  nodos, lineas = set(), set()
-  def construir(v):
-    if v not in nodos:
-      nodos.add(v)
-      for parte in v._previos:
-        lineas.add((parte, v))
-        construir(parte)
-  construir(origen)
-  return nodos, lineas
-
-def graficar(origen):
-  grafica = Digraph(format='svg', graph_attr={'rankdir': 'LR'}) # left to right, izquierda a derecha
-
-  nodos, lineas = rastreo(origen)
-  for n in nodos:
-    uid = str(id(n))
-    # por cada valor en la grafica, crea un nodo rectangular ('record') para él
-    grafica.node(name=uid, label='{ %s | valor %.4f}' % (n.etiqueta, n.valor), shape='record')
-    if n._op:
-      # si el valor es resultado de una operación, crea un nodo para la operación
-      grafica.node(name = uid + n._op, label = n._op)
-      # conecta los nodos
-      grafica.edge(uid + n._op, uid)
-
-  for n1, n2 in lineas:
-    # conecta n1 al nodo operación de n2
-    grafica.edge(str(id(n1)), str(id(n2)) + n2._op)
-
-  return grafica
-
-c.etiqueta = 'c'
-graficar(c)
-
 a2 = np.arange(0, 13, 2) 
-b2 = [5 for i in a2]
+b2 = 5
 def f(a, b): return a*b
 c = f(a2, b2)
 
@@ -191,22 +101,201 @@ ax[1].set_ylim(r[0], 600)
 ax[1].legend()
 plt.show()
 
-# Tres variables
+class Numero:
+  def __init__(self, valor, _previos=(), _op='', etiqueta=''):
+    self.valor = valor
+    self._previos = set(_previos)
+    self._op = _op
+    self.etiqueta = etiqueta
 
-def ft(x, y, z):
-  return x*y + z
+  def __add__(self, otro): # adición
+    otro = otro if isinstance(otro, Numero) else Numero(otro) # nos cercioramos de que el otro valor sea un Número
+    resultado = Numero(self.valor + otro.valor, (self, otro), '+')
+    return resultado
 
-def deriv2(x, y, z):
-  h = 0.00001
-  return (ft(x+h, y, z) - ft(x, y, z)) / h
+  def __radd__(self, otro): 
+    return self + otro
 
-def deriv3(x, y, z):
-  h = 0.00001
-  return (ft(x, y, z+h) - ft(x, y, z)) / h
+  def __mul__(self, otro): # multiplicación
+    otro = otro if isinstance(otro, Numero) else Numero(otro)
+    resultado = Numero(self.valor * otro.valor, (self, otro), '*')
+    return resultado
 
-zs = np.arange(10, 111, 10)
-len(zs)
+  def __rmul__(self, otro):
+    return self * otro
 
-deriv2(xs, ys, zs) * deriv3(xs, ys, zs)
+  def __sub__(self, otro): # resta, substracción
+    return self + (-otro)
+
+  def __truediv__(self, otro): # división
+    return self * otro**-1 #dividir es lo mismo que multiplicar por el dividendo elevado a la menos 1
+  
+  def __rtruediv__(self, otro):
+    return otro * self**-1
+
+  def __neg__(self): # volver negativo un número
+    return self * -1
+
+  def __repr__(self):
+    return f'Valor={self.valor}' # esta función determina cómo se representa nuestro número
+
+# Utilizaremos nuestra clase para crear la función L con los siguientes números y operaciones:
+
+a = Numero(-2.0, etiqueta='a')
+b = Numero(3.0, etiqueta='b')
+c = a*b; c.etiqueta = 'c' # definimos c, que es el resultado de multiplicar a y b
+d = Numero(10.0, etiqueta='d')
+e = c + d; e.etiqueta = 'e'
+f = Numero(-3.0); f.etiqueta = 'f'
+L = f * e; L.etiqueta= 'L'
+
+print(f'Ejemplo: Valor de c: {c} | Valores previos: {c._previos} | Operación realizada para generar c: {c._op}')
+
+from graphviz import Digraph
+
+def rastreo(origen):
+  # construye un conjunto de todos los nodos en un gráfico
+  nodos, lineas = set(), set()
+  def construir(v):
+    if v not in nodos:
+      nodos.add(v)
+      for parte in v._previos:
+        lineas.add((parte, v))
+        construir(parte)
+  construir(origen)
+  return nodos, lineas
+
+def graficar(origen):
+  grafica = Digraph(format='svg', graph_attr={'rankdir': 'LR'}) # left to right, izquierda a derecha
+
+  nodos, lineas = rastreo(origen)
+  for n in nodos:
+    uid = str(id(n))
+    # por cada valor en la grafica, crea un nodo rectangular ('record') para él
+    grafica.node(name=uid, label='{ %s | valor %.4f}' % (n.etiqueta, n.valor), shape='record')
+    if n._op:
+      # si el valor es resultado de una operación, crea un nodo para la operación
+      grafica.node(name = uid + n._op, label = n._op)
+      # conecta los nodos
+      grafica.edge(uid + n._op, uid)
+
+  for n1, n2 in lineas:
+    # conecta n1 al nodo operación de n2
+    grafica.edge(str(id(n1)), str(id(n2)) + n2._op)
+
+  return grafica
+
+graficar(L)
+
+def derivada():
+  h = 0.000001
+
+  # Función original
+  a = Numero(-2.0, etiqueta='a')
+  b = Numero(3.0, etiqueta='b')
+  c = a*b; c.etiqueta = 'c'
+  d = Numero(10.0, etiqueta='d')
+  e = c + d; e.etiqueta = 'e'
+  f = Numero(-3.0); f.etiqueta = 'f'
+  L1 = f * e; L.etiqueta= 'L1'
+
+  # Función con incremento h
+  a = Numero(-2.0, etiqueta='a')
+  b = Numero(3.0, etiqueta='b')
+  c = a*b; c.etiqueta = 'c'
+  d = Numero(10.0, etiqueta='d')
+  e = c + d; e.etiqueta = 'e'
+  e.valor += h # aumento de h para obtener la derivada de e con respecto a L
+  f = Numero(-3.0); f.etiqueta = 'f'
+  L2 = f * e; L.etiqueta= 'L2'
+
+  print((L2 - L1) / h) # fórmula de la derivada
+
+derivada()
+
+def deriv_c(c, d):
+  return (((c+0.00001)+d) - (c+d)) / 0.00001
+
+deriv_c(-6, 10)
+
+def derivada():
+  h = 0.000001
+
+  # Función original
+  a = Numero(-2.0, etiqueta='a')
+  b = Numero(3.0, etiqueta='b')
+  c = a*b; c.etiqueta = 'c'
+  d = Numero(10.0, etiqueta='d')
+  e = c + d; e.etiqueta = 'e'
+  f = Numero(-3.0); f.etiqueta = 'f'
+  L1 = f * e; L.etiqueta= 'L1'
+
+  # Función con incremento h
+  a = Numero(-2.0, etiqueta='a')
+  b = Numero(3.0, etiqueta='b')
+  c = a*b; c.etiqueta = 'c'
+  c.valor += h # aumento de h para obtener la derivada de c con respecto a L
+  d = Numero(10.0, etiqueta='d')
+  e = c + d; e.etiqueta = 'e'
+  f = Numero(-3.0); f.etiqueta = 'f'
+  L2 = f * e; L.etiqueta= 'L2'
+
+  print((L2 - L1) / h) # fórmula de la derivada
+
+derivada()
+
+class Numero:
+  def __init__(self, valor, _previos=(), _op='', etiqueta=''):
+    self.valor = valor
+    self._previos = set(_previos)
+    self._op = _op
+    self.etiqueta = etiqueta
+    self.grad = 0.0 # gradiente, comienza en 0
+    self._propagar = lambda: None # el valor predeterminado de la propagación hacia atrás es nulo
+
+  def __add__(self, otro): 
+    otro = otro if isinstance(otro, Numero) else Numero(otro) 
+    resultado = Numero(self.valor + otro.valor, (self, otro), '+')
+
+    def _propagar():
+      self.grad += 1.0 * resultado.grad # en la suma, la derivada es 1; luego se multiplica por la «derivada global»
+      otro.grad += 1.0 * resultado.grad
+    resultado._propagar = _propagar
+
+    return resultado 
+
+  def __radd__(self, otro): 
+    return self + otro
+
+  def __mul__(self, otro):
+    otro = otro if isinstance(otro, Numero) else Numero(otro)
+    resultado = Numero(self.valor * otro.valor, (self, otro), '*')
+    return resultado
+
+  def __rmul__(self, otro):
+    return self * otro
+
+  def __sub__(self, otro): 
+    return self + (-otro)
+
+  def __rsub__(self, otro):
+    return otro + (-self)
+
+  def __pow__(self, otro): # exponenciación
+    assert isinstance(otro, (int, float))
+    resultado = Numero(self.valor**otro, (self,), f'**{otro}')
+    return resultado
+
+  def __truediv__(self, otro): 
+    return self * otro**-1 
+  
+  def __rtruediv__(self, otro):
+    return otro * self**-1
+
+  def __neg__(self): 
+    return self * -1
+
+  def __repr__(self):
+    return f'Valor={self.valor}'
 
 
