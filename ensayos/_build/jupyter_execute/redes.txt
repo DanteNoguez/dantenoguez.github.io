@@ -171,7 +171,7 @@ def graficar(origen):
   nodos, lineas = rastreo(origen)
   for n in nodos:
     uid = str(id(n))
-    # por cada valor en la grafica, crea un nodo rectangular ('record') para él
+    # por cada valor en la gráfica, crea un nodo rectangular ('record') para él
     grafica.node(name=uid, label='{ %s | valor %.4f}' % (n.etiqueta, n.valor), shape='record')
     if n._op:
       # si el valor es resultado de una operación, crea un nodo para la operación
@@ -258,7 +258,7 @@ class Numero:
     resultado = Numero(self.valor + otro.valor, (self, otro), '+')
 
     def _propagar():
-      self.grad += 1.0 * resultado.grad # en la suma, la derivada es 1; luego se multiplica por la «derivada global»
+      self.grad += 1.0 * resultado.grad # la derivada de una suma es 1 y luego se multiplica por la «derivada global»
       otro.grad += 1.0 * resultado.grad
     resultado._propagar = _propagar
 
@@ -270,6 +270,12 @@ class Numero:
   def __mul__(self, otro):
     otro = otro if isinstance(otro, Numero) else Numero(otro)
     resultado = Numero(self.valor * otro.valor, (self, otro), '*')
+
+    def _propagar():
+      self.grad += otro.valor * resultado.grad # la derivada de la multiplicación es igual al multiplicando por la derivada global
+      otro.grad += self.valor * resultado.grad
+    resultado._propagar = _propagar
+
     return resultado
 
   def __rmul__(self, otro):
@@ -281,9 +287,14 @@ class Numero:
   def __rsub__(self, otro):
     return otro + (-self)
 
-  def __pow__(self, otro): # exponenciación
+  def __pow__(self, otro): # potenciación
     assert isinstance(otro, (int, float))
     resultado = Numero(self.valor**otro, (self,), f'**{otro}')
+
+    def _propagar():
+      self.grad += otro * (self.valor ** (otro -1)) * resultado.grad # recordemos la fórmula: yx**y-1
+    resultado._propagar = _propagar
+
     return resultado
 
   def __truediv__(self, otro): 
@@ -295,7 +306,60 @@ class Numero:
   def __neg__(self): 
     return self * -1
 
+  def propagar(self):
+    # ordenamiento topológico
+    topo = []
+    visitados = set()
+    def construir_topo(v):
+      if v not in visitados:
+        visitados.add(v)
+        for previo in v._previos:
+          construir_topo(previo)
+        topo.append(v)
+    construir_topo(self)
+
+    self.grad = 1 # asignamos la derivada del valor final con respecto a sí mismo
+    for v in reversed(topo):
+      v._propagar
+
   def __repr__(self):
     return f'Valor={self.valor}'
 
+from graphviz import Digraph
 
+def rastreo(origen):
+  nodos, lineas = set(), set()
+  def construir(v):
+    if v not in nodos:
+      nodos.add(v)
+      for parte in v._previos:
+        lineas.add((parte, v))
+        construir(parte)
+  construir(origen)
+  return nodos, lineas
+
+def graficar(origen):
+  grafica = Digraph(format='svg', graph_attr={'rankdir': 'LR'})
+
+  nodos, lineas = rastreo(origen)
+  for n in nodos:
+    uid = str(id(n))
+    grafica.node(name=uid, label='{ %s | valor %.4f | grad %.4f}' % (n.etiqueta, n.valor, n.grad), shape='record')
+    if n._op:
+      grafica.node(name = uid + n._op, label = n._op)
+      grafica.edge(uid + n._op, uid)
+
+  for n1, n2 in lineas:
+    grafica.edge(str(id(n1)), str(id(n2)) + n2._op)
+
+  return grafica
+
+a = Numero(-2.0, etiqueta='a')
+b = Numero(3.0, etiqueta='b')
+c = a*b; c.etiqueta = 'c'
+d = Numero(10.0, etiqueta='d')
+e = c + d; e.etiqueta = 'e'
+f = Numero(-3.0); f.etiqueta = 'f'
+L = f * e; L.etiqueta= 'L'
+
+graficar(L)

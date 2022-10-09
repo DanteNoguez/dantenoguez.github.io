@@ -466,9 +466,9 @@ title="Print to PDF"
 <p class="sidebar-title"></p>
 <p>Recomiendo mirar <a class="reference external" href="https://es.khanacademy.org/math/ap-calculus-ab/ab-differentiation-1-new/ab-2-1/v/newton-leibniz-and-usain-bolt">este video</a> antes de continuar la lectura.</p>
 </aside>
-<p>En primer lugar, es importante entender la derivada, puesto que las redes neuronales la utilizan para «aprender».</p>
-<p>Consideremos a la función multiplicación como nuestro primer ejemplo para entender las derivadas. Conceptualmente, la derivada es muy similar a la pendiente, y mide la <strong>proporción o magnitud del cambio</strong> que una variable provoca en el resultado de una función. Digamos que la derivada mide la fuerza con la que una variable influye en el resultado de una función.</p>
-<p>Como ejemplo, midamos el cambio que una variable <span class="math notranslate nohighlight">\(a\)</span> (con valores del 0 al 12 en intervalos de 2) provoca en el resultado de una función <span class="math notranslate nohighlight">\(c\)</span> (equivalente a multiplicar cada valor de <span class="math notranslate nohighlight">\(a\)</span> por 5):</p>
+<p>En primer lugar es importante entender la derivada, puesto que las redes neuronales la utilizan para «aprender».</p>
+<p>Consideremos a la función multiplicación como nuestro primer ejemplo para entenderlas. Conceptualmente, la derivada es muy similar a la pendiente, y mide la <strong>proporción o magnitud del cambio</strong> que una variable provoca en el resultado de una función. Digamos que la derivada mide la fuerza con la que una variable influye en el resultado de una función.</p>
+<p>Como ejemplo, midamos el cambio que una variable <span class="math notranslate nohighlight">\(a\)</span> (con valores del 0 al 12 en intervalos de 2) provoca en el resultado de una función <span class="math notranslate nohighlight">\(c\)</span> (equivalente a multiplicar cada valor de <span class="math notranslate nohighlight">\(a\)</span> por 5, o sea, <span class="math notranslate nohighlight">\(c = 5x\)</span>):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> 
@@ -489,7 +489,7 @@ title="Print to PDF"
 <img alt="_images/redes_4_0.png" src="_images/redes_4_0.png" />
 </div>
 </div>
-<p>Hemos asignado más valores a nuestras variables, pero el patrón sigue siendo el mismo: cada <span class="math notranslate nohighlight">\(a\)</span> aumenta de dos en dos; cada <span class="math notranslate nohighlight">\(c\)</span> resulta de multiplicar <span class="math notranslate nohighlight">\(a\)</span> por <span class="math notranslate nohighlight">\(b\)</span> (que siempre es 5). Al final, nuestras correspondencias lucen así:</p>
+<p>Nuestras correspondencias lucen así:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -503,7 +503,7 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output text_html"><style type="text/css">
 </style>
-<table id="T_f060f_" class="dataframe">
+<table id="T_2adf3_" class="dataframe">
   <thead>
     <tr>
       <th class="col_heading level0 col0" >Valores de a</th>
@@ -513,48 +513,44 @@ title="Print to PDF"
   </thead>
   <tbody>
     <tr>
-      <td id="T_f060f_row0_col0" class="data row0 col0" >0</td>
-      <td id="T_f060f_row0_col1" class="data row0 col1" >5</td>
-      <td id="T_f060f_row0_col2" class="data row0 col2" >0</td>
+      <td id="T_2adf3_row0_col0" class="data row0 col0" >0</td>
+      <td id="T_2adf3_row0_col1" class="data row0 col1" >5</td>
+      <td id="T_2adf3_row0_col2" class="data row0 col2" >0</td>
     </tr>
     <tr>
-      <td id="T_f060f_row1_col0" class="data row1 col0" >2</td>
-      <td id="T_f060f_row1_col1" class="data row1 col1" >5</td>
-      <td id="T_f060f_row1_col2" class="data row1 col2" >10</td>
+      <td id="T_2adf3_row1_col0" class="data row1 col0" >2</td>
+      <td id="T_2adf3_row1_col1" class="data row1 col1" >5</td>
+      <td id="T_2adf3_row1_col2" class="data row1 col2" >10</td>
     </tr>
     <tr>
-      <td id="T_f060f_row2_col0" class="data row2 col0" >4</td>
-      <td id="T_f060f_row2_col1" class="data row2 col1" >5</td>
-      <td id="T_f060f_row2_col2" class="data row2 col2" >20</td>
+      <td id="T_2adf3_row2_col0" class="data row2 col0" >4</td>
+      <td id="T_2adf3_row2_col1" class="data row2 col1" >5</td>
+      <td id="T_2adf3_row2_col2" class="data row2 col2" >20</td>
     </tr>
     <tr>
-      <td id="T_f060f_row3_col0" class="data row3 col0" >6</td>
-      <td id="T_f060f_row3_col1" class="data row3 col1" >5</td>
-      <td id="T_f060f_row3_col2" class="data row3 col2" >30</td>
+      <td id="T_2adf3_row3_col0" class="data row3 col0" >6</td>
+      <td id="T_2adf3_row3_col1" class="data row3 col1" >5</td>
+      <td id="T_2adf3_row3_col2" class="data row3 col2" >30</td>
     </tr>
     <tr>
-      <td id="T_f060f_row4_col0" class="data row4 col0" >8</td>
-      <td id="T_f060f_row4_col1" class="data row4 col1" >5</td>
-      <td id="T_f060f_row4_col2" class="data row4 col2" >40</td>
+      <td id="T_2adf3_row4_col0" class="data row4 col0" >8</td>
+      <td id="T_2adf3_row4_col1" class="data row4 col1" >5</td>
+      <td id="T_2adf3_row4_col2" class="data row4 col2" >40</td>
     </tr>
     <tr>
-      <td id="T_f060f_row5_col0" class="data row5 col0" >10</td>
-      <td id="T_f060f_row5_col1" class="data row5 col1" >5</td>
-      <td id="T_f060f_row5_col2" class="data row5 col2" >50</td>
+      <td id="T_2adf3_row5_col0" class="data row5 col0" >10</td>
+      <td id="T_2adf3_row5_col1" class="data row5 col1" >5</td>
+      <td id="T_2adf3_row5_col2" class="data row5 col2" >50</td>
     </tr>
     <tr>
-      <td id="T_f060f_row6_col0" class="data row6 col0" >12</td>
-      <td id="T_f060f_row6_col1" class="data row6 col1" >5</td>
-      <td id="T_f060f_row6_col2" class="data row6 col2" >60</td>
+      <td id="T_2adf3_row6_col0" class="data row6 col0" >12</td>
+      <td id="T_2adf3_row6_col1" class="data row6 col1" >5</td>
+      <td id="T_2adf3_row6_col2" class="data row6 col2" >60</td>
     </tr>
   </tbody>
 </table>
 </div></div>
 </div>
-<aside class="margin sidebar">
-<p class="sidebar-title"></p>
-<p>En rigor, la derivada equivale a la pendiente de la línea tangente a un punto de la función. En una función no lineal, por ejemplo, no hablamos de la pendiente de la función, sino de la pendiente de la tangente en un punto (que equivale a la derivada), y la diferencia entre ambas se agudiza cuando agregamos más dimensiones. Aun así, en términos conceptuales, cuando hablamos de dos dimensiones, ambas son equivalentes y la comparación puede ayudar a entender la derivada.</p>
-</aside>
 <p>Lo que la derivada nos señala, como digo, es cuánto influye <span class="math notranslate nohighlight">\(a\)</span> en el valor de <span class="math notranslate nohighlight">\(c\)</span>: si yo sumo 2 a mi primer valor de <span class="math notranslate nohighlight">\(a\)</span>, es decir, si paso de 0 a 2, ¿cuánto aumenta <span class="math notranslate nohighlight">\(c\)</span>? <span class="math notranslate nohighlight">\(c\)</span> aumenta 5 veces <span class="math notranslate nohighlight">\(a\)</span>. Si doy otro paso en <span class="math notranslate nohighlight">\(a\)</span>, es decir, si paso de 2 a 4. ¿cuánto aumenta <span class="math notranslate nohighlight">\(c\)</span>? Nuevamente, <span class="math notranslate nohighlight">\(b\)</span> aumenta 5 veces <span class="math notranslate nohighlight">\(a\)</span>: <span class="math notranslate nohighlight">\(4 \times 5 = 20\)</span>. Intuitivamente: dado que <span class="math notranslate nohighlight">\(c\)</span> es el resultado de multiplicar 5 veces <span class="math notranslate nohighlight">\(a\)</span>, es claro que cada valor de <span class="math notranslate nohighlight">\(c\)</span> será cinco veces más grande que cada valor correspondiente de <span class="math notranslate nohighlight">\(a\)</span>.</p>
 <p>Así, la derivada de la función <span class="math notranslate nohighlight">\(c\)</span> con respecto a <span class="math notranslate nohighlight">\(a\)</span> es 5. 5 es la proporción con la que <span class="math notranslate nohighlight">\(c\)</span> está cambiando; 5 es la «fuerza» con la que <span class="math notranslate nohighlight">\(a\)</span> está influyendo en el resultado de <span class="math notranslate nohighlight">\(c\)</span>. Es como si no supiéramos que <span class="math notranslate nohighlight">\(a\)</span> está siendo multiplicado por <span class="math notranslate nohighlight">\(b\)</span> para generar <span class="math notranslate nohighlight">\(c\)</span>, y entonces aplicáramos nuestro razonamiento matemático para deducirlo.</p>
 <p>Visualicémoslo:</p>
@@ -583,8 +579,12 @@ title="Print to PDF"
 <img alt="_images/redes_8_1.png" src="_images/redes_8_1.png" />
 </div>
 </div>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>En rigor, la derivada equivale a la pendiente de la línea tangente a un punto de la función. En una función no lineal, por ejemplo, no hablamos de la pendiente de la función, sino de la pendiente de la tangente en un punto (que equivale a la derivada), y la diferencia entre ambas se agudiza cuando agregamos más dimensiones. Aun así, en términos conceptuales, cuando hablamos de dos dimensiones, ambas son equivalentes y la comparación puede ayudar a entender la derivada.</p>
+</aside>
 <p>La línea tangente al punto derivado (denotado por las líneas punteadas: <span class="math notranslate nohighlight">\(a=2, c=10\)</span>) resulta tener la misma inclinación que la recta de la función. Geométricamente, en espacios de dos dimensiones, podríamos entender a la derivada como el grado de inclinación de la línea tangente a un punto. Pero dado que todos los segmentos de una recta tienen la misma inclinación, entonces la inclinación de la tangente es la misma que la de la recta y, consecuentemente, la tangente es igual a la pendiente.</p>
-<p>En suma, la pendiente y la derivada tienen el mismo valor porque la proporción es la misma en todos los puntos: la inclinación de la recta nos la dieron los valores de <span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(c\)</span>; la proporción entre ellos se ve reflejada en la inclinación; y dicha inclinación representa la «fuerza» con la que <span class="math notranslate nohighlight">\(a\)</span> mueve a <span class="math notranslate nohighlight">\(c\)</span>.</p>
+<p>En suma, la pendiente y la derivada tienen el mismo valor porque la proporción que guardan los valores de la variable y la función es la misma en todos los puntos: la inclinación de la recta nos la dieron los valores de <span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(c\)</span>; la proporción entre ellos se ve reflejada en la inclinación; y dicha inclinación representa la «fuerza» con la que <span class="math notranslate nohighlight">\(a\)</span> mueve a <span class="math notranslate nohighlight">\(c\)</span>.</p>
 <p>Pongamos otro ejemplo: si los valores de la función nunca cambiaran, entonces la derivada sería 0. Geométricamente, no habría nada de inclinación en la tangente; conceptualmente, la variable no alteraría nunca el resultado de la función, no tendría ninguna influencia en la función, de manera que el «cambio» siempre sería nulo, cero:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -628,7 +628,7 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output text_html"><style type="text/css">
 </style>
-<table id="T_fdff2_" class="dataframe">
+<table id="T_1782c_" class="dataframe">
   <thead>
     <tr>
       <th class="col_heading level0 col0" >Valores de x</th>
@@ -637,38 +637,38 @@ title="Print to PDF"
   </thead>
   <tbody>
     <tr>
-      <td id="T_fdff2_row0_col0" class="data row0 col0" >0</td>
-      <td id="T_fdff2_row0_col1" class="data row0 col1" >6</td>
+      <td id="T_1782c_row0_col0" class="data row0 col0" >0</td>
+      <td id="T_1782c_row0_col1" class="data row0 col1" >6</td>
     </tr>
     <tr>
-      <td id="T_fdff2_row1_col0" class="data row1 col0" >2</td>
-      <td id="T_fdff2_row1_col1" class="data row1 col1" >8</td>
+      <td id="T_1782c_row1_col0" class="data row1 col0" >2</td>
+      <td id="T_1782c_row1_col1" class="data row1 col1" >8</td>
     </tr>
     <tr>
-      <td id="T_fdff2_row2_col0" class="data row2 col0" >4</td>
-      <td id="T_fdff2_row2_col1" class="data row2 col1" >10</td>
+      <td id="T_1782c_row2_col0" class="data row2 col0" >4</td>
+      <td id="T_1782c_row2_col1" class="data row2 col1" >10</td>
     </tr>
     <tr>
-      <td id="T_fdff2_row3_col0" class="data row3 col0" >6</td>
-      <td id="T_fdff2_row3_col1" class="data row3 col1" >12</td>
+      <td id="T_1782c_row3_col0" class="data row3 col0" >6</td>
+      <td id="T_1782c_row3_col1" class="data row3 col1" >12</td>
     </tr>
     <tr>
-      <td id="T_fdff2_row4_col0" class="data row4 col0" >8</td>
-      <td id="T_fdff2_row4_col1" class="data row4 col1" >14</td>
+      <td id="T_1782c_row4_col0" class="data row4 col0" >8</td>
+      <td id="T_1782c_row4_col1" class="data row4 col1" >14</td>
     </tr>
     <tr>
-      <td id="T_fdff2_row5_col0" class="data row5 col0" >10</td>
-      <td id="T_fdff2_row5_col1" class="data row5 col1" >16</td>
+      <td id="T_1782c_row5_col0" class="data row5 col0" >10</td>
+      <td id="T_1782c_row5_col1" class="data row5 col1" >16</td>
     </tr>
     <tr>
-      <td id="T_fdff2_row6_col0" class="data row6 col0" >12</td>
-      <td id="T_fdff2_row6_col1" class="data row6 col1" >18</td>
+      <td id="T_1782c_row6_col0" class="data row6 col0" >12</td>
+      <td id="T_1782c_row6_col1" class="data row6 col1" >18</td>
     </tr>
   </tbody>
 </table>
 </div></div>
 </div>
-<p>Ahora preguntémonos: ¿en qué proporción cambia <span class="math notranslate nohighlight">\(y\)</span> cuando aumentamos <span class="math notranslate nohighlight">\(x\)</span>? Si paso de mi primer valor de <span class="math notranslate nohighlight">\(x\)</span> al segundo, es decir, si paso de 0 a 2, ¿cuánto estoy aumentando a mi primer valor de <span class="math notranslate nohighlight">\(y\)</span>? ¡También dos! Es decir, que la proporción de los cambios entre <span class="math notranslate nohighlight">\(x\)</span> e <span class="math notranslate nohighlight">\(y\)</span> es 1: si aumento dos a <span class="math notranslate nohighlight">\(x\)</span>, también aumento 2 a <span class="math notranslate nohighlight">\(y\)</span>. En nuestro primer ejemplo, si agregábamos 2 a <span class="math notranslate nohighlight">\(a\)</span>, nuestro valor de <span class="math notranslate nohighlight">\(b\)</span> aumentaba cinco veces <span class="math notranslate nohighlight">\(a\)</span>.</p>
+<p>Ahora preguntémonos: ¿en qué proporción cambia <span class="math notranslate nohighlight">\(y\)</span> cuando aumentamos <span class="math notranslate nohighlight">\(x\)</span>? Si paso de mi primer valor de <span class="math notranslate nohighlight">\(x\)</span> al segundo, es decir, si paso de 0 a 2, ¿cuánto estoy aumentando a mi primer valor de <span class="math notranslate nohighlight">\(y\)</span>? ¡También dos! Es decir, que la proporción de los cambios entre <span class="math notranslate nohighlight">\(x\)</span> e <span class="math notranslate nohighlight">\(y\)</span> es 1: si aumento dos a <span class="math notranslate nohighlight">\(x\)</span>, también aumento 2 a <span class="math notranslate nohighlight">\(y\)</span>. En nuestro primer ejemplo, si agregábamos 2 a <span class="math notranslate nohighlight">\(a\)</span>, nuestro valor de <span class="math notranslate nohighlight">\(c\)</span> aumentaba cinco veces <span class="math notranslate nohighlight">\(a\)</span>.</p>
 <p>Esto tiene sentido porque la multiplicación aumenta nuestros valores con mayor velocidad y en diferente proporción que la suma: por ejemplo, <span class="math notranslate nohighlight">\(2 \times 4 = 8\)</span>, pero <span class="math notranslate nohighlight">\(2 + 4 = 6\)</span>, y conforme tomamos números más grandes, nuestra multiplicación continúa creciendo a mayor velocidad que la suma: <span class="math notranslate nohighlight">\(2 \times 10 = 20\)</span>, pero <span class="math notranslate nohighlight">\(2 + 10 = 12\)</span>.</p>
 <p>Grafiquemos nuestra nueva función de suma:</p>
 <div class="cell docutils container">
@@ -694,7 +694,7 @@ title="Print to PDF"
 </div>
 <p>La inclinación de la recta es menor porque <span class="math notranslate nohighlight">\(y\)</span> aumenta lentamente en proporción a <span class="math notranslate nohighlight">\(x\)</span>, de 2 en 2. Una vez más: únicamente estamos averiguando la proporción que hay entre los valores de <span class="math notranslate nohighlight">\(x\)</span> y de <span class="math notranslate nohighlight">\(y\)</span>. Si cada valor de <span class="math notranslate nohighlight">\(x\)</span> aumenta significativamente cada valor correspondiente de la función, entonces nuestra derivada será alta y la inclinación de la recta será empinada.</p>
 <p>Por otra parte, cuando cada valor de la función aumenta poco conforme hacemos más grande nuestra variable de entrada, entonces la derivada será pequeña y la inclinación será poca.</p>
-<p>Veamos, por último, una función no lineal para distinguir la tangente de la gráfica de la función:</p>
+<p>Veamos, por último, una función no lineal para distinguir la tangente de la gráfica de la función (esta función no tiene pendiente porque no es una recta):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -832,7 +832,7 @@ f^{\prime}(x)=\lim _{h \rightarrow 0} \frac{f(x+h)-f(x)}{h}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ejemplo: Valor de c: Valor=-6.0 | Valores previos: {Valor=3.0, Valor=-2.0} | Operación realizada para generar c: *
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ejemplo: Valor de c: Valor=-6.0 | Valores previos: {Valor=-2.0, Valor=3.0} | Operación realizada para generar c: *
 </pre></div>
 </div>
 </div>
@@ -864,7 +864,7 @@ f^{\prime}(x)=\lim _{h \rightarrow 0} \frac{f(x+h)-f(x)}{h}
   <span class="n">nodos</span><span class="p">,</span> <span class="n">lineas</span> <span class="o">=</span> <span class="n">rastreo</span><span class="p">(</span><span class="n">origen</span><span class="p">)</span>
   <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">nodos</span><span class="p">:</span>
     <span class="n">uid</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
-    <span class="c1"># por cada valor en la grafica, crea un nodo rectangular (&#39;record&#39;) para él</span>
+    <span class="c1"># por cada valor en la gráfica, crea un nodo rectangular (&#39;record&#39;) para él</span>
     <span class="n">grafica</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">uid</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;{ </span><span class="si">%s</span><span class="s1"> | valor </span><span class="si">%.4f</span><span class="s1">}&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">etiqueta</span><span class="p">,</span> <span class="n">n</span><span class="o">.</span><span class="n">valor</span><span class="p">),</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;record&#39;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">n</span><span class="o">.</span><span class="n">_op</span><span class="p">:</span>
       <span class="c1"># si el valor es resultado de una operación, crea un nodo para la operación</span>
@@ -935,8 +935,8 @@ f^{\prime}(x)=\lim _{h \rightarrow 0} \frac{f(x+h)-f(x)}{h}
 <section id="la-regla-de-la-cadena-propagacion-hacia-atras">
 <h2>La regla de la cadena: propagación hacia atrás<a class="headerlink" href="#la-regla-de-la-cadena-propagacion-hacia-atras" title="Permalink to this heading">#</a></h2>
 <p>Tomemos prestada la analogía de George Simmons: si una bicicleta es dos veces más rápida que una persona corriendo, y un automóvil cuatro veces más rápido que una bicicleta, entonces el automóvil es <span class="math notranslate nohighlight">\(2 \times 4 = 8\)</span> veces más rápido que una persona corriendo.</p>
-<p>De igual forma, si queremos saber la influencia que <span class="math notranslate nohighlight">\(c\)</span> tiene en <span class="math notranslate nohighlight">\(L\)</span>, solo debemos obtener la derivada de <span class="math notranslate nohighlight">\(c\)</span> con respecto a <span class="math notranslate nohighlight">\(e\)</span>, y multiplicarla por la derivada de <span class="math notranslate nohighlight">\(e\)</span> con respecto a <span class="math notranslate nohighlight">\(L\)</span>. Es decir, debemos multiplicar la fuerza de <span class="math notranslate nohighlight">\(c\)</span> con la de <span class="math notranslate nohighlight">\(e\)</span> para saber con cuánta fuerza llega <span class="math notranslate nohighlight">\(c\)</span> hasta <span class="math notranslate nohighlight">\(L\)</span>. Lo mismo vale para <span class="math notranslate nohighlight">\(d\)</span> y a esta regla se le llama «regla de la cadena» (o «propagación hacia atrás», en el campo de la inteligencia artificial).</p>
-<p>Ahora, para obtener la derivada de <span class="math notranslate nohighlight">\(c\)</span> con respecto a <span class="math notranslate nohighlight">\(e\)</span>, recordemos otro patrón que vimos: las derivadas de los productos sumados nos daban como resultado 1 porque la función avanzaba en la misma proporción que avanzaba la variable. Verifiquémoslo:</p>
+<p>De igual forma, si queremos saber la influencia que <span class="math notranslate nohighlight">\(c\)</span> tiene en <span class="math notranslate nohighlight">\(L\)</span>, solo debemos obtener la derivada de <span class="math notranslate nohighlight">\(c\)</span> con respecto a <span class="math notranslate nohighlight">\(e\)</span>, y multiplicarla por la derivada de <span class="math notranslate nohighlight">\(e\)</span> con respecto a <span class="math notranslate nohighlight">\(L\)</span>. Es decir, debemos multiplicar la fuerza de <span class="math notranslate nohighlight">\(c\)</span> y la de <span class="math notranslate nohighlight">\(e\)</span> para saber con cuánta fuerza influye <span class="math notranslate nohighlight">\(c\)</span> en <span class="math notranslate nohighlight">\(L\)</span>. Lo mismo vale para <span class="math notranslate nohighlight">\(d\)</span> y todas las demás; a esta regla se le llama «regla de la cadena» (o «propagación hacia atrás» en el campo de la inteligencia artificial).</p>
+<p>Ahora, para obtener la derivada de <span class="math notranslate nohighlight">\(c\)</span> con respecto a <span class="math notranslate nohighlight">\(e\)</span>, recordemos otro patrón que vimos: en una suma, la derivada nos daba como resultado 1 porque la función avanzaba en la misma proporción que avanzaba la variable. Verifiquémoslo:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">deriv_c</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
@@ -952,7 +952,7 @@ f^{\prime}(x)=\lim _{h \rightarrow 0} \frac{f(x+h)-f(x)}{h}
 </div>
 </div>
 </div>
-<p>El resultado efectivamente es aproximadamente 1. Por simetría nuevamente, entendemos que la derivada de <span class="math notranslate nohighlight">\(d\)</span> con respecto a <span class="math notranslate nohighlight">\(e\)</span> también es 1. Y ahora que ya tenemos ambas derivadas podemos multiplicarlas: <span class="math notranslate nohighlight">\(1 \times -3 = -3\)</span>. Así pues, la derivada de <span class="math notranslate nohighlight">\(d\)</span> y <span class="math notranslate nohighlight">\(c\)</span> con respecto a <span class="math notranslate nohighlight">\(L\)</span> es -3. Comprobémoslo:</p>
+<p>En efecto, el resultado es aproximadamente 1. Por simetría nuevamente, entendemos que la derivada de <span class="math notranslate nohighlight">\(d\)</span> con respecto a <span class="math notranslate nohighlight">\(e\)</span> también es 1. Y ahora que ya tenemos ambas derivadas podemos multiplicarlas: <span class="math notranslate nohighlight">\(1 \times -3 = -3\)</span>. Así pues, la derivada de <span class="math notranslate nohighlight">\(d\)</span> y <span class="math notranslate nohighlight">\(c\)</span> con respecto a <span class="math notranslate nohighlight">\(L\)</span> es -3. Comprobémoslo:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">derivada</span><span class="p">():</span>
@@ -992,7 +992,7 @@ f^{\prime}(x)=\lim _{h \rightarrow 0} \frac{f(x+h)-f(x)}{h}
 <p>Finalmente, debemos hacer lo mismo para obtener las derivadas de <span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(b\)</span>. Entonces, dado el patrón que habíamos descubierto, la derivada de <span class="math notranslate nohighlight">\(a\)</span> con respecto a <span class="math notranslate nohighlight">\(c\)</span> es <span class="math notranslate nohighlight">\(b\)</span>, o sea <span class="math notranslate nohighlight">\(3\)</span>, y viceversa: la derivada de <span class="math notranslate nohighlight">\(b\)</span> es <span class="math notranslate nohighlight">\(a\)</span>, o sea <span class="math notranslate nohighlight">\(-2\)</span>. Pero recordemos: esta derivada «local» está dada con respecto a <span class="math notranslate nohighlight">\(c\)</span>, y a nosotros nos interesa la derivada con respecto a <span class="math notranslate nohighlight">\(L\)</span>, es decir, la magnitud de la influencia que <span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(b\)</span> tienen en <span class="math notranslate nohighlight">\(L\)</span>. Para saberlo, únicamente debemos aplicar la regla de la cadena y multiplicar las derivadas que tenemos por la derivada de <span class="math notranslate nohighlight">\(c\)</span>. Entonces la derivada de <span class="math notranslate nohighlight">\(a\)</span> es <span class="math notranslate nohighlight">\(3 \times -3 = -9\)</span>, mientras que la derivada de <span class="math notranslate nohighlight">\(b\)</span> es <span class="math notranslate nohighlight">\(-2 \times -3 = 6\)</span>.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
-<p>A la derivada general, es decir, a la que se da con respecto al resultado final y no al local, se le denomina «gradiente».</p>
+<p>A la derivada global, es decir, a la que se da con respecto al resultado final y no al local, se le denomina «gradiente». Las fórmulas que utilizamos para derivar pueden leerse <a class="reference external" href="https://es.wikipedia.org/wiki/Derivada#C%C3%A1lculo_de_la_derivada">aquí</a>.</p>
 </aside>
 <p>Ahora que ya tenemos estos valores, podemos optimizar nuestro código para contemplarlos y visualizarlos de mejor manera. Añadiremos también la función de exponenciación. En la práctica, nadie calcula las derivadas manualmente como lo hicimos, puesto que sería una labor eterna; pero ya hemos aprendido los patrones para calcularlas, así que podemos implementarnos en nuestro código para que se calculen automáticamente:</p>
 <div class="cell docutils container">
@@ -1011,7 +1011,7 @@ f^{\prime}(x)=\lim _{h \rightarrow 0} \frac{f(x+h)-f(x)}{h}
     <span class="n">resultado</span> <span class="o">=</span> <span class="n">Numero</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">valor</span> <span class="o">+</span> <span class="n">otro</span><span class="o">.</span><span class="n">valor</span><span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">otro</span><span class="p">),</span> <span class="s1">&#39;+&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_propagar</span><span class="p">():</span>
-      <span class="bp">self</span><span class="o">.</span><span class="n">grad</span> <span class="o">+=</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="n">resultado</span><span class="o">.</span><span class="n">grad</span> <span class="c1"># en la suma, la derivada es 1; luego se multiplica por la «derivada global»</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">grad</span> <span class="o">+=</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="n">resultado</span><span class="o">.</span><span class="n">grad</span> <span class="c1"># la derivada de una suma es 1 y luego se multiplica por la «derivada global»</span>
       <span class="n">otro</span><span class="o">.</span><span class="n">grad</span> <span class="o">+=</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="n">resultado</span><span class="o">.</span><span class="n">grad</span>
     <span class="n">resultado</span><span class="o">.</span><span class="n">_propagar</span> <span class="o">=</span> <span class="n">_propagar</span>
 
@@ -1023,6 +1023,12 @@ f^{\prime}(x)=\lim _{h \rightarrow 0} \frac{f(x+h)-f(x)}{h}
   <span class="k">def</span> <span class="fm">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">otro</span><span class="p">):</span>
     <span class="n">otro</span> <span class="o">=</span> <span class="n">otro</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">otro</span><span class="p">,</span> <span class="n">Numero</span><span class="p">)</span> <span class="k">else</span> <span class="n">Numero</span><span class="p">(</span><span class="n">otro</span><span class="p">)</span>
     <span class="n">resultado</span> <span class="o">=</span> <span class="n">Numero</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">valor</span> <span class="o">*</span> <span class="n">otro</span><span class="o">.</span><span class="n">valor</span><span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">otro</span><span class="p">),</span> <span class="s1">&#39;*&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_propagar</span><span class="p">():</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">grad</span> <span class="o">+=</span> <span class="n">otro</span><span class="o">.</span><span class="n">valor</span> <span class="o">*</span> <span class="n">resultado</span><span class="o">.</span><span class="n">grad</span> <span class="c1"># la derivada de la multiplicación es igual al multiplicando por la derivada global</span>
+      <span class="n">otro</span><span class="o">.</span><span class="n">grad</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">valor</span> <span class="o">*</span> <span class="n">resultado</span><span class="o">.</span><span class="n">grad</span>
+    <span class="n">resultado</span><span class="o">.</span><span class="n">_propagar</span> <span class="o">=</span> <span class="n">_propagar</span>
+
     <span class="k">return</span> <span class="n">resultado</span>
 
   <span class="k">def</span> <span class="fm">__rmul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">otro</span><span class="p">):</span>
@@ -1034,9 +1040,14 @@ f^{\prime}(x)=\lim _{h \rightarrow 0} \frac{f(x+h)-f(x)}{h}
   <span class="k">def</span> <span class="fm">__rsub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">otro</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">otro</span> <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="p">)</span>
 
-  <span class="k">def</span> <span class="fm">__pow__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">otro</span><span class="p">):</span> <span class="c1"># exponenciación</span>
+  <span class="k">def</span> <span class="fm">__pow__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">otro</span><span class="p">):</span> <span class="c1"># potenciación</span>
     <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">otro</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">))</span>
     <span class="n">resultado</span> <span class="o">=</span> <span class="n">Numero</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">valor</span><span class="o">**</span><span class="n">otro</span><span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="p">,),</span> <span class="sa">f</span><span class="s1">&#39;**</span><span class="si">{</span><span class="n">otro</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_propagar</span><span class="p">():</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">grad</span> <span class="o">+=</span> <span class="n">otro</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">valor</span> <span class="o">**</span> <span class="p">(</span><span class="n">otro</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="o">*</span> <span class="n">resultado</span><span class="o">.</span><span class="n">grad</span> <span class="c1"># recordemos la fórmula: yx**y-1</span>
+    <span class="n">resultado</span><span class="o">.</span><span class="n">_propagar</span> <span class="o">=</span> <span class="n">_propagar</span>
+
     <span class="k">return</span> <span class="n">resultado</span>
 
   <span class="k">def</span> <span class="fm">__truediv__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">otro</span><span class="p">):</span> 
@@ -1048,12 +1059,80 @@ f^{\prime}(x)=\lim _{h \rightarrow 0} \frac{f(x+h)-f(x)}{h}
   <span class="k">def</span> <span class="fm">__neg__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> 
     <span class="k">return</span> <span class="bp">self</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>
 
+  <span class="k">def</span> <span class="nf">propagar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c1"># ordenamiento topológico</span>
+    <span class="n">topo</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">visitados</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">construir_topo</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+      <span class="k">if</span> <span class="n">v</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">visitados</span><span class="p">:</span>
+        <span class="n">visitados</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">previo</span> <span class="ow">in</span> <span class="n">v</span><span class="o">.</span><span class="n">_previos</span><span class="p">:</span>
+          <span class="n">construir_topo</span><span class="p">(</span><span class="n">previo</span><span class="p">)</span>
+        <span class="n">topo</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="n">construir_topo</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">grad</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># asignamos la derivada del valor final con respecto a sí mismo</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">topo</span><span class="p">):</span>
+      <span class="n">v</span><span class="o">.</span><span class="n">_propagar</span>
+
   <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;Valor=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">valor</span><span class="si">}</span><span class="s1">&#39;</span>
 </pre></div>
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">graphviz</span> <span class="kn">import</span> <span class="n">Digraph</span>
+
+<span class="k">def</span> <span class="nf">rastreo</span><span class="p">(</span><span class="n">origen</span><span class="p">):</span>
+  <span class="n">nodos</span><span class="p">,</span> <span class="n">lineas</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(),</span> <span class="nb">set</span><span class="p">()</span>
+  <span class="k">def</span> <span class="nf">construir</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">v</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">nodos</span><span class="p">:</span>
+      <span class="n">nodos</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+      <span class="k">for</span> <span class="n">parte</span> <span class="ow">in</span> <span class="n">v</span><span class="o">.</span><span class="n">_previos</span><span class="p">:</span>
+        <span class="n">lineas</span><span class="o">.</span><span class="n">add</span><span class="p">((</span><span class="n">parte</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+        <span class="n">construir</span><span class="p">(</span><span class="n">parte</span><span class="p">)</span>
+  <span class="n">construir</span><span class="p">(</span><span class="n">origen</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">nodos</span><span class="p">,</span> <span class="n">lineas</span>
+
+<span class="k">def</span> <span class="nf">graficar</span><span class="p">(</span><span class="n">origen</span><span class="p">):</span>
+  <span class="n">grafica</span> <span class="o">=</span> <span class="n">Digraph</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;svg&#39;</span><span class="p">,</span> <span class="n">graph_attr</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;rankdir&#39;</span><span class="p">:</span> <span class="s1">&#39;LR&#39;</span><span class="p">})</span>
+
+  <span class="n">nodos</span><span class="p">,</span> <span class="n">lineas</span> <span class="o">=</span> <span class="n">rastreo</span><span class="p">(</span><span class="n">origen</span><span class="p">)</span>
+  <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">nodos</span><span class="p">:</span>
+    <span class="n">uid</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+    <span class="n">grafica</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">uid</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;{ </span><span class="si">%s</span><span class="s1"> | valor </span><span class="si">%.4f</span><span class="s1"> | grad </span><span class="si">%.4f</span><span class="s1">}&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">etiqueta</span><span class="p">,</span> <span class="n">n</span><span class="o">.</span><span class="n">valor</span><span class="p">,</span> <span class="n">n</span><span class="o">.</span><span class="n">grad</span><span class="p">),</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;record&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">n</span><span class="o">.</span><span class="n">_op</span><span class="p">:</span>
+      <span class="n">grafica</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="n">uid</span> <span class="o">+</span> <span class="n">n</span><span class="o">.</span><span class="n">_op</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">_op</span><span class="p">)</span>
+      <span class="n">grafica</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="n">uid</span> <span class="o">+</span> <span class="n">n</span><span class="o">.</span><span class="n">_op</span><span class="p">,</span> <span class="n">uid</span><span class="p">)</span>
+
+  <span class="k">for</span> <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span> <span class="ow">in</span> <span class="n">lineas</span><span class="p">:</span>
+    <span class="n">grafica</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">n1</span><span class="p">)),</span> <span class="nb">str</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">n2</span><span class="p">))</span> <span class="o">+</span> <span class="n">n2</span><span class="o">.</span><span class="n">_op</span><span class="p">)</span>
+
+  <span class="k">return</span> <span class="n">grafica</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">Numero</span><span class="p">(</span><span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">etiqueta</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">Numero</span><span class="p">(</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">etiqueta</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="p">;</span> <span class="n">c</span><span class="o">.</span><span class="n">etiqueta</span> <span class="o">=</span> <span class="s1">&#39;c&#39;</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">Numero</span><span class="p">(</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">etiqueta</span><span class="o">=</span><span class="s1">&#39;d&#39;</span><span class="p">)</span>
+<span class="n">e</span> <span class="o">=</span> <span class="n">c</span> <span class="o">+</span> <span class="n">d</span><span class="p">;</span> <span class="n">e</span><span class="o">.</span><span class="n">etiqueta</span> <span class="o">=</span> <span class="s1">&#39;e&#39;</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">Numero</span><span class="p">(</span><span class="o">-</span><span class="mf">3.0</span><span class="p">);</span> <span class="n">f</span><span class="o">.</span><span class="n">etiqueta</span> <span class="o">=</span> <span class="s1">&#39;f&#39;</span>
+<span class="n">L</span> <span class="o">=</span> <span class="n">f</span> <span class="o">*</span> <span class="n">e</span><span class="p">;</span> <span class="n">L</span><span class="o">.</span><span class="n">etiqueta</span><span class="o">=</span> <span class="s1">&#39;L&#39;</span>
+
+<span class="n">graficar</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/redes_38_0.svg" src="_images/redes_38_0.svg" /></div>
+</div>
+<p>Ahora obtendremos las derivadas, pero programática en vez de manualmente:</p>
 </section>
 </section>
 
