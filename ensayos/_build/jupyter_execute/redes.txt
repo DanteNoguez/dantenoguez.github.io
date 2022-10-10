@@ -247,11 +247,14 @@ derivada()
 class Numero:
   def __init__(self, valor, _previos=(), _op='', etiqueta=''):
     self.valor = valor
+    self.grad = 0.0 # gradiente, comienza en 0
+    self._propagar = lambda: None # el valor predeterminado de la propagación hacia atrás es nulo
     self._previos = set(_previos)
     self._op = _op
     self.etiqueta = etiqueta
-    self.grad = 0.0 # gradiente, comienza en 0
-    self._propagar = lambda: None # el valor predeterminado de la propagación hacia atrás es nulo
+    
+  def __repr__(self):
+    return f'Valor={self.valor}'
 
   def __add__(self, otro): 
     otro = otro if isinstance(otro, Numero) else Numero(otro) 
@@ -292,7 +295,7 @@ class Numero:
     resultado = Numero(self.valor**otro, (self,), f'**{otro}')
 
     def _propagar():
-      self.grad += otro * (self.valor ** (otro -1)) * resultado.grad # recordemos la fórmula: yx**y-1
+      self.grad += otro * (self.valor ** (otro - 1)) * resultado.grad # recordemos la fórmula: yx**y-1
     resultado._propagar = _propagar
 
     return resultado
@@ -318,12 +321,9 @@ class Numero:
         topo.append(v)
     construir_topo(self)
 
-    self.grad = 1 # asignamos la derivada del valor final con respecto a sí mismo
-    for v in reversed(topo):
-      v._propagar
-
-  def __repr__(self):
-    return f'Valor={self.valor}'
+    self.grad = 1 # asignamos la derivada del valor final con respecto a sí mismo: 1
+    for nodo in reversed(topo): # comenzamos desde adelante hacia atrás
+      nodo._propagar()
 
 from graphviz import Digraph
 
@@ -361,5 +361,39 @@ d = Numero(10.0, etiqueta='d')
 e = c + d; e.etiqueta = 'e'
 f = Numero(-3.0); f.etiqueta = 'f'
 L = f * e; L.etiqueta= 'L'
+
+graficar(L)
+
+L.propagar()
+graficar(L)
+
+na = a + 0.1 * a.grad # nuevo valor de a: su derivada multiplicada por 0.1
+
+a = Numero(na.valor, etiqueta='a') # asignamos el nuevo valor a la variable
+b = Numero(3.0, etiqueta='b')
+c = a*b; c.etiqueta = 'c'
+d = Numero(10.0, etiqueta='d')
+e = c + d; e.etiqueta = 'e'
+f = Numero(-3.0); f.etiqueta = 'f'
+L = f * e; L.etiqueta= 'L'
+
+L.propagar()
+
+graficar(L)
+
+na = a + 0.01 * a.grad
+nb = b + 0.01 * b.grad
+nd = d + 0.01 * d.grad
+nf = f + 0.01 * f.grad
+
+a = Numero(na.valor, etiqueta='a')
+b = Numero(nb.valor, etiqueta='b')
+c = a*b; c.etiqueta = 'c'
+d = Numero(nd.valor, etiqueta='d')
+e = c + d; e.etiqueta = 'e'
+f = Numero(nf.valor); f.etiqueta = 'f'
+L = f * e; L.etiqueta= 'L'
+
+L.propagar()
 
 graficar(L)
