@@ -14,6 +14,10 @@ parts:
   chapters:
   - file: iurisprudentiae
 
+- caption: Elementorum Poeticæ.
+  chapters:
+  - file: borges
+
 - caption: Exagium
   chapters:
   - file: tzompantli
