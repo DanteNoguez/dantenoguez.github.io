@@ -14,7 +14,7 @@ parts:
   chapters:
   - file: iurisprudentiae
 
-- caption: Elementorum Poeticæ.
+- caption: Elementorum Poeticæ
   chapters:
   - file: borges
 

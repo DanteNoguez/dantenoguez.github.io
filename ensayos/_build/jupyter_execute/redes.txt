@@ -1,6 +1,5 @@
 !pip install matplotlib --upgrade
 
-import math
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -244,6 +243,8 @@ def derivada():
 
 derivada()
 
+import math
+
 class Numero:
   def __init__(self, valor, _previos=(), _op='', etiqueta=''):
     self.valor = valor
@@ -252,9 +253,6 @@ class Numero:
     self._previos = set(_previos)
     self._op = _op
     self.etiqueta = etiqueta
-    
-  def __repr__(self):
-    return f'Valor={self.valor}'
 
   def __add__(self, otro): 
     otro = otro if isinstance(otro, Numero) else Numero(otro) 
@@ -265,7 +263,7 @@ class Numero:
       otro.grad += 1.0 * resultado.grad
     resultado._propagar = _propagar
 
-    return resultado 
+    return resultado
 
   def __radd__(self, otro): 
     return self + otro
@@ -284,12 +282,6 @@ class Numero:
   def __rmul__(self, otro):
     return self * otro
 
-  def __sub__(self, otro): 
-    return self + (-otro)
-
-  def __rsub__(self, otro):
-    return otro + (-self)
-
   def __pow__(self, otro): # potenciación
     assert isinstance(otro, (int, float))
     resultado = Numero(self.valor**otro, (self,), f'**{otro}')
@@ -300,14 +292,67 @@ class Numero:
 
     return resultado
 
+  def __sub__(self, otro): 
+    return self + (-otro)
+
+  def __rsub__(self, otro):
+    return otro + (-self)
+
+  def __neg__(self): 
+    return self * -1
+
   def __truediv__(self, otro): 
     return self * otro**-1 
   
   def __rtruediv__(self, otro):
     return otro * self**-1
 
-  def __neg__(self): 
-    return self * -1
+  def ReLU(self): 
+    resultado = Numero((0 if self.valor < 0 else self.valor), (self,), 'ReLU')
+
+    def _propagar():
+      self.grad += (1 if resultado.valor > 0 else 0) * resultado.grad # la derivada es 1 si x > 0, 0 si x < 0
+    resultado._propagar = _propagar
+    
+    return resultado
+
+  def tanh(self): # tangente hiperbólica
+    t = (math.exp(2*self.valor) - 1) / (math.exp(2*self.valor) + 1)
+    resultado = Numero(t, (self,), 'tanh')
+
+    def _propagar():
+      self.grad += (1 - t**2) * resultado.grad # según la fórmula 1-tanh**2x
+    resultado._propagar = _propagar
+
+    return resultado
+
+  def sigmoide(self):
+    s = 1/(1 + math.exp(self.valor))
+    resultado = Numero(s, (self,), 'sigmoide')
+
+    def _propagar():
+      self.grad += (s * (1 - s)) * resultado.grad # la derviada es s(x)(1-s(x))
+    resultado._propagar = _propagar
+
+    return resultado
+
+  def exp(self): # exponenciación
+    resultado = Numero(math.exp(self.valor), (self,), 'exp')
+
+    def _propagar():
+      self.grad += self.valor * resultado.grad
+    resultado._propagar = _propagar
+
+    return resultado
+
+  def log(self): # logaritmo natural
+    resultado = Numero(math.log(self.valor), (self,), 'log')
+
+    def _propagar():
+      self.grad += 1/self.valor * resultado.grad
+    resultado._propagar = _propagar
+
+    return resultado
 
   def propagar(self):
     # ordenamiento topológico
@@ -324,6 +369,9 @@ class Numero:
     self.grad = 1 # asignamos la derivada del valor final con respecto a sí mismo: 1
     for nodo in reversed(topo): # comenzamos desde adelante hacia atrás
       nodo._propagar()
+
+  def __repr__(self):
+    return f'Valor={self.valor}'
 
 from graphviz import Digraph
 
@@ -397,3 +445,133 @@ L = f * e; L.etiqueta= 'L'
 L.propagar()
 
 graficar(L)
+
+#entradas
+x1 = Numero(2.0, etiqueta='x1')
+x2 = Numero(0.0, etiqueta='x2')
+
+# pesos (weights)
+w1 = Numero(-3.0, etiqueta='w1')
+w2 = Numero(1.0, etiqueta='w2')
+
+# sesgo (bias)
+b = Numero(6.8813, etiqueta='b')
+
+# x1*w1 + x2*w2 + b
+x1w1 = x1*w1; x1w1.etiqueta='x1w1'
+x2w2 = x2*w2; x2w2.etiqueta='x2w2'
+sumatoria = x1w1 + x2w2; sumatoria.etiqueta='s'
+n = sumatoria + b; n.etiqueta='n'
+
+# activación
+L = n.tanh(); L.etiqueta= 'L'
+
+L.propagar()
+
+graficar(L)
+
+import random
+
+class Neurona:
+  def __init__(self, nentradas):
+    self.peso = [Numero(random.uniform(-1,1)) for i in range(nentradas)] # cada entrada tendrá un peso, que será un número aleatorio
+    self.sesgo = Numero(random.uniform(-1,1)) # un sesgo con valor aleatorio del -1 al 1
+
+  def __call__(self, x):
+    # peso * x + sesgo
+    activacion = sum((peso_i*x_i for peso_i, x_i in zip(self.peso, x)), self.sesgo)
+    resultado = activacion.tanh()
+    return resultado
+
+  def parametros(self):
+    return self.peso + [self.sesgo]
+
+class Capa: #Layer
+  def __init__(self, nentradas, nsalidas):
+    self.neuronas = [Neurona(nentradas) for _ in range(nsalidas)]
+
+  def __call__(self, x):
+    resultado = [n(x) for n in self.neuronas]
+    return resultado[0] if len(resultado) == 1 else resultado
+
+  def parametros(self):
+    return [parametro for n in self.neuronas for parametro in n.parametros()]
+
+class MLP:
+  def __init__(self, nentrada, nsalidas):
+    tamaño = [nentrada] + nsalidas
+    self.capas = [Capa(tamaño[i], tamaño[i+1]) for i in range(len(nsalidas))]
+
+  def __call__(self, x):
+    for capa in self.capas:
+      x = capa(x)
+    return x
+
+  def parametros(self):
+    return [parametro for capa in self.capas for parametro in capa.parametros()]
+
+x = [3.0]
+N = Neurona(1)
+N(x)
+
+graficar(N(x))
+
+x = [2.0, 3.0]
+C = Capa(2, 1)
+graficar(C(x))
+
+x = [3.0, 2.0]
+RN = MLP(3, [4, 4, 1])
+
+graficar(RN(x))
+
+entradas = [
+    [1.0, 2.0, 3.0],
+    [3.0, 2.0, 1.0],
+    [0.5, 1.0, -1.0],
+    [1.0, 1.0, -1.0],
+]
+
+objetivos = [1.0, -1.0, -1.0, 1.0]
+predicciones = [RN(x) for x in entradas]
+predicciones
+
+fn_perdida = [(pred - obj)**2 for pred, obj in zip(predicciones, objetivos)] #MSE
+fn_perdida
+
+perdida = sum(fn_perdida)
+perdida
+
+perdida.propagar()
+
+RN.capas[0].neuronas[0].peso[0].grad
+
+graficar(perdida)
+
+RN.parametros()
+
+for p in RN.parametros():
+  p.valor += -0.1 * p.grad # queremos disminuir el resultado final, por eso restamos
+
+predicciones
+
+for k in range(20):
+
+  # paso hacia delante
+  preds = [RN(x) for x in entradas]
+  perdida = sum([(pred - obj)**2 for pred, obj in zip(preds, objetivos)])
+
+  # propagación hacia atrás, SGD
+  for p in RN.parametros():
+    p.grad = 0.0
+  perdida.propagar()
+
+  # actualizar
+  for p in RN.parametros():
+    p.valor += -0.07 * p.grad
+
+  print(k, perdida.valor)
+
+preds
+
+objetivos
