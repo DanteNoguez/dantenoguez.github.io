@@ -148,40 +148,6 @@ resultados_2 = Euclides(544, 119), Euclides(2166, 6099)
 
 print(f'Resultados del primer algoritmo: {resultados_1} | Resultados del segundo algoritmo: {resultados_2}')
 
-import requests
-from pathlib import Path
-import torch
-import torchvision
-from torchvision import transforms
-import matplotlib.pyplot as plt
-
-data_path = Path("/content/")
-taco_path = data_path / "taco.png"
-
-taco_image = "taco.png"
-with open("taco.png", "wb") as f:
-  request = requests.get("https://raw.githubusercontent.com/DanteNoguez/CalculusRatiocinator/main/data/img/taco.jpg")
-  f.write(request.content)
-
-taco_tensor = torchvision.io.read_image(str(taco_path)).type(torch.float32) / 255
-transform_taco = transforms.Compose([transforms.Resize(size=(64*4, 64*4))])
-taco = transform_taco(taco_tensor)
-
-transform_taco = transforms.Compose([transforms.Resize(size=(32, 32))])
-taco = transform_taco(taco_tensor)
-
-fig, axs = plt.subplots(1, 2, figsize=(10, 7), sharey=True)
-axs[0].imshow(taco.permute(1, 2, 0))
-axs[1].imshow(taco.permute(1, 2, 0))
-axs[1].set_xlim(16, 32)
-axs[1].set_ylim(32, 0)
-plt.axis('off')
-plt.show()
-
-transform_taco = transforms.Compose([transforms.Resize(size=(16, 16))])
-taco = transform_taco(taco_tensor)
-taco.permute(1, 2, 0)[6]
-
 from torchvision import datasets
 from torchvision.transforms import ToTensor
 
@@ -204,35 +170,4 @@ test_features_batch, test_labels_batch = next(iter(test_dataloader))
 image = test_features_batch[4]
 plt.imshow(image.squeeze().cpu(), cmap='gray')
 
-df = pd.DataFrame(np.array(image.squeeze(0)[4:23, 4:27]))
-plt.imshow(df)
-
 df.style.set_properties(**{'font-size':'6pt'}).background_gradient('Greys')
-
-a = torch.arange(1, 10, 0.25).requires_grad_()
-a
-
-def f(a): 
-  return (a**2).sum()
-
-b = f(a)
-b
-
-b.backward()
-c = a.grad
-c, b
-
-d = a**2
-
-a = a.detach().numpy()
-b = b.detach().numpy()
-c = c.numpy()
-d = d.detach().numpy()
-
-len(a)
-
-fig, ax = plt.subplots()
-ax.plot(a, d, label='función')
-ax.axline((a[20], d[20]), slope=c[20], color='red', label='pendiente')
-ax.legend()
-plt.show()
