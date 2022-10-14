@@ -3,41 +3,39 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-a2 = np.arange(0, 13, 2) 
-b2 = 5
+a = np.arange(0, 13, 2) 
+b = 5
 def f(a, b): return a*b
-c = f(a2, b2)
+c = f(a, b)
 
 fig, ax = plt.subplots(figsize=(10, 7))
-ax.plot(a2, c, marker='o', color='blue') 
+ax.plot(a, c, marker='o', color='blue') 
 ax.set_facecolor('black')
 ax.set_xlabel('Valores de a')
-ax.set_ylabel('Valores de b')
+ax.set_ylabel('Valores de c')
+ax.hlines(y=10, xmin=0, xmax=2, linewidth=1, color='white', linestyles='dashed')
+ax.vlines(x=2, ymin=0, ymax=10, linewidth=1, color='white', linestyles='dashed')
 plt.show()
 
 import pandas as pd
-d = {'Valores de a': a2, 'Valores de b': b2, 'Valores de c': c}
+d = {'Valores de a': a, 'Valores de b': b, 'Valores de c': c}
 tabla = pd.DataFrame(data=d)
 tabla = tabla.style.hide_index()
 tabla
 
-deriv = (f(a2+0.00001, b2) - f(a2, b2)) / 0.00001
+deriv = (f(a+0.00001, b) - f(a, b)) / 0.00001
 print(f'Valores de la derivada en cada punto: {deriv}')
 
 fig, ax = plt.subplots(figsize=(10, 7))
-ax.plot(a2, c, marker='o', color='blue', label='recta de la función') 
+ax.plot(a, c, marker='o', color='blue', label='recta de la función') 
 ax.set_facecolor('black')
 ax.set_xlabel('Valores de a')
 ax.set_ylabel('Valores de c')
-ax.axline((a2[1], c[1]), slope=deriv[1], color='red', label='pendiente') # <- La pendiente es la derivada
+ax.axline((a[1], c[1]), slope=deriv[1], color='red', label='pendiente') # <- La pendiente es la derivada
 ax.hlines(y=10, xmin=0, xmax=2, linewidth=1, color='white', linestyles='dashed')
 ax.vlines(x=2, ymin=0, ymax=10, linewidth=1, color='white', linestyles='dashed')
 ax.legend()
 plt.show()
-
-# Supongamos que quiero medir la distancia que recorro en 20 segundos:
-# Si con el paso de tiempo no avanzo o, lo que es lo mismo,
-# si mi variable tiempo no influye en la función distancia, entonces mi función y mi derivada lucen así:
 
 tiempo = np.arange(0, 21, 1)
 def f(t): return t*0
@@ -75,28 +73,28 @@ ax.legend()
 plt.show()
 
 xs = np.arange(1, 11, 1)
-ys = [3 for i in xs]
-def cub(x, y): return x**y
-r = cub(xs, ys)
+zs = 3
+def cub(x, z): return x**z
+y = cub(xs, zs)
 
-derivs = (cub(xs+0.00001, ys) - cub(xs, ys)) / 0.00001
+derivs = (cub(xs+0.00001, zs) - cub(xs, zs)) / 0.00001
 
 fig, ax = plt.subplots(ncols=2, figsize=(10, 7))
-ax[0].plot(xs, r, marker='o', color='blue', label='gráfica de la función')
+ax[0].plot(xs, y, marker='o', color='blue', label='gráfica de la función')
 ax[0].set_title('Gráfica')
 ax[0].set_facecolor('black')
 ax[0].set_xlabel('Valores de x')
 ax[0].set_ylabel('Valores de r')
-ax[0].axline((xs[5], r[5]), slope=derivs[5], color='red', label='tangente')
+ax[0].axline((xs[5], y[5]), slope=derivs[5], color='red', label='tangente')
 ax[0].legend()
-ax[1].plot(xs, r, marker='o', color='blue', label='gráfica de la función') 
+ax[1].plot(xs, y, marker='o', color='blue', label='gráfica de la función') 
 ax[1].set_title('Zoom a la gráfica')
 ax[1].set_facecolor('black')
 ax[1].set_xlabel('Valores de x')
-ax[1].set_ylabel('Valores de r')
-ax[1].axline((xs[5], r[5]), slope=derivs[5], color='red', label='tangente')
+ax[1].set_ylabel('Valores de y')
+ax[1].axline((xs[5], y[5]), slope=derivs[5], color='red', label='tangente')
 ax[1].set_xlim(xs[1], xs[7])
-ax[1].set_ylim(r[0], 600)
+ax[1].set_ylim(y[0], 600)
 ax[1].legend()
 plt.show()
 
@@ -138,7 +136,7 @@ class Numero:
   def __repr__(self):
     return f'Valor={self.valor}' # esta función determina cómo se representa nuestro número
 
-# Utilizaremos nuestra clase para crear la función L con los siguientes números y operaciones:
+# Definimos la función L con los siguientes números y operaciones:
 
 a = Numero(-2.0, etiqueta='a')
 b = Numero(3.0, etiqueta='b')
@@ -415,7 +413,7 @@ graficar(L)
 L.propagar()
 graficar(L)
 
-na = a + 0.1 * a.grad # nuevo valor de a: su derivada multiplicada por 0.1
+na = a + 0.1 * a.grad # nuevo valor de a: su derivada multiplicada por 0.1 + el valor anterior de a
 
 a = Numero(na.valor, etiqueta='a') # asignamos el nuevo valor a la variable
 b = Numero(3.0, etiqueta='b')
@@ -447,8 +445,8 @@ L.propagar()
 graficar(L)
 
 #entradas
-x1 = Numero(2.0, etiqueta='x1')
-x2 = Numero(0.0, etiqueta='x2')
+sentimiento = Numero(5.0, etiqueta='sentimiento')
+calificacion = Numero(5.0, etiqueta='calificacion')
 
 # pesos (weights)
 w1 = Numero(-3.0, etiqueta='w1')
@@ -458,17 +456,17 @@ w2 = Numero(1.0, etiqueta='w2')
 b = Numero(6.8813, etiqueta='b')
 
 # x1*w1 + x2*w2 + b
-x1w1 = x1*w1; x1w1.etiqueta='x1w1'
-x2w2 = x2*w2; x2w2.etiqueta='x2w2'
+x1w1 = sentimiento*w1; x1w1.etiqueta='x1w1'
+x2w2 = calificacion*w2; x2w2.etiqueta='x2w2'
 sumatoria = x1w1 + x2w2; sumatoria.etiqueta='s'
 n = sumatoria + b; n.etiqueta='n'
 
 # activación
-L = n.tanh(); L.etiqueta= 'L'
+sarcasmo = n.tanh(); sarcasmo.etiqueta= 'sarcasmo'
 
-L.propagar()
+sarcasmo.propagar()
 
-graficar(L)
+graficar(sarcasmo)
 
 import random
 
@@ -479,12 +477,24 @@ class Neurona:
 
   def __call__(self, x):
     # peso * x + sesgo
-    activacion = sum((peso_i*x_i for peso_i, x_i in zip(self.peso, x)), self.sesgo)
-    resultado = activacion.tanh()
+    activacion = sum((peso_i*x_i for peso_i, x_i in zip(self.peso, x)), self.sesgo) #multiplicamos, sumamos
+    resultado = activacion.tanh() # aplicamos la función tangente hiperbólica
     return resultado
 
   def parametros(self):
     return self.peso + [self.sesgo]
+
+#entradas
+sentimiento = Numero(5.0, etiqueta='sentimiento')
+calificacion = Numero(5.0, etiqueta='calificacion')
+
+N = Neurona(2) # creamos una neurona
+
+neuron = N([sentimiento, calificacion]) # damos a las variables como valores de entrada
+
+neuron.propagar()
+
+graficar(neuron)
 
 class Capa: #Layer
   def __init__(self, nentradas, nsalidas):
@@ -510,29 +520,23 @@ class MLP:
   def parametros(self):
     return [parametro for capa in self.capas for parametro in capa.parametros()]
 
-x = [3.0]
-N = Neurona(1)
-N(x)
-
-graficar(N(x))
-
-x = [2.0, 3.0]
-C = Capa(2, 1)
+x = [1.0, 2.0, 3.0]
+C = Capa(4, 1)
 graficar(C(x))
 
 x = [3.0, 2.0]
-RN = MLP(3, [4, 4, 1])
+RN = MLP(4, [4, 4, 1])
 
 graficar(RN(x))
 
 entradas = [
-    [1.0, 2.0, 3.0],
-    [3.0, 2.0, 1.0],
-    [0.5, 1.0, -1.0],
-    [1.0, 1.0, -1.0],
+    [5.0, 5.0], # no sarcasmo
+    [5.0, 1.0,], # sarcasmo
+    [5.0, 2.0], # sarcasmo
+    [4.0, 5.0], # no sarcasmo
 ]
 
-objetivos = [1.0, -1.0, -1.0, 1.0]
+objetivos = [0.0, 1.0, 1.0, 0.0]
 predicciones = [RN(x) for x in entradas]
 predicciones
 
@@ -544,18 +548,11 @@ perdida
 
 perdida.propagar()
 
-RN.capas[0].neuronas[0].peso[0].grad
-
 graficar(perdida)
 
 RN.parametros()
 
-for p in RN.parametros():
-  p.valor += -0.1 * p.grad # queremos disminuir el resultado final, por eso restamos
-
-predicciones
-
-for k in range(20):
+for k in range(30):
 
   # paso hacia delante
   preds = [RN(x) for x in entradas]
@@ -575,3 +572,8 @@ for k in range(20):
 preds
 
 objetivos
+
+test = [5.0, 1.5]
+
+prediccion = RN(test)
+prediccion
