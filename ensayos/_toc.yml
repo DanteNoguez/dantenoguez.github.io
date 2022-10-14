@@ -17,6 +17,7 @@ parts:
 - caption: Elementorum Poeticæ
   chapters:
   - file: borges
+  - file: afro
 
 - caption: Exagium
   chapters:
