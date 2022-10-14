@@ -9,6 +9,8 @@ parts:
   chapters:
   - file: programacion
   - file: redes
+  - file: hacedor
+  - file: definiciones
 
 - caption: Elementorum Iurisprudentiæ
   chapters:
