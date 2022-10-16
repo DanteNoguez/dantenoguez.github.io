@@ -9,147 +9,147 @@
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 152)">
 <title>%3</title>
 <polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-152 1216,-152 1216,4 -4,4"/>
-<!-- 140592680448080 -->
+<!-- 140292368430224 -->
 <g id="node1" class="node">
-<title>140592680448080</title>
-<polygon fill="none" stroke="#000000" points="4,-111.5 4,-147.5 206,-147.5 206,-111.5 4,-111.5"/>
-<text text-anchor="middle" x="16" y="-125.8" font-family="Times,serif" font-size="14.00" fill="#000000">b</text>
-<polyline fill="none" stroke="#000000" points="28,-111.5 28,-147.5 "/>
-<text text-anchor="middle" x="73.5" y="-125.8" font-family="Times,serif" font-size="14.00" fill="#000000">valor 3.1763</text>
-<polyline fill="none" stroke="#000000" points="119,-111.5 119,-147.5 "/>
-<text text-anchor="middle" x="162.5" y="-125.8" font-family="Times,serif" font-size="14.00" fill="#000000">grad 9.1838</text>
+<title>140292368430224</title>
+<polygon fill="none" stroke="#000000" points="4.5,-111.5 4.5,-147.5 205.5,-147.5 205.5,-111.5 4.5,-111.5"/>
+<text text-anchor="middle" x="16.5" y="-125.8" font-family="Times,serif" font-size="14.00" fill="#000000">b</text>
+<polyline fill="none" stroke="#000000" points="28.5,-111.5 28.5,-147.5 "/>
+<text text-anchor="middle" x="74" y="-125.8" font-family="Times,serif" font-size="14.00" fill="#000000">valor 3.0870</text>
+<polyline fill="none" stroke="#000000" points="119.5,-111.5 119.5,-147.5 "/>
+<text text-anchor="middle" x="162.5" y="-125.8" font-family="Times,serif" font-size="14.00" fill="#000000">grad 8.9311</text>
 </g>
-<!-- 140592657638992* -->
-<g id="node3" class="node">
-<title>140592657638992*</title>
+<!-- 140292368970192* -->
+<g id="node10" class="node">
+<title>140292368970192*</title>
 <ellipse fill="none" stroke="#000000" cx="273" cy="-101.5" rx="27" ry="18"/>
 <text text-anchor="middle" x="273" y="-97.8" font-family="Times,serif" font-size="14.00" fill="#000000">*</text>
 </g>
-<!-- 140592680448080&#45;&gt;140592657638992* -->
-<g id="edge4" class="edge">
-<title>140592680448080&#45;&gt;140592657638992*</title>
-<path fill="none" stroke="#000000" d="M206.1192,-112.6468C216.9242,-110.846 227.3345,-109.1109 236.5934,-107.5678"/>
-<polygon fill="#000000" stroke="#000000" points="237.229,-111.0102 246.5175,-105.9138 236.0781,-104.1054 237.229,-111.0102"/>
-</g>
-<!-- 140592657638992 -->
-<g id="node2" class="node">
-<title>140592657638992</title>
-<polygon fill="none" stroke="#000000" points="336,-83.5 336,-119.5 546,-119.5 546,-83.5 336,-83.5"/>
-<text text-anchor="middle" x="347.5" y="-97.8" font-family="Times,serif" font-size="14.00" fill="#000000">c</text>
-<polyline fill="none" stroke="#000000" points="359,-83.5 359,-119.5 "/>
-<text text-anchor="middle" x="406.5" y="-97.8" font-family="Times,serif" font-size="14.00" fill="#000000">valor &#45;9.7901</text>
-<polyline fill="none" stroke="#000000" points="454,-83.5 454,-119.5 "/>
-<text text-anchor="middle" x="500" y="-97.8" font-family="Times,serif" font-size="14.00" fill="#000000">grad &#45;2.9796</text>
-</g>
-<!-- 140592657641296+ -->
-<g id="node7" class="node">
-<title>140592657641296+</title>
-<ellipse fill="none" stroke="#000000" cx="609" cy="-73.5" rx="27" ry="18"/>
-<text text-anchor="middle" x="609" y="-69.8" font-family="Times,serif" font-size="14.00" fill="#000000">+</text>
-</g>
-<!-- 140592657638992&#45;&gt;140592657641296+ -->
-<g id="edge5" class="edge">
-<title>140592657638992&#45;&gt;140592657641296+</title>
-<path fill="none" stroke="#000000" d="M546.443,-83.9262C555.7024,-82.3829 564.5893,-80.9018 572.6112,-79.5648"/>
-<polygon fill="#000000" stroke="#000000" points="573.3287,-82.9936 582.6172,-77.8971 572.1779,-76.0888 573.3287,-82.9936"/>
-</g>
-<!-- 140592657638992*&#45;&gt;140592657638992 -->
-<g id="edge1" class="edge">
-<title>140592657638992*&#45;&gt;140592657638992</title>
-<path fill="none" stroke="#000000" d="M300.366,-101.5C307.8769,-101.5 316.5185,-101.5 325.7472,-101.5"/>
-<polygon fill="#000000" stroke="#000000" points="325.9659,-105.0001 335.9659,-101.5 325.9658,-98.0001 325.9659,-105.0001"/>
-</g>
-<!-- 140592658440272 -->
-<g id="node4" class="node">
-<title>140592658440272</title>
-<polygon fill="none" stroke="#000000" points="1004,-27.5 1004,-63.5 1212,-63.5 1212,-27.5 1004,-27.5"/>
-<text text-anchor="middle" x="1017" y="-41.8" font-family="Times,serif" font-size="14.00" fill="#000000">L</text>
-<polyline fill="none" stroke="#000000" points="1030,-27.5 1030,-63.5 "/>
-<text text-anchor="middle" x="1077.5" y="-41.8" font-family="Times,serif" font-size="14.00" fill="#000000">valor &#45;0.4472</text>
-<polyline fill="none" stroke="#000000" points="1125,-27.5 1125,-63.5 "/>
-<text text-anchor="middle" x="1168.5" y="-41.8" font-family="Times,serif" font-size="14.00" fill="#000000">grad 1.0000</text>
-</g>
-<!-- 140592658440272* -->
-<g id="node5" class="node">
-<title>140592658440272*</title>
-<ellipse fill="none" stroke="#000000" cx="941" cy="-45.5" rx="27" ry="18"/>
-<text text-anchor="middle" x="941" y="-41.8" font-family="Times,serif" font-size="14.00" fill="#000000">*</text>
-</g>
-<!-- 140592658440272*&#45;&gt;140592658440272 -->
-<g id="edge2" class="edge">
-<title>140592658440272*&#45;&gt;140592658440272</title>
-<path fill="none" stroke="#000000" d="M968.2031,-45.5C975.7372,-45.5 984.4158,-45.5 993.6835,-45.5"/>
-<polygon fill="#000000" stroke="#000000" points="993.945,-49.0001 1003.945,-45.5 993.9449,-42.0001 993.945,-49.0001"/>
-</g>
-<!-- 140592657641296 -->
-<g id="node6" class="node">
-<title>140592657641296</title>
-<polygon fill="none" stroke="#000000" points="672,-55.5 672,-91.5 878,-91.5 878,-55.5 672,-55.5"/>
-<text text-anchor="middle" x="683.5" y="-69.8" font-family="Times,serif" font-size="14.00" fill="#000000">e</text>
-<polyline fill="none" stroke="#000000" points="695,-55.5 695,-91.5 "/>
-<text text-anchor="middle" x="740.5" y="-69.8" font-family="Times,serif" font-size="14.00" fill="#000000">valor 0.1501</text>
-<polyline fill="none" stroke="#000000" points="786,-55.5 786,-91.5 "/>
-<text text-anchor="middle" x="832" y="-69.8" font-family="Times,serif" font-size="14.00" fill="#000000">grad &#45;2.9796</text>
-</g>
-<!-- 140592657641296&#45;&gt;140592658440272* -->
+<!-- 140292368430224&#45;&gt;140292368970192* -->
 <g id="edge7" class="edge">
-<title>140592657641296&#45;&gt;140592658440272*</title>
-<path fill="none" stroke="#000000" d="M878.2425,-56.0856C887.5947,-54.5081 896.5817,-52.9922 904.6881,-51.6249"/>
-<polygon fill="#000000" stroke="#000000" points="905.5156,-55.0348 914.7941,-49.9203 904.3513,-48.1324 905.5156,-55.0348"/>
+<title>140292368430224&#45;&gt;140292368970192*</title>
+<path fill="none" stroke="#000000" d="M205.636,-112.7273C216.603,-110.8995 227.176,-109.1373 236.566,-107.5723"/>
+<polygon fill="#000000" stroke="#000000" points="237.3345,-110.9926 246.623,-105.8962 236.1836,-104.0879 237.3345,-110.9926"/>
 </g>
-<!-- 140592657641296+&#45;&gt;140592657641296 -->
-<g id="edge3" class="edge">
-<title>140592657641296+&#45;&gt;140592657641296</title>
-<path fill="none" stroke="#000000" d="M636.0402,-73.5C643.677,-73.5 652.4969,-73.5 661.9144,-73.5"/>
-<polygon fill="#000000" stroke="#000000" points="661.9202,-77.0001 671.9202,-73.5 661.9202,-70.0001 661.9202,-77.0001"/>
-</g>
-<!-- 140592675071824 -->
-<g id="node8" class="node">
-<title>140592675071824</title>
-<polygon fill="none" stroke="#000000" points="0,-56.5 0,-92.5 210,-92.5 210,-56.5 0,-56.5"/>
-<text text-anchor="middle" x="11.5" y="-70.8" font-family="Times,serif" font-size="14.00" fill="#000000">a</text>
-<polyline fill="none" stroke="#000000" points="23,-56.5 23,-92.5 "/>
-<text text-anchor="middle" x="70.5" y="-70.8" font-family="Times,serif" font-size="14.00" fill="#000000">valor &#45;3.0822</text>
-<polyline fill="none" stroke="#000000" points="118,-56.5 118,-92.5 "/>
-<text text-anchor="middle" x="164" y="-70.8" font-family="Times,serif" font-size="14.00" fill="#000000">grad &#45;9.4641</text>
-</g>
-<!-- 140592675071824&#45;&gt;140592657638992* -->
-<g id="edge6" class="edge">
-<title>140592675071824&#45;&gt;140592657638992*</title>
-<path fill="none" stroke="#000000" d="M210.443,-91.4462C219.7024,-92.9343 228.5893,-94.3626 236.6112,-95.6518"/>
-<polygon fill="#000000" stroke="#000000" points="236.1885,-99.1287 246.6172,-97.2599 237.2993,-92.2174 236.1885,-99.1287"/>
-</g>
-<!-- 140592657638800 -->
-<g id="node9" class="node">
-<title>140592657638800</title>
+<!-- 140292368969872 -->
+<g id="node2" class="node">
+<title>140292368969872</title>
 <polygon fill="none" stroke="#000000" points="337.5,-28.5 337.5,-64.5 544.5,-64.5 544.5,-28.5 337.5,-28.5"/>
 <text text-anchor="middle" x="349.5" y="-42.8" font-family="Times,serif" font-size="14.00" fill="#000000">d</text>
 <polyline fill="none" stroke="#000000" points="361.5,-28.5 361.5,-64.5 "/>
-<text text-anchor="middle" x="407" y="-42.8" font-family="Times,serif" font-size="14.00" fill="#000000">valor 9.9401</text>
+<text text-anchor="middle" x="407" y="-42.8" font-family="Times,serif" font-size="14.00" fill="#000000">valor 9.9700</text>
 <polyline fill="none" stroke="#000000" points="452.5,-28.5 452.5,-64.5 "/>
-<text text-anchor="middle" x="498.5" y="-42.8" font-family="Times,serif" font-size="14.00" fill="#000000">grad &#45;2.9796</text>
+<text text-anchor="middle" x="498.5" y="-42.8" font-family="Times,serif" font-size="14.00" fill="#000000">grad &#45;2.9870</text>
 </g>
-<!-- 140592657638800&#45;&gt;140592657641296+ -->
-<g id="edge8" class="edge">
-<title>140592657638800&#45;&gt;140592657641296+</title>
+<!-- 140292368970576+ -->
+<g id="node8" class="node">
+<title>140292368970576+</title>
+<ellipse fill="none" stroke="#000000" cx="609" cy="-73.5" rx="27" ry="18"/>
+<text text-anchor="middle" x="609" y="-69.8" font-family="Times,serif" font-size="14.00" fill="#000000">+</text>
+</g>
+<!-- 140292368969872&#45;&gt;140292368970576+ -->
+<g id="edge5" class="edge">
+<title>140292368969872&#45;&gt;140292368970576+</title>
 <path fill="none" stroke="#000000" d="M544.5273,-63.1383C554.5124,-64.7431 564.1078,-66.2852 572.7057,-67.667"/>
 <polygon fill="#000000" stroke="#000000" points="572.2289,-71.1352 582.6577,-69.2664 573.3398,-64.2239 572.2289,-71.1352"/>
 </g>
-<!-- 140592657638352 -->
-<g id="node10" class="node">
-<title>140592657638352</title>
+<!-- 140292368970448 -->
+<g id="node3" class="node">
+<title>140292368970448</title>
+<polygon fill="none" stroke="#000000" points="1004,-27.5 1004,-63.5 1212,-63.5 1212,-27.5 1004,-27.5"/>
+<text text-anchor="middle" x="1017" y="-41.8" font-family="Times,serif" font-size="14.00" fill="#000000">L</text>
+<polyline fill="none" stroke="#000000" points="1030,-27.5 1030,-63.5 "/>
+<text text-anchor="middle" x="1077.5" y="-41.8" font-family="Times,serif" font-size="14.00" fill="#000000">valor &#45;2.2100</text>
+<polyline fill="none" stroke="#000000" points="1125,-27.5 1125,-63.5 "/>
+<text text-anchor="middle" x="1168.5" y="-41.8" font-family="Times,serif" font-size="14.00" fill="#000000">grad 1.0000</text>
+</g>
+<!-- 140292368970448* -->
+<g id="node4" class="node">
+<title>140292368970448*</title>
+<ellipse fill="none" stroke="#000000" cx="941" cy="-45.5" rx="27" ry="18"/>
+<text text-anchor="middle" x="941" y="-41.8" font-family="Times,serif" font-size="14.00" fill="#000000">*</text>
+</g>
+<!-- 140292368970448*&#45;&gt;140292368970448 -->
+<g id="edge1" class="edge">
+<title>140292368970448*&#45;&gt;140292368970448</title>
+<path fill="none" stroke="#000000" d="M968.2031,-45.5C975.7372,-45.5 984.4158,-45.5 993.6835,-45.5"/>
+<polygon fill="#000000" stroke="#000000" points="993.945,-49.0001 1003.945,-45.5 993.9449,-42.0001 993.945,-49.0001"/>
+</g>
+<!-- 140292369335504 -->
+<g id="node5" class="node">
+<title>140292369335504</title>
+<polygon fill="none" stroke="#000000" points="0,-56.5 0,-92.5 210,-92.5 210,-56.5 0,-56.5"/>
+<text text-anchor="middle" x="11.5" y="-70.8" font-family="Times,serif" font-size="14.00" fill="#000000">a</text>
+<polyline fill="none" stroke="#000000" points="23,-56.5 23,-92.5 "/>
+<text text-anchor="middle" x="70.5" y="-70.8" font-family="Times,serif" font-size="14.00" fill="#000000">valor &#45;2.9900</text>
+<polyline fill="none" stroke="#000000" points="118,-56.5 118,-92.5 "/>
+<text text-anchor="middle" x="164" y="-70.8" font-family="Times,serif" font-size="14.00" fill="#000000">grad &#45;9.2209</text>
+</g>
+<!-- 140292369335504&#45;&gt;140292368970192* -->
+<g id="edge8" class="edge">
+<title>140292369335504&#45;&gt;140292368970192*</title>
+<path fill="none" stroke="#000000" d="M210.443,-91.4462C219.7024,-92.9343 228.5893,-94.3626 236.6112,-95.6518"/>
+<polygon fill="#000000" stroke="#000000" points="236.1885,-99.1287 246.6172,-97.2599 237.2993,-92.2174 236.1885,-99.1287"/>
+</g>
+<!-- 140292368972496 -->
+<g id="node6" class="node">
+<title>140292368972496</title>
 <polygon fill="none" stroke="#000000" points="673.5,-.5 673.5,-36.5 876.5,-36.5 876.5,-.5 673.5,-.5"/>
 <text text-anchor="middle" x="684" y="-14.8" font-family="Times,serif" font-size="14.00" fill="#000000">f</text>
 <polyline fill="none" stroke="#000000" points="694.5,-.5 694.5,-36.5 "/>
-<text text-anchor="middle" x="742" y="-14.8" font-family="Times,serif" font-size="14.00" fill="#000000">valor &#45;2.9796</text>
+<text text-anchor="middle" x="742" y="-14.8" font-family="Times,serif" font-size="14.00" fill="#000000">valor &#45;2.9870</text>
 <polyline fill="none" stroke="#000000" points="789.5,-.5 789.5,-36.5 "/>
-<text text-anchor="middle" x="833" y="-14.8" font-family="Times,serif" font-size="14.00" fill="#000000">grad 0.1501</text>
+<text text-anchor="middle" x="833" y="-14.8" font-family="Times,serif" font-size="14.00" fill="#000000">grad 0.7399</text>
 </g>
-<!-- 140592657638352&#45;&gt;140592658440272* -->
-<g id="edge9" class="edge">
-<title>140592657638352&#45;&gt;140592658440272*</title>
+<!-- 140292368972496&#45;&gt;140292368970448* -->
+<g id="edge4" class="edge">
+<title>140292368972496&#45;&gt;140292368970448*</title>
 <path fill="none" stroke="#000000" d="M876.8201,-35.0611C886.7442,-36.6753 896.2895,-38.2278 904.8468,-39.6197"/>
 <polygon fill="#000000" stroke="#000000" points="904.3219,-43.0802 914.7541,-41.2311 905.4457,-36.171 904.3219,-43.0802"/>
+</g>
+<!-- 140292368970576 -->
+<g id="node7" class="node">
+<title>140292368970576</title>
+<polygon fill="none" stroke="#000000" points="672,-55.5 672,-91.5 878,-91.5 878,-55.5 672,-55.5"/>
+<text text-anchor="middle" x="683.5" y="-69.8" font-family="Times,serif" font-size="14.00" fill="#000000">e</text>
+<polyline fill="none" stroke="#000000" points="695,-55.5 695,-91.5 "/>
+<text text-anchor="middle" x="740.5" y="-69.8" font-family="Times,serif" font-size="14.00" fill="#000000">valor 0.7399</text>
+<polyline fill="none" stroke="#000000" points="786,-55.5 786,-91.5 "/>
+<text text-anchor="middle" x="832" y="-69.8" font-family="Times,serif" font-size="14.00" fill="#000000">grad &#45;2.9870</text>
+</g>
+<!-- 140292368970576&#45;&gt;140292368970448* -->
+<g id="edge9" class="edge">
+<title>140292368970576&#45;&gt;140292368970448*</title>
+<path fill="none" stroke="#000000" d="M878.2425,-56.0856C887.5947,-54.5081 896.5817,-52.9922 904.6881,-51.6249"/>
+<polygon fill="#000000" stroke="#000000" points="905.5156,-55.0348 914.7941,-49.9203 904.3513,-48.1324 905.5156,-55.0348"/>
+</g>
+<!-- 140292368970576+&#45;&gt;140292368970576 -->
+<g id="edge2" class="edge">
+<title>140292368970576+&#45;&gt;140292368970576</title>
+<path fill="none" stroke="#000000" d="M636.0402,-73.5C643.677,-73.5 652.4969,-73.5 661.9144,-73.5"/>
+<polygon fill="#000000" stroke="#000000" points="661.9202,-77.0001 671.9202,-73.5 661.9202,-70.0001 661.9202,-77.0001"/>
+</g>
+<!-- 140292368970192 -->
+<g id="node9" class="node">
+<title>140292368970192</title>
+<polygon fill="none" stroke="#000000" points="336,-83.5 336,-119.5 546,-119.5 546,-83.5 336,-83.5"/>
+<text text-anchor="middle" x="347.5" y="-97.8" font-family="Times,serif" font-size="14.00" fill="#000000">c</text>
+<polyline fill="none" stroke="#000000" points="359,-83.5 359,-119.5 "/>
+<text text-anchor="middle" x="406.5" y="-97.8" font-family="Times,serif" font-size="14.00" fill="#000000">valor &#45;9.2301</text>
+<polyline fill="none" stroke="#000000" points="454,-83.5 454,-119.5 "/>
+<text text-anchor="middle" x="500" y="-97.8" font-family="Times,serif" font-size="14.00" fill="#000000">grad &#45;2.9870</text>
+</g>
+<!-- 140292368970192&#45;&gt;140292368970576+ -->
+<g id="edge6" class="edge">
+<title>140292368970192&#45;&gt;140292368970576+</title>
+<path fill="none" stroke="#000000" d="M546.443,-83.9262C555.7024,-82.3829 564.5893,-80.9018 572.6112,-79.5648"/>
+<polygon fill="#000000" stroke="#000000" points="573.3287,-82.9936 582.6172,-77.8971 572.1779,-76.0888 573.3287,-82.9936"/>
+</g>
+<!-- 140292368970192*&#45;&gt;140292368970192 -->
+<g id="edge3" class="edge">
+<title>140292368970192*&#45;&gt;140292368970192</title>
+<path fill="none" stroke="#000000" d="M300.366,-101.5C307.8769,-101.5 316.5185,-101.5 325.7472,-101.5"/>
+<polygon fill="#000000" stroke="#000000" points="325.9659,-105.0001 335.9659,-101.5 325.9658,-98.0001 325.9659,-105.0001"/>
 </g>
 </g>
 </svg>

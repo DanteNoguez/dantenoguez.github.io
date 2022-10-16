@@ -73,18 +73,17 @@ ax.legend()
 plt.show()
 
 xs = np.arange(1, 11, 1)
-zs = 3
-def cub(x, z): return x**z
-y = cub(xs, zs)
+def cub(x): return x**3
+y = cub(xs)
 
-derivs = (cub(xs+0.00001, zs) - cub(xs, zs)) / 0.00001
+derivs = (cub(xs+0.00001) - cub(xs)) / 0.00001
 
 fig, ax = plt.subplots(ncols=2, figsize=(10, 7))
 ax[0].plot(xs, y, marker='o', color='blue', label='gráfica de la función')
 ax[0].set_title('Gráfica')
 ax[0].set_facecolor('black')
 ax[0].set_xlabel('Valores de x')
-ax[0].set_ylabel('Valores de r')
+ax[0].set_ylabel('Valores de y')
 ax[0].axline((xs[5], y[5]), slope=derivs[5], color='red', label='tangente')
 ax[0].legend()
 ax[1].plot(xs, y, marker='o', color='blue', label='gráfica de la función') 
@@ -202,7 +201,7 @@ def derivada():
   c = a*b; c.etiqueta = 'c'
   d = Numero(10.0, etiqueta='d')
   e = c + d; e.etiqueta = 'e'
-  e.valor += h # aumento de h para obtener la derivada de e con respecto a L
+  e.valor += h # aumento de h para obtener la derivada de L con respecto a e
   f = Numero(-3.0); f.etiqueta = 'f'
   L2 = f * e; L.etiqueta= 'L2'
 
@@ -210,10 +209,10 @@ def derivada():
 
 derivada()
 
-def deriv_c(c, d):
+def deriv_e(c, d):
   return (((c+0.00001)+d) - (c+d)) / 0.00001
 
-deriv_c(-6, 10)
+deriv_e(-6, 10)
 
 def derivada():
   h = 0.000001
@@ -257,7 +256,7 @@ class Numero:
     resultado = Numero(self.valor + otro.valor, (self, otro), '+')
 
     def _propagar():
-      self.grad += 1.0 * resultado.grad # la derivada de una suma es 1 y luego se multiplica por la «derivada global»
+      self.grad += 1.0 * resultado.grad # la derivada de una suma es 1; después, se multiplica por la «derivada global»
       otro.grad += 1.0 * resultado.grad
     resultado._propagar = _propagar
 
@@ -496,7 +495,7 @@ neuron.propagar()
 
 graficar(neuron)
 
-class Capa: #Layer
+class Capa: # Layer
   def __init__(self, nentradas, nsalidas):
     self.neuronas = [Neurona(nentradas) for _ in range(nsalidas)]
 
@@ -507,7 +506,7 @@ class Capa: #Layer
   def parametros(self):
     return [parametro for n in self.neuronas for parametro in n.parametros()]
 
-class MLP:
+class MLP: # Perceptrón multicapa
   def __init__(self, nentrada, nsalidas):
     tamaño = [nentrada] + nsalidas
     self.capas = [Capa(tamaño[i], tamaño[i+1]) for i in range(len(nsalidas))]

@@ -501,9 +501,9 @@ title="Print to PDF"
 <p class="sidebar-title"></p>
 <p>Recomiendo mirar <a class="reference external" href="https://es.khanacademy.org/math/ap-calculus-ab/ab-differentiation-1-new/ab-2-1/v/newton-leibniz-and-usain-bolt">este video</a> antes de continuar la lectura.</p>
 </aside>
-<p>Las redes neuronales son gigantescas expresiones matemáticas realizando operaciones iterativamente. El proceso de «aprendizaje» de una red neuronal consiste en afinar ciertos números que la componen para representar un patrón. Tal proceso de aprendizaje es el componente más fundamental del <em>deep learning</em> (en el habla común, quien hoy dice inteligencia artificial casi siempre se refiere al <em>deep learning</em> o «aprendizaje automático»).</p>
-<p>Primero, hablemos de dicho método de aprendizaje para luego poder avanzar a una visión más holística. El proceso de aprendizaje en una red neuronal se da a través de la derivada. Procuremos entenderla: conceptualmente, la derivada es muy similar a la pendiente, y mide la <strong>proporción o magnitud del cambio</strong> que una variable provoca en el resultado de una función. Digamos que la derivada mide la fuerza con la que una variable influye en el resultado de una función.</p>
-<p>Como ejemplo, midamos el cambio que una variable <span class="math notranslate nohighlight">\(a\)</span> (con valores del 0 al 12 en intervalos de 2) provoca en el resultado de una función <span class="math notranslate nohighlight">\(c\)</span> (equivalente a multiplicar cada valor de <span class="math notranslate nohighlight">\(a\)</span> por <span class="math notranslate nohighlight">\(b\)</span>, que tiene un valor de 5):</p>
+<p>Las redes neuronales son gigantescas expresiones matemáticas realizando operaciones iterativamente. El proceso de «aprendizaje» de una red neuronal consiste en afinar ciertos números que la componen para lograr un patrón de «entendimiento». Tal proceso de aprendizaje es un elemento constitutivo en todo modelo de <em>deep learning</em> (en el habla común, quien hoy dice inteligencia artificial casi siempre se refiere al <em>deep learning</em> o «aprendizaje automático»).</p>
+<p>Hablemos de dicho método de aprendizaje para luego poder avanzar a una visión más holística. El proceso de aprendizaje en una red neuronal se da a través de la derivada. Procuremos entenderla: conceptualmente, la derivada es muy similar a la pendiente, y mide la <strong>proporción o magnitud del cambio</strong> que una variable provoca en el resultado de una función. Digamos que la derivada mide la fuerza con la que una variable influye en el resultado de una función.</p>
+<p>Como ejemplo, midamos el cambio que una variable <span class="math notranslate nohighlight">\(a\)</span> (con valores del 0 al 12 en intervalos de 2) provoca en el resultado de una función <span class="math notranslate nohighlight">\(c\)</span> (equivalente a multiplicar <span class="math notranslate nohighlight">\(a\)</span> por <span class="math notranslate nohighlight">\(b\)</span>, donde <span class="math notranslate nohighlight">\(b\)</span> siempre tiene un valor de 5):</p>
 <div class="math notranslate nohighlight">
 \[
 \text{Función} \ c(a) = ba
@@ -545,7 +545,7 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output text_html"><style type="text/css">
 </style>
-<table id="T_c18bf_" class="dataframe">
+<table id="T_61ddd_" class="dataframe">
   <thead>
     <tr>
       <th class="col_heading level0 col0" >Valores de a</th>
@@ -555,39 +555,39 @@ title="Print to PDF"
   </thead>
   <tbody>
     <tr>
-      <td id="T_c18bf_row0_col0" class="data row0 col0" >0</td>
-      <td id="T_c18bf_row0_col1" class="data row0 col1" >5</td>
-      <td id="T_c18bf_row0_col2" class="data row0 col2" >0</td>
+      <td id="T_61ddd_row0_col0" class="data row0 col0" >0</td>
+      <td id="T_61ddd_row0_col1" class="data row0 col1" >5</td>
+      <td id="T_61ddd_row0_col2" class="data row0 col2" >0</td>
     </tr>
     <tr>
-      <td id="T_c18bf_row1_col0" class="data row1 col0" >2</td>
-      <td id="T_c18bf_row1_col1" class="data row1 col1" >5</td>
-      <td id="T_c18bf_row1_col2" class="data row1 col2" >10</td>
+      <td id="T_61ddd_row1_col0" class="data row1 col0" >2</td>
+      <td id="T_61ddd_row1_col1" class="data row1 col1" >5</td>
+      <td id="T_61ddd_row1_col2" class="data row1 col2" >10</td>
     </tr>
     <tr>
-      <td id="T_c18bf_row2_col0" class="data row2 col0" >4</td>
-      <td id="T_c18bf_row2_col1" class="data row2 col1" >5</td>
-      <td id="T_c18bf_row2_col2" class="data row2 col2" >20</td>
+      <td id="T_61ddd_row2_col0" class="data row2 col0" >4</td>
+      <td id="T_61ddd_row2_col1" class="data row2 col1" >5</td>
+      <td id="T_61ddd_row2_col2" class="data row2 col2" >20</td>
     </tr>
     <tr>
-      <td id="T_c18bf_row3_col0" class="data row3 col0" >6</td>
-      <td id="T_c18bf_row3_col1" class="data row3 col1" >5</td>
-      <td id="T_c18bf_row3_col2" class="data row3 col2" >30</td>
+      <td id="T_61ddd_row3_col0" class="data row3 col0" >6</td>
+      <td id="T_61ddd_row3_col1" class="data row3 col1" >5</td>
+      <td id="T_61ddd_row3_col2" class="data row3 col2" >30</td>
     </tr>
     <tr>
-      <td id="T_c18bf_row4_col0" class="data row4 col0" >8</td>
-      <td id="T_c18bf_row4_col1" class="data row4 col1" >5</td>
-      <td id="T_c18bf_row4_col2" class="data row4 col2" >40</td>
+      <td id="T_61ddd_row4_col0" class="data row4 col0" >8</td>
+      <td id="T_61ddd_row4_col1" class="data row4 col1" >5</td>
+      <td id="T_61ddd_row4_col2" class="data row4 col2" >40</td>
     </tr>
     <tr>
-      <td id="T_c18bf_row5_col0" class="data row5 col0" >10</td>
-      <td id="T_c18bf_row5_col1" class="data row5 col1" >5</td>
-      <td id="T_c18bf_row5_col2" class="data row5 col2" >50</td>
+      <td id="T_61ddd_row5_col0" class="data row5 col0" >10</td>
+      <td id="T_61ddd_row5_col1" class="data row5 col1" >5</td>
+      <td id="T_61ddd_row5_col2" class="data row5 col2" >50</td>
     </tr>
     <tr>
-      <td id="T_c18bf_row6_col0" class="data row6 col0" >12</td>
-      <td id="T_c18bf_row6_col1" class="data row6 col1" >5</td>
-      <td id="T_c18bf_row6_col2" class="data row6 col2" >60</td>
+      <td id="T_61ddd_row6_col0" class="data row6 col0" >12</td>
+      <td id="T_61ddd_row6_col1" class="data row6 col1" >5</td>
+      <td id="T_61ddd_row6_col2" class="data row6 col2" >60</td>
     </tr>
   </tbody>
 </table>
@@ -623,12 +623,12 @@ title="Print to PDF"
 </div>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
-<p>En rigor, la derivada equivale a la pendiente de la línea tangente a un punto de la función. En una función no lineal, por ejemplo, no hablamos de la pendiente de la función, sino de la pendiente de la tangente en un punto (que equivale a la derivada), y la diferencia entre ambas se agudiza cuando agregamos más dimensiones. Aun así, en términos conceptuales, cuando hablamos de dos dimensiones, ambas son equivalentes y la comparación puede ayudar a entender la derivada.</p>
+<p>En una función no lineal nunca hablamos de la pendiente de la función, sino de la pendiente de la tangente a un punto (que equivale a la derivada). Aun así, en términos conceptuales, cuando hablamos de dos dimensiones, derivada y pendiente son similares y la comparación puede ayudar a entender la derivada.</p>
 </aside>
-<p>La línea tangente al punto derivado (denotado por las líneas punteadas: <span class="math notranslate nohighlight">\(a=2, c=10\)</span>) resulta tener la misma inclinación que la recta de la función. Geométricamente, en espacios de dos dimensiones, podríamos entender a la derivada como el grado de inclinación de la línea tangente a un punto. Pero dado que todos los segmentos de una recta tienen la misma inclinación, entonces la inclinación de la tangente es la misma que la de la recta y, consecuentemente, la tangente es igual a la pendiente.</p>
+<p>La línea tangente al punto con respecto al que se deriva (denotado por las líneas punteadas: <span class="math notranslate nohighlight">\(a=2, c=10\)</span>) resulta tener la misma inclinación que la recta de la función. Geométricamente, en espacios de dos dimensiones, podríamos entender a la derivada como el grado de inclinación de la línea tangente a un punto de la función. Pero dado que todos los puntos de una función lineal (o sea, una recta) tienen la misma inclinación, entonces la inclinación de la tangente es la misma que la de la recta y, consecuentemente, la derivada es igual a la pendiente.</p>
 <p>En suma, la pendiente y la derivada tienen el mismo valor porque la proporción que guardan los valores de la variable <span class="math notranslate nohighlight">\(a\)</span> y la función <span class="math notranslate nohighlight">\(c\)</span> es la misma en todos los puntos: la inclinación de la recta nos la dieron los valores de <span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(c\)</span>; la proporción entre ellos se ve reflejada en la inclinación; y dicha inclinación representa la «fuerza» con la que <span class="math notranslate nohighlight">\(a\)</span> influye en <span class="math notranslate nohighlight">\(c\)</span> «a través del tiempo», es decir, conforme pasamos de un valor de <span class="math notranslate nohighlight">\(a\)</span> al siguiente.</p>
-<p>Pongamos otro ejemplo: si los valores de la función nunca cambiaran, entonces la derivada sería 0. Geométricamente, no habría nada de inclinación en la tangente; conceptualmente, la variable no alteraría nunca el resultado de la función, no tendría ninguna influencia en la función, de manera que el «cambio» siempre sería nulo, cero.</p>
-<p>Supongamos que quiero medir la distancia que recorro en 20 segundos: si con el paso del tiempo no avanzo nada o, lo que es lo mismo, si mi variable tiempo no influye en la función distancia, entonces mi función y mi derivada lucen así:</p>
+<p>Pongamos otro ejemplo: si los valores de la función nunca cambiaran, entonces su derivada sería 0. Geométricamente, no habría nada de inclinación en la tangente; conceptualmente, la definición de la función indicaría que su resultado nunca cambiará: ninguna variable tendría influencia en la función, de manera que el «cambio» siempre sería nulo, cero.</p>
+<p>Supongamos que quiero medir la distancia que recorro en 20 segundos: si con el paso del tiempo no avanzo nada o, lo que es lo mismo, si la variable tiempo no influye en la función distancia, entonces la función, la pendiente y la tangente a cualquier punto lucen así:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tiempo</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -667,7 +667,7 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output text_html"><style type="text/css">
 </style>
-<table id="T_bec62_" class="dataframe">
+<table id="T_6bd71_" class="dataframe">
   <thead>
     <tr>
       <th class="col_heading level0 col0" >Valores de x</th>
@@ -676,32 +676,32 @@ title="Print to PDF"
   </thead>
   <tbody>
     <tr>
-      <td id="T_bec62_row0_col0" class="data row0 col0" >0</td>
-      <td id="T_bec62_row0_col1" class="data row0 col1" >6</td>
+      <td id="T_6bd71_row0_col0" class="data row0 col0" >0</td>
+      <td id="T_6bd71_row0_col1" class="data row0 col1" >6</td>
     </tr>
     <tr>
-      <td id="T_bec62_row1_col0" class="data row1 col0" >2</td>
-      <td id="T_bec62_row1_col1" class="data row1 col1" >8</td>
+      <td id="T_6bd71_row1_col0" class="data row1 col0" >2</td>
+      <td id="T_6bd71_row1_col1" class="data row1 col1" >8</td>
     </tr>
     <tr>
-      <td id="T_bec62_row2_col0" class="data row2 col0" >4</td>
-      <td id="T_bec62_row2_col1" class="data row2 col1" >10</td>
+      <td id="T_6bd71_row2_col0" class="data row2 col0" >4</td>
+      <td id="T_6bd71_row2_col1" class="data row2 col1" >10</td>
     </tr>
     <tr>
-      <td id="T_bec62_row3_col0" class="data row3 col0" >6</td>
-      <td id="T_bec62_row3_col1" class="data row3 col1" >12</td>
+      <td id="T_6bd71_row3_col0" class="data row3 col0" >6</td>
+      <td id="T_6bd71_row3_col1" class="data row3 col1" >12</td>
     </tr>
     <tr>
-      <td id="T_bec62_row4_col0" class="data row4 col0" >8</td>
-      <td id="T_bec62_row4_col1" class="data row4 col1" >14</td>
+      <td id="T_6bd71_row4_col0" class="data row4 col0" >8</td>
+      <td id="T_6bd71_row4_col1" class="data row4 col1" >14</td>
     </tr>
     <tr>
-      <td id="T_bec62_row5_col0" class="data row5 col0" >10</td>
-      <td id="T_bec62_row5_col1" class="data row5 col1" >16</td>
+      <td id="T_6bd71_row5_col0" class="data row5 col0" >10</td>
+      <td id="T_6bd71_row5_col1" class="data row5 col1" >16</td>
     </tr>
     <tr>
-      <td id="T_bec62_row6_col0" class="data row6 col0" >12</td>
-      <td id="T_bec62_row6_col1" class="data row6 col1" >18</td>
+      <td id="T_6bd71_row6_col0" class="data row6 col0" >12</td>
+      <td id="T_6bd71_row6_col1" class="data row6 col1" >18</td>
     </tr>
   </tbody>
 </table>
@@ -737,18 +737,17 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">zs</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="k">def</span> <span class="nf">cub</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="n">z</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">cub</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">zs</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">cub</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">cub</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span>
 
-<span class="n">derivs</span> <span class="o">=</span> <span class="p">(</span><span class="n">cub</span><span class="p">(</span><span class="n">xs</span><span class="o">+</span><span class="mf">0.00001</span><span class="p">,</span> <span class="n">zs</span><span class="p">)</span> <span class="o">-</span> <span class="n">cub</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">zs</span><span class="p">))</span> <span class="o">/</span> <span class="mf">0.00001</span>
+<span class="n">derivs</span> <span class="o">=</span> <span class="p">(</span><span class="n">cub</span><span class="p">(</span><span class="n">xs</span><span class="o">+</span><span class="mf">0.00001</span><span class="p">)</span> <span class="o">-</span> <span class="n">cub</span><span class="p">(</span><span class="n">xs</span><span class="p">))</span> <span class="o">/</span> <span class="mf">0.00001</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;gráfica de la función&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Gráfica&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Valores de x&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Valores de r&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Valores de y&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axline</span><span class="p">((</span><span class="n">xs</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="mi">5</span><span class="p">]),</span> <span class="n">slope</span><span class="o">=</span><span class="n">derivs</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;tangente&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;gráfica de la función&#39;</span><span class="p">)</span> 
@@ -768,14 +767,14 @@ title="Print to PDF"
 <img alt="_images/redes_17_0.png" src="_images/redes_17_0.png" />
 </div>
 </div>
-<p>En este último caso, la proporción entre <span class="math notranslate nohighlight">\(x\)</span> y el resultado de la función (o sea, la derivada) nos la da la fórmula <span class="math notranslate nohighlight">\(y = zx^{z-1}\)</span>. Por ejemplo, la derivada del punto a partir del cual trazamos la tangente anterior se puede calcular así:</p>
+<p>En este último caso, la proporción entre <span class="math notranslate nohighlight">\(x\)</span> y el resultado de la función nos la da la fórmula <span class="math notranslate nohighlight">\(y = zx^{z-1}\)</span>. Por ejemplo, la derivada con respecto al punto a partir del cual trazamos la tangente anterior se puede calcular así:</p>
 <div class="math notranslate nohighlight">
 \[
-zx^{z-1}
+3x^{3-1}
 \]</div>
 <div class="math notranslate nohighlight">
 \[
-z = 3; x = 6; z-1=2
+x = 6
 \]</div>
 <div class="math notranslate nohighlight">
 \[
@@ -796,18 +795,18 @@ f^{\prime}(x)=\lim _{h \rightarrow 0} \frac{f(x+h)-f(x)}{h}
 <p class="sidebar-title"></p>
 <p>Sobre límites se puede leer <a class="reference external" href="https://es.khanacademy.org/math/ap-calculus-ab/ab-limits-new/ab-1-2/a/limits-intro?modal=1">este artículo</a>; sobre derivadas, <a class="reference external" href="https://es.khanacademy.org/math/ap-calculus-ab/ab-differentiation-1-new">estos videos</a>.</p>
 </aside>
-<p>Por una parte, es importante familiarizarnos con la notación matemática, así podremos identificar estos conceptos y fórmulas en los textos académicos. Los signos <span class="math notranslate nohighlight">\(\delta, \Delta\)</span> son la letra «D» del alfabeto griego, denominada «delta» (la primera es minúscula; la segunda, mayúscula) y se utiliza para abreviar «derivada». El símbolo <span class="math notranslate nohighlight">\(\lim _{h \rightarrow 0}\)</span> significa «el límite de la función cuando <span class="math notranslate nohighlight">\(h\)</span> tiende a 0». Para efectos prácticos, este símbolo indica que al momento de aplicar la fórmula, debemos reemplazar <span class="math notranslate nohighlight">\(h\)</span> por un valor cercano a 0.</p>
-<p>Ambas fórmulas significan lo mismo. Si prestamos atención, ambas realizan una resta para medir el impacto de una variable en la función, y después una división para estimar la proporción de dicho cambio. En Wikipedia, se define a la derivada de una función como una «razón de cambio instantánea con la que varía el valor de dicha función matemática, según se modifique el valor de su variable independiente». En otras palabras, es lo que decíamos: la derivada mide la proporción (o razón, o tasa, o magnitud) del cambio que los valores de la variable provocan en la función en un punto determinado.</p>
+<p>Por una parte, es importante familiarizarnos con la notación matemática, así podremos identificar estos conceptos y fórmulas en los textos académicos. El signo <span class="math notranslate nohighlight">\(\partial\)</span> es la letra «d» cursiva y se utiliza para abreviar «derivada [parcial]», por lo que la segunda fórmula equivale a «derivada parcial de <span class="math notranslate nohighlight">\(f\)</span> con respecto a <span class="math notranslate nohighlight">\(x\)</span>». El símbolo <span class="math notranslate nohighlight">\(\lim _{h \rightarrow 0}\)</span> significa «el límite de la función cuando <span class="math notranslate nohighlight">\(h\)</span> tiende a 0». A efectos prácticos, este símbolo indica que al momento de aplicar la fórmula, debemos reemplazar <span class="math notranslate nohighlight">\(h\)</span> por un valor cercano a 0.</p>
+<p>Ambas fórmulas significan lo mismo. Si prestamos atención, ambas realizan una resta para medir el impacto de una variable en la función, y después una división para estimar la proporción de dicho cambio. En Wikipedia, se define a la derivada de una función como una «razón de cambio instantánea con la que varía el valor de dicha función matemática, según se modifique el valor de su variable independiente». En otras palabras, es lo que decíamos: la derivada mide la proporción (o razón, o tasa, o magnitud) del cambio que una variable provoca en la función.</p>
 </section>
 <section id="pero-para-que-sirve-la-derivada">
 <h2>Pero ¿para qué sirve la derivada?<a class="headerlink" href="#pero-para-que-sirve-la-derivada" title="Permalink to this headline">#</a></h2>
-<p>Imaginemos que tenemos dos variables: <span class="math notranslate nohighlight">\(x = -2\)</span> y <span class="math notranslate nohighlight">\(y = 3\)</span>. El resultado de multiplicarlas es <span class="math notranslate nohighlight">\(-6\)</span>. Sin embargo, queremos alterar ese resultado para que sea <span class="math notranslate nohighlight">\(0\)</span> y tenemos una restricción: la única manera de hacerlo es a través de las variables de entrada. Para ello, podríamos pensar en aumentar o disminuir las entradas en pasos pequeños y probar aleatoriamente hasta conseguir el resultado.</p>
+<p>Imaginemos que tenemos dos variables: <span class="math notranslate nohighlight">\(x = -2\)</span> e <span class="math notranslate nohighlight">\(y = 3\)</span>. La función <span class="math notranslate nohighlight">\(f(x, y)\)</span> las multiplica y su resultado es <span class="math notranslate nohighlight">\(-6\)</span>. Sin embargo, queremos alterar ese resultado para que sea <span class="math notranslate nohighlight">\(0\)</span> y tenemos una restricción: la única manera de hacerlo es a través de las variables de entrada. Para ello, podríamos pensar en aumentar o disminuir las entradas en pasos pequeños y probar aleatoriamente hasta conseguir el resultado.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
-<p>Ojo: disminuir el 3 aumenta el resultado, puesto que está siendo multiplicado por un número negativo. Ejemplo: 3-1 = 2, 2*-2 = -4, y -4 es menor que -6, el resultado inicial.</p>
+<p>Ojo: disminuir el 3 aumenta el resultado, puesto que está siendo multiplicado por un número negativo. Ejemplo: 3-1 = 2, 2*-2 = -4, y -4 es mayor que -6, el resultado inicial.</p>
 </aside>
 <p>Supongamos que nuestro cambio aplicado será <span class="math notranslate nohighlight">\(0.01\)</span>: disminuiremos <span class="math notranslate nohighlight">\(y\)</span> en esa cantidad y aumentaremos <span class="math notranslate nohighlight">\(x\)</span> de la misma forma: <span class="math notranslate nohighlight">\(x = -1.99 \times y = 2.99 = -5.95\)</span>. Bien, <span class="math notranslate nohighlight">\(-5.95\)</span> es más cercano a <span class="math notranslate nohighlight">\(0\)</span> que <span class="math notranslate nohighlight">\(-6\)</span>. Podríamos continuar este proceso hasta llegar a <span class="math notranslate nohighlight">\(0\)</span>, pero nuestro método no parece muy efectivo.</p>
-<p>Si recordamos la lección aprendida en las derivadas, se nos puede ocurrir utilizarlas para resolver este problema: dado que la derivada me dice el impacto que tiene una variable de entrada en la función, ¿será posible utilizarla para alterar el resultado? Es decir, si la derivada me dice la magnitud del impacto que una varible tiene en el resultado, entonces debería poder utilizar esa información para influir en el resultado de manera más eficiente. Por ejemplo, si la derivada me indica que una variable influye positivamente en el resultado, pero yo quiero disminuirlo, entonces sabré que debo disminuir esa variable, y así sucesivamente.</p>
+<p>Si recordamos la lección aprendida en las derivadas, se nos puede ocurrir utilizarlas para resolver este problema: dado que la derivada me dice el impacto que tiene una variable de entrada en la función, ¿será posible utilizarla para alterar el resultado de la función? Es decir, si la derivada me dice la magnitud del impacto que una varible tiene en el resultado, entonces debería poder utilizar esa información para influir en el resultado de manera más eficiente. Por ejemplo, si la derivada me indica que una variable influye positivamente en la función, pero yo quiero disminuirla, entonces sabré más o menos la magnitud en que debo disminuir esa variable, y así sucesivamente.</p>
 </section>
 <section id="pequegrad">
 <h2>Pequegrad<a class="headerlink" href="#pequegrad" title="Permalink to this headline">#</a></h2>
@@ -873,7 +872,7 @@ f^{\prime}(x)=\lim _{h \rightarrow 0} \frac{f(x+h)-f(x)}{h}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ejemplo: Valor de c: Valor=-6.0 | Valores previos: {Valor=-2.0, Valor=3.0} | Operación realizada para generar c: *
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ejemplo: Valor de c: Valor=-6.0 | Valores previos: {Valor=3.0, Valor=-2.0} | Operación realizada para generar c: *
 </pre></div>
 </div>
 </div>
@@ -932,8 +931,8 @@ f^{\prime}(x)=\lim _{h \rightarrow 0} \frac{f(x+h)-f(x)}{h}
 <div class="cell_output docutils container">
 <img alt="_images/redes_28_0.svg" src="_images/redes_28_0.svg" /></div>
 </div>
-<p>Como decíamos, intuitivamente creemos que la derivada puede ayudarnos: con la derivada sabemos qué impacto tiene cada variable en el resultado final <span class="math notranslate nohighlight">\(L\)</span>. En ese sentido, lo que tendremos que hacer primero es calcular la derivada de cada variable con respecto a <span class="math notranslate nohighlight">\(L\)</span>.</p>
-<p>En principio, la derivada de <span class="math notranslate nohighlight">\(L\)</span> con respecto a sí misma es 1: aunque suene absurdo y evidente a la vez, el cambio en <span class="math notranslate nohighlight">\(L\)</span> es proporcional (idéntico) a sí mismo. Ahora, la derivada de <span class="math notranslate nohighlight">\(f\)</span> y <span class="math notranslate nohighlight">\(e\)</span> con respecto a <span class="math notranslate nohighlight">\(L\)</span> la podemos averiguar con la fórmula que veníamos utilizando:</p>
+<p>Como decíamos, intuitivamente creemos que la derivada puede ayudarnos: con la derivada sabemos qué impacto tiene cada variable en el resultado final <span class="math notranslate nohighlight">\(L\)</span>. En ese sentido, lo que tendremos que hacer primero es calcular la derivada de <span class="math notranslate nohighlight">\(L\)</span> con respecto a cada variable.</p>
+<p>En principio, la derivada de <span class="math notranslate nohighlight">\(L\)</span> con respecto a sí misma es 1: aunque suene absurdo y evidente a la vez, el cambio en <span class="math notranslate nohighlight">\(L\)</span> es proporcional (idéntico) a sí mismo. Ahora, la derivada de <span class="math notranslate nohighlight">\(L\)</span> con respecto a <span class="math notranslate nohighlight">\(f\)</span> y <span class="math notranslate nohighlight">\(e\)</span> la podemos averiguar con la fórmula que veníamos utilizando:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">derivada</span><span class="p">():</span>
@@ -954,7 +953,7 @@ f^{\prime}(x)=\lim _{h \rightarrow 0} \frac{f(x+h)-f(x)}{h}
   <span class="n">c</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="p">;</span> <span class="n">c</span><span class="o">.</span><span class="n">etiqueta</span> <span class="o">=</span> <span class="s1">&#39;c&#39;</span>
   <span class="n">d</span> <span class="o">=</span> <span class="n">Numero</span><span class="p">(</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">etiqueta</span><span class="o">=</span><span class="s1">&#39;d&#39;</span><span class="p">)</span>
   <span class="n">e</span> <span class="o">=</span> <span class="n">c</span> <span class="o">+</span> <span class="n">d</span><span class="p">;</span> <span class="n">e</span><span class="o">.</span><span class="n">etiqueta</span> <span class="o">=</span> <span class="s1">&#39;e&#39;</span>
-  <span class="n">e</span><span class="o">.</span><span class="n">valor</span> <span class="o">+=</span> <span class="n">h</span> <span class="c1"># aumento de h para obtener la derivada de e con respecto a L</span>
+  <span class="n">e</span><span class="o">.</span><span class="n">valor</span> <span class="o">+=</span> <span class="n">h</span> <span class="c1"># aumento de h para obtener la derivada de L con respecto a e</span>
   <span class="n">f</span> <span class="o">=</span> <span class="n">Numero</span><span class="p">(</span><span class="o">-</span><span class="mf">3.0</span><span class="p">);</span> <span class="n">f</span><span class="o">.</span><span class="n">etiqueta</span> <span class="o">=</span> <span class="s1">&#39;f&#39;</span>
   <span class="n">L2</span> <span class="o">=</span> <span class="n">f</span> <span class="o">*</span> <span class="n">e</span><span class="p">;</span> <span class="n">L</span><span class="o">.</span><span class="n">etiqueta</span><span class="o">=</span> <span class="s1">&#39;L2&#39;</span>
 
@@ -970,26 +969,26 @@ f^{\prime}(x)=\lim _{h \rightarrow 0} \frac{f(x+h)-f(x)}{h}
 </div>
 </div>
 </div>
-<p>La derivada de <span class="math notranslate nohighlight">\(e\)</span> con respecto a la función es aproximadamente <span class="math notranslate nohighlight">\(-3\)</span>. A estas alturas, ya habremos notado un patrón: cuando derivamos una multiplicación, el resultado es la variable multiplicadora. En este caso, <span class="math notranslate nohighlight">\(L\)</span> es el resultado de multiplicar <span class="math notranslate nohighlight">\(e\)</span> con <span class="math notranslate nohighlight">\(f\)</span>. Vimos que la derivada de <span class="math notranslate nohighlight">\(e\)</span> es <span class="math notranslate nohighlight">\(-3\)</span>, o sea <span class="math notranslate nohighlight">\(f\)</span>. Podemos inducir, empíricamente y por simetría, que la derivada de <span class="math notranslate nohighlight">\(f\)</span> es <span class="math notranslate nohighlight">\(e\)</span>, o sea 4.</p>
+<p>La derivada de la función <span class="math notranslate nohighlight">\(L\)</span> con respecto a <span class="math notranslate nohighlight">\(e\)</span> es aproximadamente <span class="math notranslate nohighlight">\(-3\)</span>. A estas alturas, ya habremos notado un patrón: cuando derivamos una multiplicación, la derivada parcial con respecto al multiplicando es el multiplicador. En este caso, <span class="math notranslate nohighlight">\(L\)</span> es el resultado de multiplicar <span class="math notranslate nohighlight">\(e\)</span> con <span class="math notranslate nohighlight">\(f\)</span>. Vimos que la derivada con respecto a <span class="math notranslate nohighlight">\(e\)</span> es <span class="math notranslate nohighlight">\(-3\)</span>, o sea <span class="math notranslate nohighlight">\(f\)</span>. Podemos inducir, empíricamente y por simetría, que la derivada con respecto a <span class="math notranslate nohighlight">\(f\)</span> es <span class="math notranslate nohighlight">\(e\)</span>, o sea 4.</p>
 <p>Quizá también sea una buena oportunidad para demostrar analíticamente lo que venimos diciendo. Utilizando nuestra fórmula matemática, tenemos que:</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{\partial L(e, f)}{\partial e}=\lim _{h \rightarrow 0}{\frac{L(e + h, f)-L(e, f)}{h}} = {\frac{(e + h) \cdot f - e \cdot f}{h}} = {\frac{ef + hf - ef}{h}} = {\frac{hf}{h}} = f
 \]</div>
 <p>Y aunque la notación aparente complejidad, en realidad solo estamos sumando, multiplicando, restando y dividiendo.</p>
-<p>Ahora que ya tenemos esta información, queremos continuar al nodo anterior: las derivadas de <span class="math notranslate nohighlight">\(c\)</span> y <span class="math notranslate nohighlight">\(d\)</span>. Pero aquí hay una sutileza que, bien entendida, nos dará la clave de las redes neuronales: debemos obtener la derivada de <span class="math notranslate nohighlight">\(c\)</span> y <span class="math notranslate nohighlight">\(d\)</span> con respecto a <span class="math notranslate nohighlight">\(L\)</span>, no con respecto a <span class="math notranslate nohighlight">\(e\)</span>. Entonces, ¿cómo podemos averiguar el impacto que <span class="math notranslate nohighlight">\(c\)</span> y <span class="math notranslate nohighlight">\(d\)</span> tienen en <span class="math notranslate nohighlight">\(L\)</span> a través de <span class="math notranslate nohighlight">\(e\)</span>? Para hacer este cálculo solo hace falta una intuición bastante simple.</p>
+<p>Ahora que ya tenemos esta información, queremos continuar al nodo anterior: las derivadas con respecto a <span class="math notranslate nohighlight">\(c\)</span> y <span class="math notranslate nohighlight">\(d\)</span>. Pero aquí hay una sutileza que, bien entendida, nos dará la clave de las redes neuronales: debemos obtener la derivada de <span class="math notranslate nohighlight">\(L\)</span> con respecto a <span class="math notranslate nohighlight">\(c\)</span> y <span class="math notranslate nohighlight">\(d\)</span>, no la derivada de <span class="math notranslate nohighlight">\(e\)</span> con respecto a ellas. Entonces, ¿cómo podemos averiguar el impacto que <span class="math notranslate nohighlight">\(c\)</span> y <span class="math notranslate nohighlight">\(d\)</span> tienen en <span class="math notranslate nohighlight">\(L\)</span> a través de <span class="math notranslate nohighlight">\(e\)</span>? Para hacer este cálculo solo hace falta una intuición bastante simple.</p>
 </section>
 <section id="la-regla-de-la-cadena-propagacion-hacia-atras">
 <h2>La regla de la cadena: propagación hacia atrás<a class="headerlink" href="#la-regla-de-la-cadena-propagacion-hacia-atras" title="Permalink to this headline">#</a></h2>
 <p>Tomemos prestada la analogía de George Simmons: si una bicicleta es dos veces más rápida que una persona corriendo, y un automóvil cuatro veces más rápido que una bicicleta, entonces el automóvil es <span class="math notranslate nohighlight">\(2 \times 4 = 8\)</span> veces más rápido que una persona corriendo.</p>
-<p>De igual forma, si queremos saber la influencia que <span class="math notranslate nohighlight">\(c\)</span> tiene en <span class="math notranslate nohighlight">\(L\)</span>, solo debemos obtener la derivada de <span class="math notranslate nohighlight">\(c\)</span> con respecto a <span class="math notranslate nohighlight">\(e\)</span>, y multiplicarla por la derivada de <span class="math notranslate nohighlight">\(e\)</span> con respecto a <span class="math notranslate nohighlight">\(L\)</span>. Es decir, debemos multiplicar la fuerza de <span class="math notranslate nohighlight">\(c\)</span> y la de <span class="math notranslate nohighlight">\(e\)</span> para saber con cuánta fuerza influye <span class="math notranslate nohighlight">\(c\)</span> en <span class="math notranslate nohighlight">\(L\)</span>. Lo mismo vale para <span class="math notranslate nohighlight">\(d\)</span> y todas las demás; a esta regla se le llama «regla de la cadena» (o «propagación hacia atrás» en el campo de la inteligencia artificial).</p>
-<p>Ahora, para obtener la derivada de <span class="math notranslate nohighlight">\(c\)</span> con respecto a <span class="math notranslate nohighlight">\(e\)</span>, recordemos otro patrón que vimos: en una suma, la derivada nos daba como resultado 1 porque la función avanzaba en la misma proporción que avanzaba la variable. Verifiquémoslo:</p>
+<p>De igual forma, si queremos saber la influencia que <span class="math notranslate nohighlight">\(c\)</span> tiene en <span class="math notranslate nohighlight">\(L\)</span>, solo debemos obtener la derivada de <span class="math notranslate nohighlight">\(e\)</span> con respecto a <span class="math notranslate nohighlight">\(c\)</span>, y multiplicarla por la derivada de <span class="math notranslate nohighlight">\(L\)</span> con respecto a <span class="math notranslate nohighlight">\(e\)</span>. Es decir, debemos multiplicar la fuerza de <span class="math notranslate nohighlight">\(c\)</span> en <span class="math notranslate nohighlight">\(e\)</span> y la de <span class="math notranslate nohighlight">\(e\)</span> en <span class="math notranslate nohighlight">\(L\)</span> para saber con cuánta fuerza influye <span class="math notranslate nohighlight">\(c\)</span> en <span class="math notranslate nohighlight">\(L\)</span>. Lo mismo vale para <span class="math notranslate nohighlight">\(d\)</span> y todas las demás; a esta regla se le llama «regla de la cadena» (y mediante ella se realiza la «propagación hacia atrás» en el campo de la inteligencia artificial).</p>
+<p>Ahora, para obtener la derivada de <span class="math notranslate nohighlight">\(e\)</span> con respecto a <span class="math notranslate nohighlight">\(c\)</span>, recordemos otro patrón que vimos: en una suma, la derivada nos daba como resultado <span class="math notranslate nohighlight">\(1\)</span> porque la función avanzaba en la misma proporción que avanzaba la variable. Verifiquémoslo:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">deriv_c</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">deriv_e</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
   <span class="k">return</span> <span class="p">(((</span><span class="n">c</span><span class="o">+</span><span class="mf">0.00001</span><span class="p">)</span><span class="o">+</span><span class="n">d</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">c</span><span class="o">+</span><span class="n">d</span><span class="p">))</span> <span class="o">/</span> <span class="mf">0.00001</span>
 
-<span class="n">deriv_c</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">deriv_e</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -999,8 +998,14 @@ f^{\prime}(x)=\lim _{h \rightarrow 0} \frac{f(x+h)-f(x)}{h}
 </div>
 </div>
 </div>
-<p>En efecto, el resultado es aproximadamente 1. Por simetría nuevamente, entendemos que la derivada de <span class="math notranslate nohighlight">\(d\)</span> con respecto a <span class="math notranslate nohighlight">\(e\)</span> también es 1.</p>
-<p>Y ahora que ya tenemos ambas derivadas podemos multiplicarlas: <span class="math notranslate nohighlight">\(1 \times -3 = -3\)</span>. Así pues, la derivada de <span class="math notranslate nohighlight">\(d\)</span> y <span class="math notranslate nohighlight">\(c\)</span> con respecto a <span class="math notranslate nohighlight">\(L\)</span> es -3. Comprobémoslo:</p>
+<p>En efecto, el resultado es aproximadamente 1. Por simetría nuevamente, entendemos que la derivada de <span class="math notranslate nohighlight">\(e\)</span> con respecto a <span class="math notranslate nohighlight">\(d\)</span> también es <span class="math notranslate nohighlight">\(1\)</span>.</p>
+<p>Y ahora que ya tenemos ambas derivadas, podemos multiplicarlas: <span class="math notranslate nohighlight">\(1 \times -3 = -3\)</span>. Así pues, la derivada de <span class="math notranslate nohighlight">\(L\)</span> con respecto a <span class="math notranslate nohighlight">\(c\)</span> y <span class="math notranslate nohighlight">\(d\)</span> es <span class="math notranslate nohighlight">\(-3\)</span>. En términos matemáticos, hemos hecho algo equivalente a:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dz}{dx} = \frac{dz}{dy} \cdot \frac{dy}{dx}
+\]</div>
+<p>Donde <span class="math notranslate nohighlight">\(z\)</span> depende de <span class="math notranslate nohighlight">\(y\)</span> y, a su vez, <span class="math notranslate nohighlight">\(y\)</span> depende de <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<p>Comprobémoslo programáticamente:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">derivada</span><span class="p">():</span>
@@ -1037,7 +1042,7 @@ f^{\prime}(x)=\lim _{h \rightarrow 0} \frac{f(x+h)-f(x)}{h}
 </div>
 </div>
 </div>
-<p>Finalmente, debemos hacer lo mismo para obtener las derivadas de <span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(b\)</span>. Entonces, dado el patrón que habíamos descubierto, la derivada de <span class="math notranslate nohighlight">\(a\)</span> con respecto a <span class="math notranslate nohighlight">\(c\)</span> es <span class="math notranslate nohighlight">\(b\)</span>, o sea <span class="math notranslate nohighlight">\(3\)</span>, y viceversa: la derivada de <span class="math notranslate nohighlight">\(b\)</span> es <span class="math notranslate nohighlight">\(a\)</span>, o sea <span class="math notranslate nohighlight">\(-2\)</span>. Pero recordemos: esta derivada «local» está dada con respecto a <span class="math notranslate nohighlight">\(c\)</span>, y a nosotros nos interesa la derivada con respecto a <span class="math notranslate nohighlight">\(L\)</span>, es decir, la magnitud de la influencia que <span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(b\)</span> tienen en <span class="math notranslate nohighlight">\(L\)</span>. Para saberlo, únicamente debemos aplicar la regla de la cadena y multiplicar las derivadas que tenemos por la derivada de <span class="math notranslate nohighlight">\(c\)</span>. Entonces la derivada de <span class="math notranslate nohighlight">\(a\)</span> es <span class="math notranslate nohighlight">\(3 \times -3 = -9\)</span>, mientras que la derivada de <span class="math notranslate nohighlight">\(b\)</span> es <span class="math notranslate nohighlight">\(-2 \times -3 = 6\)</span>.</p>
+<p>Finalmente, debemos hacer lo mismo para obtener las derivadas con respecto a <span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(b\)</span>. Entonces, dado el patrón que habíamos descubierto, la derivada de <span class="math notranslate nohighlight">\(c\)</span> con respecto a <span class="math notranslate nohighlight">\(a\)</span> es <span class="math notranslate nohighlight">\(b\)</span>, o sea <span class="math notranslate nohighlight">\(3\)</span>, y viceversa: la derivada con respecto a <span class="math notranslate nohighlight">\(b\)</span> es <span class="math notranslate nohighlight">\(a\)</span>, o sea <span class="math notranslate nohighlight">\(-2\)</span>. Pero recordemos: estas derivadas «locales» son de la función <span class="math notranslate nohighlight">\(c\)</span>, y a nosotros nos interesa la derivada de <span class="math notranslate nohighlight">\(L\)</span>, es decir, la magnitud de la influencia que <span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(b\)</span> tienen en <span class="math notranslate nohighlight">\(L\)</span>. Para saberlo, nuevamente debemos aplicar la regla de la cadena y multiplicar las derivadas que tenemos por la derivada de <span class="math notranslate nohighlight">\(L\)</span> con respecto a <span class="math notranslate nohighlight">\(c\)</span>. Entonces, la derivada parcial de <span class="math notranslate nohighlight">\(L\)</span> con respecto a <span class="math notranslate nohighlight">\(a\)</span> es <span class="math notranslate nohighlight">\(3 \times -3 = -9\)</span>, mientras que la derivada parcial con respecto a <span class="math notranslate nohighlight">\(b\)</span> es <span class="math notranslate nohighlight">\(-2 \times -3 = 6\)</span>.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>A la derivada global, es decir, a la que se da con respecto al resultado final y no al local, se le denomina «gradiente». Las fórmulas que utilizamos para derivar pueden leerse <a class="reference external" href="https://es.wikipedia.org/wiki/Derivada#C%C3%A1lculo_de_la_derivada">aquí</a>; algunas fórmulas que utilizaremos a continuación, <a class="reference external" href="https://aew61.github.io/blog/artificial_neural_networks/1_background/1.b_activation_functions_and_derivatives.html">aquí</a>.</p>
@@ -1061,7 +1066,7 @@ f^{\prime}(x)=\lim _{h \rightarrow 0} \frac{f(x+h)-f(x)}{h}
     <span class="n">resultado</span> <span class="o">=</span> <span class="n">Numero</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">valor</span> <span class="o">+</span> <span class="n">otro</span><span class="o">.</span><span class="n">valor</span><span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">otro</span><span class="p">),</span> <span class="s1">&#39;+&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_propagar</span><span class="p">():</span>
-      <span class="bp">self</span><span class="o">.</span><span class="n">grad</span> <span class="o">+=</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="n">resultado</span><span class="o">.</span><span class="n">grad</span> <span class="c1"># la derivada de una suma es 1 y luego se multiplica por la «derivada global»</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">grad</span> <span class="o">+=</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="n">resultado</span><span class="o">.</span><span class="n">grad</span> <span class="c1"># la derivada de una suma es 1; después, se multiplica por la «derivada global»</span>
       <span class="n">otro</span><span class="o">.</span><span class="n">grad</span> <span class="o">+=</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="n">resultado</span><span class="o">.</span><span class="n">grad</span>
     <span class="n">resultado</span><span class="o">.</span><span class="n">_propagar</span> <span class="o">=</span> <span class="n">_propagar</span>
 
@@ -1240,8 +1245,8 @@ f^{\prime}(x)=\lim _{h \rightarrow 0} \frac{f(x+h)-f(x)}{h}
 <div class="cell_output docutils container">
 <img alt="_images/redes_40_0.svg" src="_images/redes_40_0.svg" /></div>
 </div>
-<p>Bien. Ahora pongamos en práctica nuestra intuición: dado que el gradiente (o derivada global) nos dice la «fuerza» con la que cada número aumenta el valor final, podemos utilizar esa misma fuerza para alterar nuestros valores y, con ello, aumentar el valor de <span class="math notranslate nohighlight">\(L\)</span>. La bondad de utilizar el gradiente es que nos indica la «dirección» en la que debemos modificar cada valor para aumentar el resultado final, es decir: aumentar los valores de la variable en la misma dirección de su gradiente, contribuye a elevar el valor de la función global. Incluso si el gradiente tiene un valor negativo, eso indicaría que el valor de la variable debe disminuir para incrementar la función. De igual forma, si lo que queremos es disminuir el valor de la función, solo debemos ir en la dirección opuesta —<em>i. e.</em>, negativa— al gradiente.</p>
-<p>Las siguientes imágenes ilustran con flechas (vectores) la dirección de los gradientes, y en blanco y negro a los valores de la función (el negro indica los valores más altos). Como digo, los gradientes indican la dirección en la que la función aumenta de valor:</p>
+<p>Bien. Ahora pongamos en práctica nuestra intuición: dado que el gradiente (o derivada global, o la colección de derivadas parciales de <span class="math notranslate nohighlight">\(L\)</span> con respecto a cada variable) nos dice la «fuerza» con la que cada número aumenta el resultado final de la función, podemos utilizar esa misma fuerza para alterar nuestros valores y, con ello, aumentar el valor de <span class="math notranslate nohighlight">\(L\)</span>. La bondad de utilizar el gradiente es que nos indica la «dirección» y la magnitud en la que debemos modificar cada valor para aumentar el resultado final, es decir: aumentar el valor de cada variable en la misma dirección del gradiente, contribuye a elevar el valor de la función global. Incluso si el gradiente tiene un valor negativo, eso indicaría que el valor de la variable debe disminuir para incrementar la función. De igual forma, si lo que queremos es disminuir el valor de una función, solo debemos ir en la dirección opuesta —<em>i. e.</em>, negativa— al gradiente.</p>
+<p>Las siguientes imágenes ilustran con flechas azules la dirección del gradiente, y en blanco y negro a los valores de la función (el negro indica los valores más altos). Como digo, el gradiente indica la dirección en la que la función aumenta su valor:</p>
 <img src='https://upload.wikimedia.org/wikipedia/commons/0/0f/Gradient2.svg' width=500>
 <p>Solo hace falta un detalle: al emplear esta estrategia, debemos ser cuidadosos de no excedernos en el aumento del resultado, puesto que queremos llegar a 0 sin superarlo. Para ello, podemos atenuar la fuerza de los gradientes, multiplicándolos por un número pequeño como 0.01 o 0.1 para luego sumar (en caso de querer aumentar el resultado final de la función) o restar ese valor a la variable. Probemos un ejemplo con la variable <span class="math notranslate nohighlight">\(a\)</span>:</p>
 <div class="cell docutils container">
@@ -1302,16 +1307,20 @@ Benoît Mandelbrot</p>
 <section id="perceptron-multicapa">
 <h2>Perceptrón multicapa<a class="headerlink" href="#perceptron-multicapa" title="Permalink to this headline">#</a></h2>
 <p>Anteriormente, construimos una especie de neurona; sin embargo, el poder de una red neuronal consiste en que tiene millones de neuronas, todas optimizando sus valores para darnos el resultado que deseamos (en nuestro ejemplo: 0).</p>
-<p>A continuación, construiremos una red neuronal llamada «perceptrón multicapa» (<em>Multilayer Perceptron</em> o MLP en inglés) que nos permitirá resolver problemas prácticos. Como ejemplo, la entrenaremos para que identifique el sarcasmo.</p>
+<p>A continuación, construiremos una red neuronal llamada «perceptrón multicapa» (<em>Multilayer Perceptron</em> o MLP en inglés) que nos permitirá resolver problemas prácticos. Como ejemplo, la entrenaremos para que identifique sarcasmo en reseñas de películas.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>El ejemplo está inspirado en aquel formulado por <a class="reference external" href="https://qr.ae/pvKSx5">Sriraman Madhavan</a>.</p>
 </aside>
-<p>Para detectar sarcasmo en las reseñas que los usuarios dan sobre una película, podríamos tomar como variables importantes el sentimiento y la calificación asignada. Por ejemplo:</p>
+<p>Para detectar sarcasmo en las reseñas que los usuarios dan sobre una película, podríamos tomar como base dos variables: el sentimiento (con valores del 1 al 5, donde 5 es un sentimiento positivo y 1 uno negativo) y la calificación asignada (también con valores del 1 al 5). Por ejemplo:</p>
 <ul class="simple">
 <li><p><em>Genial, me encanta cuando veo una película de terror con la típica trama de siempre</em>. Calificación: 2/5.</p></li>
 </ul>
-<p>En este caso, el sentimiento parece positivo, pero la reseña es negativa, de manera que podemos establecer una relación entre ambas variables para detectar el sarcasmo: si la calificación es baja pero el sentimiento «alto», entonces hay sarcasmo.</p>
+<p>En este caso, el sentimiento es positivo (utiliza expresiones como «genial», «me encanta», pero la reseña es negativa, de manera que podemos establecer una relación de proporcionalidad inversa entre ambas variables para detectar el sarcasmo: si la calificación es baja pero el sentimiento «alto», entonces hay sarcasmo.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Para visualizar de mejor manera los siguientes gráficos, recomiendo dar clic derecho en el gráfico y abrirlo en una nueva pestaña.</p>
+</aside>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#entradas</span>
@@ -1343,9 +1352,9 @@ Benoît Mandelbrot</p>
 <div class="cell_output docutils container">
 <img alt="_images/redes_48_0.svg" src="_images/redes_48_0.svg" /></div>
 </div>
-<p>Por el momento, nuestros valores son aleatorios y todo funciona mal. La calificación y el sentimiento son altos, pero el sarcasmo es positivo también. Queremos que el sarcasmo sea 0 en este caso. Podemos optimizarla programáticamente ahora que ya conocemos la propagación hacia atrás.</p>
-<p>Primero, crearemos la clase <code class="docutils literal notranslate"><span class="pre">Neurona</span></code> para crear una estructura como la anterior. Al pasar nuestras variables por la <code class="docutils literal notranslate"><span class="pre">Neurona</span></code>, obtendremos un <code class="docutils literal notranslate"><span class="pre">peso</span></code> y un <code class="docutils literal notranslate"><span class="pre">sesgo</span></code> por cada una. Hecho esto, realizaremos operaciones con el peso, el sesgo y las entradas para transformar las entradas y, con ello, obtengamos al final el resultado deseado. Por ejemplo: si mis entradas son 5 y 5 —como en nuestro ejemplo—, nosotros queremos encontrar unos pesos y sesgos tales que, multiplicados y sumados por 5 y 5, nos den como resultado un 0, puesto que 5 y 5 significa ausencia de sarcasmo en este caso. Al mismo tiempo, queremos que esos mismos pesos y sesgos, al ser multiplicados y sumados por un sentimiento de 5 y una calificación de 1, nos arrojen 1 como resultado, puesto que eso indicaría sarcasmo.</p>
-<p>Para obtener una probabilidad de sarcasmo del 0 al 1, utilizaremos la función tangente hiperbólica, la cual es muy similar a las que vimos con anterioridad (sigmoide, ReLU, softmax): cuando nuestros valores la atraviesen, ella nos dará como resultado un valor del -1 al 1.</p>
+<p>Por el momento, nuestros valores son aleatorios y todo funciona mal. La calificación y el sentimiento que asignamos son 5, pero la neurona indica que la reseña es sarcástica porque da 1 como resultado. Al contrario, queremos que el sarcasmo sea 0 en este caso. Podemos optimizarla programáticamente ahora que ya conocemos la propagación hacia atrás.</p>
+<p>Primero, crearemos la clase <code class="docutils literal notranslate"><span class="pre">Neurona</span></code> para crear una estructura como la anterior. Al pasar nuestras variables por la <code class="docutils literal notranslate"><span class="pre">Neurona</span></code>, obtendremos un <code class="docutils literal notranslate"><span class="pre">peso</span></code> y un <code class="docutils literal notranslate"><span class="pre">sesgo</span></code> por cada una. Hecho esto, realizaremos operaciones con el peso, el sesgo y las entradas para transformar las entradas y, con ello, obtengamos al final el resultado deseado. Por ejemplo: si mis entradas son 5 y 5 —como en nuestro ejemplo—, nosotros queremos encontrar unos pesos y sesgos tales que, multiplicados y sumados por 5 y 5, nos den como resultado un 0, puesto que 5 y 5 significa ausencia de sarcasmo en este caso. Al mismo tiempo, queremos que esos mismos pesos y sesgos, por ejemplo al ser multiplicados y sumados por un sentimiento de 5 y una calificación de 1, nos arrojen 1 como resultado, puesto que eso indicaría sarcasmo.</p>
+<p>Para obtener como resultado una probabilidad de sarcasmo del 0 al 1, utilizaremos la función tangente hiperbólica, la cual es muy similar a las que vimos con anterioridad (sigmoide, ReLU, softmax): cuando nuestros valores la atraviesen, ella nos dará como resultado un valor del -1 al 1.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
@@ -1391,7 +1400,7 @@ Benoît Mandelbrot</p>
 <p>Construiremos, pues, una «capa», que no es más que una forma programática de definir cuántas neuronas queremos para nuestras entradas, es decir, de generar una serie de neuronas; y finalmente conectaremos todo con un «perceptrón multicapa», que consiste en unir varias capas entre sí:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Capa</span><span class="p">:</span> <span class="c1">#Layer</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Capa</span><span class="p">:</span> <span class="c1"># Layer</span>
   <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nentradas</span><span class="p">,</span> <span class="n">nsalidas</span><span class="p">):</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">neuronas</span> <span class="o">=</span> <span class="p">[</span><span class="n">Neurona</span><span class="p">(</span><span class="n">nentradas</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nsalidas</span><span class="p">)]</span>
 
@@ -1402,7 +1411,7 @@ Benoît Mandelbrot</p>
   <span class="k">def</span> <span class="nf">parametros</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">parametro</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">neuronas</span> <span class="k">for</span> <span class="n">parametro</span> <span class="ow">in</span> <span class="n">n</span><span class="o">.</span><span class="n">parametros</span><span class="p">()]</span>
 
-<span class="k">class</span> <span class="nc">MLP</span><span class="p">:</span>
+<span class="k">class</span> <span class="nc">MLP</span><span class="p">:</span> <span class="c1"># Perceptrón multicapa</span>
   <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nentrada</span><span class="p">,</span> <span class="n">nsalidas</span><span class="p">):</span>
     <span class="n">tamaño</span> <span class="o">=</span> <span class="p">[</span><span class="n">nentrada</span><span class="p">]</span> <span class="o">+</span> <span class="n">nsalidas</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">capas</span> <span class="o">=</span> <span class="p">[</span><span class="n">Capa</span><span class="p">(</span><span class="n">tamaño</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">tamaño</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nsalidas</span><span class="p">))]</span>
@@ -1443,7 +1452,8 @@ Benoît Mandelbrot</p>
 <div class="cell_output docutils container">
 <img alt="_images/redes_57_0.svg" src="_images/redes_57_0.svg" /></div>
 </div>
-<p>Como vemos, únicamente estamos interconectando y creando más neuronas para que nuestro modelo tenga más potencia. Ahora manos a la obra. Daremos a nuestro modelo cuatro entradas de entrenamiento: cada entrada tendrá el sentimiento y la calificación asignada, así como el valor de sarcasmo objetivo que deseamos:</p>
+<p>Como vemos, únicamente estamos interconectando y creando más neuronas para que nuestro modelo tenga más potencia. Al mismo tiempo, vemos que una neurona interconecta las entradas entre sí a través de pesos y sesgos. Los pesos y sesgos, además de realizar operaciones diferenciables (es decir, que podemos derivar), nos ayudarán a ir midiendo la relevancia de cada entrada para, con base en el gradiente, ajustarse en proporción a dicha relevancia. De igual forma, los pesos y sesgos articularán el patrón de números que en este caso necesitamos para convertir cada combinación de entradas en una probabilidad de sarcasmo.</p>
+<p>Ahora manos a la obra. Daremos a nuestro modelo cuatro entradas de entrenamiento (es decir, serán ejemplos para que la red neuronal aprenda): cada entrada tendrá el sentimiento y la calificación asignada, así como el valor de sarcasmo objetivo que deseamos:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">entradas</span> <span class="o">=</span> <span class="p">[</span>
@@ -1460,10 +1470,10 @@ Benoît Mandelbrot</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Valor=-0.6558775186630457,
- Valor=-0.2146520550751556,
- Valor=-0.2551305261055568,
- Valor=-0.8824404203828176]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Valor=0.5536020204328362,
+ Valor=0.5929587530960335,
+ Valor=0.5933715468494892,
+ Valor=0.5474121015150051]
 </pre></div>
 </div>
 </div>
@@ -1481,10 +1491,10 @@ Benoît Mandelbrot</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Valor=0.4301753194875938,
- Valor=1.475379614898299,
- Valor=1.5753526375620117,
- Valor=0.7787010955254038]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Valor=0.30647519702731846,
+ Valor=0.1656825766811358,
+ Valor=0.16534669891157713,
+ Valor=0.2996600088850742]
 </pre></div>
 </div>
 </div>
@@ -1498,12 +1508,12 @@ Benoît Mandelbrot</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Valor=4.259608667473308
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Valor=0.9371644815051057
 </pre></div>
 </div>
 </div>
 </div>
-<p>Ahora, con base en la pérdida, haremos propagación hacia atrás: obtendremos los gradientes y, con ello, sabremos en qué dirección modificar nuestros pesos y sesgos para que la pérdida (o el error, o la distancia) sea 0, es decir, que nuestras predicciones sean idénticas a nuestros objetivos:</p>
+<p>Ahora, con base en la función de pérdida, haremos propagación hacia atrás: obtendremos los gradientes y, con ello, sabremos en qué dirección modificar nuestros pesos y sesgos para que la pérdida (o el error, o la distancia) sea 0, es decir, que nuestras predicciones sean idénticas a nuestros objetivos:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">perdida</span><span class="o">.</span><span class="n">propagar</span><span class="p">()</span>
@@ -1520,7 +1530,7 @@ Benoît Mandelbrot</p>
 <div class="cell_output docutils container">
 <img alt="_images/redes_66_0.svg" src="_images/redes_66_0.svg" /></div>
 </div>
-<p>Esto ya luce mucho más como una red neuronal. Calcular manualmente todos los gradientes sería engorroso; pero la programación nos permite apalancarnos de los algoritmos, las matemáticas y las computadoras para explotar su potencial en automático.</p>
+<p>Esto ya luce mucho más como una red neuronal. Calcular manualmente todos los gradientes sería engorroso; pero la programación nos permite apalancarnos de los algoritmos, las matemáticas y las computadoras para explotar su potencial a gran escala.</p>
 <p>Echemos un vistazo a nuestros parámetros (o sea, pesos y sesgos):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1529,51 +1539,51 @@ Benoît Mandelbrot</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Valor=-0.28026319051759696,
- Valor=-0.28944334969676877,
- Valor=-0.6009365746831612,
- Valor=-0.9588294559034782,
- Valor=0.4671717151918744,
- Valor=0.6605012452052585,
- Valor=0.24817877652422982,
- Valor=-0.5847865721578331,
- Valor=-0.057504836567210615,
- Valor=-0.833760878985979,
- Valor=0.7100205033131965,
- Valor=-0.4666888714429569,
- Valor=-0.5535537623331941,
- Valor=-0.2569718982301068,
- Valor=-0.8510483574256129,
- Valor=-0.10028450815427803,
- Valor=-0.641887883009834,
- Valor=-0.5343378843629532,
- Valor=0.17617843265381627,
- Valor=-0.8096910017145418,
- Valor=-0.5866607183527524,
- Valor=-0.1954254823418935,
- Valor=-0.8831256725087115,
- Valor=-0.6641334736082161,
- Valor=0.9026524436837855,
- Valor=-0.36737119806925045,
- Valor=0.2065226780211631,
- Valor=0.9303323259200051,
- Valor=0.17673593486570738,
- Valor=0.6830177315470973,
- Valor=-0.8333363380419656,
- Valor=-0.3061253797649468,
- Valor=0.6774819428120411,
- Valor=0.6731437339808086,
- Valor=-0.7753468895623559,
- Valor=0.17180865402020928,
- Valor=-0.6876998665354204,
- Valor=-0.6176618248412966,
- Valor=-0.3957708784826035,
- Valor=0.7615550963880748,
- Valor=-0.801047760096512,
- Valor=0.7160563894845482,
- Valor=0.16859536359184268,
- Valor=-0.9057172237846913,
- Valor=-0.4979867180552713]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Valor=0.6976529348474441,
+ Valor=0.21826789993905638,
+ Valor=0.7250987287020119,
+ Valor=-0.10172405422826714,
+ Valor=0.7016870005215647,
+ Valor=-0.8991612202762476,
+ Valor=-0.205342230631141,
+ Valor=-0.41031800171540644,
+ Valor=0.4479868853997817,
+ Valor=0.9831188711731345,
+ Valor=0.6070057725557565,
+ Valor=0.02599492446833196,
+ Valor=-0.8012747322183369,
+ Valor=-0.6662034074027103,
+ Valor=-0.8748444548746983,
+ Valor=0.4321008020215682,
+ Valor=-0.5544793497513525,
+ Valor=0.4970953499092563,
+ Valor=-0.2162325077380416,
+ Valor=-0.05126466074290903,
+ Valor=-0.18341008671527392,
+ Valor=-0.6730345531987219,
+ Valor=-0.13706930457924682,
+ Valor=-0.2503259751602245,
+ Valor=-0.2424437343189878,
+ Valor=-0.9615005771515339,
+ Valor=0.5598825170493005,
+ Valor=0.6459932881402979,
+ Valor=-0.30540732571158924,
+ Valor=0.3300021687598982,
+ Valor=-0.6729158608844643,
+ Valor=-0.9671339836539559,
+ Valor=0.6601996183297738,
+ Valor=0.09742419357677545,
+ Valor=0.8225949835460789,
+ Valor=-0.19317540500116137,
+ Valor=0.04003251304866584,
+ Valor=-0.8001468509264578,
+ Valor=0.5380109095737848,
+ Valor=-0.9153814008560319,
+ Valor=-0.06370300520173178,
+ Valor=-0.2991751408980776,
+ Valor=-0.3445591249909137,
+ Valor=-0.6590176032876813,
+ Valor=0.2090716160397874]
 </pre></div>
 </div>
 </div>
@@ -1603,36 +1613,36 @@ Benoît Mandelbrot</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 4.259608667473308
-1 1.7473979125804653
-2 1.6870852328064576
-3 1.5992077152850477
-4 1.4686437200472442
-5 1.2827610607848257
-6 1.0764882419413915
-7 0.9761051598570387
-8 0.9679565305961991
-9 0.9622615293352771
-10 0.9545824167794397
-11 0.9435078588265859
-12 0.926428016931247
-13 0.8976668648612471
-14 0.8435859658894658
-15 0.7316133251378295
-16 0.520745662473828
-17 0.2648900370982397
-18 0.11365827019287819
-19 0.07120093022936472
-20 0.05750378873421492
-21 0.05061886696739299
-22 0.047729287219030345
-23 0.04633047413076237
-24 0.050054655107486405
-25 0.05028868123789953
-26 0.06098082927295656
-27 0.05297514128606978
-28 0.05946413184335442
-29 0.04354811985431703
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 0.9371644815051057
+1 0.8340178482831353
+2 0.7442982956442747
+3 0.6453922814392642
+4 0.5396644128709551
+5 0.43389086823088435
+6 0.33781236182313695
+7 0.25881154154665675
+8 0.1986742130719792
+9 0.15485182993800659
+10 0.12336484624993546
+11 0.10059861722743424
+12 0.08385918187554192
+13 0.07128415807704463
+14 0.061628226820743884
+15 0.054054720168522453
+16 0.04799970428654058
+17 0.043072989881532416
+18 0.03900252893893341
+19 0.03559228003628581
+20 0.032700657922837925
+21 0.030221514244128948
+22 0.028075825204028692
+23 0.026202178689898624
+24 0.02455373212259839
+25 0.0230928847263213
+26 0.02179042345568396
+27 0.020622192965784592
+28 0.019569181531387567
+29 0.018615223511429524
 </pre></div>
 </div>
 </div>
@@ -1645,10 +1655,10 @@ Benoît Mandelbrot</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Valor=0.14613177331214336,
- Valor=0.919406689654729,
- Valor=0.8958234560162056,
- Valor=0.06961027721643383]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Valor=0.03640493837249561,
+ Valor=0.9181196751786468,
+ Valor=0.8983201329346785,
+ Valor=-0.01570735541880154]
 </pre></div>
 </div>
 </div>
@@ -1676,7 +1686,7 @@ Benoît Mandelbrot</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Valor=0.8895196055760717
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Valor=0.9142257668526329
 </pre></div>
 </div>
 </div>
