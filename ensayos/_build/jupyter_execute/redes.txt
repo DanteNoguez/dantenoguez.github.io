@@ -452,7 +452,7 @@ w1 = Numero(-3.0, etiqueta='w1')
 w2 = Numero(1.0, etiqueta='w2')
 
 # sesgo (bias)
-b = Numero(6.8813, etiqueta='b')
+b = Numero(12, etiqueta='b')
 
 # x1*w1 + x2*w2 + b
 x1w1 = sentimiento*w1; x1w1.etiqueta='x1w1'

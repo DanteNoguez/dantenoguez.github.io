@@ -594,7 +594,7 @@ title="Print to PDF"
 </div></div>
 </div>
 <p>Lo que la derivada nos señala, como digo, es cuánto influye <span class="math notranslate nohighlight">\(a\)</span> en el valor de <span class="math notranslate nohighlight">\(c\)</span>: si yo paso del primer al segundo valor de <span class="math notranslate nohighlight">\(a\)</span>, es decir, si paso de 0 a 2, ¿cuánto aumenta <span class="math notranslate nohighlight">\(c\)</span>? <span class="math notranslate nohighlight">\(c\)</span> aumenta 5 veces <span class="math notranslate nohighlight">\(a\)</span>. Si doy otro paso en <span class="math notranslate nohighlight">\(a\)</span>, es decir, si paso de 2 a 4. ¿cuánto aumenta <span class="math notranslate nohighlight">\(c\)</span>? Nuevamente, <span class="math notranslate nohighlight">\(b\)</span> aumenta 5 veces <span class="math notranslate nohighlight">\(a\)</span>: <span class="math notranslate nohighlight">\(4 \times 5 = 20\)</span>. Intuitivamente: dado que <span class="math notranslate nohighlight">\(c\)</span> es el resultado de multiplicar 5 veces <span class="math notranslate nohighlight">\(a\)</span>, es claro que cada valor de <span class="math notranslate nohighlight">\(c\)</span> será cinco veces más grande que cada valor correspondiente de <span class="math notranslate nohighlight">\(a\)</span>.</p>
-<p>Así, la derivada<a class="footnote-reference brackets" href="#id3" id="id1">1</a> de la función <span class="math notranslate nohighlight">\(c\)</span> con respecto a <span class="math notranslate nohighlight">\(a\)</span> es 5. 5 es la proporción con la que <span class="math notranslate nohighlight">\(c\)</span> está cambiando; 5 es la «fuerza» con la que <span class="math notranslate nohighlight">\(a\)</span> está influyendo en el resultado de <span class="math notranslate nohighlight">\(c\)</span>. Es como si no supiéramos que <span class="math notranslate nohighlight">\(a\)</span> está siendo multiplicado por <span class="math notranslate nohighlight">\(b\)</span> para resultar <span class="math notranslate nohighlight">\(c\)</span>, y entonces aplicáramos nuestro razonamiento matemático para deducirlo.</p>
+<p>Así, la derivada<a class="footnote-reference brackets" href="#id4" id="id1">1</a> de la función <span class="math notranslate nohighlight">\(c\)</span> con respecto a <span class="math notranslate nohighlight">\(a\)</span> es 5. 5 es la proporción con la que <span class="math notranslate nohighlight">\(c\)</span> está cambiando; 5 es la «fuerza» con la que <span class="math notranslate nohighlight">\(a\)</span> está influyendo en el resultado de <span class="math notranslate nohighlight">\(c\)</span>. Es como si no supiéramos que <span class="math notranslate nohighlight">\(a\)</span> está siendo multiplicado por <span class="math notranslate nohighlight">\(b\)</span> para resultar <span class="math notranslate nohighlight">\(c\)</span>, y entonces aplicáramos nuestro razonamiento matemático para deducirlo.</p>
 <p>Visualicémoslo:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -921,7 +921,7 @@ f^{\prime}(x)=\lim _{h \rightarrow 0} \frac{f(x+h)-f(x)}{h}
 </div>
 </div>
 </div>
-<p>Finalmente, visualizamos la función<a class="footnote-reference brackets" href="#id4" id="id2">2</a>. El problema a resolver consiste en influir en los valores de la función <span class="math notranslate nohighlight">\(L\)</span> para llevarla a 0.</p>
+<p>Finalmente, visualizamos la función<a class="footnote-reference brackets" href="#id5" id="id2">2</a>. El problema a resolver consiste en influir en los valores de la función <span class="math notranslate nohighlight">\(L\)</span> para llevarla a 0.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">graficar</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
@@ -1316,7 +1316,7 @@ Benoît Mandelbrot</p>
 <ul class="simple">
 <li><p><em>Genial, me encanta cuando veo una película de terror con la típica trama de siempre</em>. Calificación: 2/5.</p></li>
 </ul>
-<p>En este caso, el sentimiento es positivo (utiliza expresiones como «genial», «me encanta», pero la reseña es negativa, de manera que podemos establecer una relación de proporcionalidad inversa entre ambas variables para detectar el sarcasmo: si la calificación es baja pero el sentimiento «alto», entonces hay sarcasmo.</p>
+<p>En este caso, el sentimiento es positivo (utiliza expresiones como «genial», «me encanta»), pero la reseña es negativa, de manera que podemos establecer una relación de proporcionalidad inversa entre ambas variables para detectar el sarcasmo: si la calificación es baja pero el sentimiento «alto», entonces hay sarcasmo.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>Para visualizar de mejor manera los siguientes gráficos, recomiendo dar clic derecho en el gráfico y abrirlo en una nueva pestaña.</p>
@@ -1332,7 +1332,7 @@ Benoît Mandelbrot</p>
 <span class="n">w2</span> <span class="o">=</span> <span class="n">Numero</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">etiqueta</span><span class="o">=</span><span class="s1">&#39;w2&#39;</span><span class="p">)</span>
 
 <span class="c1"># sesgo (bias)</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">Numero</span><span class="p">(</span><span class="mf">6.8813</span><span class="p">,</span> <span class="n">etiqueta</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">Numero</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="n">etiqueta</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
 
 <span class="c1"># x1*w1 + x2*w2 + b</span>
 <span class="n">x1w1</span> <span class="o">=</span> <span class="n">sentimiento</span><span class="o">*</span><span class="n">w1</span><span class="p">;</span> <span class="n">x1w1</span><span class="o">.</span><span class="n">etiqueta</span><span class="o">=</span><span class="s1">&#39;x1w1&#39;</span>
@@ -1352,9 +1352,9 @@ Benoît Mandelbrot</p>
 <div class="cell_output docutils container">
 <img alt="_images/redes_48_0.svg" src="_images/redes_48_0.svg" /></div>
 </div>
-<p>Por el momento, nuestros valores son aleatorios y todo funciona mal. La calificación y el sentimiento que asignamos son 5, pero la neurona indica que la reseña es sarcástica porque da 1 como resultado. Al contrario, queremos que el sarcasmo sea 0 en este caso. Podemos optimizarla programáticamente ahora que ya conocemos la propagación hacia atrás.</p>
+<p>Por el momento, nuestros valores son aleatorios y todo funciona mal. La calificación y el sentimiento que asignamos son 5, pero la neurona indica que la reseña es sarcástica porque da ~1 como resultado. Al contrario, queremos que el sarcasmo sea 0 en este caso. Podemos optimizarla programáticamente ahora que ya conocemos la propagación hacia atrás.</p>
 <p>Primero, crearemos la clase <code class="docutils literal notranslate"><span class="pre">Neurona</span></code> para crear una estructura como la anterior. Al pasar nuestras variables por la <code class="docutils literal notranslate"><span class="pre">Neurona</span></code>, obtendremos un <code class="docutils literal notranslate"><span class="pre">peso</span></code> y un <code class="docutils literal notranslate"><span class="pre">sesgo</span></code> por cada una. Hecho esto, realizaremos operaciones con el peso, el sesgo y las entradas para transformar las entradas y, con ello, obtengamos al final el resultado deseado. Por ejemplo: si mis entradas son 5 y 5 —como en nuestro ejemplo—, nosotros queremos encontrar unos pesos y sesgos tales que, multiplicados y sumados por 5 y 5, nos den como resultado un 0, puesto que 5 y 5 significa ausencia de sarcasmo en este caso. Al mismo tiempo, queremos que esos mismos pesos y sesgos, por ejemplo al ser multiplicados y sumados por un sentimiento de 5 y una calificación de 1, nos arrojen 1 como resultado, puesto que eso indicaría sarcasmo.</p>
-<p>Para obtener como resultado una probabilidad de sarcasmo del 0 al 1, utilizaremos la función tangente hiperbólica, la cual es muy similar a las que vimos con anterioridad (sigmoide, ReLU, softmax): cuando nuestros valores la atraviesen, ella nos dará como resultado un valor del -1 al 1.</p>
+<p>Para obtener como resultado una probabilidad de sarcasmo del 0 al 1, utilizaremos la función tangente hiperbólica, la cual es muy similar a las que vimos con anterioridad (sigmoide, ReLU, softmax): cuando nuestros valores la atraviesen, ella nos dará como resultado un valor del -1 al 1<a class="footnote-reference brackets" href="#id6" id="id3">3</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
@@ -1470,10 +1470,10 @@ Benoît Mandelbrot</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Valor=0.5536020204328362,
- Valor=0.5929587530960335,
- Valor=0.5933715468494892,
- Valor=0.5474121015150051]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Valor=0.3669362864564352,
+ Valor=0.06860246608538911,
+ Valor=0.3213103120229461,
+ Valor=0.3486194765977301]
 </pre></div>
 </div>
 </div>
@@ -1491,10 +1491,10 @@ Benoît Mandelbrot</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Valor=0.30647519702731846,
- Valor=0.1656825766811358,
- Valor=0.16534669891157713,
- Valor=0.2996600088850742]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Valor=0.13464223831843908,
+ Valor=0.8675013661822187,
+ Valor=0.46061969256639074,
+ Valor=0.1215355394632753]
 </pre></div>
 </div>
 </div>
@@ -1508,12 +1508,12 @@ Benoît Mandelbrot</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Valor=0.9371644815051057
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Valor=1.5842988365303239
 </pre></div>
 </div>
 </div>
 </div>
-<p>Ahora, con base en la función de pérdida, haremos propagación hacia atrás: obtendremos los gradientes y, con ello, sabremos en qué dirección modificar nuestros pesos y sesgos para que la pérdida (o el error, o la distancia) sea 0, es decir, que nuestras predicciones sean idénticas a nuestros objetivos:</p>
+<p>Luego, con base en la función de pérdida, haremos propagación hacia atrás: obtendremos los gradientes y, con ello, sabremos en qué dirección modificar nuestros pesos y sesgos para que la pérdida (o el error, o la distancia) sea 0, es decir, que nuestras predicciones sean idénticas a nuestros objetivos:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">perdida</span><span class="o">.</span><span class="n">propagar</span><span class="p">()</span>
@@ -1539,51 +1539,51 @@ Benoît Mandelbrot</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Valor=0.6976529348474441,
- Valor=0.21826789993905638,
- Valor=0.7250987287020119,
- Valor=-0.10172405422826714,
- Valor=0.7016870005215647,
- Valor=-0.8991612202762476,
- Valor=-0.205342230631141,
- Valor=-0.41031800171540644,
- Valor=0.4479868853997817,
- Valor=0.9831188711731345,
- Valor=0.6070057725557565,
- Valor=0.02599492446833196,
- Valor=-0.8012747322183369,
- Valor=-0.6662034074027103,
- Valor=-0.8748444548746983,
- Valor=0.4321008020215682,
- Valor=-0.5544793497513525,
- Valor=0.4970953499092563,
- Valor=-0.2162325077380416,
- Valor=-0.05126466074290903,
- Valor=-0.18341008671527392,
- Valor=-0.6730345531987219,
- Valor=-0.13706930457924682,
- Valor=-0.2503259751602245,
- Valor=-0.2424437343189878,
- Valor=-0.9615005771515339,
- Valor=0.5598825170493005,
- Valor=0.6459932881402979,
- Valor=-0.30540732571158924,
- Valor=0.3300021687598982,
- Valor=-0.6729158608844643,
- Valor=-0.9671339836539559,
- Valor=0.6601996183297738,
- Valor=0.09742419357677545,
- Valor=0.8225949835460789,
- Valor=-0.19317540500116137,
- Valor=0.04003251304866584,
- Valor=-0.8001468509264578,
- Valor=0.5380109095737848,
- Valor=-0.9153814008560319,
- Valor=-0.06370300520173178,
- Valor=-0.2991751408980776,
- Valor=-0.3445591249909137,
- Valor=-0.6590176032876813,
- Valor=0.2090716160397874]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Valor=0.26185647542075774,
+ Valor=-0.3897146431515013,
+ Valor=-0.042130217416122884,
+ Valor=0.716233520043825,
+ Valor=0.34035823314645985,
+ Valor=-0.38262186196333725,
+ Valor=0.016423299964780647,
+ Valor=-0.9183633316805504,
+ Valor=-0.5763110561373717,
+ Valor=0.019367922187966347,
+ Valor=0.12454783116525658,
+ Valor=0.6707556894941378,
+ Valor=0.834698024121612,
+ Valor=0.254042516410647,
+ Valor=-0.6730022053225764,
+ Valor=-0.8928621154187195,
+ Valor=0.7161297325281775,
+ Valor=0.09323426117937772,
+ Valor=0.7985780052593621,
+ Valor=-0.9972537117506883,
+ Valor=-0.0037082550344191834,
+ Valor=0.7422268948402582,
+ Valor=-0.7202178129671104,
+ Valor=-0.49309665896689103,
+ Valor=0.48794442651441616,
+ Valor=0.6622683039011021,
+ Valor=-0.9732767794233275,
+ Valor=0.7338007914809526,
+ Valor=-0.12433377269499779,
+ Valor=0.6796016177396522,
+ Valor=-0.2252461785794555,
+ Valor=-0.25469641100646667,
+ Valor=0.25222074387643856,
+ Valor=-0.636707051411459,
+ Valor=-0.08679161950639269,
+ Valor=0.26446327705831196,
+ Valor=0.21401883070848138,
+ Valor=0.3809439666539909,
+ Valor=-0.010349121884670964,
+ Valor=-0.47937169114088274,
+ Valor=-0.7563496531288552,
+ Valor=-0.690391901144549,
+ Valor=0.9515007803442808,
+ Valor=0.6590463877459278,
+ Valor=0.21212402329507696]
 </pre></div>
 </div>
 </div>
@@ -1613,36 +1613,36 @@ Benoît Mandelbrot</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 0.9371644815051057
-1 0.8340178482831353
-2 0.7442982956442747
-3 0.6453922814392642
-4 0.5396644128709551
-5 0.43389086823088435
-6 0.33781236182313695
-7 0.25881154154665675
-8 0.1986742130719792
-9 0.15485182993800659
-10 0.12336484624993546
-11 0.10059861722743424
-12 0.08385918187554192
-13 0.07128415807704463
-14 0.061628226820743884
-15 0.054054720168522453
-16 0.04799970428654058
-17 0.043072989881532416
-18 0.03900252893893341
-19 0.03559228003628581
-20 0.032700657922837925
-21 0.030221514244128948
-22 0.028075825204028692
-23 0.026202178689898624
-24 0.02455373212259839
-25 0.0230928847263213
-26 0.02179042345568396
-27 0.020622192965784592
-28 0.019569181531387567
-29 0.018615223511429524
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 1.5842988365303239
+1 1.2529558664951095
+2 0.587216087017959
+3 0.4191023147078547
+4 0.5752410954325351
+5 1.1191852453113773
+6 1.784366523080085
+7 1.652128457073363
+8 1.224657076741451
+9 0.26771058028648226
+10 0.41855267707767796
+11 0.707877061951523
+12 0.15361704203665727
+13 0.12954214337233716
+14 0.12316318950192393
+15 0.12964905806896287
+16 0.1261090038316882
+17 0.1336944727568814
+18 0.11078544833502019
+19 0.102441253791397
+20 0.08312278356688153
+21 0.0723339169867922
+22 0.06107490601393822
+23 0.053290880990198526
+24 0.04659821460517871
+25 0.04138965501323435
+26 0.03716069258091919
+27 0.03363478739730862
+28 0.030798690241934046
+29 0.02833061619126015
 </pre></div>
 </div>
 </div>
@@ -1655,10 +1655,10 @@ Benoît Mandelbrot</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Valor=0.03640493837249561,
- Valor=0.9181196751786468,
- Valor=0.8983201329346785,
- Valor=-0.01570735541880154]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Valor=0.1016585786227638,
+ Valor=0.9171470012496584,
+ Valor=0.8984522443847082,
+ Valor=0.02862836899357634]
 </pre></div>
 </div>
 </div>
@@ -1686,19 +1686,22 @@ Benoît Mandelbrot</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Valor=0.9142257668526329
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Valor=0.9022088768249822
 </pre></div>
 </div>
 </div>
 </div>
-<p>Nuestra red neuronal considera que existe un ~89% de probabilidad de que sea sarcasmo. Nada mal.</p>
+<p>Nuestra red neuronal considera que existe un ~90% de probabilidad de que sea sarcasmo. Nada mal.</p>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
-<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
 <dd><p>El nombre técnico de esta derivada es «derivada parcial», puesto que la función <span class="math notranslate nohighlight">\(c\)</span> tiene dos variables y solo estamos considerando la derivada con respecto a una variable. En esencia, si tenemos solo una variable en la función, entonces hablamos de derivada; pero si tenemos más de una variable y estimamos la derivada solo con respecto a una variable, entonces hablamos de derivada parcial.</p>
 </dd>
-<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
 <dd><p>A operar con varias funciones concatenadas entre sí se le denomina «composición de funciones». La composición o concatenación de funciones consiste en tomar la salida de una función para pasarla como entrada de otra, y así consecutivamente. Según el esquema de nuestra primera lección, podríamos expresarlo como <span class="math notranslate nohighlight">\(x \mapsto f(x) \mapsto g(f(x))\)</span>, etcétera. Una visualización luciría más o menos así: <img src='https://upload.wikimedia.org/wikipedia/commons/6/65/FunctionMachinesComposition.svg' width=300></p>
+</dd>
+<dt class="label" id="id6"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dd><p>La elección de una función no lineal (tanh, ReLU, etc.) es una cuestión técnica que tiene que ver con el problema a tratar y con cómo fluyen a través de ellas los gradientes. Dado que nuestro problema es relativamente simple, podemos usar cualquiera. Por otro lado, aunque suene extraño que nuestro modelo pueda arrojar probabilidades negativas, eso no sucederá siempre y cuando nuestras entradas estén en el rango de valores que seleccionamos para el entrenamiento (<em>i. e.</em>, 0 a 5 en ambas variables). Si, por ejemplo, dijéramos que la calificación es 30 y el sentimiento 20, nuestro modelo interpretaría esto como una probabilidad de sarcasmo negativa. Es obligado mencionar <a class="reference external" href="https://cds.cern.ch/record/154856/files/pre-27827.pdf/">el paper</a> en el que el gran Feynman explica qué sentido tiene hablar de probabilidades negativas.</p>
 </dd>
 </dl>
 </section>
