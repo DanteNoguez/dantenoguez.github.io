@@ -27,4 +27,4 @@ The name of this blog is inspired by Euclid's Elements, since I intend to write 
 - [Ciechanowski](https://ciechanow.ski/) for his wonderful work and for being an enourmous source of inspiration.
 - [Feynman](https://www.feynmanlectures.caltech.edu/info/) for his absolutely brilliant work.
 - [Sapolsky](https://youtube.com/playlist?list=PL848F2368C90DDC3D) for his delightful lectures and his awesome work.
-- Plato, Aristotle, Leibniz, Euler, Gauss, Turing, Hinton, Menger, Schumpeter, Spencer, Darwin, Wilde, Gustavo Bueno et al., for framing and teaching me the most valuable lessons.
+- Plato, Aristotle, Leibniz, Newton, Euler, Gauss, Turing, Hinton, Menger, Schumpeter, Spencer, Darwin, Tesla, Wilde, Gustavo Bueno et al., for framing and teaching me the most valuable lessons.
