@@ -230,7 +230,7 @@ def derivada():
   a = Numero(-2.0, etiqueta='a')
   b = Numero(3.0, etiqueta='b')
   c = a*b; c.etiqueta = 'c'
-  c.valor += h # aumento de h para obtener la derivada de c con respecto a L
+  c.valor += h # aumento de h para obtener la derivada de L con respecto a c
   d = Numero(10.0, etiqueta='d')
   e = c + d; e.etiqueta = 'e'
   f = Numero(-3.0); f.etiqueta = 'f'

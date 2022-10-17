@@ -1,4 +1,4 @@
-# Elementos de El Aleph​
+# Elementos de literatura borgesiana
 
 ```{margin}
 *Cuando yo le preguntaba a mi padre cómo y a qué hora había adquirido su cultura nada común, «—Sobre la cabeza de la silla —me contestaba—. Entre dos galopes. Entre uno y otro combate»*.
