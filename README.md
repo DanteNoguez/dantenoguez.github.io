@@ -16,6 +16,15 @@ The name of this blog is inspired by Euclid's Elements, since I intend to write 
 - [ ] Write *Elementos arquitectónicos de un modelo transformer*. Implement [*Attention is all you need*](https://arxiv.org/abs/1706.03762) and explain each component/layer/mechanism.
 - [ ] Write *Elementos de teoría computacional*. Implement and explain a simple Turing machine based on [the paper](https://www.cs.virginia.edu/~robins/Turing_Paper_1936.pdf).
 - [ ] Write *Elementos de aritmética*. Implement and explain the Peano axioms.
-- [ ] Fix and complete *Elementos de leyes*. Change to a more technical style, add more legal theory, explain contractual theory, explain relation between property and economics based on Menger.
+- [ ] Fix and complete *Elementos de leyes*. Change to a more technical style, add more legal theory, explain contractual theory, explain relation between property and economics based on Menger. Appendix about Areopagitica.
+- [ ] Write *Elementos genealógicos de Bitcoin*. Trace back the economic theory from which Bitcoin emerged: Menger $\to$ Vera C. Smith $\to$ Hayek $\to$ Selgin and White $\to$ Szabo, Finney and Wei. Add appendix related to the political and economical principles of Bitcoin, review Álvaro D. María's books. Relate decentralization to programming and AI.
 - [ ] Complete *Elementos terminológicos* and *Elementos de música afroamericana*.
 - [ ] Write *Contra el escepticismo*. Explain why modern scepticism is a very basic fallacious philosophy.
+- [ ] Write *Elementos de biología conductual*. I will probably focus on energy, motivation and reproduction.
+
+## Appreciation 
+- [Karpathy](https://youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ) for his beautifully simple explanations on neural networks and for being a role model on teaching (and life in general).
+- [Ciechanowski](https://ciechanow.ski/) for his wonderful work and for being an enourmous source of inspiration.
+- [Feynman](https://www.feynmanlectures.caltech.edu/info/) for his absolutely brilliant work.
+- [Sapolsky](https://youtube.com/playlist?list=PL848F2368C90DDC3D) for his delightful lectures and his awesome work.
+- Plato, Aristotle, Leibniz, Euler, Gauss, Turing, Hinton, Menger, Schumpeter, Spencer, Darwin, Wilde, Gustavo Bueno et al., for framing and teaching me the most valuable lessons.
