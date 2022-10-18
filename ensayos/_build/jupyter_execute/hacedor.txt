@@ -11,6 +11,8 @@ import re
 #nombres.to_csv(r'nombres.txt', header=None, index=None, mode='a')
 #nombres.head(10)
 
+!wget https://github.com/DanteNoguez/CalculusRatiocinator/raw/main/data/nombres.txt
+
 palabras = open('nombres.txt', 'r').read().splitlines()
 
 palabras[:10]
@@ -19,37 +21,25 @@ len(palabras)
 
 b = {}
 
-for p in palabras[:3]:
-  cs = ['<I>'] + list(p) + ['<F>']
-  for c1, c2 in zip(cs, cs[1:]):
+for p in palabras[:3]: # vemos los primeros tres nombres
+  cs = ['.'] + list(p) + ['.'] 
+  for c1, c2 in zip(cs, cs[1:]): # iteramos sobre cada caracter para crear bigramas
     bigrama = (c1, c2)
-    b[bigrama] = b.get(bigrama, 0) + 1
+    b[bigrama] = b.get(bigrama, 0) + 1 # hacemos un conteo de bigramas
     print(c1, c2)
 
 b
 
-b = {}
+caracs = sorted(list(set(''.join(palabras)))) # lista de caracteres únicos
 
-for p in palabras:
-  cs = ['<I>'] + list(p) + ['<F>']
-  for c1, c2 in zip(cs, cs[1:]):
-    bigrama = (c1, c2)
-    b[bigrama] = b.get(bigrama, 0) + 1
-
-sorted(b.items(), key = lambda kv: -kv[1])
+paf = {p:f+1 for f,p in enumerate(caracs)} # mapeamos letras a números de principio a fin
+paf['.'] = 0 # agregamos nuestro token «.»
+fap = {f:p for p,f in paf.items()} # invertimos el orden para que sea apropiado
+fap
 
 import torch
 
-N = torch.zeros((27, 27), dtype=torch.int32)
-
-caracs = sorted(list(set(''.join(palabras))))
-
-paf = {p:f+1 for f,p in enumerate(caracs)}
-paf['.'] = 0
-fap = {f:p for p,f in paf.items()}
-paf
-
-fap
+N = torch.zeros((27,27))
 
 for p in palabras:
   cs = ['.'] + list(p) + ['.']
@@ -69,7 +59,7 @@ for i in range(27):
     plt.text(j, i, N[i, j].item(), ha='center', va='top', color='gray')
 plt.axis('off');
 
-N[0] # first row
+N[0]
 
 p = N[0].float()
 p = p / p.sum()
@@ -79,7 +69,7 @@ p.sum()
 
 p = torch.rand(3) #creamos tres valores aleatorios
 print(p)
-p = p / p.sum() # ahora, creamos una distribución con base en ellos
+p = p / p.sum() # ahora, creamos una distribución de probabilidades con base en ellos
 print(p)
 
 torch.multinomial(p, num_samples=10, replacement=True) # ahora tomamos muestras de números enteros con base en la distribución
@@ -88,14 +78,14 @@ torch.multinomial(p, num_samples=10, replacement=True) # ahora tomamos muestras 
 p = N[0].float()
 p = p / p.sum()
 
-torch.multinomial(p, num_samples=1, replacement=True)
+torch.multinomial(p, num_samples=5, replacement=True)
 
 index = torch.multinomial(p, num_samples=1, replacement=True).item()
 ejemplo = fap[index]
 ejemplo
 
 P = (N+1).float() # agregamos 1 al conteo para que el logaritmo no tenga problemas eventualmente (smoothing)
-P /= P.sum(1, keepdim=True) # el 1 indica que la sumatoria se hace en la dimensión 1 (las columnas colapsan para sumarse)
+P /= P.sum(1, keepdim=True) # el 1 indica que la sumatoria se hace en la dimensión 1 (i. e., las columnas colapsan para sumarse)
 
 P[0].sum(), P.shape
 
@@ -121,11 +111,11 @@ for p in palabras[:3]:
     prob = P[ix1, ix2]
     print(f'{c1}{c2}: {prob:.4f}') 
 
-plt.plot(np.arange(1, 101, 1), np.log(np.arange(0, 1, 0.01)))
+plt.plot(np.arange(1, 101, 1), np.log(np.arange(0, 1, 0.01)));
 
 logprob = torch.log(prob)
 nlog = -logprob
-logprob, nlog
+f'Logaritmo natural de la probabilidad: {logprob} | Logaritmo natural negativo: {nlog}'
 
 log_likelihood = 0.0
 n = 0.0
@@ -139,11 +129,10 @@ for p in palabras:
     logprob = torch.log(prob)
     log_likelihood += logprob
     n += 1
-    #print(f'{c1}{c2}: {prob} {log_likelihood:.4f}')
 
 nll = -log_likelihood
-print(f'{nll}')
-print(f'{nll/n}')
+print(f'Logaritmo negativo de verosimilitud: {nll}')
+print(f'Logaritmo negativo de verosimilitud promedio: {nll/n}')
 
 log_likelihood = 0.0
 n = 0.0
@@ -157,13 +146,13 @@ for bi in ['dante']:
     logprob = torch.log(prob)
     log_likelihood += logprob
     n += 1
-    print(f'{c1}{c2} | prob: {prob:.7f} | log likelihood: {log_likelihood:.4f}')
+    print(f'{c1}{c2} | prob: {prob:.7f} | logaritmo de la verosimilitud: {log_likelihood:.4f}')
 
 nll = -log_likelihood
-print(f'nll: {nll}')
-print(f'loss fn: {nll/n}')
+print(f'logaritmo negativo de la verosimilitud: {nll}')
+print(f'promedio del logaritmo negativo: {nll/n}')
 
-# Juntaremos los bigramas para el set de entrenamiento (inputs x, predicciones y)
+# Juntaremos los bigramas para el set de entrenamiento (inputs x, objetivos y)
 # Primero un ejemplo:
 
 xs, ys = [], []
@@ -201,26 +190,30 @@ import torch.nn.functional as F
 
 # Primero veamos un ejemplo:
 xenc = F.one_hot(xs[0:6], num_classes=27).float()
-xs[0:6], xenc, xenc.shape
+xenc[2]
 
 plt.imshow(xenc)
 
-xenc = F.one_hot(xs, num_classes=27).float() # Ahora hacemos un one-hot encoding con todos los datos
+xenc = F.one_hot(xs, num_classes=27).float()
 xenc, xenc.shape
 
-w = torch.randn((27,27), requires_grad=True)
-xenc[:6].shape, w.shape
-(xenc[:6] @ w)
+w = torch.randn(27, 4)
+xenc[:3].shape, w.shape
+
+w
+
+xenc[:3]
+
+ejemplo = xenc[:3] @ w
+ejemplo
 
 xenc[0]
 
-w[:,1]
+xenc[0] * w[:,0]
 
-(xenc[0] * w[:,1])
+(xenc[0] * w[:,0]).sum()
 
-(xenc[:6] @ w)[0,1]
-
-(xenc[0] * w[:,1]).sum()
+ejemplo
 
 #FORWARD PASS
 
