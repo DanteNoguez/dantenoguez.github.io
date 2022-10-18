@@ -21,10 +21,11 @@ The name of this blog is inspired by Euclid's Elements, since I intend to write 
 - [ ] Complete *Elementos terminológicos* and *Elementos de música afroamericana*.
 - [ ] Write *Contra el escepticismo*. Explain why modern scepticism is a very basic fallacious philosophy.
 - [ ] Write *Elementos de biología conductual*. I will probably focus on energy, motivation and reproduction.
+- [ ] Implement and explain an AI music generator and a Latin translator.
 
 ## Appreciation 
 - [Karpathy](https://youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ) for his beautifully simple explanations on neural networks and for being a role model on teaching (and life in general).
 - [Ciechanowski](https://ciechanow.ski/) for his wonderful work and for being an enourmous source of inspiration.
 - [Feynman](https://www.feynmanlectures.caltech.edu/info/) for his absolutely brilliant work.
 - [Sapolsky](https://youtube.com/playlist?list=PL848F2368C90DDC3D) for his delightful lectures and his awesome work.
-- Plato, Aristotle, Leibniz, Newton, Euler, Gauss, Turing, Hinton, Menger, Schumpeter, Spencer, Darwin, Tesla, Wilde, Gustavo Bueno et al., for framing and teaching me the most valuable lessons.
+- [Khan Academy](http://khanacademy.org) for their very intuitive and nice math courses.
