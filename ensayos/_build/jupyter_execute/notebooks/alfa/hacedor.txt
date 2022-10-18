@@ -1,0 +1,300 @@
+import pandas as pd
+import numpy as np
+import re
+
+#nombres = pd.read_csv('historico-nombres.csv').iloc[0:200000]
+#regex = "[^a-z]"
+#nombres = nombres['nombre'].str.lower()
+#filtro = nombres.str.contains("[^a-z]")
+#nombres = nombres[~filtro].astype('str')
+
+#nombres.to_csv(r'nombres.txt', header=None, index=None, mode='a')
+#nombres.head(10)
+
+!wget https://github.com/DanteNoguez/CalculusRatiocinator/raw/main/data/nombres.txt
+
+palabras = open('nombres.txt', 'r').read().splitlines()
+
+palabras[:10]
+
+len(palabras)
+
+b = {}
+
+for p in palabras[:3]: # vemos los primeros tres nombres
+  cs = ['.'] + list(p) + ['.'] 
+  for c1, c2 in zip(cs, cs[1:]): # iteramos sobre cada caracter para crear bigramas
+    bigrama = (c1, c2)
+    b[bigrama] = b.get(bigrama, 0) + 1 # hacemos un conteo de bigramas
+    print(c1, c2)
+
+b
+
+caracs = sorted(list(set(''.join(palabras)))) # lista de caracteres únicos (tokens)
+
+paf = {p:f+1 for f,p in enumerate(caracs)} # mapeamos letras a números de principio a fin
+paf['.'] = 0 # agregamos nuestro token «.»
+fap = {f:p for p,f in paf.items()} # invertimos el orden para que sea apropiado
+fap
+
+import torch
+
+N = torch.zeros((27,27))
+
+for p in palabras:
+  cs = ['.'] + list(p) + ['.']
+  for c1, c2 in zip(cs, cs[1:]):
+    ix1 = paf[c1]
+    ix2 = paf[c2]
+    N[ix1, ix2] += 1
+
+import matplotlib.pyplot as plt
+
+plt.figure(figsize=(16, 16))
+plt.imshow(N, cmap='Blues')
+for i in range(27):
+  for j in range(27):
+    cts = fap[i] + fap[j]
+    plt.text(j, i, cts, ha='center', va='bottom', color='gray')
+    plt.text(j, i, N[i, j].item(), ha='center', va='top', color='gray')
+plt.axis('off');
+
+N[0]
+
+p = N[0].float()
+p = p / p.sum()
+p
+
+p.sum()
+
+p = torch.rand(3) #creamos tres valores aleatorios
+print(p)
+p = p / p.sum() # ahora, creamos una distribución de probabilidades con base en ellos
+print(p)
+
+torch.multinomial(p, num_samples=10, replacement=True) # ahora tomamos muestras de números enteros con base en la distribución
+# Notemos que los números generados reflejan la distribución de probabilidades anteriores
+
+p = N[0].float()
+p = p / p.sum()
+
+torch.multinomial(p, num_samples=5, replacement=True)
+
+index = torch.multinomial(p, num_samples=1, replacement=True).item()
+ejemplo = fap[index]
+ejemplo
+
+P = (N+1).float() # agregamos 1 al conteo para que el logaritmo no tenga problemas eventualmente (smoothing)
+P /= P.sum(1, keepdim=True) # el 1 indica que la sumatoria se hace en la dimensión 1 (i. e., las columnas colapsan para sumarse)
+
+P[0].sum(), P.shape
+
+P[0]
+
+for i in range(5):
+  out = []
+  ix = 0
+  while True:
+    p = P[ix]
+    ix = torch.multinomial(p, num_samples=1, replacement=True).item()
+    out.append(fap[ix])
+    if ix == 0:
+      break
+    
+  print(''.join(out))
+
+for p in palabras[:3]:
+  cs = ['.'] + list(p) + ['.']
+  for c1, c2 in zip(cs, cs[1:]):
+    ix1 = paf[c1]
+    ix2 = paf[c2] 
+    prob = P[ix1, ix2]
+    print(f'{c1}{c2}: {prob:.4f}') 
+
+plt.plot(np.arange(1, 101, 1), np.log(np.arange(0, 1, 0.01)));
+
+logprob = torch.log(prob)
+nlog = -logprob
+f'Logaritmo natural de la probabilidad: {logprob} | Logaritmo natural negativo: {nlog}'
+
+log_likelihood = 0.0
+n = 0.0
+
+for p in palabras:
+  cs = ['.'] + list(p) + ['.']
+  for c1, c2 in zip(cs, cs[1:]):
+    ix1 = paf[c1]
+    ix2 = paf[c2]
+    prob = P[ix1,ix2]
+    logprob = torch.log(prob)
+    log_likelihood += logprob
+    n += 1
+
+nll = -log_likelihood
+print(f'Logaritmo negativo de verosimilitud: {nll}')
+print(f'Logaritmo negativo de verosimilitud promedio: {nll/n}')
+
+log_likelihood = 0.0
+n = 0.0
+
+for bi in ['dante']:
+  cs = ['.'] + list(bi) + ['.']
+  for c1, c2 in zip(cs, cs[1:]):
+    ix1 = paf[c1]
+    ix2 = paf[c2]
+    prob = P[ix1,ix2]
+    logprob = torch.log(prob)
+    log_likelihood += logprob
+    n += 1
+    print(f'{c1}{c2} | prob: {prob:.7f} | logaritmo de la verosimilitud: {log_likelihood:.4f}')
+
+nll = -log_likelihood
+print(f'logaritmo negativo de la verosimilitud: {nll}')
+print(f'promedio del logaritmo negativo: {nll/n}')
+
+# Juntaremos los bigramas para el set de entrenamiento (inputs x, objetivos y)
+# Primero un ejemplo:
+
+xs, ys = [], []
+
+for p in palabras[:1]:
+  cs = ['.'] + list(p) + ['.']
+  for c1, c2 in zip(cs, cs[1:]):
+    ix1 = paf[c1]
+    ix2 = paf[c2]
+    print(c1, c2)
+    xs.append(ix1)
+    ys.append(ix2)
+
+xs = torch.tensor(xs)
+ys = torch.tensor(ys)
+xs, ys
+
+# Ahora todas las palabras
+
+xs, ys = [], []
+
+for p in palabras:
+  cs = ['.'] + list(p) + ['.']
+  for c1, c2 in zip(cs, cs[1:]):
+    ix1 = paf[c1]
+    ix2 = paf[c2]
+    xs.append(ix1)
+    ys.append(ix2)
+
+xs = torch.tensor(xs) # Pasamos cada bigrama a tensores x (inputs) e y (predicción deseada)
+ys = torch.tensor(ys)
+xs
+
+import torch.nn.functional as F
+
+# Primero veamos un ejemplo:
+xenc = F.one_hot(xs[0:6], num_classes=27).float()
+xenc[2]
+
+plt.imshow(xenc)
+
+xenc = F.one_hot(xs, num_classes=27).float()
+xenc, xenc.shape
+
+w = torch.randn(27, 4)
+xenc[:3].shape, w.shape
+
+w
+
+xenc[:3]
+
+ejemplo = xenc[:3] @ w
+ejemplo
+
+xenc[0]
+
+xenc[0] * w[:,0]
+
+(xenc[0] * w[:,0]).sum()
+
+ejemplo
+
+W = torch.randn((27, 27))
+plt.imshow(W);
+
+plt.imshow((xenc[:50] @ W));
+
+#FORWARD PASS
+
+W = torch.randn((27, 27), requires_grad=True) # Creamos weights aleatorios
+logits = xenc @ W #multiplicamos valores de x por w para obtener log-counts
+counts = logits.exp() # exponenciamos para obtener valores mayores a 0, equivalentes a matriz N
+probs = counts / counts.sum(1, keepdims=True) # normalizar los counts para obtener probabilidades
+probs # los últimos dos pasos son equivalentes a la función softmax
+logits.shape
+
+probs.shape
+
+probs[0]
+
+nlls = torch.zeros(6)
+for i in range(6):
+  x = xs[i].item()
+  y = ys[i].item()
+  print('------')
+  print(f'bigrama ejemplo {i+1}: {fap[x]}{fap[y]}, índices {x},{y}')
+  print(f'input: {x}')
+  print(f'probabilidad del output, calculado por la red neuronal: {probs[i]}')
+  print(f'output correcto: {y}')
+  p = probs[i, y]
+  print(f'probabilidad asignada por la red al caracter correcto: {p.item()}')
+  logp = torch.log(p)
+  print('log likelihood', logp.item())
+  nll = -logp
+  print('negative log likelihood:', nll.item())
+  nlls[i] = nll
+
+print('-----')
+print(f'promedio de la nll, i. e. loss = {nlls.mean().item()}')
+
+xs
+
+ys
+
+probs[0,13], probs[1,1], probs[2,18], probs[3,9], probs[4,1], probs[5,0]
+
+(W**2).sum()
+
+# AHORA TODO JUNTO:
+
+num = xs.nelement()
+
+# FORWARD PASS
+for i in range(10):
+  xenc = F.one_hot(xs, num_classes=27).float() # Ahora hacemos un one-hot encoding
+  logits = xenc @ W #multiplicamos valores de x por w para obtener log-counts
+  counts = logits.exp() # exponenciamos para obtener valores mayores a 0, equivalentes a matriz N
+  probs = counts / counts.sum(1, keepdims=True) # normalizar los counts para obtener probabilidades
+  probs # los últimos dos pasos son equivalentes a la función softmax
+  loss = -probs[torch.arange(num), ys].log().mean() + 0.01*(W**2).mean()
+  
+  # BACKWARD PASS
+  W.grad = None
+  loss.backward()
+  print(loss.item())
+
+  # UPDATE
+  W.data += -50 * W.grad
+
+for i in range(5):
+  out = []
+  ix = 0
+  while True:
+    xenc = F.one_hot(torch.tensor([ix]), num_classes=27).float()
+    logits = xenc @ W
+    counts = logits.exp()
+    p = counts / counts.sum(1, keepdims=True).item()
+
+    ix = torch.multinomial(p, num_samples=1, replacement=True).item()
+    out.append(fap[ix])
+
+    if ix == 0:
+      break
+
+  print(''.join(out))

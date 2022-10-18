@@ -7,21 +7,21 @@ parts:
 
 - caption: Elementorum Physicæ Mathematicæ
   chapters:
-  - file: programacion
-  - file: redes
-  - file: hacedor
-  - file: definiciones
+  - file: notebooks/alfa/programacion
+  - file: notebooks/alfa/redes
+  - file: notebooks/alfa/hacedor
+  # - file: notebooks/alfa/definiciones
 
 - caption: Elementorum Iurisprudentiæ
   chapters:
-  - file: iurisprudentiae
+  - file: notebooks/beta/iurisprudentiae
 
 - caption: Elementorum Poeticæ
   chapters:
-  - file: borges
-  - file: afro
+  - file: notebooks/poeticae/borges
+  - file: notebooks/poeticae/afro
 
 - caption: Exagium
   chapters:
-  - file: tzompantli
-  - file: castillos
+  - file: notebooks/exagium/tzompantli
+  - file: notebooks/exagium/castillos

@@ -1,4 +1,4 @@
-# Elementos de literatura borgesiana
+# Elementos de literatura borgesiana, o Borges y sus precursores
 
 ```{margin}
 *Cuando yo le preguntaba a mi padre cómo y a qué hora había adquirido su cultura nada común, «—Sobre la cabeza de la silla —me contestaba—. Entre dos galopes. Entre uno y otro combate»*.
@@ -9,7 +9,7 @@
 
 El notable principio atribuido a Parménides, *ex nihilo nihil fit*, es pasado por alto en la misma medida en que es indiscutible; nosotros, procurando evitar tal defecto de pensamiento, lo utilizaremos como base para pensar *El Aleph*, Borges y la literatura en general. Mi propósito es ofrecer al lector, tanto especializado como aficionado, ciertos criterios sólidos —teóricos y bibliográficos— para estudiar a Borges. Para hacerlo, hablaremos de su cuento titulado *El Aleph*.
 ​
-El título de este texto es una clara referencia al artículo de Borges titulado *Kafka y sus precursores*, donde Georgie enlista algunas obras y pensadores que pudieron influir en Kafka. Nosotros intentaremos hacer algo similar, adelantando por lo pronto una premisa importante: Borges utiliza los más variados detritos de la historia universal (fundamentalmente filosófica y literaria) para subordinarlos a la estética y, a su través, «comunicar experiencias de su vida, \[...] sin indiscreción y sin impudor también»[^1].
+El título de este texto es una clara referencia al artículo de Borges titulado *Kafka y sus precursores*, donde Georgie enlista algunas obras y pensadores que pudieron influir a Kafka. Nosotros intentaremos hacer algo similar, adelantando por lo pronto una premisa importante: Borges utiliza los más variados detritos de la historia universal (fundamentalmente filosófica y literaria) para subordinarlos a la estética y, a su través, «comunicar experiencias de su vida, \[...] sin indiscreción y sin impudor también»[^1].
 
 ### § II. Las esferas de Borges
 

@@ -1,0 +1,41 @@
+import torch
+
+x = torch.zeros(4)
+x
+
+x[2] = 1
+x
+
+f'El vector tiene una dimensión: {x.shape}'
+
+A = torch.zeros((3, 2))
+A
+
+# Primero fila, luego columna
+A[2][1] = 1
+A
+
+# También es válido:
+A[2, 1] = 2
+A
+
+f'La matriz tiene dos dimensiones: {A.shape}', A.size(dim=0), A.size(dim=1)
+
+A, A.sum(0, keepdim=True)
+
+A.sum(1, keepdim=True)
+
+B = torch.zeros((4,3,2))
+B
+
+B[1][2][1] = 1
+B
+
+B.sum(0, keepdim=True), B.sum(0, keepdim=True).shape
+
+B.sum(1, keepdim=True), B.sum(1, keepdim=True).shape
+
+B.sum(2, keepdim=True), B.sum(2, keepdim=True).shape
+
+# Las dimensiones de nuestro tensor B son:
+B.shape, B.size(dim=0), B.size(dim=1), B.size(dim=2)
