@@ -215,20 +215,16 @@ xenc[0] * w[:,0]
 
 ejemplo
 
-W = torch.randn((27, 27))
-plt.imshow(W);
-
-plt.imshow((xenc[:50] @ W));
-
-#FORWARD PASS
-
 W = torch.randn((27, 27), requires_grad=True) # Creamos weights aleatorios
-logits = xenc @ W #multiplicamos valores de x por w para obtener log-counts
-counts = logits.exp() # exponenciamos para obtener valores mayores a 0, equivalentes a matriz N
-probs = counts / counts.sum(1, keepdims=True) # normalizar los counts para obtener probabilidades
-probs # los últimos dos pasos son equivalentes a la función softmax
+logits = xenc @ W #multiplicamos valores de xenc por W para obtener log-counts
 logits.shape
 
+plt.plot(np.arange(-3, 3, 0.1), np.exp(np.arange(-3, 3, 0.1)));
+
+counts = logits.exp() # exponenciamos para obtener valores mayores a 0, equivalentes a matriz N
+
+probs = counts / counts.sum(1, keepdims=True) # normalizar los counts para obtener probabilidades
+probs # estos últimos dos pasos son equivalentes a la función softmax
 probs.shape
 
 probs[0]
@@ -237,52 +233,51 @@ nlls = torch.zeros(6)
 for i in range(6):
   x = xs[i].item()
   y = ys[i].item()
-  print('------')
-  print(f'bigrama ejemplo {i+1}: {fap[x]}{fap[y]}, índices {x},{y}')
-  print(f'input: {x}')
-  print(f'probabilidad del output, calculado por la red neuronal: {probs[i]}')
-  print(f'output correcto: {y}')
+  print('-----------')
+  print(f'Bigrama ejemplo {i+1}: {fap[x]}{fap[y]}, índices {x},{y}')
+  print(f'Input: {x}')
+  print(f'Probabilidades de cada output calculadas por la red neuronal: {probs[i]}')
+  print(f'Output correcto: {y}')
   p = probs[i, y]
-  print(f'probabilidad asignada por la red al caracter correcto: {p.item()}')
+  print(f'Probabilidad asignada por la red neuronal al carácter correcto: {p.item()}')
   logp = torch.log(p)
-  print('log likelihood', logp.item())
+  print('Logaritmo de la verosimilitud', logp.item())
   nll = -logp
-  print('negative log likelihood:', nll.item())
+  print('Logaritmo negativo de la verosimilitud:', nll.item())
   nlls[i] = nll
 
-print('-----')
-print(f'promedio de la nll, i. e. loss = {nlls.mean().item()}')
+print('----------')
+print(f'Promedio de la nll, i. e. pérdida total = {nlls.mean().item()}')
 
-xs
+xs[:6]
 
-ys
+ys[:6]
 
 probs[0,13], probs[1,1], probs[2,18], probs[3,9], probs[4,1], probs[5,0]
 
-(W**2).sum()
+probs[torch.arange(6), ys[:6]]
 
-# AHORA TODO JUNTO:
+-probs[torch.arange(6), ys[:6]].log().mean()
 
 num = xs.nelement()
 
 # FORWARD PASS
-for i in range(10):
-  xenc = F.one_hot(xs, num_classes=27).float() # Ahora hacemos un one-hot encoding
-  logits = xenc @ W #multiplicamos valores de x por w para obtener log-counts
+for i in range(20):
+  xenc = F.one_hot(xs, num_classes=27).float() # one-hot encoding
+  logits = xenc @ W #multiplicamos valores de x por w para obtener logits
   counts = logits.exp() # exponenciamos para obtener valores mayores a 0, equivalentes a matriz N
-  probs = counts / counts.sum(1, keepdims=True) # normalizar los counts para obtener probabilidades
-  probs # los últimos dos pasos son equivalentes a la función softmax
-  loss = -probs[torch.arange(num), ys].log().mean() + 0.01*(W**2).mean()
+  probs = counts / counts.sum(1, keepdims=True) # normalizar los conteos para obtener probabilidades
+  loss = -probs[torch.arange(num), ys].log().mean() + 0.01*(W**2).mean() # creamos función de pérdida (este último término es la regularización) 
   
   # BACKWARD PASS
-  W.grad = None
-  loss.backward()
-  print(loss.item())
+  W.grad = None # equivalente a reiniciar los gradientes a 0
+  loss.backward() # propagación hacia atrás
+  print(loss.item()) # visualizamos la pérdida actual
 
   # UPDATE
-  W.data += -50 * W.grad
+  W.data += -50 * W.grad # actualizamos los valores de W con base en sus gradientes
 
-for i in range(5):
+for i in range(10):
   out = []
   ix = 0
   while True:

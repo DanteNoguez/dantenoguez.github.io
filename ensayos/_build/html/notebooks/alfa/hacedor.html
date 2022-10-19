@@ -400,8 +400,8 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#la-formulacion-del-modelo">
-   La formulación del modelo
+  <a class="reference internal nav-link" href="#hacia-la-formulacion-de-un-modelo">
+   Hacia la formulación de un modelo
   </a>
  </li>
 </ul>
@@ -434,8 +434,8 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#la-formulacion-del-modelo">
-   La formulación del modelo
+  <a class="reference internal nav-link" href="#hacia-la-formulacion-de-un-modelo">
+   Hacia la formulación de un modelo
   </a>
  </li>
 </ul>
@@ -480,21 +480,21 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2022-10-18 17:55:30--  https://github.com/DanteNoguez/CalculusRatiocinator/raw/main/data/nombres.txt
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2022-10-19 00:01:00--  https://github.com/DanteNoguez/CalculusRatiocinator/raw/main/data/nombres.txt
 Resolving github.com (github.com)... 192.30.255.113
 Connecting to github.com (github.com)|192.30.255.113|:443... connected.
 HTTP request sent, awaiting response... 302 Found
 Location: https://raw.githubusercontent.com/DanteNoguez/CalculusRatiocinator/main/data/nombres.txt [following]
---2022-10-18 17:55:30--  https://raw.githubusercontent.com/DanteNoguez/CalculusRatiocinator/main/data/nombres.txt
+--2022-10-19 00:01:00--  https://raw.githubusercontent.com/DanteNoguez/CalculusRatiocinator/main/data/nombres.txt
 Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.108.133, 185.199.109.133, 185.199.110.133, ...
 Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.108.133|:443... connected.
 HTTP request sent, awaiting response... 200 OK
 Length: 165469 (162K) [text/plain]
-Saving to: ‘nombres.txt’
+Saving to: ‘nombres.txt.1’
 
-nombres.txt         100%[===================&gt;] 161.59K  --.-KB/s    in 0.02s   
+nombres.txt.1       100%[===================&gt;] 161.59K  --.-KB/s    in 0.02s   
 
-2022-10-18 17:55:30 (10.3 MB/s) - ‘nombres.txt’ saved [165469/165469]
+2022-10-19 00:01:00 (8.53 MB/s) - ‘nombres.txt.1’ saved [165469/165469]
 </pre></div>
 </div>
 </div>
@@ -746,8 +746,8 @@ e .
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([0.6886, 0.2627, 0.9715])
-tensor([0.3581, 0.1366, 0.5052])
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([0.9435, 0.7808, 0.4572])
+tensor([0.4325, 0.3579, 0.2096])
 </pre></div>
 </div>
 </div>
@@ -760,7 +760,7 @@ tensor([0.3581, 0.1366, 0.5052])
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([0, 0, 2, 1, 2, 2, 0, 0, 1, 0])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([2, 1, 0, 0, 1, 1, 2, 0, 0, 0])
 </pre></div>
 </div>
 </div>
@@ -776,7 +776,7 @@ tensor([0.3581, 0.1366, 0.5052])
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([14,  1, 14,  6, 18])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([ 5,  6,  3, 14, 12])
 </pre></div>
 </div>
 </div>
@@ -791,7 +791,7 @@ tensor([0.3581, 0.1366, 0.5052])
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;f&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;a&#39;
 </pre></div>
 </div>
 </div>
@@ -852,11 +852,11 @@ tensor([0.3581, 0.1366, 0.5052])
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hermagada.
-smichelia.
-lianz.
-serorcaria.
-cegrtamomanon.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hegilida.
+pergimpda.
+aviaro.
+rincondolurina.
+biccechetarahega.
 </pre></div>
 </div>
 </div>
@@ -928,7 +928,7 @@ e.: 0.0674
 </div>
 </div>
 </div>
-<p>Y el logaritmo negativo de la verosimilitud (<em>negative log likelihood</em>) es la suma de todos los logaritmos negativos. Nuestra función de pérdida entonces podría ser el logaritmo negativo de la verosimilitud (<code class="docutils literal notranslate"><span class="pre">nll</span></code>), normalizada para obtener el promedio. Mientras esta función de pérdida sea menor, nuestro modelo será mejor:</p>
+<p>Y el logaritmo negativo de la verosimilitud (<em>negative log likelihood</em>) es la suma de todos los logaritmos negativos. Nuestra función de pérdida<a class="footnote-reference brackets" href="#id4" id="id1">1</a> entonces podría ser el logaritmo negativo de la verosimilitud (<code class="docutils literal notranslate"><span class="pre">nll</span></code>), normalizada para obtener el promedio. Mientras esta función de pérdida sea menor, nuestro modelo será mejor:</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>Matemáticamente, podemos formular esto como <span class="math notranslate nohighlight">\(-\log\left(p(X\mid\boldsymbol{\theta})\right) = -\log(p(x_1\mid\boldsymbol{\theta})) - \log(p(x_2\mid\boldsymbol{\theta})) \cdots - \log(p(x_n\mid\boldsymbol{\theta})) = -\sum_i \log(p(x_i \mid \theta)).\)</span> Para saber más, véase <a class="reference external" href="https://d2l.ai/chapter_appendix-mathematics-for-deep-learning/maximum-likelihood.html">este capítulo</a>.</p>
@@ -1089,7 +1089,7 @@ a .
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f4362b4af90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f435edb8150&gt;
 </pre></div>
 </div>
 <img alt="../../_images/hacedor_52_1.png" src="../../_images/hacedor_52_1.png" />
@@ -1115,7 +1115,7 @@ a .
 </div>
 </div>
 </div>
-<p>Ahora crearemos una capa de neuronas (<em>i. e.,</em> una <em>linear layer</em>)<a class="footnote-reference brackets" href="#id2" id="id1">1</a>, asignando pesos aleatorios a nuestro modelo para que se multipliquen con las entradas y se optimicen mediante la propagación hacia atrás. La elección de las dimensiones de la matriz de pesos depende de nuestro criterio, aunque generalmente a más pesos, mejor desempeño.</p>
+<p>Ahora crearemos una capa de neuronas (<em>i. e.,</em> una matriz de pesos, o sea, una <em>linear layer</em>)<a class="footnote-reference brackets" href="#id5" id="id2">2</a>, asignando pesos aleatorios a nuestro modelo para que se multipliquen con las entradas y se optimicen mediante la propagación hacia atrás. Más adelante explicaremos cómo eligiremos las dimensiones de la matriz de pesos.</p>
 <p>Primero, procuremos entender cómo funcionará la multiplicación de nuestros vectores con la matriz de pesos. Ejemplifiquemos con los primeros tres vectores (o sea, los primeros tres caracteres) de nuestra incrustación:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1138,33 +1138,33 @@ a .
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[-0.8884, -0.4428,  1.9296, -0.3590],
-        [ 0.2920, -0.3238, -1.5877,  0.6167],
-        [-0.7182, -0.4610, -0.4900, -0.9426],
-        [-0.1007, -0.0463, -1.0363, -1.0684],
-        [ 0.5344, -0.4790,  1.6808, -1.6607],
-        [-0.3997,  0.0278,  1.4105,  0.9008],
-        [ 0.5747, -0.2928, -0.8659, -0.2753],
-        [-1.7086, -1.3383,  0.2476,  1.2746],
-        [ 2.0008, -0.0202, -0.6641, -0.1736],
-        [-0.2617, -0.1611,  0.7413, -1.2498],
-        [-0.4777, -0.2524, -0.4336,  0.6999],
-        [-1.4851, -1.2383, -0.6056,  0.2961],
-        [ 0.2717, -1.3675,  0.0504,  1.8895],
-        [ 1.0870, -0.3513, -0.3255,  0.6674],
-        [-1.2667,  1.1587, -1.0748,  1.2574],
-        [-0.2957, -0.6911,  1.4070,  0.4922],
-        [-0.7812, -1.5960, -1.9945,  0.5686],
-        [-0.7861,  0.0784,  0.4345,  1.0904],
-        [ 1.2186, -0.5233,  0.2467,  2.3942],
-        [-2.1344,  0.2607, -0.5239,  2.0156],
-        [ 0.2008, -0.6606,  0.0172, -0.4071],
-        [ 0.6141,  0.9613, -0.8286,  0.1727],
-        [-1.2222, -0.6008,  0.0535,  2.1141],
-        [ 2.4215, -0.2550,  1.1775, -1.2318],
-        [-0.9182,  0.7199, -0.6350, -0.8797],
-        [-1.3305, -1.9387, -0.9329,  1.8000],
-        [ 1.3318, -0.2797, -2.4705,  0.5511]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[ 1.5285, -1.2694,  2.0403, -0.5138],
+        [ 0.4498,  0.9004,  0.7506, -1.7292],
+        [-0.4219, -1.7401,  0.2128,  1.1882],
+        [-0.2196, -1.2872,  1.4061, -1.4604],
+        [-0.0091, -0.0292,  0.5927, -0.5433],
+        [-1.1095,  0.0425, -0.5079,  0.5318],
+        [ 1.0708,  1.0909, -1.1573, -1.0751],
+        [ 0.0848,  0.8487,  0.6495,  0.6495],
+        [-0.7277, -1.0823, -0.5563, -0.1376],
+        [-0.7577,  0.2480, -1.2722, -0.5916],
+        [ 1.6826,  1.0383, -0.0825, -0.0576],
+        [-0.3982,  0.1353,  0.0479,  0.0365],
+        [ 0.7117,  0.4289,  0.2683,  0.1440],
+        [-0.5680, -0.0044,  1.8902,  0.2023],
+        [-0.7910,  1.2864,  0.4083,  0.5496],
+        [-0.2331, -1.8281,  0.0278, -0.5598],
+        [ 0.3265,  0.0033,  0.9114, -0.0521],
+        [-1.1580,  0.1475,  0.9663,  0.3672],
+        [ 1.8471, -0.2706, -0.2587,  1.1091],
+        [ 0.6851,  0.7899,  1.3176, -0.9601],
+        [ 0.3325,  1.4570, -0.4892, -0.0231],
+        [-1.7413, -2.4294, -1.1266,  0.2813],
+        [-0.5160, -1.3975, -0.2803,  0.2701],
+        [-0.2282,  1.9030,  0.1616,  0.4184],
+        [ 0.2405, -0.0455,  0.2195,  0.3560],
+        [-0.3723, -1.4193,  0.8194,  0.7147],
+        [-0.4979, -0.7424,  0.5700, -0.5535]])
 </pre></div>
 </div>
 </div>
@@ -1196,9 +1196,9 @@ a .
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[-0.8884, -0.4428,  1.9296, -0.3590],
-        [ 1.0870, -0.3513, -0.3255,  0.6674],
-        [ 0.2920, -0.3238, -1.5877,  0.6167]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[ 1.5285, -1.2694,  2.0403, -0.5138],
+        [-0.5680, -0.0044,  1.8902,  0.2023],
+        [ 0.4498,  0.9004,  0.7506, -1.7292]])
 </pre></div>
 </div>
 </div>
@@ -1225,10 +1225,9 @@ a .
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([-0.8884,  0.0000, -0.0000, -0.0000,  0.0000, -0.0000,  0.0000, -0.0000,
-         0.0000, -0.0000, -0.0000, -0.0000,  0.0000,  0.0000, -0.0000, -0.0000,
-        -0.0000, -0.0000,  0.0000, -0.0000,  0.0000,  0.0000, -0.0000,  0.0000,
-        -0.0000, -0.0000,  0.0000])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([1.5285, 0.0000, -0.0000, -0.0000, -0.0000, -0.0000, 0.0000, 0.0000, -0.0000,
+        -0.0000, 0.0000, -0.0000, 0.0000, -0.0000, -0.0000, -0.0000, 0.0000, -0.0000,
+        0.0000, 0.0000, 0.0000, -0.0000, -0.0000, -0.0000, 0.0000, -0.0000, -0.0000])
 </pre></div>
 </div>
 </div>
@@ -1241,7 +1240,7 @@ a .
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor(-0.8884)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor(1.5285)
 </pre></div>
 </div>
 </div>
@@ -1254,54 +1253,29 @@ a .
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[-0.8884, -0.4428,  1.9296, -0.3590],
-        [ 1.0870, -0.3513, -0.3255,  0.6674],
-        [ 0.2920, -0.3238, -1.5877,  0.6167]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[ 1.5285, -1.2694,  2.0403, -0.5138],
+        [-0.5680, -0.0044,  1.8902,  0.2023],
+        [ 0.4498,  0.9004,  0.7506, -1.7292]])
 </pre></div>
 </div>
 </div>
 </div>
 <p>Exactamente lo mismo, aunque de manera más eficiente, sucede cuando multiplicamos ambas matrices. En síntesis: al multiplicar nuestra matriz <code class="docutils literal notranslate"><span class="pre">w</span></code> por la matriz <code class="docutils literal notranslate"><span class="pre">xenc</span></code>, cada columna de pesos evalúa cada vector de <code class="docutils literal notranslate"><span class="pre">xenc</span></code>. Es decir, obtenemos una matriz de dimensiones 3x4 donde cada fila corresponde a cada vector (<em>i. e.</em>, cada carácter), pero esta fila tiene 4 valores correspondientes a la evaluación del vector por cada una de las columnas de la matriz <code class="docutils literal notranslate"><span class="pre">w</span></code>.</p>
 </section>
-<section id="la-formulacion-del-modelo">
-<h2>La formulación del modelo<a class="headerlink" href="#la-formulacion-del-modelo" title="Permalink to this headline">#</a></h2>
-<p>Antes de programar el modelo, detengámonos a entender conceptualmente lo que hemos hecho: hemos separado cada bigrama de nuestro conjunto de datos en tensores <span class="math notranslate nohighlight">\(x\)</span> e <span class="math notranslate nohighlight">\(y\)</span>. El tensor <span class="math notranslate nohighlight">\(x\)</span> contiene las entradas, es decir, el primer carácter de cada bigrama que creamos por cada nombre que tenemos. El tensor <span class="math notranslate nohighlight">\(y\)</span> contiene el segundo carácter de cada uno de los bigramas. Utilizaremos <span class="math notranslate nohighlight">\(y\)</span> para enseñar al modelo cuál carácter debe acompañar a cualquier carácter de <span class="math notranslate nohighlight">\(x\)</span> y, con esto, <span class="math notranslate nohighlight">\(y\)</span> aprenderá a generar nombres basándose en la probabilidad que asigna a cada carácter de acompañar a cualquier otro. Por ejemplo, si mi primer carácter ejemplo es «a», mi modelo podrá aprender que existen altas probabilidades de que se acompañe de la letra «n», luego parte de «n» para generar el siguiente y así sucesivamente hasta generar un nombre.</p>
-<p>Pero para poder introducir esto en una red neuronal, codificamos la información vía vectores <em>one-hot</em> que, unidos, constituyen la matriz <code class="docutils literal notranslate"><span class="pre">xenc</span></code>. A esta codificación, que equivale a <span class="math notranslate nohighlight">\(x\)</span> pero bajo una representación numérica distinta, la multiplicamos por <span class="math notranslate nohighlight">\(w\)</span>, una capa lineal que evalúa nuestras entradas <code class="docutils literal notranslate"><span class="pre">xenc</span></code> por cada una de las neuronas que le asignemos.</p>
-<p>Entonces, el resultado de esta multiplicación de matrices nos da un conteo de todos los valores de <span class="math notranslate nohighlight">\(x\)</span> —codificados en vectores— evaluados por cada neurona de la capa lineal. En ese sentido, este resultado es equivalente a la matriz <code class="docutils literal notranslate"><span class="pre">N</span></code> que graficamos anteriormente, aunque con un grado de complejidad mayor debido a las transformaciones numéricas que hemos realizado.</p>
-<p>Antes de continuar, podemos visualizar gráficamente algunas matrices que mencionamos, puesto que visualizarlas numéricamente sería poco intuitivo pues solo veríamos matrices gigantes de números decimales.</p>
-<p>La matriz <code class="docutils literal notranslate"><span class="pre">W</span></code>, con las dimensiones reales que tendrá (puesto que en el ejemplo era pequeña para facilitar la comprensión del proceso), luce así:</p>
+<section id="hacia-la-formulacion-de-un-modelo">
+<h2>Hacia la formulación de un modelo<a class="headerlink" href="#hacia-la-formulacion-de-un-modelo" title="Permalink to this headline">#</a></h2>
+<p>Antes de programar nuestra red neuronal, detengámonos a entender lo que estamos haciendo: en primer lugar, podemos conceptualizar a una red neuronal como una función: nosotros esperamos que nos proporcione un resultado con base en las entradas que le suministremos:</p>
+<img src='https://miro.medium.com/max/640/1*sPg-0hha7o3iNPjY4n-vow.jpeg' width=400>
+<p>Lo característico de esta función es que podemos entrenarla para que se configure a sí misma, es decir, la función encontrará (o «aprenderá») los parámetros necesarios para transformar las entradas que le proporcionemos en las salidas que queremos. En este caso particular, queremos que «transforme» una letra de entrada en otra de salida, y que realice este proceso hasta conseguir un nombre. La transformación que procuraremos a continuación será lineal y se realizará mediante la matriz de pesos <code class="docutils literal notranslate"><span class="pre">w</span></code>.</p>
+<p>Antes, recapitulemos: hemos separado cada bigrama de nuestro conjunto de datos en tensores <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> e <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>. El tensor <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> contiene las entradas, es decir, el primer carácter de cada bigrama que creamos por cada nombre que tenemos. El tensor <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> contiene el segundo carácter de cada uno de los bigramas. Utilizaremos <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> para entrenar al modelo e indicarle cuál carácter debe suceder a cualquier carácter dado de <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>. Por ejemplo, si mi carácter de entrada a la red neuronal es «a», mi modelo podrá aprender que existen altas probabilidades de que esté acompañada por la letra «n»; después, partirá de «n» para generar el siguiente carácter y así sucesivamente hasta generar un nombre.</p>
+<p>Pero para poder introducir nuestras letras en una red neuronal, debemos transformarlas en números con los que pueda operar. Para ello, codificamos nuestro tensor <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> vía vectores <em>one-hot</em> que, concatenados, constituyen la matriz <code class="docutils literal notranslate"><span class="pre">xenc</span></code>. A esta codificación —que equivale a <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> pero bajo una representación numérica basada en el índice de nuestra tabla de consulta— la multiplicamos por <code class="docutils literal notranslate"><span class="pre">w</span></code>, una capa lineal que evaluará nuestras entradas <code class="docutils literal notranslate"><span class="pre">xenc</span></code> por cada una de las neuronas que tenga.</p>
+<p>Entonces, el resultado de esta multiplicación de matrices nos da un conteo de todos los caracteres de <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> —codificados en vectores—, evaluados por cada neurona de la capa lineal <code class="docutils literal notranslate"><span class="pre">w</span></code>. En ese sentido, este resultado es equivalente a la matriz <code class="docutils literal notranslate"><span class="pre">N</span></code> que graficamos anteriormente, aunque con un grado de complejidad mayor debido a las transformaciones numéricas que hemos realizado.</p>
+<p>En realidad, lo que queremos hacer a continuación es entrenar nuestra red neuronal para que, con base en cada vector de entrada (de la matriz <code class="docutils literal notranslate"><span class="pre">xenc</span></code>), ese mismo vector sea transformado (mediante la multiplicación por los pesos) en probabilidades correspondientes a cada <em>token</em> que debería acompañarlo.</p>
+<p>Manos a la obra: primero, crearemos una matriz <code class="docutils literal notranslate"><span class="pre">W</span></code> de dimensiones 27x27: necesitamos 27 filas para nuestros 27 <em>tokens</em> del vocabulario, y necesitamos 27 evaluaciones (columnas) para cada <em>token</em>. Estas evaluaciones tendrán que especificarnos las probabilidades asignadas a cada <em>token</em> de acompañar al <em>token</em> inicial evaluado.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">W</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">((</span><span class="mi">27</span><span class="p">,</span> <span class="mi">27</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">W</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/hacedor_73_0.png" src="../../_images/hacedor_73_0.png" />
-</div>
-</div>
-<p>Como decía, las dimensiones 27x27 son una decisión personal. Si bien una dimensión 27 es obligatoria (porque debemos poder multiplicarla por nuestro vector con esa dimensión), nosotros elegimos evaluar cada vector con 27 neuronas para que sea más sencillo optimizar la red neuronal. Si utilizáramos más, quizá podríamos obtener un mejor desempeño.</p>
-<p>Ahora, dado que nuestra matriz <code class="docutils literal notranslate"><span class="pre">xenc</span></code> es enorme (tiene dimensiones 165469x27), es difícil visualizarla porque las columnas terminan opacándose ante el número de filas. Tomemos como ejemplo las primeras 50 filas de la matriz y multipliquémoslas por la matriz <code class="docutils literal notranslate"><span class="pre">W</span></code>:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">((</span><span class="n">xenc</span><span class="p">[:</span><span class="mi">50</span><span class="p">]</span> <span class="o">@</span> <span class="n">W</span><span class="p">));</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/hacedor_75_0.png" src="../../_images/hacedor_75_0.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#FORWARD PASS</span>
-
-<span class="n">W</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">((</span><span class="mi">27</span><span class="p">,</span> <span class="mi">27</span><span class="p">),</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># Creamos weights aleatorios</span>
-<span class="n">logits</span> <span class="o">=</span> <span class="n">xenc</span> <span class="o">@</span> <span class="n">W</span> <span class="c1">#multiplicamos valores de x por w para obtener log-counts</span>
-<span class="n">counts</span> <span class="o">=</span> <span class="n">logits</span><span class="o">.</span><span class="n">exp</span><span class="p">()</span> <span class="c1"># exponenciamos para obtener valores mayores a 0, equivalentes a matriz N</span>
-<span class="n">probs</span> <span class="o">=</span> <span class="n">counts</span> <span class="o">/</span> <span class="n">counts</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># normalizar los counts para obtener probabilidades</span>
-<span class="n">probs</span> <span class="c1"># los últimos dos pasos son equivalentes a la función softmax</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">W</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">((</span><span class="mi">27</span><span class="p">,</span> <span class="mi">27</span><span class="p">),</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># Creamos weights aleatorios</span>
+<span class="n">logits</span> <span class="o">=</span> <span class="n">xenc</span> <span class="o">@</span> <span class="n">W</span> <span class="c1">#multiplicamos valores de xenc por W para obtener log-counts</span>
 <span class="n">logits</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
@@ -1312,9 +1286,30 @@ a .
 </div>
 </div>
 </div>
+<p>Por lo pronto, nuestros valores son aleatorios y no han sido entrenados. Ahora, dado que nuestros <code class="docutils literal notranslate"><span class="pre">logits</span></code><a class="footnote-reference brackets" href="#id6" id="id3">3</a> tienen valores pequeños, negativos y positivos, queremos transformarlos para que puedan reflejar mejor la naturaleza de un «conteo» y nos faciliten su conversión en probabilidades. Para ello, únicamente necesitamos exponenciarlos, puesto que los números negativos terminarán en un rango del 0 al 1, y los positivos se convertirán en números mayores a 1. Visualicemos la función exponencial y después apliquémosla a nuestra matriz:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">probs</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/hacedor_75_0.png" src="../../_images/hacedor_75_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">counts</span> <span class="o">=</span> <span class="n">logits</span><span class="o">.</span><span class="n">exp</span><span class="p">()</span> <span class="c1"># exponenciamos para obtener valores mayores a 0, equivalentes a matriz N</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora, convertiremos nuestros conteos en probabilidades, dividiéndolos entre la sumatoria de todos los elementos de su fila correspondiente:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">probs</span> <span class="o">=</span> <span class="n">counts</span> <span class="o">/</span> <span class="n">counts</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># normalizar los counts para obtener probabilidades</span>
+<span class="n">probs</span> <span class="c1"># estos últimos dos pasos son equivalentes a la función softmax</span>
+<span class="n">probs</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -1324,6 +1319,7 @@ a .
 </div>
 </div>
 </div>
+<p>Ahora, nuestra primera fila contiene probabilidades que lucen así:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">probs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -1331,135 +1327,139 @@ a .
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([0.0070, 0.0632, 0.0050, 0.0144, 0.0099, 0.0065, 0.2381, 0.0544, 0.0152,
-        0.0168, 0.0915, 0.0188, 0.0118, 0.0370, 0.0180, 0.0135, 0.1278, 0.1058,
-        0.0203, 0.0183, 0.0367, 0.0288, 0.0110, 0.0048, 0.0158, 0.0067, 0.0031],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([0.0020, 0.0395, 0.0261, 0.0242, 0.0455, 0.1287, 0.0465, 0.0106, 0.0326,
+        0.0698, 0.0092, 0.1229, 0.0374, 0.0217, 0.0148, 0.0224, 0.0079, 0.0198,
+        0.0049, 0.0877, 0.0147, 0.0094, 0.0486, 0.0103, 0.0623, 0.0740, 0.0066],
        grad_fn=&lt;SelectBackward0&gt;)
 </pre></div>
 </div>
 </div>
 </div>
+<p>Antes de continuar, podemos visualizar el arreglo de información que tenemos. Tomemos como base nuestro primer nombre («María», que ha quedado ajustado a «.maria.»):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nlls</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
   <span class="n">x</span> <span class="o">=</span> <span class="n">xs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
   <span class="n">y</span> <span class="o">=</span> <span class="n">ys</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
-  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;------&#39;</span><span class="p">)</span>
-  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;bigrama ejemplo </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">fap</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="si">}{</span><span class="n">fap</span><span class="p">[</span><span class="n">y</span><span class="p">]</span><span class="si">}</span><span class="s1">, índices </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">,</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;input: </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;probabilidad del output, calculado por la red neuronal: </span><span class="si">{</span><span class="n">probs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;output correcto: </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-----------&#39;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Bigrama ejemplo </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">fap</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="si">}{</span><span class="n">fap</span><span class="p">[</span><span class="n">y</span><span class="p">]</span><span class="si">}</span><span class="s1">, índices </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">,</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Input: </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Probabilidades de cada output calculadas por la red neuronal: </span><span class="si">{</span><span class="n">probs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Output correcto: </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
   <span class="n">p</span> <span class="o">=</span> <span class="n">probs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span>
-  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;probabilidad asignada por la red al caracter correcto: </span><span class="si">{</span><span class="n">p</span><span class="o">.</span><span class="n">item</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Probabilidad asignada por la red neuronal al carácter correcto: </span><span class="si">{</span><span class="n">p</span><span class="o">.</span><span class="n">item</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
   <span class="n">logp</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;log likelihood&#39;</span><span class="p">,</span> <span class="n">logp</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Logaritmo de la verosimilitud&#39;</span><span class="p">,</span> <span class="n">logp</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
   <span class="n">nll</span> <span class="o">=</span> <span class="o">-</span><span class="n">logp</span>
-  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;negative log likelihood:&#39;</span><span class="p">,</span> <span class="n">nll</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Logaritmo negativo de la verosimilitud:&#39;</span><span class="p">,</span> <span class="n">nll</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
   <span class="n">nlls</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">nll</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-----&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;promedio de la nll, i. e. loss = </span><span class="si">{</span><span class="n">nlls</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;----------&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Promedio de la nll, i. e. pérdida total = </span><span class="si">{</span><span class="n">nlls</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------
-bigrama ejemplo 1: .m, índices 0,13
-input: 0
-probabilidad del output, calculado por la red neuronal: tensor([0.0070, 0.0632, 0.0050, 0.0144, 0.0099, 0.0065, 0.2381, 0.0544, 0.0152,
-        0.0168, 0.0915, 0.0188, 0.0118, 0.0370, 0.0180, 0.0135, 0.1278, 0.1058,
-        0.0203, 0.0183, 0.0367, 0.0288, 0.0110, 0.0048, 0.0158, 0.0067, 0.0031],
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-----------
+Bigrama ejemplo 1: .m, índices 0,13
+Input: 0
+Probabilidades de cada output calculadas por la red neuronal: tensor([0.0020, 0.0395, 0.0261, 0.0242, 0.0455, 0.1287, 0.0465, 0.0106, 0.0326,
+        0.0698, 0.0092, 0.1229, 0.0374, 0.0217, 0.0148, 0.0224, 0.0079, 0.0198,
+        0.0049, 0.0877, 0.0147, 0.0094, 0.0486, 0.0103, 0.0623, 0.0740, 0.0066],
        grad_fn=&lt;SelectBackward0&gt;)
-output correcto: 13
-probabilidad asignada por la red al caracter correcto: 0.0370023213326931
-log likelihood -3.2967746257781982
-negative log likelihood: 3.2967746257781982
-------
-bigrama ejemplo 2: ma, índices 13,1
-input: 13
-probabilidad del output, calculado por la red neuronal: tensor([0.0082, 0.0708, 0.0271, 0.0801, 0.0241, 0.0414, 0.0065, 0.0082, 0.0121,
-        0.0135, 0.0324, 0.0223, 0.0026, 0.0444, 0.0515, 0.0334, 0.1547, 0.0042,
-        0.0201, 0.0196, 0.0406, 0.0119, 0.0025, 0.0950, 0.0269, 0.0228, 0.1232],
+Output correcto: 13
+Probabilidad asignada por la red neuronal al carácter correcto: 0.02166704460978508
+Logaritmo de la verosimilitud -3.831962823867798
+Logaritmo negativo de la verosimilitud: 3.831962823867798
+-----------
+Bigrama ejemplo 2: ma, índices 13,1
+Input: 13
+Probabilidades de cada output calculadas por la red neuronal: tensor([0.0116, 0.0180, 0.0502, 0.0147, 0.1710, 0.0276, 0.0752, 0.0590, 0.0042,
+        0.0829, 0.0163, 0.0493, 0.0108, 0.0325, 0.0282, 0.0149, 0.0355, 0.0195,
+        0.1168, 0.0201, 0.0392, 0.0321, 0.0059, 0.0112, 0.0135, 0.0253, 0.0145],
        grad_fn=&lt;SelectBackward0&gt;)
-output correcto: 1
-probabilidad asignada por la red al caracter correcto: 0.07083107531070709
-log likelihood -2.6474573612213135
-negative log likelihood: 2.6474573612213135
-------
-bigrama ejemplo 3: ar, índices 1,18
-input: 1
-probabilidad del output, calculado por la red neuronal: tensor([0.0542, 0.0355, 0.0304, 0.0129, 0.0684, 0.0318, 0.0734, 0.0179, 0.0347,
-        0.0140, 0.0473, 0.0246, 0.0233, 0.0164, 0.0290, 0.0730, 0.1049, 0.0065,
-        0.0358, 0.0629, 0.0361, 0.0248, 0.0099, 0.0279, 0.0345, 0.0240, 0.0458],
+Output correcto: 1
+Probabilidad asignada por la red neuronal al carácter correcto: 0.018041621893644333
+Logaritmo de la verosimilitud -4.015073776245117
+Logaritmo negativo de la verosimilitud: 4.015073776245117
+-----------
+Bigrama ejemplo 3: ar, índices 1,18
+Input: 1
+Probabilidades de cada output calculadas por la red neuronal: tensor([0.0509, 0.0881, 0.0252, 0.0645, 0.1273, 0.0294, 0.0055, 0.0183, 0.0090,
+        0.0215, 0.0124, 0.0573, 0.0102, 0.0217, 0.0258, 0.1065, 0.0259, 0.0172,
+        0.0468, 0.0240, 0.0233, 0.0170, 0.0303, 0.0209, 0.0269, 0.0600, 0.0340],
        grad_fn=&lt;SelectBackward0&gt;)
-output correcto: 18
-probabilidad asignada por la red al caracter correcto: 0.03579958528280258
-log likelihood -3.3298189640045166
-negative log likelihood: 3.3298189640045166
-------
-bigrama ejemplo 4: ri, índices 18,9
-input: 18
-probabilidad del output, calculado por la red neuronal: tensor([0.0245, 0.0066, 0.0277, 0.0615, 0.0502, 0.0166, 0.0178, 0.0143, 0.0133,
-        0.0235, 0.0204, 0.0394, 0.0078, 0.0340, 0.0313, 0.1311, 0.0424, 0.0211,
-        0.0921, 0.0200, 0.0251, 0.1409, 0.0805, 0.0078, 0.0075, 0.0148, 0.0279],
+Output correcto: 18
+Probabilidad asignada por la red neuronal al carácter correcto: 0.04681265354156494
+Logaritmo de la verosimilitud -3.0616016387939453
+Logaritmo negativo de la verosimilitud: 3.0616016387939453
+-----------
+Bigrama ejemplo 4: ri, índices 18,9
+Input: 18
+Probabilidades de cada output calculadas por la red neuronal: tensor([0.0069, 0.0126, 0.0370, 0.0096, 0.0448, 0.0199, 0.0392, 0.0598, 0.1675,
+        0.0171, 0.0829, 0.0176, 0.0104, 0.0124, 0.0151, 0.0446, 0.0175, 0.0460,
+        0.0318, 0.0899, 0.0103, 0.0416, 0.0425, 0.0356, 0.0459, 0.0101, 0.0315],
        grad_fn=&lt;SelectBackward0&gt;)
-output correcto: 9
-probabilidad asignada por la red al caracter correcto: 0.023528795689344406
-log likelihood -3.74953031539917
-negative log likelihood: 3.74953031539917
-------
-bigrama ejemplo 5: ia, índices 9,1
-input: 9
-probabilidad del output, calculado por la red neuronal: tensor([0.0082, 0.0244, 0.0309, 0.0270, 0.0183, 0.0119, 0.0026, 0.1775, 0.0110,
-        0.0332, 0.0103, 0.0321, 0.0371, 0.1066, 0.0324, 0.0138, 0.0641, 0.1409,
-        0.0165, 0.0172, 0.0627, 0.0391, 0.0103, 0.0095, 0.0107, 0.0272, 0.0244],
+Output correcto: 9
+Probabilidad asignada por la red neuronal al carácter correcto: 0.017129577696323395
+Logaritmo de la verosimilitud -4.066948413848877
+Logaritmo negativo de la verosimilitud: 4.066948413848877
+-----------
+Bigrama ejemplo 5: ia, índices 9,1
+Input: 9
+Probabilidades de cada output calculadas por la red neuronal: tensor([0.0776, 0.0487, 0.0039, 0.1015, 0.0227, 0.0892, 0.0231, 0.0101, 0.0119,
+        0.0106, 0.0275, 0.1147, 0.0083, 0.0844, 0.0083, 0.0606, 0.0129, 0.0266,
+        0.0132, 0.0530, 0.0240, 0.0560, 0.0189, 0.0259, 0.0060, 0.0214, 0.0388],
        grad_fn=&lt;SelectBackward0&gt;)
-output correcto: 1
-probabilidad asignada por la red al caracter correcto: 0.024437343701720238
-log likelihood -3.7116427421569824
-negative log likelihood: 3.7116427421569824
-------
-bigrama ejemplo 6: a., índices 1,0
-input: 1
-probabilidad del output, calculado por la red neuronal: tensor([0.0542, 0.0355, 0.0304, 0.0129, 0.0684, 0.0318, 0.0734, 0.0179, 0.0347,
-        0.0140, 0.0473, 0.0246, 0.0233, 0.0164, 0.0290, 0.0730, 0.1049, 0.0065,
-        0.0358, 0.0629, 0.0361, 0.0248, 0.0099, 0.0279, 0.0345, 0.0240, 0.0458],
+Output correcto: 1
+Probabilidad asignada por la red neuronal al carácter correcto: 0.04870302602648735
+Logaritmo de la verosimilitud -3.0220141410827637
+Logaritmo negativo de la verosimilitud: 3.0220141410827637
+-----------
+Bigrama ejemplo 6: a., índices 1,0
+Input: 1
+Probabilidades de cada output calculadas por la red neuronal: tensor([0.0509, 0.0881, 0.0252, 0.0645, 0.1273, 0.0294, 0.0055, 0.0183, 0.0090,
+        0.0215, 0.0124, 0.0573, 0.0102, 0.0217, 0.0258, 0.1065, 0.0259, 0.0172,
+        0.0468, 0.0240, 0.0233, 0.0170, 0.0303, 0.0209, 0.0269, 0.0600, 0.0340],
        grad_fn=&lt;SelectBackward0&gt;)
-output correcto: 0
-probabilidad asignada por la red al caracter correcto: 0.05415589362382889
-log likelihood -2.915888547897339
-negative log likelihood: 2.915888547897339
------
-promedio de la nll, i. e. loss = 3.2751853466033936
+Output correcto: 0
+Probabilidad asignada por la red neuronal al carácter correcto: 0.050886377692222595
+Logaritmo de la verosimilitud -2.9781599044799805
+Logaritmo negativo de la verosimilitud: 2.9781599044799805
+----------
+Promedio de la nll, i. e. pérdida total = 3.495960235595703
+</pre></div>
+</div>
+</div>
+</div>
+<p>Bien, tenemos los 6 bigramas del nombre, el índice de cada input y output de cada bigrama, etcétera. Ahora, queremos ajustar nuestro modelo para que, con base en la pérdida de cada bigrama —medida por el logaritmo negativo de la verosimilitud, igual que anteriormente—, optimicemos los pesos de la matriz <code class="docutils literal notranslate"><span class="pre">W</span></code> de tal forma que, al multiplicarla por cada vector input (<code class="docutils literal notranslate"><span class="pre">xenc</span></code>), nos devuelva otro vector con probabilidades asignadas a cada carácter que puede suceder el carácter en cuestión, pero con probabilidad alta asignada al carácter que debe acompañarlo.</p>
+<p>Tomemos en cuenta que todas las operaciones que hemos realizado hasta ahora son diferenciables (se pueden derivar). Ahora, para poder programar una función de pérdida que entrene todos nuestros términos, ejemplifiquemos también con nuestro primer nombre:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">xs</span><span class="p">[:</span><span class="mi">6</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([ 0, 13,  1, 18,  9,  1])
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">xs</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ys</span><span class="p">[:</span><span class="mi">6</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([ 0, 13,  1,  ..., 12, 12,  1])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([13,  1, 18,  9,  1,  0])
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ys</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([13,  1, 18,  ..., 12,  1,  0])
-</pre></div>
-</div>
-</div>
-</div>
+<p>Obtenemos el índice de cada bigrama en nuestros tensores <code class="docutils literal notranslate"><span class="pre">x</span></code> e <code class="docutils literal notranslate"><span class="pre">y</span></code> y, con base en ellos, rastreamos la probabilidad asignada a <code class="docutils literal notranslate"><span class="pre">y</span></code> dado <code class="docutils literal notranslate"><span class="pre">x</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">probs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">13</span><span class="p">],</span> <span class="n">probs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">probs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">18</span><span class="p">],</span> <span class="n">probs</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">9</span><span class="p">],</span> <span class="n">probs</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">probs</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
@@ -1467,71 +1467,95 @@ promedio de la nll, i. e. loss = 3.2751853466033936
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(tensor(0.0370, grad_fn=&lt;SelectBackward0&gt;),
- tensor(0.0708, grad_fn=&lt;SelectBackward0&gt;),
- tensor(0.0358, grad_fn=&lt;SelectBackward0&gt;),
- tensor(0.0235, grad_fn=&lt;SelectBackward0&gt;),
- tensor(0.0244, grad_fn=&lt;SelectBackward0&gt;),
- tensor(0.0542, grad_fn=&lt;SelectBackward0&gt;))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(tensor(0.0217, grad_fn=&lt;SelectBackward0&gt;),
+ tensor(0.0180, grad_fn=&lt;SelectBackward0&gt;),
+ tensor(0.0468, grad_fn=&lt;SelectBackward0&gt;),
+ tensor(0.0171, grad_fn=&lt;SelectBackward0&gt;),
+ tensor(0.0487, grad_fn=&lt;SelectBackward0&gt;),
+ tensor(0.0509, grad_fn=&lt;SelectBackward0&gt;))
 </pre></div>
 </div>
 </div>
 </div>
+<p>Que sería equivalente a hacer algo como:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">W</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">probs</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span> <span class="n">ys</span><span class="p">[:</span><span class="mi">6</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor(749.9515, grad_fn=&lt;SumBackward0&gt;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([0.0217, 0.0180, 0.0468, 0.0171, 0.0487, 0.0509],
+       grad_fn=&lt;IndexBackward0&gt;)
 </pre></div>
 </div>
 </div>
 </div>
+<p>Y para obtener el promedio general del logaritmo negativo de la verosimilitud, únicamente agregamos:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># AHORA TODO JUNTO:</span>
-
-<span class="n">num</span> <span class="o">=</span> <span class="n">xs</span><span class="o">.</span><span class="n">nelement</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">probs</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span> <span class="n">ys</span><span class="p">[:</span><span class="mi">6</span><span class="p">]]</span><span class="o">.</span><span class="n">log</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor(3.4960, grad_fn=&lt;NegBackward0&gt;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finalmente, agregaremos un componente de regularización —el cual explicaremos en otra ocasión, aunque de momento se puede visualizar <a class="reference external" href="https://youtu.be/EehRcPo1M-Q">este video</a>— a nuestra pérdida. Ahora ya podemos entrenar nuestro modelo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="n">xs</span><span class="o">.</span><span class="n">nelement</span><span class="p">()</span>
 
 <span class="c1"># FORWARD PASS</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-  <span class="n">xenc</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">one_hot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">num_classes</span><span class="o">=</span><span class="mi">27</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span> <span class="c1"># Ahora hacemos un one-hot encoding</span>
-  <span class="n">logits</span> <span class="o">=</span> <span class="n">xenc</span> <span class="o">@</span> <span class="n">W</span> <span class="c1">#multiplicamos valores de x por w para obtener log-counts</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
+  <span class="n">xenc</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">one_hot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">num_classes</span><span class="o">=</span><span class="mi">27</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span> <span class="c1"># one-hot encoding</span>
+  <span class="n">logits</span> <span class="o">=</span> <span class="n">xenc</span> <span class="o">@</span> <span class="n">W</span> <span class="c1">#multiplicamos valores de x por w para obtener logits</span>
   <span class="n">counts</span> <span class="o">=</span> <span class="n">logits</span><span class="o">.</span><span class="n">exp</span><span class="p">()</span> <span class="c1"># exponenciamos para obtener valores mayores a 0, equivalentes a matriz N</span>
-  <span class="n">probs</span> <span class="o">=</span> <span class="n">counts</span> <span class="o">/</span> <span class="n">counts</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># normalizar los counts para obtener probabilidades</span>
-  <span class="n">probs</span> <span class="c1"># los últimos dos pasos son equivalentes a la función softmax</span>
-  <span class="n">loss</span> <span class="o">=</span> <span class="o">-</span><span class="n">probs</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">num</span><span class="p">),</span> <span class="n">ys</span><span class="p">]</span><span class="o">.</span><span class="n">log</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">+</span> <span class="mf">0.01</span><span class="o">*</span><span class="p">(</span><span class="n">W</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+  <span class="n">probs</span> <span class="o">=</span> <span class="n">counts</span> <span class="o">/</span> <span class="n">counts</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># normalizar los conteos para obtener probabilidades</span>
+  <span class="n">loss</span> <span class="o">=</span> <span class="o">-</span><span class="n">probs</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">num</span><span class="p">),</span> <span class="n">ys</span><span class="p">]</span><span class="o">.</span><span class="n">log</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">+</span> <span class="mf">0.01</span><span class="o">*</span><span class="p">(</span><span class="n">W</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="c1"># creamos función de pérdida (este último término es la regularización) </span>
   
   <span class="c1"># BACKWARD PASS</span>
-  <span class="n">W</span><span class="o">.</span><span class="n">grad</span> <span class="o">=</span> <span class="kc">None</span>
-  <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
-  <span class="nb">print</span><span class="p">(</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+  <span class="n">W</span><span class="o">.</span><span class="n">grad</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># equivalente a reiniciar los gradientes a 0</span>
+  <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span> <span class="c1"># propagación hacia atrás</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">())</span> <span class="c1"># visualizamos la pérdida actual</span>
 
   <span class="c1"># UPDATE</span>
-  <span class="n">W</span><span class="o">.</span><span class="n">data</span> <span class="o">+=</span> <span class="o">-</span><span class="mi">50</span> <span class="o">*</span> <span class="n">W</span><span class="o">.</span><span class="n">grad</span>
+  <span class="n">W</span><span class="o">.</span><span class="n">data</span> <span class="o">+=</span> <span class="o">-</span><span class="mi">50</span> <span class="o">*</span> <span class="n">W</span><span class="o">.</span><span class="n">grad</span> <span class="c1"># actualizamos los valores de W con base en sus gradientes</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.7640039920806885
-3.2398059368133545
-2.9950530529022217
-2.8498761653900146
-2.7519803047180176
-2.683480978012085
-2.633631467819214
-2.5947775840759277
-2.5634164810180664
-2.5374090671539307
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.3360486030578613
+2.334712505340576
+2.333446741104126
+2.332240104675293
+2.331094741821289
+2.33000111579895
+2.328961133956909
+2.3279666900634766
+2.327019214630127
+2.326112747192383
+2.3252475261688232
+2.324418306350708
+2.3236258029937744
+2.3228647708892822
+2.3221373558044434
+2.321437358856201
+2.320767402648926
+2.320122718811035
+2.319504499435425
+2.318908214569092
 </pre></div>
 </div>
 </div>
 </div>
+<p>Una vez entrenado el modelo, podemos obtener muestras con base en él:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
   <span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
   <span class="n">ix</span> <span class="o">=</span> <span class="mi">0</span>
   <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
@@ -1551,19 +1575,31 @@ promedio de la nll, i. e. loss = 3.2751853466033936
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>leln.
-es.
-era.
-ona.
-ra.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>joska.
+foriria.
+dana.
+miorililiua.
+alia.
+ero.
+rorinia.
+dondeineleldipiendaror.
+trlbrideso.
+bekomilcudaxfpilviqu.
 </pre></div>
 </div>
 </div>
 </div>
+<p>Aunque nuestro modelo de red neuronal no haya superado al de simple conteo y probabilidad, puesto que en realidad los implementamos de tal manera que son prácticamente iguales, lo cierto es que esta estructura de red neuronal contiene ya los rudimentos esenciales para superar con creces al modelo anterior. En realidad, una implementación más compleja y óptima de nuestra red neuronal solo consistirá en cambiar la manera en que lidiamos con los datos (nuestro vocabulario, <em>tokens</em>, tabla de consulta, <code class="docutils literal notranslate"><span class="pre">xenc</span></code>, por ejemplo) y con las capas de neuronas (nuestra <code class="docutils literal notranslate"><span class="pre">W</span></code>, por ejemplo). Todo lo demás permanecerá igual. En la próxima lección profundizaremos en esto.</p>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
-<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>La función de pérdida siempre dependerá de la naturaleza del problema. Dado que este es un problema de clasificación relacionado con probabilidades, hemos elegido una función apta. Durante la formulación de <code class="docutils literal notranslate"><span class="pre">pequegrad</span></code>, habíamos empleado la regresión lineal.</p>
+</dd>
+<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
 <dd><p>Comúnmente se denomina capa lineal o <em>lineal layer</em> a la serie de pesos y/o sesgos que creamos para multiplicarlos y sumarlos por nuestras entradas. Como hemos visto, tanto la función multiplicación como la función suma siempre resultan una línea recta en el plano cartesiano, y de ahí el adjetivo «lineal». Estamos transformando linealmente nuestras entradas, puesto que la graficación de la multiplicación y la suma con los pesos y sesgos es una línea.</p>
+</dd>
+<dt class="label" id="id6"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dd><p>Hemos denominado «logit» al resultado de nuestra multiplicación de matrices, sin embargo, en el ámbito del <em>deep learning</em>, el término «logit» puede llegar a ser <a class="reference external" href="https://stackoverflow.com/a/50511692/19440446">bastante ambiguo</a>. En nuestro caso, denominamos así a nuestra matriz porque es la última (y única) capa de la red neuronal, y está representando un conteo en bruto de la ocurrencia de cada <span class="math notranslate nohighlight">\(x\)</span> que luego utilizaremos para convertir en probabilidades. Aunque nuestra explicación también sea insatisfactoria, debemos conformarnos con ella por el momento. La ambigüedad del término es tal que su misma composición es extraña: no está prefijado con base en «logaritmo», sino en «logístico», pues es una abreviación de «unidad logística» (<em>logistic unit</em>); pero nunca ha estado clara la razón detrás del término «logístico» en matemáticas y, para más inri, el uso de «logit» en <em>deep learning</em> no siempre tiene un fundamento matemático riguroso. En fin, no nos perdamos entre las ramas y volvamos a lo nuestro.</p>
 </dd>
 </dl>
 </section>
