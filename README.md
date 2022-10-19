@@ -24,8 +24,22 @@ The name of this blog is inspired by Euclid's Elements, since I intend to write 
 - [ ] Implement and explain an AI music generator and a Latin translator.
 
 ## Appreciation 
+
 - [Karpathy](https://youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ) for his beautifully simple explanations on neural networks and for being a role model on teaching (and life in general).
 - [Ciechanowski](https://ciechanow.ski/) for his wonderful work and for being an enourmous source of inspiration.
 - [Feynman](https://www.feynmanlectures.caltech.edu/info/) for his absolutely brilliant work.
 - [Sapolsky](https://youtube.com/playlist?list=PL848F2368C90DDC3D) for his delightful lectures and his awesome work.
 - [Khan Academy](http://khanacademy.org) for their very intuitive and nice math courses.
+
+## Citations
+
+If you wish to cite this book, you may use the following BibTeX entry:
+
+```bibtex
+@misc{noguez2022elementorum,
+title={Dantis Elementorum},
+author={Dante Noguez},
+url={https://dantenoguez.github.io/},
+year={2022}
+}
+```
