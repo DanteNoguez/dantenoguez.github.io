@@ -315,7 +315,7 @@ P_nn.shape
 
 fig, ax = plt.subplots(1, 2, figsize=(8, 5))
 ax[0].imshow(P.data, cmap='plasma')
-ax[0].set_title("Conteo de probabilidades")
+ax[0].set_title("Método de conteo")
 ax[1].imshow(P_nn.data, cmap='plasma')
 ax[1].set_title("Red neuronal")
 plt.tight_layout();

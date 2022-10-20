@@ -460,7 +460,7 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="elementos-de-procesamiento-de-lenguajes-naturales-o-el-hacedor">
 <h1>Elementos de procesamiento de lenguajes naturales, o El Hacedor<a class="headerlink" href="#elementos-de-procesamiento-de-lenguajes-naturales-o-el-hacedor" title="Permalink to this headline">#</a></h1>
-<p>Este texto está basado en <a class="reference external" href="https://github.com/karpathy/makemore">makemore</a> de Andrej Karpathy. A continuación, crearemos un modelo de lenguaje basado en bigramas. Con base en 21,209 nombres argentinos, nuestro modelo aprenderá a formular nuevos nombres basándose en probabilidades asignadas a cada carácter con base en el anterior.</p>
+<p>Este texto está inspirado en <a class="reference external" href="https://github.com/karpathy/makemore">makemore</a> de Andrej Karpathy. A continuación, crearemos un modelo de lenguaje basado en bigramas. Con base en 21,209 nombres argentinos, nuestro modelo aprenderá a formular nuevos nombres basándose en probabilidades asignadas a cada carácter con base en el anterior.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>El conjunto de datos original se puede encontrar <a class="reference external" href="https://www.kaggle.com/datasets/akielbowicz/nombres-de-personas-fsicas-de-argentina">aquí</a>. El código que utilicé para limpiar los datos está comentado en la primera celda; el archivo generado con dicho código se encuentra <a class="reference external" href="https://github.com/DanteNoguez/CalculusRatiocinator/blob/main/data/nombres.txt">aquí</a>.</p>
@@ -1631,7 +1631,7 @@ cincejumiliva.
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">P</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;plasma&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Conteo de probabilidades&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Método de conteo&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">P_nn</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;plasma&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Red neuronal&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span>
@@ -1646,12 +1646,12 @@ cincejumiliva.
 </section>
 <section id="bibliografia-recomendada">
 <h2>Bibliografía recomendada<a class="headerlink" href="#bibliografia-recomendada" title="Permalink to this headline">#</a></h2>
-<p>[<strong>zhang2021dive</strong>] Zhang, Aston; Lipton, Zachary C.; Li, Mu y Smola, Alexander J. <em>Dive into Deep Learning</em> (cap. 15), 2021. <a class="reference external" href="https://d2l.ai/chapter_natural-language-processing-pretraining/index.html">URL</a>.</p>
-<p>[<strong>voita2020nlpCourse</strong>] Voita, Elena. <em>NLP Course For You</em>, 2020. <a class="reference external" href="https://lena-voita.github.io/nlp_course.html">URL</a>.</p>
+<p><strong>zhang2021dive</strong> Zhang, Aston; Lipton, Zachary C.; Li, Mu y Smola, Alexander J. <em>Dive into Deep Learning</em> (cap. 15), 2021. <a class="reference external" href="https://d2l.ai/chapter_natural-language-processing-pretraining/index.html">URL</a>.</p>
+<p><strong>voita2020nlpCourse</strong> Voita, Elena. <em>NLP Course For You</em>, 2020. <a class="reference external" href="https://lena-voita.github.io/nlp_course.html">URL</a>.</p>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
 <dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>La función de pérdida siempre dependerá de la naturaleza del problema. Dado que este es un problema de clasificación relacionado con probabilidades, hemos elegido una función apta. Durante la formulación de <code class="docutils literal notranslate"><span class="pre">pequegrad</span></code>, habíamos empleado la regresión lineal.</p>
+<dd><p>La función de pérdida siempre dependerá de la naturaleza del problema. Dado que este es un problema de clasificación relacionado con probabilidades, hemos elegido una función apta. Durante la implementación de <code class="docutils literal notranslate"><span class="pre">pequegrad</span></code>, habíamos empleado la regresión lineal.</p>
 </dd>
 <dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
 <dd><p>Comúnmente se denomina capa lineal o <em>lineal layer</em> a la serie de pesos y/o sesgos que creamos para multiplicarlos y sumarlos por nuestras entradas. Como hemos visto, tanto la función multiplicación como la función suma siempre resultan una línea recta en el plano cartesiano, y de ahí el adjetivo «lineal». Estamos transformando linealmente nuestras entradas, puesto que la graficación de la multiplicación y la suma con los pesos y sesgos es una línea.</p>
