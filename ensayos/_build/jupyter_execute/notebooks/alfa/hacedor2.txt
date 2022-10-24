@@ -1,0 +1,157 @@
+import torch
+import torch.nn.functional as F
+from torch import nn
+import numpy as np
+import matplotlib.pyplot as plt
+import os
+import requests
+from pathlib import Path
+
+path = Path('data/')
+if not path.is_dir():
+  path.mkdir(parents=True, exist_ok=True)
+
+with open(path / 'nombres.txt', 'wb') as f:
+  request = requests.get('https://github.com/DanteNoguez/CalculusRatiocinator/raw/main/data/nombres.txt')
+  f.write(request.content)
+
+nombres = open('data/nombres.txt', 'r').read().splitlines()
+nombres[:8]
+
+len(nombres)
+
+V = sorted(set(''.join(nombres)))
+paf = {p:f+1 for f, p in enumerate(V)}
+paf['.'] = 0
+fap = {f:p for p,f in paf.items()}
+print(fap)
+
+def construir_dataset(nombres):
+  block_size = 3 # longitud del contexto
+  X, Y = [], []
+  for n in nombres:
+    #print(f'nombre: {n}')
+    contexto = [0] * block_size
+    for c in n + '.':
+      ix = paf[c]
+      X.append(contexto)
+      Y.append(ix)
+      #print(''.join(fap[i] for i in contexto), '----> ', fap[ix])
+      contexto = contexto[1:] + [ix]
+  
+  X = torch.tensor(X) # contexto
+  Y = torch.tensor(Y) # objetivo
+  return X, Y
+
+construir_dataset(nombres[:3])
+
+X, Y = construir_dataset(nombres[:3])
+X.shape, Y.shape
+
+C = torch.randn((27, 2)) # tabla de consulta
+C
+
+emb = C[X] # embedding
+
+f'Segunda fila de C: {C[1].numpy()} | Tercer valor del tercer bloque incrustado (es decir, letra a): {emb[2][2].numpy()}'
+
+print('Dimensiones del embedding: ', emb.shape) 
+print('Tres bloques del embedding, correspondientes a «..m», «.ma» y «mar»:', emb[1:4])
+
+metodo1 = torch.cat([emb[:, 0, :], emb[:, 1, :], emb[:, 2, :]], 1)
+print(f"""Ahora, en lugar de estar contenidos en bloques de tres filas: 
+{emb[0]}
+Estarían contenidos en una fila de tres bloques (seis columnas):
+{metodo1[0]}""")
+
+metodo2 = torch.cat(torch.unbind(emb, 1), 1)
+f'Aunque también es equivalente: {metodo2[0]}'
+
+x = emb.view(-1, 6)
+x[0], x.shape
+
+import random
+random.shuffle(words)
+n1 = int(0.8*len(words))
+n2 = int(0.9*len(words))
+
+Xtr, Ytr = build_dataset(words[:n1])
+Xdev, Ydev = build_dataset(words[n1:n2])
+Xte, Yte = build_dataset(words[n2:])
+
+Xtr.shape
+
+C = torch.randn(27, 10)
+W1 = torch.randn((30, 200))
+b1 = torch.randn(200)
+W2 = torch.randn(200, 27)
+b2 = torch.randn(27)
+parameters = [C, W1, b2, W2, b2]
+
+sum(p.nelement() for p in parameters)
+
+for p in parameters:
+  p.requires_grad = True
+
+lre = torch.linspace(-3, 0, 1000)
+lrs = 10**lre
+
+plt.plot(lri, lossi)
+
+10**-0.5
+
+lri = []
+lossi = []
+stepi = []
+
+for i in range(1000):
+  #minibatch
+  ix = torch.randint(0, Xtr.shape[0], (32,))
+
+  #forward pass
+  emb = C[Xtr][ix]
+  h = torch.tanh(emb.view(-1, 30) @ W1 + b1)
+  logits = h @ W2 + b2
+  loss = F.cross_entropy(logits, Ytr[ix])
+  
+  # backward pass
+  for p in parameters:
+    p.grad = None
+  loss.backward()
+  #update
+  #lr = lrs[i]
+  lr = -0.031
+  for p in parameters:
+    p.data += lr * p.grad
+
+  #track stats
+  #lri.append(lre[i])
+  stepi.append(i)
+  lossi.append(loss.log10().item())
+
+print(loss.item())
+
+plt.plot(stepi, lossi)
+
+emb = C[Xdev]
+h = torch.tanh(emb.view(-1, 30) @ W1 + b1)
+logits = h @ W2 + b2
+loss = F.cross_entropy(logits, Ydev)
+loss
+
+block_size = 3
+for _ in range(20):
+  out = []
+  context = [0] * block_size
+  while True:
+    emb = C[torch.tensor([context])]
+    h = torch.tanh(emb.view(1, -1) @ W1 + b1)
+    logits = h @ W2 + b2
+    probs = F.softmax(logits, dim=1)
+    ix = torch.multinomial(probs, num_samples=1).item()
+    context = context[1:] + [ix]
+    out.append(ix)
+    if ix == 0:
+      break
+
+  print(''.join(itos[i] for i in out))

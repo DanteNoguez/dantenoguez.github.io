@@ -10,6 +10,7 @@ parts:
   - file: notebooks/alfa/programacion
   - file: notebooks/alfa/redes
   - file: notebooks/alfa/hacedor
+  - file: notebooks/alfa/hacedor2
   # - file: notebooks/alfa/definiciones
 
 - caption: Elementorum Iurisprudentiæ
