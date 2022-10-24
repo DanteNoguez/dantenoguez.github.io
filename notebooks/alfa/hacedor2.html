@@ -50,9 +50,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/logo.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Elementos de leyes, o Nova methodus discendæ iurisprudentiæ" href="../beta/iurisprudentiae.html" />
+    <link rel="prev" title="Elementos de procesamiento de lenguajes naturales, o El Hacedor" href="hacedor.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -117,7 +121,7 @@ const thebe_selector_output = ".output, .cell_output"
   Elementorum Physicæ Mathematicæ
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="programacion.html">
    Elementos de programación
@@ -131,6 +135,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="hacedor.html">
    Elementos de procesamiento de lenguajes naturales, o El Hacedor
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Elementos de PLN, o El Hacedor 2.0
   </a>
  </li>
 </ul>
@@ -238,7 +247,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/DanteNoguez/Ensayos/main?urlpath=tree/ensayos/notebooks/alfa/hacedor_MLP.ipynb"
+        <a href="https://mybinder.org/v2/gh/DanteNoguez/Ensayos/main?urlpath=tree/ensayos/notebooks/alfa/hacedor2.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -298,7 +307,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/DanteNoguez/Ensayos/issues/new?title=Issue%20on%20page%20%2Fnotebooks/alfa/hacedor_MLP.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/DanteNoguez/Ensayos/issues/new?title=Issue%20on%20page%20%2Fnotebooks/alfa/hacedor2.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -326,7 +335,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/notebooks/alfa/hacedor_MLP.ipynb"
+        <a href="../../_sources/notebooks/alfa/hacedor2.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -363,12 +372,36 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#un-modelo-neuronal-probabilistico-de-lenguaje">
+   Un modelo neuronal probabilístico de lenguaje
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -380,6 +413,19 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#un-modelo-neuronal-probabilistico-de-lenguaje">
+   Un modelo neuronal probabilístico de lenguaje
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -389,6 +435,7 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="elementos-de-pln-o-el-hacedor-2-0">
 <h1>Elementos de PLN, o El Hacedor 2.0<a class="headerlink" href="#elementos-de-pln-o-el-hacedor-2-0" title="Permalink to this headline">#</a></h1>
+<p>Siguiendo nuestra lección anterior, optimizaremos nuestro modelo de red neuronal para crear nombres. Ahora, lo haremos en el estilo del <em>paper</em> <a class="reference external" href="https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf">Bengio et. al, 2003</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
@@ -443,8 +490,8 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">caracs</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">nombres</span><span class="p">)))</span>
-<span class="n">paf</span> <span class="o">=</span> <span class="p">{</span><span class="n">p</span><span class="p">:</span><span class="n">f</span><span class="o">+</span><span class="mi">1</span> <span class="k">for</span> <span class="n">f</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">caracs</span><span class="p">)}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">V</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">nombres</span><span class="p">)))</span>
+<span class="n">paf</span> <span class="o">=</span> <span class="p">{</span><span class="n">p</span><span class="p">:</span><span class="n">f</span><span class="o">+</span><span class="mi">1</span> <span class="k">for</span> <span class="n">f</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">V</span><span class="p">)}</span>
 <span class="n">paf</span><span class="p">[</span><span class="s1">&#39;.&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">fap</span> <span class="o">=</span> <span class="p">{</span><span class="n">f</span><span class="p">:</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span><span class="p">,</span><span class="n">f</span> <span class="ow">in</span> <span class="n">paf</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">fap</span><span class="p">)</span>
@@ -457,49 +504,61 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<section id="un-modelo-neuronal-probabilistico-de-lenguaje">
+<h2>Un modelo neuronal probabilístico de lenguaje<a class="headerlink" href="#un-modelo-neuronal-probabilistico-de-lenguaje" title="Permalink to this headline">#</a></h2>
+<p>Primero, comenzaremos dividiendo nuestros datos en «bloques». Por ejemplo, en nuestro modelo de bigramas, el bloque contenía un solo carácter, puesto que realizábamos la predicción a partir de una letra; pero podemos aumentar el «contexto» de nuestras predicciones para involucrar más letras al momento de predecir la siguiente. Veamos, por ejemplo, cómo luciría nuestro tratamiento de los datos si hiciéramos bloques de tres caracteres para predecir el siguiente:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">construir_dataset</span><span class="p">(</span><span class="n">nombres</span><span class="p">):</span>
   <span class="n">block_size</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1"># longitud del contexto</span>
   <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
   <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">nombres</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="c1">#print(f&#39;nombre: {n}&#39;)</span>
     <span class="n">contexto</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">block_size</span>
     <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">n</span> <span class="o">+</span> <span class="s1">&#39;.&#39;</span><span class="p">:</span>
       <span class="n">ix</span> <span class="o">=</span> <span class="n">paf</span><span class="p">[</span><span class="n">c</span><span class="p">]</span>
       <span class="n">X</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">contexto</span><span class="p">)</span>
       <span class="n">Y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ix</span><span class="p">)</span>
-      <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">fap</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">contexto</span><span class="p">),</span> <span class="s1">&#39;----&gt;&#39;</span><span class="p">,</span> <span class="n">fap</span><span class="p">[</span><span class="n">ix</span><span class="p">])</span>
+      <span class="c1">#print(&#39;&#39;.join(fap[i] for i in contexto), &#39;----&gt; &#39;, fap[ix])</span>
       <span class="n">contexto</span> <span class="o">=</span> <span class="n">contexto</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="p">[</span><span class="n">ix</span><span class="p">]</span>
   
   <span class="n">X</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="c1"># contexto</span>
   <span class="n">Y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span> <span class="c1"># objetivo</span>
   <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span>
-
-<span class="n">construir_dataset</span><span class="p">(</span><span class="n">nombres</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>“The training set is a sequence <span class="math notranslate nohighlight">\(w_1 · · · w_T\)</span> of words <span class="math notranslate nohighlight">\(w_t \in V\)</span>, where the vocabulary <span class="math notranslate nohighlight">\(V\)</span> is a large but finite set.”</p>
+</aside>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">construir_dataset</span><span class="p">(</span><span class="n">nombres</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>maria
-... ----&gt; m
-..m ----&gt; a
-.ma ----&gt; r
-mar ----&gt; i
-ari ----&gt; a
-ria ----&gt; .
-rosa
-... ----&gt; r
-..r ----&gt; o
-.ro ----&gt; s
-ros ----&gt; a
-osa ----&gt; .
-jose
-... ----&gt; j
-..j ----&gt; o
-.jo ----&gt; s
-jos ----&gt; e
-ose ----&gt; .
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>nombre: maria
+... ----&gt;  m
+..m ----&gt;  a
+.ma ----&gt;  r
+mar ----&gt;  i
+ari ----&gt;  a
+ria ----&gt;  .
+nombre: rosa
+... ----&gt;  r
+..r ----&gt;  o
+.ro ----&gt;  s
+ros ----&gt;  a
+osa ----&gt;  .
+nombre: jose
+... ----&gt;  j
+..j ----&gt;  o
+.jo ----&gt;  s
+jos ----&gt;  e
+ose ----&gt;  .
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(tensor([[ 0,  0,  0],
@@ -523,6 +582,172 @@ ose ----&gt; .
 </div>
 </div>
 </div>
+<p>Nuestra intuición detrás de esta aproximación es que el lenguaje funciona mejor con contexto: así como el sentido de un concepto se entiende mejor en contexto, también los caracteres se pueden predecir más razonablemente dado un contexto más amplio.</p>
+<p>Similar a como habíamos hecho anteriormente, construimos una matriz <code class="docutils literal notranslate"><span class="pre">X</span></code> para contener el contexto como entrada y un vector <code class="docutils literal notranslate"><span class="pre">Y</span></code> que contiene el objetivo (es decir, carácter) que debe seguir a cada respectivo contexto. Como se puede apreciar, solamente estamos construyendo <code class="docutils literal notranslate"><span class="pre">X</span></code> e <code class="docutils literal notranslate"><span class="pre">Y</span></code> con sus respectivos índices del vocabulario.</p>
+<p>Dado que solo tomamos 3 nombres como ejemplo, nuestros datos únicamente contienen 16 contextos o <em>inputs</em> y 16 objetivos o <em>outputs</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">construir_dataset</span><span class="p">(</span><span class="n">nombres</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">Y</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(torch.Size([16, 3]), torch.Size([16]))
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora estamos listos para hacer el <em>embedding</em>. Mientras que en el <em>paper</em> los datos se incrustan en una tabla de consulta de 30 dimensiones (o <em>features</em>) para un vocabulario de 17,000 palabras, nosotros —que únicamente tenemos un vocabulario de 27 caracteres— podemos aproximarnos a la incrustación con algo más pequeño, como una incrustación de dos dimensiones.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">((</span><span class="mi">27</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> <span class="c1"># tabla de consulta</span>
+<span class="n">C</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[ 1.2398,  1.6226],
+        [-1.0390, -0.6315],
+        [ 1.4867, -2.0639],
+        [-0.5019, -0.0847],
+        [ 0.3543,  0.0429],
+        [ 0.0747,  0.0483],
+        [-0.8429, -0.7471],
+        [ 1.2111, -0.4298],
+        [-0.2744, -0.0716],
+        [ 0.8073,  1.4253],
+        [ 0.7349, -1.3932],
+        [-0.7396, -1.6109],
+        [ 1.1352,  1.1073],
+        [-1.8026, -1.0121],
+        [ 0.2880,  0.6969],
+        [-0.9063, -0.2191],
+        [-0.2776,  0.0224],
+        [-0.0813,  1.3615],
+        [ 0.7298,  0.3834],
+        [ 0.3386, -0.9600],
+        [-0.6149,  0.0942],
+        [ 0.8082,  3.5541],
+        [-0.5630, -0.5980],
+        [ 1.1308,  0.9338],
+        [-0.3946,  0.1407],
+        [ 0.1347, -1.3152],
+        [ 0.2762, -0.8832]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como vemos, cada <em>token</em> o elemento del volcabulario se incrustará en dos dimensiones, es decir, tendrá dos números asociados. Ahora, tomaremos un atajo que nos permitirá ser más eficientes con la codificación y la primera capa de la red neuronal. Anteriormente, habíamos hecho un <em>one-hot encoding</em> para luego pasarlo por una capa <code class="docutils literal notranslate"><span class="pre">W</span></code>; pero, bien visto, estos dos pasos pueden ser omitidos porque consiguen el mismo resultado que la incrustación en nuestra tabla <code class="docutils literal notranslate"><span class="pre">C</span></code>.</p>
+<p>Primero: la codificación <em>one-hot</em>, si fuéramos a multiplicarla por <code class="docutils literal notranslate"><span class="pre">C</span></code>, anularía todos los valores de <code class="docutils literal notranslate"><span class="pre">C</span></code> al multiplicarlos por 0 y conservaría una fila correspondiente a la de la multiplicación por 1. Ergo, podemos omitir la multiplicación y hacer una indexación para asociar directamente cada carácter con cada fila que un vector <em>one-hot</em> multiplicaría por 1. Dicho esto, podemos concebir a <code class="docutils literal notranslate"><span class="pre">C</span></code> como un equivalente de la capa <code class="docutils literal notranslate"><span class="pre">W</span></code>, puesto que consiste de valores aleatorios que asignan un número a cada carácter y luego pueden optimizarse con propagación hacia atrás.</p>
+<p>Dicho esto, la indexación (<em>embedding</em>) será bastante simple:</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>“A mapping <span class="math notranslate nohighlight">\(C\)</span> from any element <span class="math notranslate nohighlight">\(i\)</span> of <span class="math notranslate nohighlight">\(V\)</span> to a real vector <span class="math notranslate nohighlight">\(C(i) \in \mathbb{R}^m\)</span>. It represents the distributed feature vectors associated with each word in the vocabulary. In practice, C is represented by a <span class="math notranslate nohighlight">\(\left|V\right| \times m\)</span> matrix of free parameters”.</p>
+</aside>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">emb</span> <span class="o">=</span> <span class="n">C</span><span class="p">[</span><span class="n">X</span><span class="p">]</span> <span class="c1"># embedding</span>
+
+<span class="sa">f</span><span class="s1">&#39;Segunda fila de C: </span><span class="si">{</span><span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="si">}</span><span class="s1"> | Tercer valor del tercer bloque incrustado (es decir, letra a): </span><span class="si">{</span><span class="n">emb</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Segunda fila de C: [-1.0390474 -0.6314941] | Tercer valor del tercer bloque incrustado (es decir, letra a): [-1.0390474 -0.6314941]&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Dimensiones del embedding: &#39;</span><span class="p">,</span> <span class="n">emb</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Tres bloques del embedding, correspondientes a «..m», «.ma» y «mar»:&#39;</span><span class="p">,</span> <span class="n">emb</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dimensiones del embedding:  torch.Size([16, 3, 2])
+Tres bloques del embedding, correspondientes a «..m», «.ma» y «mar»: tensor([[[ 1.2398,  1.6226],
+         [ 1.2398,  1.6226],
+         [-1.8026, -1.0121]],
+
+        [[ 1.2398,  1.6226],
+         [-1.8026, -1.0121],
+         [-1.0390, -0.6315]],
+
+        [[-1.8026, -1.0121],
+         [-1.0390, -0.6315],
+         [ 0.7298,  0.3834]]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora, echemos un vistazo a la arquitectura que deseamos lograr:</p>
+<figure class="align-default" id="bengio2003">
+<a class="reference internal image-reference" href="../../_images/bengio2003.png"><img alt="../../_images/bengio2003.png" src="../../_images/bengio2003.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Arquitectura neuronal <span class="math notranslate nohighlight">\(f\left(i, w_{t-1}, \cdots, w_{t-n+1}\right)=g\left(i, C\left(w_{t-1}\right), \cdots, C\left(w_{t-n+1}\right)\right)\)</span> donde <span class="math notranslate nohighlight">\(g\)</span> es la red neuronal y <span class="math notranslate nohighlight">\(C(i)\)</span> es el <span class="math notranslate nohighlight">\(i\)</span>-ésimo vector de cada palabra. En nuestro caso, utilizamos bloques de tres letras (<code class="docutils literal notranslate"><span class="pre">contexto</span></code>, vector <code class="docutils literal notranslate"><span class="pre">X</span></code>) en lugar de palabras (<span class="math notranslate nohighlight">\(w\)</span>).</span><a class="headerlink" href="#bengio2003" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Como vemos, tenemos casi terminado el inicio y únicamente nos falta concatenar entre sí los bloques del <em>embedding</em>, puesto que juntos atravesarán la misma capa de neuronas.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>“[…] <span class="math notranslate nohighlight">\(x\)</span> is the word features layer activation vector, which is the concatenation of the input word features from the matrix <span class="math notranslate nohighlight">\(C\)</span>: <span class="math notranslate nohighlight">\(x = C\left(w_{t-1}\right), \left(w_{t-2}\right) \cdots, C\left(w_{t-n+1}\right)\)</span>.”</p>
+</aside>
+<p>Para conseguirlo, podemos utilizar distintos métodos con PyTorch:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">metodo1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">emb</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">:],</span> <span class="n">emb</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">:],</span> <span class="n">emb</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">:]],</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;Ahora, en lugar de estar contenidos en bloques de tres filas: </span>
+<span class="si">{</span><span class="n">emb</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">Estarían contenidos en una fila de tres bloques (seis columnas):</span>
+<span class="si">{</span><span class="n">metodo1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ahora, en lugar de estar contenidos en bloques de tres filas: 
+tensor([[1.2398, 1.6226],
+        [1.2398, 1.6226],
+        [1.2398, 1.6226]])
+Estarían contenidos en una fila de tres bloques (seis columnas):
+tensor([1.2398, 1.6226, 1.2398, 1.6226, 1.2398, 1.6226])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">metodo2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">unbind</span><span class="p">(</span><span class="n">emb</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+<span class="sa">f</span><span class="s1">&#39;Aunque también es equivalente: </span><span class="si">{</span><span class="n">metodo2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Aunque también es equivalente: tensor([1.2398, 1.6226, 1.2398, 1.6226, 1.2398, 1.6226])&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pero el método más eficiente<a class="footnote-reference brackets" href="#id3" id="id1">1</a> y simple es <code class="docutils literal notranslate"><span class="pre">view</span></code>. Como primer argumento, colocaremos <code class="docutils literal notranslate"><span class="pre">-1</span></code> para que de esta forma PyTorch infiera el tamaño de la dimensión 0 que debería tener el tensor (sería, pues, equivalente a colocar <code class="docutils literal notranslate"><span class="pre">emb[0].shape</span></code>), y como segundo argumento <code class="docutils literal notranslate"><span class="pre">6</span></code> porque queremos que el tensor tenga las 6 columnas correspondientes a los tres bloques de cada <em>input</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">emb</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(tensor([1.2398, 1.6226, 1.2398, 1.6226, 1.2398, 1.6226]), torch.Size([16, 6]))
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora ya tenemos lo suficiente para definir más variables:</p>
+<blockquote>
+<div><p>“Let <span class="math notranslate nohighlight">\(h\)</span> be the number of hidden units<a class="footnote-reference brackets" href="#id4" id="id2">2</a>, and <span class="math notranslate nohighlight">\(m\)</span> the number of features associated with each word. When no direct connections from word features to outputs are desired, the matrix <span class="math notranslate nohighlight">\(W\)</span> is set to 0 . The free parameters of the model are the output biases <span class="math notranslate nohighlight">\(b\)</span> (with <span class="math notranslate nohighlight">\(|V|\)</span> elements), the hidden layer biases <span class="math notranslate nohighlight">\(d\)</span> (with <span class="math notranslate nohighlight">\(h\)</span> elements), the hidden-to-output weights <span class="math notranslate nohighlight">\(U\)</span> (a <span class="math notranslate nohighlight">\(|V| \times h\)</span> matrix), the word features to output weights <span class="math notranslate nohighlight">\(W\)</span> (a <span class="math notranslate nohighlight">\(|V| \times(n-1) m\)</span> matrix), the hidden layer weights <span class="math notranslate nohighlight">\(H\)</span> (a <span class="math notranslate nohighlight">\(h \times(n-1) m\)</span> matrix), and the word features <span class="math notranslate nohighlight">\(C(\mathrm{a}|V| \times m\)</span> matrix <span class="math notranslate nohighlight">\()\)</span>: <span class="math notranslate nohighlight">\(\theta=(b, d, W, U, H, C)\)</span>”.</p>
+</div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
@@ -599,7 +824,7 @@ ose ----&gt; .
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f63551eb250&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/hacedor_MLP_13_1.png" src="../../_images/hacedor_MLP_13_1.png" />
+<img alt="../../_images/hacedor2_30_1.png" src="../../_images/hacedor2_30_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -670,7 +895,7 @@ ose ----&gt; .
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f6353f7b790&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/hacedor_MLP_17_1.png" src="../../_images/hacedor_MLP_17_1.png" />
+<img alt="../../_images/hacedor2_34_1.png" src="../../_images/hacedor2_34_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -735,6 +960,16 @@ edubgakio.
 </div>
 </div>
 </div>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>El método <code class="docutils literal notranslate"><span class="pre">view</span></code> es eficiente porque <a class="reference external" href="http://blog.ezyang.com/2019/05/pytorch-internals/">no requiere de nuevo espacio</a> en la memoria de nuestra computadora, sino que utiliza el mismo tensor para reacomodarlo de manera distinta. Conforme nuestros programas se vuelvan más complejos, debemos procurar eficientar al máximo nuestros recursos computacionales. Para un acercamiento más general al tema, véase el <a class="reference external" href="https://horace.io/brrr_intro.html">artículo de Horace He</a>.</p>
+</dd>
+<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>En <em>deep learning</em>, el término <em>hidden</em> («oculto») se utiliza para referirse a componentes de una red neuronal que no son «visibles» ni como entradas ni como salidas de la red. Se trata de entradas o salidas que se procesan internamente por la red neuronal antes de arrojar un resultado final. La <em>hidden unit</em>, en ese sentido, se refiere a cada unidad o componente de una capa oculta (<em>hidden layer</em>) en la red. Podemos entenderla como sinónimo de «nodo» o «neurona».</p>
+</dd>
+</dl>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -764,6 +999,20 @@ edubgakio.
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="hacedor.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Elementos de procesamiento de lenguajes naturales, o El Hacedor</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../beta/iurisprudentiae.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Elementos de leyes, o Nova methodus discendæ iurisprudentiæ</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>
