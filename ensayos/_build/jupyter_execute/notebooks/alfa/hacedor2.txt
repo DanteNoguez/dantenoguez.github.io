@@ -61,83 +61,278 @@ print('Tres bloques del embedding, correspondientes a «..m», «.ma» y «mar»
 metodo1 = torch.cat([emb[:, 0, :], emb[:, 1, :], emb[:, 2, :]], 1)
 print(f"""Ahora, en lugar de estar contenidos en bloques de tres filas: 
 {emb[0]}
-Estarían contenidos en una fila de tres bloques (seis columnas):
+Estarían contenidos en bloques de una fila (seis columnas):
 {metodo1[0]}""")
 
 metodo2 = torch.cat(torch.unbind(emb, 1), 1)
 f'Aunque también es equivalente: {metodo2[0]}'
 
-x = emb.view(-1, 6)
-x[0], x.shape
+emb.view(-1, 6)[0], emb.view(-1, 6).shape # esta es la variable x del paper
+
+f'Número de features (m), es decir, número de componentes de cada bloque: {C.size(dim=1)} | Número de elementos por bloque «(n-1)m»: {emb.view(-1, 6).size(dim=1)} | Elementos de |V|: {len(V)+1}'
+
+h = 50
+d = torch.randn((h))
+H = torch.randn((6, h))
+
+a = torch.tanh(emb.view(-1, 6) @ H + d)
+a.shape
+
+U = torch.randn((h, 27))
+b = torch.randn(27)
+
+logits = a @ U + b
+logits.shape
+
+counts = logits.exp()
+prob = counts / counts.sum(1, keepdims=True)
+prob[0].sum()
+
+prob[torch.arange(16), Y]
+
+print(f"""En un inicio, cada letra de «mar» correspondía a su índice en el vocabulario: {X[3]}
+Cuando pasamos estos índices a una matriz para que fueran representados por dos números, obtuvimos: {emb[3]}
+Al mismo tiempo, la letra «i» fue guardada como objetivo en Y, siendo su índice: {Y[3]}
+De manera que la probabilidad de nuestra red neuronal debe ser alta para el número que representa la letra «i» en el embedding: {-prob[3, Y[3]]}""")
+
+perdida = -prob[torch.arange(16), Y].log().mean()
+perdida
+
+F.cross_entropy(logits, Y)
+
+parametros = [b, d, U, H, C]
+
+for p in parametros:
+  p.requires_grad = True
+
+for i in range(100):
+  # paso hacia delante
+  emb = C[X]
+  h = torch.tanh(emb.view(-1, 6) @ H + d)
+  logits = h @ U + b
+  perdida = F.cross_entropy(logits, Y)
+  
+  # propagación hacia atrás
+  for p in parametros:
+    p.grad = None
+  perdida.backward()
+  
+  for p in parametros:
+    p.data += -0.1 * p.grad
+
+print(perdida.item())
 
 import random
-random.shuffle(words)
-n1 = int(0.8*len(words))
-n2 = int(0.9*len(words))
+random.shuffle(nombres)
+n1 = int(0.8*len(nombres))
+n2 = int(0.9*len(nombres))
 
-Xtr, Ytr = build_dataset(words[:n1])
-Xdev, Ydev = build_dataset(words[n1:n2])
-Xte, Yte = build_dataset(words[n2:])
+Xtr, Ytr = construir_dataset(nombres[:n1])
+Xdev, Ydev = construir_dataset(nombres[n1:n2])
+Xte, Yte = construir_dataset(nombres[n2:])
+X, Y = construir_dataset(nombres)
 
-Xtr.shape
+X.shape, Xtr.shape, Xdev.shape, Xte.shape
 
-C = torch.randn(27, 10)
-W1 = torch.randn((30, 200))
-b1 = torch.randn(200)
-W2 = torch.randn(200, 27)
-b2 = torch.randn(27)
-parameters = [C, W1, b2, W2, b2]
+C = torch.randn(27, 2)
+emb = C[Xtr]
+h = 100
+H = torch.randn((6, h))
+d = torch.randn(h)
 
-sum(p.nelement() for p in parameters)
+a = torch.tanh(emb.view(-1, 6) @ H + d)
 
-for p in parameters:
+U = torch.randn(h, 27)
+b = torch.randn(27)
+
+logits = a @ U + b
+
+parametros = [C, H, d, U, b]
+
+sum(p.numel() for p in parametros)
+
+ix = torch.randint(0, X.shape[0], (32,))
+f'Tres ejemplos: {ix[:3].numpy()}'
+
+for p in parametros:
   p.requires_grad = True
+
+for _ in range(10):
+  #minibatch («minilote»)
+  ix = torch.randint(0, Xdev.shape[0], (32,))
+
+  # propagación hacia delante
+  emb = C[Xdev[ix]]
+  a = torch.tanh(emb.view(-1, 6) @ H + d)
+  logits = a @ U + b
+  perdida = F.cross_entropy(logits, Ydev[ix])
+  print(perdida.item())
+  
+  # propagación hacia atrás
+  for p in parametros:
+    p.grad = None
+  perdida.backward()
+
+  # actualización
+  lr = -1 # intentaremos obtener el límite superior
+  for p in parametros:
+    p.data += lr * p.grad
+
+for _ in range(10):
+  #minibatch («minilote»)
+  ix = torch.randint(0, Xdev.shape[0], (32,))
+
+  # propagación hacia delante
+  emb = C[Xdev[ix]]
+  a = torch.tanh(emb.view(-1, 6) @ H + d)
+  logits = a @ U + b
+  perdida = F.cross_entropy(logits, Ydev[ix])
+  print(perdida.item())
+  
+  # propagación hacia atrás
+  for p in parametros:
+    p.grad = None
+  perdida.backward()
+
+  # actualización
+  lr = -0.001 # intentaremos obtener el límite inferior
+  for p in parametros:
+    p.data += lr * p.grad
+
+lr = torch.linspace(0.001, 1, 1000)
+
+plt.plot(lr.numpy());
 
 lre = torch.linspace(-3, 0, 1000)
 lrs = 10**lre
 
-plt.plot(lri, lossi)
+plt.plot(lrs.numpy());
 
-10**-0.5
-
-lri = []
-lossi = []
-stepi = []
+lr_i = []
+perdidas_i = []
 
 for i in range(1000):
-  #minibatch
+  #minibatch («minilote»)
+  ix = torch.randint(0, Xdev.shape[0], (32,))
+
+  # propagación hacia delante
+  emb = C[Xdev[ix]]
+  a = torch.tanh(emb.view(-1, 6) @ H + d)
+  logits = a @ U + b
+  perdida = F.cross_entropy(logits, Ydev[ix])
+  #print(perdida.item())
+  
+  # propagación hacia atrás
+  for p in parametros:
+    p.grad = None
+  perdida.backward()
+
+  # actualización
+  lr = lrs[i] # intentaremos obtener el límite inferior
+  for p in parametros:
+    p.data += -lr * p.grad
+
+  # registrar estadísticas
+  lr_i.append(lre[i])
+  perdidas_i.append(perdida.item())
+
+plt.plot(lr_i, perdidas_i);
+
+paso_i = []
+perdidas_i = []
+
+for i in range(1000):
+  #minibatch («minilote»)
   ix = torch.randint(0, Xtr.shape[0], (32,))
 
-  #forward pass
-  emb = C[Xtr][ix]
-  h = torch.tanh(emb.view(-1, 30) @ W1 + b1)
-  logits = h @ W2 + b2
-  loss = F.cross_entropy(logits, Ytr[ix])
+  # propagación hacia delante
+  emb = C[Xtr[ix]]
+  a = torch.tanh(emb.view(-1, 6) @ H + d)
+  logits = a @ U + b
+  perdida = F.cross_entropy(logits, Ytr[ix])
   
-  # backward pass
-  for p in parameters:
+  # propagación hacia atrás
+  for p in parametros:
     p.grad = None
-  loss.backward()
-  #update
-  #lr = lrs[i]
-  lr = -0.031
-  for p in parameters:
-    p.data += lr * p.grad
+  perdida.backward()
 
-  #track stats
-  #lri.append(lre[i])
-  stepi.append(i)
-  lossi.append(loss.log10().item())
+  # actualización
+  lr = 0.1 # nueva tasa
+  for p in parametros:
+    p.data += -lr * p.grad
 
-print(loss.item())
+  # registrar estadísticas
+  paso_i.append(i)
+  perdidas_i.append(perdida.item())
 
-plt.plot(stepi, lossi)
+plt.plot(paso_i, perdidas_i);
 
 emb = C[Xdev]
-h = torch.tanh(emb.view(-1, 30) @ W1 + b1)
-logits = h @ W2 + b2
-loss = F.cross_entropy(logits, Ydev)
-loss
+a = torch.tanh(emb.view(-1, 6) @ H + d)
+logits = a @ U + b
+perdida = F.cross_entropy(logits, Ydev)
+perdida
+
+plt.figure(figsize=(8,8))
+plt.scatter(C[:,0].data, C[:,1].data, s=200)
+for i in range(C.shape[0]):
+  plt.text(C[i,0].item(), C[i,1].item(), fap[i], ha='center', va='center', color='white')
+plt.grid('minor');
+
+random.shuffle(nombres)
+n1 = int(0.8*len(nombres))
+n2 = int(0.9*len(nombres))
+
+Xtr, Ytr = construir_dataset(nombres[:n1])
+Xdev, Ydev = construir_dataset(nombres[n1:n2])
+Xte, Yte = construir_dataset(nombres[n2:])
+X, Y = construir_dataset(nombres)
+
+C = torch.randn(27, 10) # un embedding de 10 dimensiones
+h = 200 # aumentamos las unidades ocultas a 200
+H = torch.randn((30, h)) # recordemos: 10 * 3 = 30
+d = torch.randn(h)
+U = torch.randn(h, 27)
+b = torch.randn(27)
+
+parametros = [C, H, d, U, b]
+
+for p in parametros:
+  p.requires_grad = True
+
+for i in range(15000):
+  #minibatch («minilote»)
+  ix = torch.randint(0, Xtr.shape[0], (32,))
+
+  # propagación hacia delante
+  emb = C[Xtr[ix]]
+  a = torch.tanh(emb.view(-1, 30) @ H + d)
+  logits = a @ U + b
+  perdida = F.cross_entropy(logits, Ytr[ix])
+  
+  # propagación hacia atrás
+  for p in parametros:
+    p.grad = None
+  perdida.backward()
+
+  # actualización
+  lr = 0.1 if i < 14000 else 0.01 # nuestra tasa de aprendizaje disminuirá hacia el final del entrenamiento
+  for p in parametros:
+    p.data += -lr * p.grad
+
+print(perdida.item())
+
+emb = C[Xdev]
+a = torch.tanh(emb.view(-1, 30) @ H + d)
+logits = a @ U + b
+perdida = F.cross_entropy(logits, Ydev)
+perdida
+
+emb = C[Xte]
+a = torch.tanh(emb.view(-1, 30) @ H + d)
+logits = a @ U + b
+perdida = F.cross_entropy(logits, Yte)
+perdida
 
 block_size = 3
 for _ in range(20):
@@ -145,8 +340,8 @@ for _ in range(20):
   context = [0] * block_size
   while True:
     emb = C[torch.tensor([context])]
-    h = torch.tanh(emb.view(1, -1) @ W1 + b1)
-    logits = h @ W2 + b2
+    a = torch.tanh(emb.view(1, -1) @ H + d)
+    logits = a @ U + b
     probs = F.softmax(logits, dim=1)
     ix = torch.multinomial(probs, num_samples=1).item()
     context = context[1:] + [ix]
@@ -154,4 +349,4 @@ for _ in range(20):
     if ix == 0:
       break
 
-  print(''.join(itos[i] for i in out))
+  print(''.join(fap[i] for i in out))
