@@ -8,8 +8,8 @@ parts:
 - caption: Elementorum Physicæ Mathematicæ
   chapters:
   - file: notebooks/alfa/programacion
-  # - file: notebooks/alfa/calculo
   - file: notebooks/alfa/redes
+  - file: notebooks/alfa/calculo
   - file: notebooks/alfa/hacedor
   - file: notebooks/alfa/hacedor2
   # - file: notebooks/alfa/definiciones
