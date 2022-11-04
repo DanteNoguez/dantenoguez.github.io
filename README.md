@@ -11,8 +11,7 @@ The name of this blog is inspired by Euclid's Elements, since I intend to write 
 ## Work in progress
 
 - [ ] Add discussion about software 2.0 to chaper III of *Elementos de programación*.
-- [ ] In relation to *Elementos de redes neuronales*, explain how the weights work and why we use them; explain what the loss function is and how it connects to the network.
-- [ ] Edit *Elementos de cálculo*, add style and coherence to the ideas presented.
+- [ ] In relation to *Elementos de redes neuronales*, explain how the weights work and why we use them; explain what the loss function is and how it connects to the network. Add an appendix explaining the integral as an antiderivative.
 - [x] Add explanatory text to *El Hacedor*.
 - [x] Add explanatory text to *El Hacedor 2.0*. Implement the paper [Bengio et. al, 2003](https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf).
 - [ ] Make *Hacedor* and *Hacedor 2.0* prettier.
