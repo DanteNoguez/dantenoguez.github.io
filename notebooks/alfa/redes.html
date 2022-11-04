@@ -55,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/logo.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Elementos de procesamiento de lenguajes naturales, o El Hacedor" href="hacedor.html" />
+    <link rel="next" title="Elementos de cálculo infinitesimal" href="calculo.html" />
     <link rel="prev" title="Elementos de programación" href="programacion.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -130,6 +130,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Elementos de redes neuronales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="calculo.html">
+   Elementos de cálculo infinitesimal
   </a>
  </li>
  <li class="toctree-l1">
@@ -848,18 +853,29 @@ Derivada = \lim _{h \rightarrow 0} \frac{f(x+h) - f(x)}{h}
 </div>
 </div>
 </div>
-<p>Finalmente hemos descubierto que cuando <span class="math notranslate nohighlight">\(x=5\)</span>, <span class="math notranslate nohighlight">\(x\)</span> «influye» en <span class="math notranslate nohighlight">\(y\)</span> con una «fuerza» de <span class="math notranslate nohighlight">\(10\)</span>. Esta proporción o fuerza puede ser representada con la expresión <span class="math notranslate nohighlight">\(nx^{n-1}\)</span>, es decir, cuando <span class="math notranslate nohighlight">\(f(x) = x^2\)</span> y <span class="math notranslate nohighlight">\(x=5\)</span>, entonces:</p>
+<p>Finalmente hemos descubierto que cuando <span class="math notranslate nohighlight">\(x=5\)</span>, <span class="math notranslate nohighlight">\(x\)</span> «influye» en <span class="math notranslate nohighlight">\(y\)</span> con una «fuerza» de <span class="math notranslate nohighlight">\(10\)</span>. Analíticamente, podemos comprobarlo de esta forma:</p>
 <div class="math notranslate nohighlight">
-\[
+\[\begin{split}
+\begin{gather*}
+\frac{dy}{dx} =\lim _{h \rightarrow 0} \frac{(x+h)^2 - x^2}{h} = \lim _{h \rightarrow 0} \frac{(x+h)(x+h) - 2x}{h} = \lim _{h \rightarrow 0} \frac{2x + xh + hx + 2h - 2x}{h} \\
+= \lim _{h \rightarrow 0} \frac{2xh + 2h}{h} = \lim _{h \rightarrow 0} \frac{h(2x + h)}{h} = \lim _{h \rightarrow 0} 2x + h = 2x + 0 = 2x
+\end{gather*}
+\end{split}\]</div>
+<p>Ahora, podemos generalizar esta expresión bajo la fórmula <span class="math notranslate nohighlight">\(nx^{n-1}\)</span>, es decir, cuando <span class="math notranslate nohighlight">\(f(x) = x^2\)</span> y <span class="math notranslate nohighlight">\(x=5\)</span>, entonces:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{gather*}
+2x = 2(5) = 10 \\
 nx^{n-1} = 2(5)^{2-1} = 10
-\]</div>
-<p>Esta expresión matemática podríamos obtenerla de la misma forma en que obtuvimos la fórmula de la derivada, o de una forma similar a la que nos hizo descubrir en nuestro primer ejemplo que <span class="math notranslate nohighlight">\(x\)</span> se multiplicaba siempre por <span class="math notranslate nohighlight">\(5\)</span>. Básicamente, toda fórmula o expresión matemática tiene un trasfondo racional como el que hemos desarrollado, aunque en realidad muchos de ellos involucran desgloses lógicos escritos en lenguaje matemático.</p>
-<p>Volviendo a lo nuestro, podemos decir que, conceptualmente, la derivada —igual que la pendiente— mide la <strong>proporción o magnitud del cambio</strong> que una variable provoca en el resultado de una función. Digamos que la derivada mide la fuerza con la que una variable influye —en un determinado punto— en el resultado de una función.</p>
+\end{gather*}
+\end{split}\]</div>
+<p>En suma, <span class="math notranslate nohighlight">\(10\)</span> es efectivamente la proporción o fuerza con la que <span class="math notranslate nohighlight">\(x\)</span> influye en <span class="math notranslate nohighlight">\(y\)</span>, <span class="math notranslate nohighlight">\(10\)</span> es la derivada de <span class="math notranslate nohighlight">\(y\)</span> con respecto a <span class="math notranslate nohighlight">\(x\)</span> cuando <span class="math notranslate nohighlight">\(x=5\)</span>. Y, según hemos visto, podemos obtener este resultado de formas distintas: aplicando la fórmula, programáticamente, geométricamente y analítica o algebraicamente. En general, toda fórmula o expresión matemática tiene un trasfondo racional como los que hemos llevado a cabo, aunque las más de las veces se requieren algunos desarrollos lógico-matemáticos ulteriores para generalizarlas.</p>
+<p>Volviendo a lo nuestro, podemos concluir que, conceptualmente, la derivada —igual que la pendiente— mide la <strong>proporción o magnitud del cambio</strong> que una variable provoca en el resultado de una función. Digamos que la derivada mide la fuerza con la que una variable influye —en un determinado punto— en el resultado de una función.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>En rigor, la derivada no solo se diferencia de la pendiente por referirse a funciones no lineales, sino también porque es útil para medir el impacto que diferentes variables tienen en una función compuesta (es decir, en una función de más de dos dimensiones o variables). Esto lo veremos más adelante, sin embargo, es importante ser conscientes de que nuestra formulación geométrica de la derivada es una manera intuitiva —y legítima en términos históricos— de entenderla, pero su concepto puede ampliarse a problemas, funciones y dimensiones más complejas que son difíciles de visualizar.</p>
 </aside>
-<p>Pongamos otro ejemplo: si los valores de la función nunca cambiaran, entonces su derivada sería <span class="math notranslate nohighlight">\(0\)</span>. Geométricamente, no habría nada de inclinación en la tangente; conceptualmente, la definición de la función indicaría que su resultado nunca cambiará: ninguna variable tendría influencia en la función, de manera que el «cambio» siempre sería nulo, cero.</p>
+<p>Pongamos otro ejemplo: si los valores de la función nunca cambiaran, entonces su derivada sería <span class="math notranslate nohighlight">\(0\)</span>. Geométricamente, no habría nada de inclinación en la tangente a cualquier punto de la función; conceptualmente, la definición de la función indicaría que su resultado nunca cambia: ninguna variable tendría influencia en la función, de manera que el «cambio» siempre sería nulo, cero.</p>
 <p>Supongamos que quiero medir la distancia que recorro en <span class="math notranslate nohighlight">\(20\)</span> segundos: si con el paso del tiempo no avanzo nada o, lo que es lo mismo, si la variable tiempo no influye en la función distancia, entonces la función, la pendiente y la tangente a cualquier punto son <span class="math notranslate nohighlight">\(0\)</span>, por lo que lucen así:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -939,7 +955,7 @@ nx^{n-1} = 2(5)^{2-1} = 10
 </table>
 </div></div>
 </div>
-<p>Ahora preguntémonos: ¿en qué proporción cambia <span class="math notranslate nohighlight">\(y\)</span> cuando aumentamos <span class="math notranslate nohighlight">\(x\)</span>? Si paso de mi primer valor de <span class="math notranslate nohighlight">\(x\)</span> al segundo, es decir, si paso de <span class="math notranslate nohighlight">\(0\)</span> a <span class="math notranslate nohighlight">\(2\)</span>, ¿cuánto estoy aumentando a mi primer valor de <span class="math notranslate nohighlight">\(y\)</span>? ¡También dos! Es decir, que la proporción de los cambios entre <span class="math notranslate nohighlight">\(x\)</span> e <span class="math notranslate nohighlight">\(y\)</span> es 1: si aumento dos a <span class="math notranslate nohighlight">\(x\)</span>, también aumento <span class="math notranslate nohighlight">\(2\)</span> a <span class="math notranslate nohighlight">\(y\)</span>. En nuestro primer ejemplo, si agregábamos <span class="math notranslate nohighlight">\(2\)</span> a <span class="math notranslate nohighlight">\(x\)</span>, nuestro valor de <span class="math notranslate nohighlight">\(y\)</span> aumentaba cinco veces <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<p>Ahora preguntémonos: ¿en qué proporción cambia <span class="math notranslate nohighlight">\(y\)</span> cuando aumentamos <span class="math notranslate nohighlight">\(x\)</span>? Si paso de mi primer valor de <span class="math notranslate nohighlight">\(x\)</span> al segundo, es decir, si paso de <span class="math notranslate nohighlight">\(0\)</span> a <span class="math notranslate nohighlight">\(2\)</span>, ¿cuánto estoy aumentando a mi primer valor de <span class="math notranslate nohighlight">\(y\)</span>? ¡También dos! Es decir, que la proporción de los cambios entre <span class="math notranslate nohighlight">\(x\)</span> y <span class="math notranslate nohighlight">\(y\)</span> es 1: si aumento dos a <span class="math notranslate nohighlight">\(x\)</span>, también aumento <span class="math notranslate nohighlight">\(2\)</span> a <span class="math notranslate nohighlight">\(y\)</span>. En nuestro primer ejemplo, si agregábamos <span class="math notranslate nohighlight">\(2\)</span> a <span class="math notranslate nohighlight">\(x\)</span>, nuestro valor de <span class="math notranslate nohighlight">\(y\)</span> aumentaba cinco veces <span class="math notranslate nohighlight">\(x\)</span>.</p>
 <p>Esto tiene sentido porque la multiplicación aumenta nuestros valores con mayor velocidad y en diferente proporción que la suma: por ejemplo, <span class="math notranslate nohighlight">\(2 \times 4 = 8\)</span>, pero <span class="math notranslate nohighlight">\(2 + 4 = 6\)</span>, y conforme tomamos números más grandes, nuestra multiplicación continúa creciendo a mayor velocidad que la suma: <span class="math notranslate nohighlight">\(2 \times 10 = 20\)</span>, pero <span class="math notranslate nohighlight">\(2 + 10 = 12\)</span>.</p>
 <p>Grafiquemos nuestra nueva función de suma:</p>
 <div class="cell docutils container">
@@ -1886,7 +1902,7 @@ Benoît Mandelbrot</p>
 <dd><p>A operar con varias funciones concatenadas entre sí se le denomina «composición de funciones». La composición o concatenación de funciones consiste en tomar la salida de una función para pasarla como entrada de otra, y así sucesivamente. Según el esquema de nuestra primera lección, podríamos expresarlo como <span class="math notranslate nohighlight">\(x \mapsto f(x) \mapsto g(f(x))\)</span>, etcétera. Una visualización luciría más o menos así: <img src='https://upload.wikimedia.org/wikipedia/commons/6/65/FunctionMachinesComposition.svg' width=300></p>
 </dd>
 <dt class="label" id="id7"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
-<dd><p>El nombre técnico de esta derivada es «derivada parcial», puesto que la función <span class="math notranslate nohighlight">\(c\)</span> tiene dos variables y solo estamos considerando la derivada con respecto a una variable. En esencia, si tenemos solo una variable en la función, entonces hablamos de derivada; pero si tenemos más de una variable y estimamos la derivada solo con respecto a una variable, entonces hablamos de derivada parcial.</p>
+<dd><p>El nombre técnico de esta derivada es «derivada parcial», puesto que la función <span class="math notranslate nohighlight">\(L\)</span> está compuesta de múltiples variables que, a su vez, están concatenadas entre sí mediante otras funciones (suma y multiplicación). En ese sentido, <span class="math notranslate nohighlight">\(L\)</span> es una función compuesta, y deseamos saber la derivada (parcial) de dicha función con respecto a cada variable que la compone o, en otras palabras, queremos determinar de qué forma está influyendo cada variable en el resultado de la función. En síntesis, si tenemos solo una variable en la función, entonces hablamos de derivada; pero si tenemos más de una variable y estimamos la derivada con respecto a cada variable individual, entonces hablamos de derivada parcial. La derivada parcial utiliza la notación <span class="math notranslate nohighlight">\(\frac{\partial y(x, z)}{\partial x}\)</span> con una letra «d» cursiva (<span class="math notranslate nohighlight">\(\partial\)</span>) para distinguirse. Debemos ser cuidadosos de no confundirla con delta, la «d» griega (<span class="math notranslate nohighlight">\(\delta\)</span>).</p>
 </dd>
 <dt class="label" id="id8"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
 <dd><p>La elección de una función no lineal (tanh, ReLU, etc.) es una cuestión técnica que tiene que ver con el problema a tratar y con cómo fluyen a través de ellas los gradientes. Dado que nuestro problema es relativamente simple, podemos usar cualquiera. Por otro lado, aunque suene extraño que nuestro modelo pueda arrojar probabilidades negativas, eso no sucederá siempre y cuando nuestras entradas estén en el rango de valores que seleccionamos para el entrenamiento (<em>i. e.</em>, 0 a 5 en ambas variables). Si, por ejemplo, dijéramos que la calificación es 30 y el sentimiento 20, nuestro modelo interpretaría esto como una probabilidad de sarcasmo negativa. Es obligado mencionar <a class="reference external" href="https://cds.cern.ch/record/154856/files/pre-27827.pdf/">el paper</a> en el que el gran Feynman explica qué sentido tiene hablar de probabilidades negativas.</p>
@@ -1929,10 +1945,10 @@ Benoît Mandelbrot</p>
             <p class="prev-next-title">Elementos de programación</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="hacedor.html" title="next page">
+    <a class='right-next' id="next-link" href="calculo.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Elementos de procesamiento de lenguajes naturales, o El Hacedor</p>
+        <p class="prev-next-title">Elementos de cálculo infinitesimal</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
