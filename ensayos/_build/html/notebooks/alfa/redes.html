@@ -487,7 +487,7 @@ title="Print to PDF"
 <h1>Elementos de redes neuronales<a class="headerlink" href="#elementos-de-redes-neuronales" title="Permalink to this headline">#</a></h1>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
-<p><em>Como prerrequisitos para esta lección, sugiero leer la <a class="reference external" href="https://dantenoguez.github.io/Ensayos/elementos-program.html">lección anterior</a> y el artículo de Khan Academy sobre la <a class="reference external" href="https://es.khanacademy.org/math/cc-eighth-grade-math/cc-8th-linear-equations-functions/8th-slope/a/slope-from-two-points">pendiente matemática</a>.</em></p>
+<p><em>Como prerrequisitos para esta lección, sugiero leer la <a class="reference external" href="https://dantenoguez.github.io/notebooks/alfa/programacion.html">lección anterior</a> y el artículo de Khan Academy sobre la <a class="reference external" href="https://es.khanacademy.org/math/cc-eighth-grade-math/cc-8th-linear-equations-functions/8th-slope/a/slope-from-two-points">pendiente matemática</a>.</em></p>
 </aside>
 <p>Este ensayo está inspirado en <a class="reference external" href="https://github.com/karpathy/micrograd">micrograd</a> de Andrej Karpathy. A continuación, construiremos una red neuronal desde cero, explicando a detalle cada uno de sus elementos.</p>
 <div class="cell docutils container">
@@ -501,51 +501,24 @@ title="Print to PDF"
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
 </div>
 </div>
 <section id="la-derivada-demostrada-segun-el-orden-geometrico">
 <h2>La derivada demostrada según el orden geométrico<a class="headerlink" href="#la-derivada-demostrada-segun-el-orden-geometrico" title="Permalink to this headline">#</a></h2>
-<aside class="margin sidebar">
-<p class="sidebar-title"></p>
-<p>Recomiendo mirar <a class="reference external" href="https://es.khanacademy.org/math/ap-calculus-ab/ab-differentiation-1-new/ab-2-1/v/newton-leibniz-and-usain-bolt">este video</a> antes de continuar la lectura.</p>
-</aside>
 <p>Las redes neuronales son gigantescas funciones matemáticas. La característica distintiva de estas funciones, que catalizan gran parte de lo que hoy se denomina «inteligencia artificial» (aunque, más estrictamente, deberíamos hablar de «aprendizaje profundo» o <em>deep learning</em>), es que pueden «aprender» a refinar, optimizar y generalizar las «reglas» (parámetros) que las componen. Tal proceso de aprendizaje consiste en la iteración de operaciones matemáticas propias del cálculo diferencial y vectorial. Por ello, para poder formular una red neuronal, procuraremos primero entender intuitivamente a la derivada: esa médula matemática del aprendizaje.</p>
-<p>Conceptualmente, la derivada es bastante similar a la pendiente, y mide la <strong>proporción o magnitud del cambio</strong> que una variable provoca en el resultado de una función. Digamos que la derivada mide la fuerza con la que una variable influye en el resultado de una función.</p>
-<p>Como ejemplo, midamos el cambio que una variable <span class="math notranslate nohighlight">\(a\)</span> (con valores del 0 al 12 en intervalos de 2) provoca en el resultado de una función <span class="math notranslate nohighlight">\(c\)</span> (equivalente a multiplicar <span class="math notranslate nohighlight">\(a\)</span> por <span class="math notranslate nohighlight">\(b\)</span>, donde <span class="math notranslate nohighlight">\(b\)</span> siempre tiene un valor de 5):</p>
-<div class="math notranslate nohighlight">
-\[
-\text{Función} \ c(a) = ba
-\]</div>
-<p>Por ejemplo, un valor de la función sería <span class="math notranslate nohighlight">\(c(a) = 5 \times 2\)</span>, y así sucesivamente:</p>
+<p>Para tal propósito, construiremos la derivada desde cero, utilizando apenas unas cuantas nociones básicas de geometría.</p>
+<p>En geometría, denominamos «pendiente» al valor de la inclinación de una recta. Conceptualmente, la pendiente puede ser interpretada como la proporción del cambio que hay entre las variables <span class="math notranslate nohighlight">\(x\)</span> y <span class="math notranslate nohighlight">\(y\)</span> de la recta. En otras palabras, la pendiente mide qué tanto influye <span class="math notranslate nohighlight">\(x\)</span> en el valor de <span class="math notranslate nohighlight">\(y\)</span>, o qué tanto cambia <span class="math notranslate nohighlight">\(y\)</span> cuando avanzamos en <span class="math notranslate nohighlight">\(x\)</span>. Supongamos, por ejemplo, la recta de una función que podemos definir como <span class="math notranslate nohighlight">\(f(x) = x \cdot b\)</span>, donde:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span> <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">b</span>
-<span class="n">c</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">b</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span> 
-<span class="n">ax</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Valores de a&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Valores de c&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/redes_4_0.png" src="../../_images/redes_4_0.png" />
-</div>
-</div>
-<p>Nuestras correspondencias lucen así:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Valores de a&#39;</span><span class="p">:</span> <span class="n">a</span><span class="p">,</span> <span class="s1">&#39;Valores de b&#39;</span><span class="p">:</span> <span class="n">b</span><span class="p">,</span> <span class="s1">&#39;Valores de c&#39;</span><span class="p">:</span> <span class="n">c</span><span class="p">}</span>
+<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Valores de x&#39;</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="s1">&#39;Valores de b&#39;</span><span class="p">:</span> <span class="n">b</span><span class="p">,</span> <span class="s1">&#39;Valores de y&#39;</span><span class="p">:</span> <span class="n">y</span><span class="p">}</span>
 <span class="n">tabla</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">d</span><span class="p">)</span>
 <span class="n">tabla</span> <span class="o">=</span> <span class="n">tabla</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">hide_index</span><span class="p">()</span>
 <span class="n">tabla</span>
@@ -555,68 +528,129 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output text_html"><style type="text/css">
 </style>
-<table id="T_61ddd_" class="dataframe">
+<table id="T_aa72e_" class="dataframe">
   <thead>
     <tr>
-      <th class="col_heading level0 col0" >Valores de a</th>
+      <th class="col_heading level0 col0" >Valores de x</th>
       <th class="col_heading level0 col1" >Valores de b</th>
-      <th class="col_heading level0 col2" >Valores de c</th>
+      <th class="col_heading level0 col2" >Valores de y</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td id="T_61ddd_row0_col0" class="data row0 col0" >0</td>
-      <td id="T_61ddd_row0_col1" class="data row0 col1" >5</td>
-      <td id="T_61ddd_row0_col2" class="data row0 col2" >0</td>
+      <td id="T_aa72e_row0_col0" class="data row0 col0" >0</td>
+      <td id="T_aa72e_row0_col1" class="data row0 col1" >5</td>
+      <td id="T_aa72e_row0_col2" class="data row0 col2" >0</td>
     </tr>
     <tr>
-      <td id="T_61ddd_row1_col0" class="data row1 col0" >2</td>
-      <td id="T_61ddd_row1_col1" class="data row1 col1" >5</td>
-      <td id="T_61ddd_row1_col2" class="data row1 col2" >10</td>
+      <td id="T_aa72e_row1_col0" class="data row1 col0" >2</td>
+      <td id="T_aa72e_row1_col1" class="data row1 col1" >5</td>
+      <td id="T_aa72e_row1_col2" class="data row1 col2" >10</td>
     </tr>
     <tr>
-      <td id="T_61ddd_row2_col0" class="data row2 col0" >4</td>
-      <td id="T_61ddd_row2_col1" class="data row2 col1" >5</td>
-      <td id="T_61ddd_row2_col2" class="data row2 col2" >20</td>
+      <td id="T_aa72e_row2_col0" class="data row2 col0" >4</td>
+      <td id="T_aa72e_row2_col1" class="data row2 col1" >5</td>
+      <td id="T_aa72e_row2_col2" class="data row2 col2" >20</td>
     </tr>
     <tr>
-      <td id="T_61ddd_row3_col0" class="data row3 col0" >6</td>
-      <td id="T_61ddd_row3_col1" class="data row3 col1" >5</td>
-      <td id="T_61ddd_row3_col2" class="data row3 col2" >30</td>
+      <td id="T_aa72e_row3_col0" class="data row3 col0" >6</td>
+      <td id="T_aa72e_row3_col1" class="data row3 col1" >5</td>
+      <td id="T_aa72e_row3_col2" class="data row3 col2" >30</td>
     </tr>
     <tr>
-      <td id="T_61ddd_row4_col0" class="data row4 col0" >8</td>
-      <td id="T_61ddd_row4_col1" class="data row4 col1" >5</td>
-      <td id="T_61ddd_row4_col2" class="data row4 col2" >40</td>
+      <td id="T_aa72e_row4_col0" class="data row4 col0" >8</td>
+      <td id="T_aa72e_row4_col1" class="data row4 col1" >5</td>
+      <td id="T_aa72e_row4_col2" class="data row4 col2" >40</td>
     </tr>
     <tr>
-      <td id="T_61ddd_row5_col0" class="data row5 col0" >10</td>
-      <td id="T_61ddd_row5_col1" class="data row5 col1" >5</td>
-      <td id="T_61ddd_row5_col2" class="data row5 col2" >50</td>
+      <td id="T_aa72e_row5_col0" class="data row5 col0" >10</td>
+      <td id="T_aa72e_row5_col1" class="data row5 col1" >5</td>
+      <td id="T_aa72e_row5_col2" class="data row5 col2" >50</td>
     </tr>
     <tr>
-      <td id="T_61ddd_row6_col0" class="data row6 col0" >12</td>
-      <td id="T_61ddd_row6_col1" class="data row6 col1" >5</td>
-      <td id="T_61ddd_row6_col2" class="data row6 col2" >60</td>
+      <td id="T_aa72e_row6_col0" class="data row6 col0" >12</td>
+      <td id="T_aa72e_row6_col1" class="data row6 col1" >5</td>
+      <td id="T_aa72e_row6_col2" class="data row6 col2" >60</td>
+    </tr>
+    <tr>
+      <td id="T_aa72e_row7_col0" class="data row7 col0" >14</td>
+      <td id="T_aa72e_row7_col1" class="data row7 col1" >5</td>
+      <td id="T_aa72e_row7_col2" class="data row7 col2" >70</td>
+    </tr>
+    <tr>
+      <td id="T_aa72e_row8_col0" class="data row8 col0" >16</td>
+      <td id="T_aa72e_row8_col1" class="data row8 col1" >5</td>
+      <td id="T_aa72e_row8_col2" class="data row8 col2" >80</td>
+    </tr>
+    <tr>
+      <td id="T_aa72e_row9_col0" class="data row9 col0" >18</td>
+      <td id="T_aa72e_row9_col1" class="data row9 col1" >5</td>
+      <td id="T_aa72e_row9_col2" class="data row9 col2" >90</td>
+    </tr>
+    <tr>
+      <td id="T_aa72e_row10_col0" class="data row10 col0" >20</td>
+      <td id="T_aa72e_row10_col1" class="data row10 col1" >5</td>
+      <td id="T_aa72e_row10_col2" class="data row10 col2" >100</td>
     </tr>
   </tbody>
 </table>
 </div></div>
 </div>
-<p>Lo que la derivada nos señala, como digo, es cuánto influye <span class="math notranslate nohighlight">\(a\)</span> en el valor de <span class="math notranslate nohighlight">\(c\)</span>: si yo paso del primer al segundo valor de <span class="math notranslate nohighlight">\(a\)</span>, es decir, si paso de 0 a 2, ¿cuánto aumenta <span class="math notranslate nohighlight">\(c\)</span>? <span class="math notranslate nohighlight">\(c\)</span> aumenta 5 veces <span class="math notranslate nohighlight">\(a\)</span>. Si doy otro paso en <span class="math notranslate nohighlight">\(a\)</span>, es decir, si paso de 2 a 4. ¿cuánto aumenta <span class="math notranslate nohighlight">\(c\)</span>? Nuevamente, <span class="math notranslate nohighlight">\(b\)</span> aumenta 5 veces <span class="math notranslate nohighlight">\(a\)</span>: <span class="math notranslate nohighlight">\(4 \times 5 = 20\)</span>. Intuitivamente: dado que <span class="math notranslate nohighlight">\(c\)</span> es el resultado de multiplicar 5 veces <span class="math notranslate nohighlight">\(a\)</span>, es claro que cada valor de <span class="math notranslate nohighlight">\(c\)</span> será cinco veces más grande que cada valor correspondiente de <span class="math notranslate nohighlight">\(a\)</span>.</p>
-<p>Así, la derivada<a class="footnote-reference brackets" href="#id4" id="id1">1</a> de la función <span class="math notranslate nohighlight">\(c\)</span> con respecto a <span class="math notranslate nohighlight">\(a\)</span> es 5. 5 es la proporción con la que <span class="math notranslate nohighlight">\(c\)</span> está cambiando; 5 es la «fuerza» con la que <span class="math notranslate nohighlight">\(a\)</span> está influyendo en el resultado de <span class="math notranslate nohighlight">\(c\)</span>. Es como si no supiéramos que <span class="math notranslate nohighlight">\(a\)</span> está siendo multiplicado por <span class="math notranslate nohighlight">\(b\)</span> para resultar <span class="math notranslate nohighlight">\(c\)</span>, y entonces aplicáramos nuestro razonamiento matemático para deducirlo.</p>
-<p>Visualicémoslo:</p>
+<p>En términos más simples, la función es una multiplicación entre <span class="math notranslate nohighlight">\(x\)</span> (números del <span class="math notranslate nohighlight">\(0\)</span> al <span class="math notranslate nohighlight">\(20\)</span> en intervalos de <span class="math notranslate nohighlight">\(2\)</span>) y <span class="math notranslate nohighlight">\(y\)</span> (es decir, <span class="math notranslate nohighlight">\(5\)</span>). Podemos visualizarla de la siguiente manera:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">deriv</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="mf">0.00001</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span> <span class="o">/</span> <span class="mf">0.00001</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Valores de la derivada en cada punto: </span><span class="si">{</span><span class="n">deriv</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;recta de la función&#39;</span><span class="p">)</span> 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Valores de a&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Valores de c&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axline</span><span class="p">((</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">slope</span><span class="o">=</span><span class="n">deriv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;pendiente&#39;</span><span class="p">)</span> <span class="c1"># &lt;- La pendiente es la derivada</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Valores de x&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Valores de y&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/redes_7_0.png" src="../../_images/redes_7_0.png" />
+</div>
+</div>
+<p>Ahora, ¿cómo puedo saber cuánto está influyendo cada valor de <span class="math notranslate nohighlight">\(x\)</span> en cada valor de <span class="math notranslate nohighlight">\(y\)</span>? Es decir, si paso de <span class="math notranslate nohighlight">\(x=2\)</span> a <span class="math notranslate nohighlight">\(x=4\)</span>, ¿qué le pasa a <span class="math notranslate nohighlight">\(y\)</span>? <span class="math notranslate nohighlight">\(y\)</span> avanza desde <span class="math notranslate nohighlight">\(10\)</span> hasta <span class="math notranslate nohighlight">\(20\)</span>, es decir, cinco veces <span class="math notranslate nohighlight">\(x\)</span>: <span class="math notranslate nohighlight">\(5 \times 2 = 10\)</span>. Y si paso de <span class="math notranslate nohighlight">\(x=4\)</span> a <span class="math notranslate nohighlight">\(x=6\)</span>, es decir, si avanzo dos «pasos» en <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span> nuevamente avanza cinco veces lo que avancé en <span class="math notranslate nohighlight">\(x\)</span>, pasando de <span class="math notranslate nohighlight">\(20\)</span> a <span class="math notranslate nohighlight">\(30\)</span>.</p>
+<p>En ese sentido, la proporción que hay entre <span class="math notranslate nohighlight">\(x\)</span> y <span class="math notranslate nohighlight">\(y\)</span> es de <span class="math notranslate nohighlight">\(5\)</span>, <span class="math notranslate nohighlight">\(5\)</span> es el número que determina cada valor de <span class="math notranslate nohighlight">\(y\)</span> a partir de <span class="math notranslate nohighlight">\(x\)</span> o, dicho de otra forma, <span class="math notranslate nohighlight">\(5\)</span> es la «fuerza» con la que <span class="math notranslate nohighlight">\(x\)</span> influye en <span class="math notranslate nohighlight">\(y\)</span>. Esta intuición es clave, pero al mismo tiempo resulta evidente porque la definición de mi función —o sea, cada valor de <span class="math notranslate nohighlight">\(y\)</span>— indica que debo multiplicar <span class="math notranslate nohighlight">\(x\)</span> por <span class="math notranslate nohighlight">\(5\)</span>. Al calcular la pendiente, es como si no supiéramos este número y tuviéramos que deducirlo matemáticamente.</p>
+<p>La fórmula de la pendiente nos ofrece un método general para calcular esta proporción o fuerza de la que hablamos:</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Los símbolos <span class="math notranslate nohighlight">\(\Delta, \delta\)</span> son letras del alfabeta griego llamadas «delta», y generalmente se utilizan en matemáticas para representar o leer un cambio: «cambio en <span class="math notranslate nohighlight">\(y\)</span> sobre cambio en <span class="math notranslate nohighlight">\(x\)</span>».</p>
+</aside>
+<div class="math notranslate nohighlight">
+\[
+Pendiente = \frac{y_2 - y_1}{x_2 - x_1} = \frac{\Delta y}{\Delta x}
+\]</div>
+<p>Entonces la fórmula solo nos dice que debemos tomar dos puntos cualesquiera de <span class="math notranslate nohighlight">\(x\)</span> y <span class="math notranslate nohighlight">\(y\)</span> para calcular la pendiente. Por ejemplo, si consideramos los valores del punto denotado por las líneas punteadas en la gráfica anterior, de tal manera que <span class="math notranslate nohighlight">\(x_1 = 2, y_1 = 10\)</span>, podemos tomar el punto siguiente para calcular la pendiente o inclinación de la recta, de manera que:</p>
+<div class="math notranslate nohighlight">
+\[
+Pendiente = \frac{20 - 10}{4 - 2} = \frac{10}{2} = 5
+\]</div>
+<p>Pero las funciones lineales —es decir, las rectas—, por definición tienen la misma inclinación en todos sus puntos o segmentos. Comprobémoslo cambiando nuestras <span class="math notranslate nohighlight">\(x_2, y_2\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+Pendiente = \frac{y_2 - y_1}{x_2 - x_1} = \frac{60 - 10}{12 - 2} = \frac{50}{10} = 5
+\]</div>
+<p>Naturalmente, la pendiente sigue siendo la misma. Ahora reiteremos, ¿exactamente qué quiere decir el número cinco? Que por cada paso que damos en <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span> avanza cinco veces más. Dicho de otra forma, <span class="math notranslate nohighlight">\(y\)</span> es el resultado de multiplicar <span class="math notranslate nohighlight">\(x\)</span> por cinco; o <span class="math notranslate nohighlight">\(x\)</span> influye con una «fuerza» de cinco veces sí misma en <span class="math notranslate nohighlight">\(y\)</span>; o <span class="math notranslate nohighlight">\(x\)</span> transforma a <span class="math notranslate nohighlight">\(y\)</span> con una fuerza de cinco veces sí misma.</p>
+<p>Visualicemos la pendiente en color rojo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pendiente</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Valor de la pendiente: </span><span class="si">{</span><span class="n">pendiente</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;recta de la función&#39;</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="n">x</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Valores de x&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Valores de y&#39;</span><span class="p">)</span> 
+<span class="n">ax</span><span class="o">.</span><span class="n">axline</span><span class="p">((</span><span class="n">x</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="mi">6</span><span class="p">]),</span> <span class="n">slope</span><span class="o">=</span><span class="n">pendiente</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;pendiente&#39;</span><span class="p">)</span> 
 <span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
@@ -625,20 +659,204 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Valores de la derivada en cada punto: [5. 5. 5. 5. 5. 5. 5.]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Valor de la pendiente: 5.0
 </pre></div>
 </div>
-<img alt="../../_images/redes_8_1.png" src="../../_images/redes_8_1.png" />
+<img alt="../../_images/redes_9_1.png" src="../../_images/redes_9_1.png" />
 </div>
 </div>
+<p>La pendiente es idéntica a la recta porque, como decíamos, la recta tiene la misma inclinación —pendiente— en todos sus puntos. Ahora, el problema con la pendiente es que esta propiedad es al mismo tiempo una limitación fundamental: la pendiente solo es válida para una recta o función lineal.</p>
+<p>Dado que las funciones no lineales no tienen la misma inclinación en todos sus puntos, no podemos hablar de la «inclinación» ni de la «pendiente de una función no lineal». Visualicémoslo con una función cuadrática, donde mis valores de <span class="math notranslate nohighlight">\(x\)</span> ahora van del <span class="math notranslate nohighlight">\(0\)</span> al <span class="math notranslate nohighlight">\(5.99\)</span>. Digamos también que me interesa saber la inclinación o «pendiente» de la función cuando <span class="math notranslate nohighlight">\(x=5\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mf">0.0001</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">nolineal</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">nolineal</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">pendiente</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">5</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;gráfica de la función&#39;</span><span class="p">)</span> 
+<span class="n">ax</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Valores de x&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Valores de y&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axline</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">slope</span><span class="o">=</span><span class="n">pendiente</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;pendiente?&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/redes_11_0.png" src="../../_images/redes_11_0.png" />
+</div>
+</div>
+<p>Para calcular la inclinación de la función (es decir, la curva azul) cuando <span class="math notranslate nohighlight">\(x=5\)</span>, he utilizado la fórmula de la pendiente tomando como referencia los puntos <span class="math notranslate nohighlight">\(x_1=2, x_2=5\)</span>, de tal manera que:</p>
+<div class="math notranslate nohighlight">
+\[
+Pendiente = \frac{y_2 - y_1}{x_2 - x_1} = \frac{25 - 4}{5 - 2} = \frac{21}{3} = 7
+\]</div>
+<p>Pero la realidad es que mi función no cambió en esa proporción con respecto al punto <span class="math notranslate nohighlight">\(x=5\)</span>: esa pendiente de <span class="math notranslate nohighlight">\(7\)</span> corresponde a la secante<a class="footnote-reference brackets" href="#id5" id="id1">1</a> que atraviesa la función, no a la «pendiente» del punto <span class="math notranslate nohighlight">\(x=5\)</span>. La gráfica evidencia que el resultado es inexacto: queda claro que la función tiene una inclinación distinta a la de la recta roja.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
-<p>En una función no lineal nunca hablamos de la pendiente de la función, sino de la pendiente de la tangente a un punto (que equivale a la derivada). Aun así, en términos conceptuales, cuando hablamos de dos dimensiones, derivada y pendiente son similares y la comparación puede ayudar a entender la derivada.</p>
+<p>Tengamos en mente lo siguiente: nuestra función es curva porque su inclinación siempre cambia, y su inclinación siempre cambia porque cada valor de <span class="math notranslate nohighlight">\(x\)</span> influye en <span class="math notranslate nohighlight">\(y\)</span> de manera distinta. Intuitivamente, cuando <span class="math notranslate nohighlight">\(x=4\)</span>, <span class="math notranslate nohighlight">\(y\)</span> resulta de <span class="math notranslate nohighlight">\(4^2\)</span>, es decir, <span class="math notranslate nohighlight">\(y\)</span> resulta de multiplicar <span class="math notranslate nohighlight">\(4 \times 4\)</span>; pero cuando <span class="math notranslate nohighlight">\(x=5\)</span>, <span class="math notranslate nohighlight">\(y\)</span> aumenta en una proporción diferente: <span class="math notranslate nohighlight">\(5 \times 5\)</span>. Por contra, las rectas o funciones lineales siempre cambian en la misma proporción —anteriormente, siempre se multiplicaba cada <span class="math notranslate nohighlight">\(x\)</span> por <span class="math notranslate nohighlight">\(5\)</span>—, de manera que su inclinación es única y constante.</p>
 </aside>
-<p>La línea tangente al punto con respecto al que se deriva (denotado por las líneas punteadas: <span class="math notranslate nohighlight">\(a=2, c=10\)</span>) resulta tener la misma inclinación que la recta de la función. Geométricamente, en espacios de dos dimensiones, podríamos entender a la derivada como el grado de inclinación de la línea tangente a un punto de la función. Pero dado que todos los puntos de una función lineal (o sea, una recta) tienen la misma inclinación, entonces la inclinación de la tangente es la misma que la de la recta y, consecuentemente, la derivada es igual a la pendiente.</p>
-<p>En suma, la pendiente y la derivada tienen el mismo valor porque la proporción que guardan los valores de la variable <span class="math notranslate nohighlight">\(a\)</span> y la función <span class="math notranslate nohighlight">\(c\)</span> es la misma en todos los puntos: la inclinación de la recta nos la dieron los valores de <span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(c\)</span>; la proporción entre ellos se ve reflejada en la inclinación; y dicha inclinación representa la «fuerza» con la que <span class="math notranslate nohighlight">\(a\)</span> influye en <span class="math notranslate nohighlight">\(c\)</span> «a través del tiempo», es decir, conforme pasamos de un valor de <span class="math notranslate nohighlight">\(a\)</span> al siguiente.</p>
-<p>Pongamos otro ejemplo: si los valores de la función nunca cambiaran, entonces su derivada sería 0. Geométricamente, no habría nada de inclinación en la tangente; conceptualmente, la definición de la función indicaría que su resultado nunca cambiará: ninguna variable tendría influencia en la función, de manera que el «cambio» siempre sería nulo, cero.</p>
-<p>Supongamos que quiero medir la distancia que recorro en 20 segundos: si con el paso del tiempo no avanzo nada o, lo que es lo mismo, si la variable tiempo no influye en la función distancia, entonces la función, la pendiente y la tangente a cualquier punto lucen así:</p>
+<p>Además de que la función tiene múltiples «pendientes» —porque su inclinación siempre cambia—, estas «pendientes» son inexactas, puesto que no miden con precisión el impacto (o inclinación) de un solo punto en la función, sino que la fórmula de la pendiente necesariamente nos ofrece la inclinación de una recta trazada entre dos valores de <span class="math notranslate nohighlight">\(x\)</span> y dos valores de <span class="math notranslate nohighlight">\(y\)</span>. Puesto que la función con la que lidiamos ahora es curva, los puntos de <span class="math notranslate nohighlight">\(x\)</span> y <span class="math notranslate nohighlight">\(y\)</span> que tomamos no son satisfactorios porque denotan una línea, no una curva. En ese sentido, el resultado está sesgado.</p>
+<p>Entonces, ¿cómo puedo hacer para encontrar el verdadero impacto de <span class="math notranslate nohighlight">\(x\)</span> en <span class="math notranslate nohighlight">\(y\)</span>? Podemos pensar en el siguiente truco: si la pendiente de la secante, aunque errónea, se acerca de alguna forma a nuestro valor deseado, ¿no podríamos hacer una secante más pequeña, tal que fuera más similar al punto que nos interesa? Es decir, si tomáramos la pendiente de la distancia entre dos puntos de <span class="math notranslate nohighlight">\(x\)</span> más cercanos entre sí, eso tendría que darnos una mejor aproximación al resultado correcto, ¿no? Veámoslo así:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pendiente</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">5</span> <span class="o">-</span> <span class="mi">4</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Valor de la pendiente con una secante más pequeña: </span><span class="si">{</span><span class="n">pendiente</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;gráfica de la función&#39;</span><span class="p">)</span> 
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Valores de x&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Valores de y / f(x)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axline</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">slope</span><span class="o">=</span><span class="n">pendiente</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;pendiente?&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;gráfica de la función&#39;</span><span class="p">)</span> 
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Valores de x&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Valores de y / f(x)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Zoom&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axline</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">slope</span><span class="o">=</span><span class="n">pendiente</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;pendiente?&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Valor de la pendiente con una secante más pequeña: 9.0
+</pre></div>
+</div>
+<img alt="../../_images/redes_13_1.png" src="../../_images/redes_13_1.png" />
+</div>
+</div>
+<p>Gráficamente podemos comprobar que hemos obtenido un mucho mejor resultado: la secante que trazamos tiene una inclinación similar a la de la curva de la función. Pero las líneas punteadas —las cuales denotan los puntos que hemos tomado como referencia para calcular la pendiente— nos indican que todavía podemos mejorar, tomando como referencia coordenadas más cercanas entre sí.</p>
+<p>Bien, pues antes de continuar experimentando, adelantemos ya que esta línea de razonamiento es precisamente la que dio origen a la derivada. El truco es este: podemos calcular la pendiente de líneas secantes cada vez más pequeñas y similares a nuestro punto, obteniendo cada vez mejores resultados. Es más, podemos llegar a calcular la pendiente de una línea infinitamente pequeña, tan pequeña que sería casi idéntica al punto, y la pendiente de esa línea infinitamente pequeña sería igual a la pendiente del punto. En ese mismo sentido, podríamos decir incluso —y de hecho se hace así en el ámbito matemático— que estamos calculando la pendiente de una línea tangente al punto, puesto que su pendiente sería igual a la de una secante infinitamente pequeña que se confunde con el punto.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Hasta donde sé, fue Leibniz quien inventó la derivada razonando de una manera <a class="reference external" href="https://youtu.be/5M2RWtD4EzI">casi idéntica</a> a la nuestra.</p>
+</aside>
+<figure class="align-default" id="derivada">
+<a class="reference internal image-reference" href="../../_images/derivada.png"><img alt="../../_images/derivada.png" src="../../_images/derivada.png" style="width: 90%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Como en la imagen, queremos obtener la pendiente de una secante cada vez más pequeña —más cercana al punto que nos interesa—, es decir, con una distancia <span class="math notranslate nohighlight">\(h\)</span> cada vez menor. Podemos hacer esta línea tan infinitamente pequeña que se identifique con el punto; por tanto, su pendiente sería igual a la pendiente de una línea tangente al punto.</span><a class="headerlink" href="#derivada" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Utilizando la fórmula de la pendiente para poner en práctica nuestra intuición, podemos conseguir un resultado como este:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pendiente</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mf">4.99</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">5</span> <span class="o">-</span> <span class="mf">4.99</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Valor de la pendiente con una secante más pequeña: </span><span class="si">{</span><span class="n">pendiente</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;gráfica de la función&#39;</span><span class="p">)</span> 
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Valores de x&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Valores de y / f(x)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axline</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">slope</span><span class="o">=</span><span class="n">pendiente</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;pendiente?&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mf">4.99</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mf">4.99</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">4.99</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mf">4.99</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;gráfica de la función&#39;</span><span class="p">)</span> 
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Valores de x&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Valores de y / f(x)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Zoom&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="mi">28</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axline</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">slope</span><span class="o">=</span><span class="n">pendiente</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;pendiente?&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mf">4.99</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mf">4.99</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">4.99</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mf">4.99</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Valor de la pendiente con una secante más pequeña: 9.990000000000023
+</pre></div>
+</div>
+<img alt="../../_images/redes_15_1.png" src="../../_images/redes_15_1.png" />
+</div>
+</div>
+<p>En esencia, hemos minimizado las distancias entre <span class="math notranslate nohighlight">\(x_2\)</span> y <span class="math notranslate nohighlight">\(x_1\)</span> al utilizar los valores <span class="math notranslate nohighlight">\(x_2=5, x_1=4.99\)</span> para obtener un resultado más riguroso. Gráficamente, corroboramos que nuestro resultado es más exacto: la línea que podemos trazar con la pendiente obtenida es casi idéntica a la función, al punto que la opaca cuando la miramos desde cerca. Suponiendo, como en nuestro dibujo anterior, que llamemos <span class="math notranslate nohighlight">\(h\)</span> a la distancia entre las <span class="math notranslate nohighlight">\(x\)</span>, nuestra fórmula actual para la pendiente de esta tangente o secante infinitamente pequeña luce así:</p>
+<div class="math notranslate nohighlight">
+\[
+Pendiente = \frac{y_2 - y_1}{x_2 - x_1} = \frac{f(x+h) - f(x)}{(x+h) - x} = \frac{f(x+h) - f(x)}{h}
+\]</div>
+<p>Como decía, idealmente queremos que la distancia <span class="math notranslate nohighlight">\(h\)</span> sea lo más pequeña posible, es decir, lo más cercana a <span class="math notranslate nohighlight">\(0\)</span> posible (sin ser <span class="math notranslate nohighlight">\(0\)</span>, puesto que necesitamos una distancia entre dos <span class="math notranslate nohighlight">\(x\)</span> para tener una línea y así ser capaces de obtener su pendiente, puesto que un punto no tiene pendiente). Para expresar esta idea, emplearemos la expresión <span class="math notranslate nohighlight">\(\lim _{h \rightarrow 0}\)</span>, es decir, «cuando <span class="math notranslate nohighlight">\(h\)</span> es tan pequeña que se acerca a <span class="math notranslate nohighlight">\(0\)</span>» o, más estrictamente, «el límite de la función cuando <span class="math notranslate nohighlight">\(h\)</span> tiende a <span class="math notranslate nohighlight">\(0\)</span>». De tal manera que:</p>
+<div class="math notranslate nohighlight">
+\[
+\lim _{h \rightarrow 0} \frac{f(x+h) - f(x)}{h}
+\]</div>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Sobre límites se puede leer <a class="reference external" href="https://es.khanacademy.org/math/ap-calculus-ab/ab-limits-new/ab-1-2/a/limits-intro?modal=1">este artículo</a>; sobre derivadas, <a class="reference external" href="https://es.khanacademy.org/math/ap-calculus-ab/ab-differentiation-1-new">son recomendables también estos videos</a>.</p>
+</aside>
+<p>Pero ahora ya no hablamos de una pendiente exactamente, sino que la estamos alterando para conseguir un resultado distinto. A este nuevo concepto lo denominaremos «derivada»:</p>
+<div class="math notranslate nohighlight">
+\[
+Derivada = \lim _{h \rightarrow 0} \frac{f(x+h) - f(x)}{h}
+\]</div>
+<p>En la práctica también suele escribirse como <span class="math notranslate nohighlight">\(\frac{dy}{dx}\)</span>, o <span class="math notranslate nohighlight">\(f'(x)\)</span>.</p>
+<p>Aplicada a nuestro problema, podemos utilizarla así:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dy}{dx} =\lim _{h \rightarrow 0} \frac{f(x+h) - f(x)}{h} = \lim _{h \rightarrow 0} \frac{(5+0.001)^2 - 5^2}{0.001} = 10.00
+\]</div>
+<p>Programáticamente:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">derivada</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+  <span class="n">h</span> <span class="o">=</span> <span class="mf">0.001</span>
+  <span class="k">return</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">h</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">/</span> <span class="n">h</span>
+
+<span class="n">derivada</span><span class="p">(</span><span class="n">nolineal</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10.001000000002591
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finalmente hemos descubierto que cuando <span class="math notranslate nohighlight">\(x=5\)</span>, <span class="math notranslate nohighlight">\(x\)</span> «influye» en <span class="math notranslate nohighlight">\(y\)</span> con una «fuerza» de <span class="math notranslate nohighlight">\(10\)</span>. Esta proporción o fuerza puede ser representada con la expresión <span class="math notranslate nohighlight">\(nx^{n-1}\)</span>, es decir, cuando <span class="math notranslate nohighlight">\(f(x) = x^2\)</span> y <span class="math notranslate nohighlight">\(x=5\)</span>, entonces:</p>
+<div class="math notranslate nohighlight">
+\[
+nx^{n-1} = 2(5)^{2-1} = 10
+\]</div>
+<p>Esta expresión matemática podríamos obtenerla de la misma forma en que obtuvimos la fórmula de la derivada, o de una forma similar a la que nos hizo descubrir en nuestro primer ejemplo que <span class="math notranslate nohighlight">\(x\)</span> se multiplicaba siempre por <span class="math notranslate nohighlight">\(5\)</span>. Básicamente, toda fórmula o expresión matemática tiene un trasfondo racional como el que hemos desarrollado, aunque en realidad muchos de ellos involucran desgloses lógicos escritos en lenguaje matemático.</p>
+<p>Volviendo a lo nuestro, podemos decir que, conceptualmente, la derivada —igual que la pendiente— mide la <strong>proporción o magnitud del cambio</strong> que una variable provoca en el resultado de una función. Digamos que la derivada mide la fuerza con la que una variable influye —en un determinado punto— en el resultado de una función.</p>
+<p>Pongamos otro ejemplo: si los valores de la función nunca cambiaran, entonces su derivada sería <span class="math notranslate nohighlight">\(0\)</span>. Geométricamente, no habría nada de inclinación en la tangente; conceptualmente, la definición de la función indicaría que su resultado nunca cambiará: ninguna variable tendría influencia en la función, de manera que el «cambio» siempre sería nulo, cero.</p>
+<p>Supongamos que quiero medir la distancia que recorro en <span class="math notranslate nohighlight">\(20\)</span> segundos: si con el paso del tiempo no avanzo nada o, lo que es lo mismo, si la variable tiempo no influye en la función distancia, entonces la función, la pendiente y la tangente a cualquier punto son <span class="math notranslate nohighlight">\(0\)</span>, por lo que lucen así:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tiempo</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -650,17 +868,17 @@ title="Print to PDF"
 <span class="n">ax</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Tiempo (segundos)&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Distancia (metros)&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axline</span><span class="p">((</span><span class="n">tiempo</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">distancia</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">slope</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Pendiente&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axline</span><span class="p">((</span><span class="n">tiempo</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">distancia</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">slope</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;derivada / pendiente&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/redes_11_0.png" src="../../_images/redes_11_0.png" />
+<img alt="../../_images/redes_20_0.png" src="../../_images/redes_20_0.png" />
 </div>
 </div>
-<p>Veamos otro ejemplo, ahora con la función suma: mi variable <span class="math notranslate nohighlight">\(x\)</span> tendrá valores del 0 al 12 con intervalos de 2, mientras que mi función es <span class="math notranslate nohighlight">\(x+6\)</span>. Mi tabla de valores entonces debería quedar así:</p>
+<p>Veamos un último ejemplo, ahora con la función suma: mi variable <span class="math notranslate nohighlight">\(x\)</span> tendrá valores del <span class="math notranslate nohighlight">\(0\)</span> al <span class="math notranslate nohighlight">\(12\)</span> con intervalos de <span class="math notranslate nohighlight">\(2\)</span>, mientras que mi función es <span class="math notranslate nohighlight">\(x+6\)</span>. Mi tabla de valores entonces debería quedar así:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
@@ -677,7 +895,7 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output text_html"><style type="text/css">
 </style>
-<table id="T_6bd71_" class="dataframe">
+<table id="T_c3ccb_" class="dataframe">
   <thead>
     <tr>
       <th class="col_heading level0 col0" >Valores de x</th>
@@ -686,38 +904,38 @@ title="Print to PDF"
   </thead>
   <tbody>
     <tr>
-      <td id="T_6bd71_row0_col0" class="data row0 col0" >0</td>
-      <td id="T_6bd71_row0_col1" class="data row0 col1" >6</td>
+      <td id="T_c3ccb_row0_col0" class="data row0 col0" >0</td>
+      <td id="T_c3ccb_row0_col1" class="data row0 col1" >6</td>
     </tr>
     <tr>
-      <td id="T_6bd71_row1_col0" class="data row1 col0" >2</td>
-      <td id="T_6bd71_row1_col1" class="data row1 col1" >8</td>
+      <td id="T_c3ccb_row1_col0" class="data row1 col0" >2</td>
+      <td id="T_c3ccb_row1_col1" class="data row1 col1" >8</td>
     </tr>
     <tr>
-      <td id="T_6bd71_row2_col0" class="data row2 col0" >4</td>
-      <td id="T_6bd71_row2_col1" class="data row2 col1" >10</td>
+      <td id="T_c3ccb_row2_col0" class="data row2 col0" >4</td>
+      <td id="T_c3ccb_row2_col1" class="data row2 col1" >10</td>
     </tr>
     <tr>
-      <td id="T_6bd71_row3_col0" class="data row3 col0" >6</td>
-      <td id="T_6bd71_row3_col1" class="data row3 col1" >12</td>
+      <td id="T_c3ccb_row3_col0" class="data row3 col0" >6</td>
+      <td id="T_c3ccb_row3_col1" class="data row3 col1" >12</td>
     </tr>
     <tr>
-      <td id="T_6bd71_row4_col0" class="data row4 col0" >8</td>
-      <td id="T_6bd71_row4_col1" class="data row4 col1" >14</td>
+      <td id="T_c3ccb_row4_col0" class="data row4 col0" >8</td>
+      <td id="T_c3ccb_row4_col1" class="data row4 col1" >14</td>
     </tr>
     <tr>
-      <td id="T_6bd71_row5_col0" class="data row5 col0" >10</td>
-      <td id="T_6bd71_row5_col1" class="data row5 col1" >16</td>
+      <td id="T_c3ccb_row5_col0" class="data row5 col0" >10</td>
+      <td id="T_c3ccb_row5_col1" class="data row5 col1" >16</td>
     </tr>
     <tr>
-      <td id="T_6bd71_row6_col0" class="data row6 col0" >12</td>
-      <td id="T_6bd71_row6_col1" class="data row6 col1" >18</td>
+      <td id="T_c3ccb_row6_col0" class="data row6 col0" >12</td>
+      <td id="T_c3ccb_row6_col1" class="data row6 col1" >18</td>
     </tr>
   </tbody>
 </table>
 </div></div>
 </div>
-<p>Ahora preguntémonos: ¿en qué proporción cambia <span class="math notranslate nohighlight">\(y\)</span> cuando aumentamos <span class="math notranslate nohighlight">\(x\)</span>? Si paso de mi primer valor de <span class="math notranslate nohighlight">\(x\)</span> al segundo, es decir, si paso de 0 a 2, ¿cuánto estoy aumentando a mi primer valor de <span class="math notranslate nohighlight">\(y\)</span>? ¡También dos! Es decir, que la proporción de los cambios entre <span class="math notranslate nohighlight">\(x\)</span> e <span class="math notranslate nohighlight">\(y\)</span> es 1: si aumento dos a <span class="math notranslate nohighlight">\(x\)</span>, también aumento 2 a <span class="math notranslate nohighlight">\(y\)</span>. En nuestro primer ejemplo, si agregábamos 2 a <span class="math notranslate nohighlight">\(a\)</span>, nuestro valor de <span class="math notranslate nohighlight">\(c\)</span> aumentaba cinco veces <span class="math notranslate nohighlight">\(a\)</span>.</p>
+<p>Ahora preguntémonos: ¿en qué proporción cambia <span class="math notranslate nohighlight">\(y\)</span> cuando aumentamos <span class="math notranslate nohighlight">\(x\)</span>? Si paso de mi primer valor de <span class="math notranslate nohighlight">\(x\)</span> al segundo, es decir, si paso de <span class="math notranslate nohighlight">\(0\)</span> a <span class="math notranslate nohighlight">\(2\)</span>, ¿cuánto estoy aumentando a mi primer valor de <span class="math notranslate nohighlight">\(y\)</span>? ¡También dos! Es decir, que la proporción de los cambios entre <span class="math notranslate nohighlight">\(x\)</span> e <span class="math notranslate nohighlight">\(y\)</span> es 1: si aumento dos a <span class="math notranslate nohighlight">\(x\)</span>, también aumento <span class="math notranslate nohighlight">\(2\)</span> a <span class="math notranslate nohighlight">\(y\)</span>. En nuestro primer ejemplo, si agregábamos <span class="math notranslate nohighlight">\(2\)</span> a <span class="math notranslate nohighlight">\(x\)</span>, nuestro valor de <span class="math notranslate nohighlight">\(y\)</span> aumentaba cinco veces <span class="math notranslate nohighlight">\(x\)</span>.</p>
 <p>Esto tiene sentido porque la multiplicación aumenta nuestros valores con mayor velocidad y en diferente proporción que la suma: por ejemplo, <span class="math notranslate nohighlight">\(2 \times 4 = 8\)</span>, pero <span class="math notranslate nohighlight">\(2 + 4 = 6\)</span>, y conforme tomamos números más grandes, nuestra multiplicación continúa creciendo a mayor velocidad que la suma: <span class="math notranslate nohighlight">\(2 \times 10 = 20\)</span>, pero <span class="math notranslate nohighlight">\(2 + 10 = 12\)</span>.</p>
 <p>Grafiquemos nuestra nueva función de suma:</p>
 <div class="cell docutils container">
@@ -729,7 +947,7 @@ title="Print to PDF"
 <span class="n">ax</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Valores de x&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Valores de y&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axline</span><span class="p">((</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">slope</span><span class="o">=</span><span class="n">derivada</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;pendiente&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axline</span><span class="p">((</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">slope</span><span class="o">=</span><span class="n">derivada</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;derivada / pendiente&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
@@ -738,89 +956,25 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/redes_15_0.png" src="../../_images/redes_15_0.png" />
+<img alt="../../_images/redes_24_0.png" src="../../_images/redes_24_0.png" />
 </div>
 </div>
-<p>La inclinación de la recta es menor porque <span class="math notranslate nohighlight">\(y\)</span> aumenta lentamente en proporción a <span class="math notranslate nohighlight">\(x\)</span>, de 2 en 2. Una vez más: únicamente estamos averiguando la proporción que hay entre los valores de <span class="math notranslate nohighlight">\(x\)</span> y de <span class="math notranslate nohighlight">\(y\)</span>. Si cada valor de <span class="math notranslate nohighlight">\(x\)</span> aumenta significativamente cada valor correspondiente de la función, entonces nuestra derivada será alta y la inclinación de la recta será empinada.</p>
+<p>La inclinación de la recta es menor porque <span class="math notranslate nohighlight">\(y\)</span> aumenta lentamente en proporción a <span class="math notranslate nohighlight">\(x\)</span>, de <span class="math notranslate nohighlight">\(2\)</span> en <span class="math notranslate nohighlight">\(2\)</span>. Una vez más: únicamente estamos averiguando la proporción que hay entre los valores de <span class="math notranslate nohighlight">\(x\)</span> y de <span class="math notranslate nohighlight">\(y\)</span>. Si cada valor de <span class="math notranslate nohighlight">\(x\)</span> aumenta significativamente cada valor correspondiente de la función, entonces nuestra derivada será alta y la inclinación de la recta será empinada.</p>
 <p>Por otra parte, cuando cada valor de la función aumenta poco conforme hacemos más grande nuestra variable de entrada, entonces la derivada será pequeña y la inclinación será poca.</p>
-<p>Veamos, por último, una función no lineal para distinguir claramente la tangente de la gráfica con una inclinación (pendiente) equivalente a la derivada. Esta función no tiene pendiente porque no es una recta:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">cub</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">cub</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span>
-
-<span class="n">derivs</span> <span class="o">=</span> <span class="p">(</span><span class="n">cub</span><span class="p">(</span><span class="n">xs</span><span class="o">+</span><span class="mf">0.00001</span><span class="p">)</span> <span class="o">-</span> <span class="n">cub</span><span class="p">(</span><span class="n">xs</span><span class="p">))</span> <span class="o">/</span> <span class="mf">0.00001</span>
-
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;gráfica de la función&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Gráfica&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Valores de x&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Valores de y&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axline</span><span class="p">((</span><span class="n">xs</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="mi">5</span><span class="p">]),</span> <span class="n">slope</span><span class="o">=</span><span class="n">derivs</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;tangente&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;gráfica de la función&#39;</span><span class="p">)</span> 
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Zoom a la gráfica&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Valores de x&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Valores de y&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axline</span><span class="p">((</span><span class="n">xs</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="mi">5</span><span class="p">]),</span> <span class="n">slope</span><span class="o">=</span><span class="n">derivs</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;tangente&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">xs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">xs</span><span class="p">[</span><span class="mi">7</span><span class="p">])</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">600</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/redes_17_0.png" src="../../_images/redes_17_0.png" />
-</div>
-</div>
-<p>En este último caso, la proporción entre <span class="math notranslate nohighlight">\(x\)</span> y el resultado de la función nos la da la fórmula <span class="math notranslate nohighlight">\(y = zx^{z-1}\)</span>. Por ejemplo, la derivada con respecto al punto a partir del cual trazamos la tangente anterior se puede calcular así:</p>
-<div class="math notranslate nohighlight">
-\[
-3x^{3-1}
-\]</div>
-<div class="math notranslate nohighlight">
-\[
-x = 6
-\]</div>
-<div class="math notranslate nohighlight">
-\[
-3(6^2) = 3(36) = 108
-\]</div>
-<p>¿De dónde sale esa fórmula? Podemos obtenerla razonando lógicamente como lo hicimos con los ejemplos anteriores, o analíticamente, es decir, empleando métodos lógico-matemáticos más definidos que utilizan los académicos para estudiar, desarrollar y explorar estos temas. Este último caso requiere cierto entrenamiento técnico, pero aunque más complejo, es prácticamente el mismo que el que hemos utilizado.</p>
-<p>Ahora, revisemos una definición matemática de la derivada. La fórmula se puede escribir así:</p>
-<div class="math notranslate nohighlight">
-\[
-f^{\prime}(x)=\lim _{h \rightarrow 0} \frac{f(x+h)-f(x)}{h}
-\]</div>
-<p>Mientras que la fórmula de una deriva parcial es:</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{\partial f(x, y)}{\partial x}=\lim _{h \rightarrow 0}{\frac{f(x+h, y)-f(x, y)}{h}}
-\]</div>
-<aside class="margin sidebar">
-<p class="sidebar-title"></p>
-<p>Sobre límites se puede leer <a class="reference external" href="https://es.khanacademy.org/math/ap-calculus-ab/ab-limits-new/ab-1-2/a/limits-intro?modal=1">este artículo</a>; sobre derivadas, <a class="reference external" href="https://es.khanacademy.org/math/ap-calculus-ab/ab-differentiation-1-new">estos videos</a>.</p>
-</aside>
-<p>Por una parte, es importante familiarizarnos con la notación matemática, así podremos identificar estos conceptos y fórmulas en los textos académicos. El signo <span class="math notranslate nohighlight">\(\partial\)</span> es la letra «d» cursiva y se utiliza para abreviar «derivada [parcial]», por lo que la segunda fórmula equivale a «derivada parcial de <span class="math notranslate nohighlight">\(f\)</span> con respecto a <span class="math notranslate nohighlight">\(x\)</span>». El símbolo <span class="math notranslate nohighlight">\(\lim _{h \rightarrow 0}\)</span> significa «el límite de la función cuando <span class="math notranslate nohighlight">\(h\)</span> tiende a 0». A efectos prácticos, este símbolo indica que al momento de aplicar la fórmula, debemos reemplazar <span class="math notranslate nohighlight">\(h\)</span> por un valor cercano a 0.</p>
-<p>Ambas fórmulas significan lo mismo. Si prestamos atención, ambas realizan una resta para medir el impacto de una variable en la función, y después una división para estimar la proporción de dicho cambio. En Wikipedia, se define a la derivada de una función como una «razón de cambio instantánea con la que varía el valor de dicha función matemática, según se modifique el valor de su variable independiente». En otras palabras, es lo que decíamos: la derivada mide la proporción (o razón, o tasa, o magnitud) del cambio que una variable provoca en la función.</p>
 </section>
 <section id="pero-para-que-sirve-la-derivada">
 <h2>Pero ¿para qué sirve la derivada?<a class="headerlink" href="#pero-para-que-sirve-la-derivada" title="Permalink to this headline">#</a></h2>
-<p>Imaginemos que tenemos dos variables: <span class="math notranslate nohighlight">\(x = -2\)</span> e <span class="math notranslate nohighlight">\(y = 3\)</span>. La función <span class="math notranslate nohighlight">\(f(x, y)\)</span> las multiplica y su resultado es <span class="math notranslate nohighlight">\(-6\)</span>. Sin embargo, queremos alterar ese resultado para que sea <span class="math notranslate nohighlight">\(0\)</span> y tenemos una restricción: la única manera de hacerlo es a través de las variables de entrada. Para ello, podríamos pensar en aumentar o disminuir las entradas en pasos pequeños y probar aleatoriamente hasta conseguir el resultado.</p>
+<p>Imaginemos que tenemos dos variables: <span class="math notranslate nohighlight">\(x = -2\)</span> y <span class="math notranslate nohighlight">\(y = 3\)</span>. La función <span class="math notranslate nohighlight">\(f(x, y)\)</span> las multiplica y su resultado es <span class="math notranslate nohighlight">\(-6\)</span>. Sin embargo, queremos alterar ese resultado para que sea <span class="math notranslate nohighlight">\(0\)</span> y tenemos una restricción: la única manera de hacerlo es a través de las variables de entrada. Para ello, podríamos pensar en aumentar o disminuir las entradas en pasos pequeños y probar aleatoriamente hasta conseguir el resultado.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
-<p>Ojo: disminuir el 3 aumenta el resultado, puesto que está siendo multiplicado por un número negativo. Ejemplo: 3-1 = 2, 2*-2 = -4, y -4 es mayor que -6, el resultado inicial.</p>
+<p>Ojo: disminuir el <span class="math notranslate nohighlight">\(3\)</span> aumenta el resultado, puesto que está siendo multiplicado por un número negativo. Ejemplo: <span class="math notranslate nohighlight">\(3-1 = 2, 2*-2 = -4\)</span>, y <span class="math notranslate nohighlight">\(-4\)</span> es mayor que <span class="math notranslate nohighlight">\(-6\)</span>, el resultado inicial.</p>
 </aside>
 <p>Supongamos que nuestro cambio aplicado será <span class="math notranslate nohighlight">\(0.01\)</span>: disminuiremos <span class="math notranslate nohighlight">\(y\)</span> en esa cantidad y aumentaremos <span class="math notranslate nohighlight">\(x\)</span> de la misma forma: <span class="math notranslate nohighlight">\(x = -1.99 \times y = 2.99 = -5.95\)</span>. Bien, <span class="math notranslate nohighlight">\(-5.95\)</span> es más cercano a <span class="math notranslate nohighlight">\(0\)</span> que <span class="math notranslate nohighlight">\(-6\)</span>. Podríamos continuar este proceso hasta llegar a <span class="math notranslate nohighlight">\(0\)</span>, pero nuestro método no parece muy efectivo.</p>
 <p>Si recordamos la lección aprendida en las derivadas, se nos puede ocurrir utilizarlas para resolver este problema: dado que la derivada me dice el impacto que tiene una variable de entrada en la función, ¿será posible utilizarla para alterar el resultado de la función? Es decir, si la derivada me dice la magnitud del impacto que una varible tiene en el resultado, entonces debería poder utilizar esa información para influir en el resultado de manera más eficiente. Por ejemplo, si la derivada me indica que una variable influye positivamente en la función, pero yo quiero disminuirla, entonces sabré más o menos la magnitud en que debo disminuir esa variable, y así sucesivamente.</p>
 </section>
 <section id="pequegrad">
 <h2>Pequegrad<a class="headerlink" href="#pequegrad" title="Permalink to this headline">#</a></h2>
-<p>Para entender mejor la posible solución planteada, crearemos programáticamente la clase <code class="docutils literal notranslate"><span class="pre">Numero</span></code>, es decir, formularemos una estructura que nos permita definir, modificar y operar con números. De momento, cada <code class="docutils literal notranslate"><span class="pre">Numero</span></code> tendrá las siguientes propiedades: un <code class="docutils literal notranslate"><span class="pre">valor</span></code>, un par de valores <code class="docutils literal notranslate"><span class="pre">previos</span></code> para el caso de que el <code class="docutils literal notranslate"><span class="pre">valor</span></code> haya sido generado mediante una operación (por ejemplo, 2 y 2 en el caso de que multiplicados hayan generado el número 4), la <code class="docutils literal notranslate"><span class="pre">operación</span></code> que generó dicho valor (en nuestro ejemplo, la multiplicación) y una etiqueta en caso de que queramos asociar nuestro <code class="docutils literal notranslate"><span class="pre">valor</span></code> a una variable. Por ahora, únicamente tendremos las operaciones de suma, multiplcación, resta y división:</p>
+<p>Para entender mejor la posible solución planteada, crearemos programáticamente la clase <code class="docutils literal notranslate"><span class="pre">Numero</span></code>, es decir, formularemos una estructura que nos permita definir, modificar y operar con números. De momento, cada <code class="docutils literal notranslate"><span class="pre">Numero</span></code> tendrá las siguientes propiedades: un <code class="docutils literal notranslate"><span class="pre">valor</span></code>, un par de valores <code class="docutils literal notranslate"><span class="pre">previos</span></code> para el caso de que el <code class="docutils literal notranslate"><span class="pre">valor</span></code> haya sido generado mediante una operación (por ejemplo, <span class="math notranslate nohighlight">\(2\)</span> y <span class="math notranslate nohighlight">\(2\)</span> en el caso de que multiplicados hayan generado el número <span class="math notranslate nohighlight">\(4\)</span>), la <code class="docutils literal notranslate"><span class="pre">operación</span></code> que generó dicho valor (en nuestro ejemplo, la multiplicación) y una etiqueta en caso de que queramos asociar nuestro <code class="docutils literal notranslate"><span class="pre">valor</span></code> a una variable. Por ahora, únicamente tendremos las operaciones de suma, multiplcación, resta y división:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Numero</span><span class="p">:</span>
@@ -931,7 +1085,7 @@ f^{\prime}(x)=\lim _{h \rightarrow 0} \frac{f(x+h)-f(x)}{h}
 </div>
 </div>
 </div>
-<p>Finalmente, visualizamos la función<a class="footnote-reference brackets" href="#id5" id="id2">2</a>. El problema a resolver consiste en influir en los valores de la función <span class="math notranslate nohighlight">\(L\)</span> para llevarla a 0.</p>
+<p>Finalmente, visualizamos la función<a class="footnote-reference brackets" href="#id6" id="id2">2</a>. El problema a resolver consiste en influir en los valores de la función <span class="math notranslate nohighlight">\(L\)</span> para llevarla a <span class="math notranslate nohighlight">\(0\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">graficar</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
@@ -939,10 +1093,10 @@ f^{\prime}(x)=\lim _{h \rightarrow 0} \frac{f(x+h)-f(x)}{h}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/redes_28_0.svg" src="../../_images/redes_28_0.svg" /></div>
+<img alt="../../_images/redes_34_0.svg" src="../../_images/redes_34_0.svg" /></div>
 </div>
-<p>Como decíamos, intuitivamente creemos que la derivada puede ayudarnos: con la derivada sabemos qué impacto tiene cada variable en el resultado final <span class="math notranslate nohighlight">\(L\)</span>. En ese sentido, lo que tendremos que hacer primero es calcular la derivada de <span class="math notranslate nohighlight">\(L\)</span> con respecto a cada variable.</p>
-<p>En principio, la derivada de <span class="math notranslate nohighlight">\(L\)</span> con respecto a sí misma es 1: aunque suene absurdo y evidente a la vez, el cambio en <span class="math notranslate nohighlight">\(L\)</span> es proporcional (idéntico) a sí mismo. Ahora, la derivada de <span class="math notranslate nohighlight">\(L\)</span> con respecto a <span class="math notranslate nohighlight">\(f\)</span> y <span class="math notranslate nohighlight">\(e\)</span> la podemos averiguar con la fórmula que veníamos utilizando:</p>
+<p>Como decíamos, intuitivamente creemos que la derivada puede ayudarnos: con la derivada sabemos qué impacto tiene cada variable en el resultado final <span class="math notranslate nohighlight">\(L\)</span>. En ese sentido, lo que tendremos que hacer primero es calcular la derivada de <span class="math notranslate nohighlight">\(L\)</span> con respecto a cada variable<a class="footnote-reference brackets" href="#id7" id="id3">3</a>.</p>
+<p>En principio, la derivada de <span class="math notranslate nohighlight">\(L\)</span> con respecto a sí misma es <span class="math notranslate nohighlight">\(1\)</span>: aunque suene absurdo y evidente a la vez, el cambio en <span class="math notranslate nohighlight">\(L\)</span> es proporcional (idéntico) a sí mismo. Ahora, la derivada de <span class="math notranslate nohighlight">\(L\)</span> con respecto a <span class="math notranslate nohighlight">\(f\)</span> y <span class="math notranslate nohighlight">\(e\)</span> la podemos averiguar con la fórmula que veníamos utilizando:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">derivada</span><span class="p">():</span>
@@ -1008,8 +1162,12 @@ f^{\prime}(x)=\lim _{h \rightarrow 0} \frac{f(x+h)-f(x)}{h}
 </div>
 </div>
 </div>
-<p>En efecto, el resultado es aproximadamente 1. Por simetría nuevamente, entendemos que la derivada de <span class="math notranslate nohighlight">\(e\)</span> con respecto a <span class="math notranslate nohighlight">\(d\)</span> también es <span class="math notranslate nohighlight">\(1\)</span>.</p>
-<p>Y ahora que ya tenemos ambas derivadas, podemos multiplicarlas: <span class="math notranslate nohighlight">\(1 \times -3 = -3\)</span>. Así pues, la derivada de <span class="math notranslate nohighlight">\(L\)</span> con respecto a <span class="math notranslate nohighlight">\(c\)</span> y <span class="math notranslate nohighlight">\(d\)</span> es <span class="math notranslate nohighlight">\(-3\)</span>. En términos matemáticos, hemos hecho algo equivalente a:</p>
+<p>En efecto, el resultado es aproximadamente <span class="math notranslate nohighlight">\(1\)</span>. Por simetría nuevamente, entendemos que la derivada de <span class="math notranslate nohighlight">\(e\)</span> con respecto a <span class="math notranslate nohighlight">\(d\)</span> también es <span class="math notranslate nohighlight">\(1\)</span>. Y para el lector exigente, analíticamente:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial e(c, d)}{\partial d}=\lim _{h \rightarrow 0}{\frac{e(c, d+h)-e(c, d)}{h}} = {\frac{(c + d + h) - (c + d)}{h}} = {\frac{(c+d) + h - (c+d)}{h}} = {\frac{h}{h}} = 1
+\]</div>
+<p>Y ahora que ya tenemos ambas derivadas parciales, podemos multiplicarlas siguiendo la regla de la cadena: <span class="math notranslate nohighlight">\(1 \times -3 = -3\)</span>. Así pues, la derivada de <span class="math notranslate nohighlight">\(L\)</span> con respecto a <span class="math notranslate nohighlight">\(c\)</span> y <span class="math notranslate nohighlight">\(d\)</span> es <span class="math notranslate nohighlight">\(-3\)</span>. En términos matemáticos, hemos hecho algo equivalente a:</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{dz}{dx} = \frac{dz}{dy} \cdot \frac{dy}{dx}
@@ -1242,7 +1400,7 @@ f^{\prime}(x)=\lim _{h \rightarrow 0} \frac{f(x+h)-f(x)}{h}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/redes_38_0.svg" src="../../_images/redes_38_0.svg" /></div>
+<img alt="../../_images/redes_44_0.svg" src="../../_images/redes_44_0.svg" /></div>
 </div>
 <p>Ahora obtendremos las derivadas, pero programática en vez de manualmente:</p>
 <div class="cell docutils container">
@@ -1253,12 +1411,12 @@ f^{\prime}(x)=\lim _{h \rightarrow 0} \frac{f(x+h)-f(x)}{h}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/redes_40_0.svg" src="../../_images/redes_40_0.svg" /></div>
+<img alt="../../_images/redes_46_0.svg" src="../../_images/redes_46_0.svg" /></div>
 </div>
 <p>Bien. Ahora pongamos en práctica nuestra intuición: dado que el gradiente (o derivada global, o la colección de derivadas parciales de <span class="math notranslate nohighlight">\(L\)</span> con respecto a cada variable) nos dice la «fuerza» con la que cada número aumenta el resultado final de la función, podemos utilizar esa misma fuerza para alterar nuestros valores y, con ello, aumentar el valor de <span class="math notranslate nohighlight">\(L\)</span>. La bondad de utilizar el gradiente es que nos indica la «dirección» y la magnitud en la que debemos modificar cada valor para aumentar el resultado final, es decir: aumentar el valor de cada variable en la misma dirección del gradiente, contribuye a elevar el valor de la función global. Incluso si el gradiente tiene un valor negativo, eso indicaría que el valor de la variable debe disminuir para incrementar la función. De igual forma, si lo que queremos es disminuir el valor de una función, solo debemos ir en la dirección opuesta —<em>i. e.</em>, negativa— al gradiente.</p>
 <p>Las siguientes imágenes ilustran con flechas azules la dirección del gradiente, y en blanco y negro a los valores de la función (el negro indica los valores más altos). Como digo, el gradiente indica la dirección en la que la función aumenta su valor:</p>
 <img src='https://upload.wikimedia.org/wikipedia/commons/0/0f/Gradient2.svg' width=500>
-<p>Solo hace falta un detalle: al emplear esta estrategia, debemos ser cuidadosos de no excedernos en el aumento del resultado, puesto que queremos llegar a 0 sin superarlo. Para ello, podemos atenuar la fuerza de los gradientes, multiplicándolos por un número pequeño como 0.01 o 0.1 para luego sumar (en caso de querer aumentar el resultado final de la función) o restar ese valor a la variable. Probemos un ejemplo con la variable <span class="math notranslate nohighlight">\(a\)</span>:</p>
+<p>Solo hace falta un detalle: al emplear esta estrategia, debemos ser cuidadosos de no excedernos en el aumento del resultado, puesto que queremos llegar a <span class="math notranslate nohighlight">\(0\)</span> sin superarlo. Para ello, podemos atenuar la fuerza de los gradientes, multiplicándolos por un número pequeño como <span class="math notranslate nohighlight">\(0.01\)</span> o <span class="math notranslate nohighlight">\(0.1\)</span> para luego sumar (en caso de querer aumentar el resultado final de la función) o restar ese valor a la variable. Probemos un ejemplo con la variable <span class="math notranslate nohighlight">\(a\)</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">na</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">a</span><span class="o">.</span><span class="n">grad</span> <span class="c1"># nuevo valor de a: su derivada multiplicada por 0.1 + el valor anterior de a</span>
@@ -1278,9 +1436,9 @@ f^{\prime}(x)=\lim _{h \rightarrow 0} \frac{f(x+h)-f(x)}{h}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/redes_42_0.svg" src="../../_images/redes_42_0.svg" /></div>
+<img alt="../../_images/redes_48_0.svg" src="../../_images/redes_48_0.svg" /></div>
 </div>
-<p>Bien, parece que nuestro método funciona. Sin embargo, comprobamos que quizá nuestra fuerza es elevada, puesto que disminuyó mucho el resultado. Probablemente tengamos un mejor resultado si hacemos esto con todas nuestras variables, pero con una fuerza más atenuada (0.01):</p>
+<p>Bien, parece que nuestro método funciona. Sin embargo, comprobamos que quizá nuestra fuerza es elevada, puesto que disminuyó mucho el resultado. Probablemente tengamos un mejor resultado si hacemos esto con todas nuestras variables, pero con una fuerza más atenuada (<span class="math notranslate nohighlight">\(0.01\)</span>):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">na</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mf">0.01</span> <span class="o">*</span> <span class="n">a</span><span class="o">.</span><span class="n">grad</span>
@@ -1303,7 +1461,7 @@ f^{\prime}(x)=\lim _{h \rightarrow 0} \frac{f(x+h)-f(x)}{h}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/redes_44_0.svg" src="../../_images/redes_44_0.svg" /></div>
+<img alt="../../_images/redes_50_0.svg" src="../../_images/redes_50_0.svg" /></div>
 </div>
 <p>Aunque no hayamos conseguido un resultado de exactamente 0, nos hemos aproximado significativamente con nuestro nuevo método programático. Pronto explotaremos el verdadero poder detrás de esta nueva herramienta nuestra, aunque desde ya podamos proclamar —con Françoise Hardy— ¡voilà! Esta es la esencia del aprendizaje en una red neuronal.</p>
 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/4YIZP4nlw3jV5DkXGB56iG?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
@@ -1316,17 +1474,17 @@ Benoît Mandelbrot</p>
 </section>
 <section id="perceptron-multicapa">
 <h2>Perceptrón multicapa<a class="headerlink" href="#perceptron-multicapa" title="Permalink to this headline">#</a></h2>
-<p>Anteriormente, construimos una especie de neurona; sin embargo, el poder de una red neuronal consiste en que tiene millones de neuronas, todas optimizando sus valores para darnos el resultado que deseamos (en nuestro ejemplo: 0).</p>
+<p>Anteriormente, construimos una especie de neurona; sin embargo, el poder de una red neuronal consiste en que tiene millones de neuronas, todas optimizando sus valores para darnos el resultado que deseamos (en nuestro ejemplo: <span class="math notranslate nohighlight">\(0\)</span>).</p>
 <p>A continuación, construiremos una red neuronal llamada «perceptrón multicapa» (<em>Multilayer Perceptron</em> o MLP en inglés) que nos permitirá resolver problemas prácticos. Como ejemplo, la entrenaremos para que identifique sarcasmo en reseñas de películas.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>El ejemplo está inspirado en aquel formulado por <a class="reference external" href="https://qr.ae/pvKSx5">Sriraman Madhavan</a>.</p>
 </aside>
-<p>Para detectar sarcasmo en las reseñas que los usuarios dan sobre una película, podríamos tomar como base dos variables: el sentimiento (con valores del 1 al 5, donde 5 es un sentimiento positivo y 1 uno negativo) y la calificación asignada (también con valores del 1 al 5). Por ejemplo:</p>
+<p>Para detectar sarcasmo en las reseñas que los usuarios dan sobre una película, podríamos tomar como base dos variables: el sentimiento (con valores del <span class="math notranslate nohighlight">\(1\)</span> al <span class="math notranslate nohighlight">\(5\)</span>, donde <span class="math notranslate nohighlight">\(5\)</span> es un sentimiento positivo y <span class="math notranslate nohighlight">\(1\)</span> uno negativo) y la calificación asignada (también con valores del <span class="math notranslate nohighlight">\(1\)</span> al <span class="math notranslate nohighlight">\(5\)</span>). El resultado tendría que ser <span class="math notranslate nohighlight">\(1\)</span> para sarcasmo y <span class="math notranslate nohighlight">\(0\)</span> para ausencia de sarcasmo. Por ejemplo:</p>
 <ul class="simple">
-<li><p><em>Genial, me encanta cuando veo una película de terror con la típica trama de siempre</em>. Calificación: 2/5.</p></li>
+<li><p><em>Genial, me encanta cuando veo una película de terror con la típica trama de siempre</em>. Calificación: <span class="math notranslate nohighlight">\(2/5\)</span>.</p></li>
 </ul>
-<p>En este caso, el sentimiento es positivo (utiliza expresiones como «genial», «me encanta»), pero la reseña es negativa, de manera que podemos establecer una relación de proporcionalidad inversa entre ambas variables para detectar el sarcasmo: si la calificación es baja pero el sentimiento «alto», entonces hay sarcasmo.</p>
+<p>En este caso, el sentimiento es positivo (utiliza expresiones como «genial», «me encanta»), pero la reseña es negativa, de manera que podemos establecer una relación de proporcionalidad inversa entre ambas variables para detectar el sarcasmo: si la calificación es baja pero el sentimiento «alto», entonces hay sarcasmo (es decir, sarcasmo <span class="math notranslate nohighlight">\(=1\)</span>).</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>Para visualizar de mejor manera los siguientes gráficos, recomiendo dar clic derecho en el gráfico y abrirlo en una nueva pestaña.</p>
@@ -1360,11 +1518,11 @@ Benoît Mandelbrot</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/redes_48_0.svg" src="../../_images/redes_48_0.svg" /></div>
+<img alt="../../_images/redes_54_0.svg" src="../../_images/redes_54_0.svg" /></div>
 </div>
-<p>Por el momento, nuestros valores son aleatorios y todo funciona mal. La calificación y el sentimiento que asignamos son 5, pero la neurona indica que la reseña es sarcástica porque da ~1 como resultado. Al contrario, queremos que el sarcasmo sea 0 en este caso. Podemos optimizarla programáticamente ahora que ya conocemos la propagación hacia atrás.</p>
-<p>Primero, crearemos la clase <code class="docutils literal notranslate"><span class="pre">Neurona</span></code> para crear una estructura como la anterior. Al pasar nuestras variables por la <code class="docutils literal notranslate"><span class="pre">Neurona</span></code>, obtendremos un <code class="docutils literal notranslate"><span class="pre">peso</span></code> y un <code class="docutils literal notranslate"><span class="pre">sesgo</span></code> por cada una. Hecho esto, realizaremos operaciones con el peso, el sesgo y las entradas para transformar las entradas y, con ello, obtengamos al final el resultado deseado. Por ejemplo: si mis entradas son 5 y 5 —como en nuestro ejemplo—, nosotros queremos encontrar unos pesos y sesgos tales que, multiplicados y sumados por 5 y 5, nos den como resultado un 0, puesto que 5 y 5 significa ausencia de sarcasmo en este caso. Al mismo tiempo, queremos que esos mismos pesos y sesgos, por ejemplo al ser multiplicados y sumados por un sentimiento de 5 y una calificación de 1, nos arrojen 1 como resultado, puesto que eso indicaría sarcasmo.</p>
-<p>Para obtener como resultado una probabilidad de sarcasmo del 0 al 1, utilizaremos la función tangente hiperbólica, la cual es muy similar a las que vimos con anterioridad (sigmoide, ReLU, softmax): cuando nuestros valores la atraviesen, ella nos dará como resultado un valor del -1 al 1<a class="footnote-reference brackets" href="#id6" id="id3">3</a>.</p>
+<p>Por el momento, nuestros valores son aleatorios y todo funciona mal. La calificación y el sentimiento que asignamos son <span class="math notranslate nohighlight">\(5\)</span>, pero la neurona indica que la reseña es sarcástica porque da <span class="math notranslate nohighlight">\(\approx1\)</span> como resultado. Al contrario, queremos que el sarcasmo sea <span class="math notranslate nohighlight">\(0\)</span> en este caso. Podemos optimizarla programáticamente ahora que ya conocemos la propagación hacia atrás.</p>
+<p>Primero, crearemos la clase <code class="docutils literal notranslate"><span class="pre">Neurona</span></code> para crear una estructura como la anterior. Al pasar nuestras variables por la <code class="docutils literal notranslate"><span class="pre">Neurona</span></code>, obtendremos un <code class="docutils literal notranslate"><span class="pre">peso</span></code> y un <code class="docutils literal notranslate"><span class="pre">sesgo</span></code> por cada una. Hecho esto, realizaremos operaciones con el peso, el sesgo y las entradas para transformar las entradas y, con ello, obtengamos al final el resultado deseado. Por ejemplo: si mis entradas son <span class="math notranslate nohighlight">\(5\)</span> y <span class="math notranslate nohighlight">\(5\)</span> —como en nuestro ejemplo—, nosotros queremos encontrar unos pesos y sesgos tales que, multiplicados y sumados por <span class="math notranslate nohighlight">\(5\)</span> y <span class="math notranslate nohighlight">\(5\)</span>, nos den como resultado un <span class="math notranslate nohighlight">\(0\)</span>, puesto que <span class="math notranslate nohighlight">\(5\)</span> y <span class="math notranslate nohighlight">\(5\)</span> significa ausencia de sarcasmo en este caso. Al mismo tiempo, queremos que esos mismos pesos y sesgos, por ejemplo al ser multiplicados y sumados por un sentimiento de <span class="math notranslate nohighlight">\(5\)</span> y una calificación de <span class="math notranslate nohighlight">\(1\)</span>, nos arrojen <span class="math notranslate nohighlight">\(1\)</span> como resultado, puesto que eso indicaría sarcasmo.</p>
+<p>Para obtener como resultado una probabilidad de sarcasmo del <span class="math notranslate nohighlight">\(0\)</span> al <span class="math notranslate nohighlight">\(1\)</span>, utilizaremos la función tangente hiperbólica, la cual es muy similar a las que vimos con anterioridad (sigmoide, ReLU, softmax): cuando nuestros valores la atraviesen, ella nos dará como resultado un valor del <span class="math notranslate nohighlight">\(-1\)</span> al <span class="math notranslate nohighlight">\(1\)</span><a class="footnote-reference brackets" href="#id8" id="id4">4</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
@@ -1403,7 +1561,7 @@ Benoît Mandelbrot</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/redes_51_0.svg" src="../../_images/redes_51_0.svg" /></div>
+<img alt="../../_images/redes_57_0.svg" src="../../_images/redes_57_0.svg" /></div>
 </div>
 <p>Nuestros pesos y sesgos tienen valores aleatorios, de manera que esto sigue sin funcionar. Para optimizarlos apropiadamente, será mejor crear una arquitectura más robusta. Entendámonos: será difícil que encontremos un par de pesos tales que, multiplicados por nuestras dos entradas, reflejen apropiadamente el sarcasmo como queremos. Si tenemos más pesos, probablemente sea más fácil encontrar una combinación de números que arroje los resultados que queremos.</p>
 <p>Para ello, crearemos una red neuronal. Lo único que nos falta es una forma de conectar varias neuronas entre sí, así podremos tener más pesos y sesgos que entrenar, lo cual se traduce en mejor desempeño.</p>
@@ -1447,7 +1605,7 @@ Benoît Mandelbrot</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/redes_55_0.svg" src="../../_images/redes_55_0.svg" /></div>
+<img alt="../../_images/redes_61_0.svg" src="../../_images/redes_61_0.svg" /></div>
 </div>
 <p>Ahora veamos una red neuronal de la especie perceptrón multicapa:</p>
 <div class="cell docutils container">
@@ -1460,7 +1618,7 @@ Benoît Mandelbrot</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/redes_57_0.svg" src="../../_images/redes_57_0.svg" /></div>
+<img alt="../../_images/redes_63_0.svg" src="../../_images/redes_63_0.svg" /></div>
 </div>
 <p>Como vemos, únicamente estamos interconectando y creando más neuronas para que nuestro modelo tenga más potencia. Al mismo tiempo, vemos que una neurona interconecta las entradas entre sí a través de pesos y sesgos. Los pesos y sesgos, además de realizar operaciones diferenciables (es decir, que podemos derivar), nos ayudarán a ir midiendo la relevancia de cada entrada para, con base en el gradiente, ajustarse en proporción a dicha relevancia. De igual forma, los pesos y sesgos articularán el patrón de números que en este caso necesitamos para convertir cada combinación de entradas en una probabilidad de sarcasmo.</p>
 <p>Ahora manos a la obra. Daremos a nuestro modelo cuatro entradas de entrenamiento (es decir, serán ejemplos para que la red neuronal aprenda): cada entrada tendrá el sentimiento y la calificación asignada, así como el valor de sarcasmo objetivo que deseamos:</p>
@@ -1491,11 +1649,11 @@ Benoît Mandelbrot</p>
 <p>Nuestras predicciones de sarcasmo fueron generadas con valores aleatorios, de manera que todas son erróneas. Ahora, debemos cuantificar qué tan alejadas están de su objetivo. Para ello, crearemos una función que mida la diferencia entre el objetivo y la predicción. Se trata de una simple resta, pero la elevaremos al cuadrado para obtener solo números positivos:</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
-<p>A esta función se le llama «error cuadrático medio» (o <em>mean squared error</em>, MSE en inglés); matemáticamente podemos definirla como <span class="math notranslate nohighlight">\(\frac{1}{n} \sum_{i=1}^n (y_i - \hat{y}_i)^2\)</span>. Es la «función de pérdida» (<em>loss function</em>) más simple que hay, pues solo estamos haciendo una resta entre objetivos y predicciones. Digamos que esta operación mide la distancia entre el objetivo y la predicción.</p>
+<p>A esta función se le llama «error cuadrático medio» (o <em>mean squared error</em>, MSE en inglés); matemáticamente podemos definirla como <span class="math notranslate nohighlight">\(\frac{1}{n} \sum_{i=1}^n (y_i - \hat{y}_i)^2\)</span>, aunque nosotros no hemos utilizado el promedio de la pérdida (o sea, <span class="math notranslate nohighlight">\(\frac{1}{n}\)</span>) por conveniencia para nuestro problema. Esta expresión matemática es la «función de pérdida» (<em>loss function</em>) más simple que hay, pues solo estamos haciendo una sumatoria con la resta entre objetivos y predicciones. Digamos que esta operación mide la distancia entre el objetivo y la predicción.</p>
 </aside>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fn_perdida</span> <span class="o">=</span> <span class="p">[(</span><span class="n">pred</span> <span class="o">-</span> <span class="n">obj</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">pred</span><span class="p">,</span> <span class="n">obj</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">predicciones</span><span class="p">,</span> <span class="n">objetivos</span><span class="p">)]</span> <span class="c1">#MSE</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fn_perdida</span> <span class="o">=</span> <span class="p">[(</span><span class="n">pred</span> <span class="o">-</span> <span class="n">obj</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">pred</span><span class="p">,</span> <span class="n">obj</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">predicciones</span><span class="p">,</span> <span class="n">objetivos</span><span class="p">)]</span> <span class="c1">#Mean Squared Error</span>
 <span class="n">fn_perdida</span>
 </pre></div>
 </div>
@@ -1523,7 +1681,7 @@ Benoît Mandelbrot</p>
 </div>
 </div>
 </div>
-<p>Luego, con base en la función de pérdida, haremos propagación hacia atrás: obtendremos los gradientes y, con ello, sabremos en qué dirección modificar nuestros pesos y sesgos para que la pérdida (o el error, o la distancia) sea 0, es decir, que nuestras predicciones sean idénticas a nuestros objetivos:</p>
+<p>Luego, con base en la función de pérdida, haremos propagación hacia atrás: obtendremos los gradientes y, con ello, sabremos en qué dirección modificar nuestros pesos y sesgos para que la pérdida (o el error, o la distancia) sea <span class="math notranslate nohighlight">\(0\)</span>, es decir, que nuestras predicciones sean idénticas a nuestros objetivos:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">perdida</span><span class="o">.</span><span class="n">propagar</span><span class="p">()</span>
@@ -1538,7 +1696,7 @@ Benoît Mandelbrot</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/redes_66_0.svg" src="../../_images/redes_66_0.svg" /></div>
+<img alt="../../_images/redes_72_0.svg" src="../../_images/redes_72_0.svg" /></div>
 </div>
 <p>Esto ya luce mucho más como una red neuronal. Calcular manualmente todos los gradientes sería engorroso; pero la programación nos permite apalancarnos de los algoritmos, las matemáticas y las computadoras para explotar su potencial a gran escala.</p>
 <p>Echemos un vistazo a nuestros parámetros (o sea, pesos y sesgos):</p>
@@ -1600,7 +1758,11 @@ Benoît Mandelbrot</p>
 </div>
 <p>Aunque para nosotros puedan no significar nada, lo cierto es que con base en el gradiente, nuestro modelo aprenderá a configurarlos de tal manera que representen un patrón cuya función será arrojar el resultado que nosotros queremos.</p>
 <p>Ahora, dado que nuestra función de pérdida es positiva, queremos disminuirla. Si los gradientes nos indican la dirección en la que podemos aumentar el resultado de una función, entonces en este caso queremos ir en dirección opuesta al gradiente, pues eso tendría como resultado una disminución del resultado de la función. Para ello, sumaremos valor a las variables en el sentido <strong>inverso</strong> al gradiente (o, visto de otra forma, les restaremos valor según nos indique el gradiente).</p>
-<p>Para optimizar de mejor manera, haremos este mismo paso 30 veces, puesto que los cambios serán diminutos:</p>
+<p>Para optimizar de mejor manera, haremos este mismo paso <span class="math notranslate nohighlight">\(30\)</span> veces, puesto que los cambios serán diminutos:</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Al proceso de «propagar hacia atrás» las derivadas parciales de cada neurona se le denomina «descenso de gradiente estocástico» (<em>stochastic gradient descent</em>) porque, como decíamos, disminuimos la función de pérdida con base en el gradiente. «Estocástico» significa «aleatorio» y utilizamos este término porque en un inicio nuestros parámetros <span class="math notranslate nohighlight">\(w, b\)</span> eran aleatorios. En suma, utilizamos parámetros —sesgos, pesos— aleatorios para optimizar nuestra red neuronal, disminuyendo la pérdida a través de ellos con base en el gradiente.</p>
+</aside>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">30</span><span class="p">):</span>
@@ -1609,7 +1771,7 @@ Benoît Mandelbrot</p>
   <span class="n">preds</span> <span class="o">=</span> <span class="p">[</span><span class="n">RN</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">entradas</span><span class="p">]</span>
   <span class="n">perdida</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([(</span><span class="n">pred</span> <span class="o">-</span> <span class="n">obj</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">pred</span><span class="p">,</span> <span class="n">obj</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">objetivos</span><span class="p">)])</span>
 
-  <span class="c1"># propagación hacia atrás, SGD</span>
+  <span class="c1"># propagación hacia atrás, Stochastic Gradient Descent</span>
   <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">RN</span><span class="o">.</span><span class="n">parametros</span><span class="p">():</span>
     <span class="n">p</span><span class="o">.</span><span class="n">grad</span> <span class="o">=</span> <span class="mf">0.0</span>
   <span class="n">perdida</span><span class="o">.</span><span class="n">propagar</span><span class="p">()</span>
@@ -1685,7 +1847,7 @@ Benoît Mandelbrot</p>
 </div>
 </div>
 </div>
-<p>En efecto, nuestro modelo ya es mucho más apto ahora que antes para detectar sarcasmo. ¿Qué tal si hacemos un test con una nueva calificación? El sentimiento será de 5 y la calificación 1.5:</p>
+<p>En efecto, nuestro modelo ya es mucho más apto ahora que antes para detectar sarcasmo. ¿Qué tal si hacemos un test con una nueva calificación? El sentimiento será de <span class="math notranslate nohighlight">\(5\)</span> y la calificación <span class="math notranslate nohighlight">\(1.5\)</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">test</span> <span class="o">=</span> <span class="p">[</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">]</span>
@@ -1701,7 +1863,7 @@ Benoît Mandelbrot</p>
 </div>
 </div>
 </div>
-<p>Nuestra red neuronal considera que existe un ~90% de probabilidad de que sea sarcasmo. Nada mal.</p>
+<p>Nuestra red neuronal considera que existe un <span class="math notranslate nohighlight">\(\approx90 \%\)</span> de probabilidad de que sea sarcasmo. Nada mal.</p>
 </section>
 <section id="bibliografia-recomendada">
 <h2>Bibliografía recomendada<a class="headerlink" href="#bibliografia-recomendada" title="Permalink to this headline">#</a></h2>
@@ -1713,13 +1875,16 @@ Benoît Mandelbrot</p>
 <p><em>Posdata: También recomiendo <a class="reference external" href="http://karpathy.github.io/neuralnets/"><em>Hacker’s guide to Neural Networks</em></a>, de Andrej Karpathy, aunque él niegue su utilidad.</em></p>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
-<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>La palabra «secante» significa «cortar» en latín (<em>secare</em>), de manera que la línea secante es aquella que corta una figura cuando la toca en dos puntos. Por otro lado, la palabra «tangente» significa «tocar» en latín (<em>tangere</em>), de manera que la tangente es una línea que apenas toca en un punto a otra figura. La palabra «tangible» viene de la misma raíz y de ahí su significado también.</p>
+</dd>
+<dt class="label" id="id6"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>A operar con varias funciones concatenadas entre sí se le denomina «composición de funciones». La composición o concatenación de funciones consiste en tomar la salida de una función para pasarla como entrada de otra, y así sucesivamente. Según el esquema de nuestra primera lección, podríamos expresarlo como <span class="math notranslate nohighlight">\(x \mapsto f(x) \mapsto g(f(x))\)</span>, etcétera. Una visualización luciría más o menos así: <img src='https://upload.wikimedia.org/wikipedia/commons/6/65/FunctionMachinesComposition.svg' width=300></p>
+</dd>
+<dt class="label" id="id7"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
 <dd><p>El nombre técnico de esta derivada es «derivada parcial», puesto que la función <span class="math notranslate nohighlight">\(c\)</span> tiene dos variables y solo estamos considerando la derivada con respecto a una variable. En esencia, si tenemos solo una variable en la función, entonces hablamos de derivada; pero si tenemos más de una variable y estimamos la derivada solo con respecto a una variable, entonces hablamos de derivada parcial.</p>
 </dd>
-<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p>A operar con varias funciones concatenadas entre sí se le denomina «composición de funciones». La composición o concatenación de funciones consiste en tomar la salida de una función para pasarla como entrada de otra, y así consecutivamente. Según el esquema de nuestra primera lección, podríamos expresarlo como <span class="math notranslate nohighlight">\(x \mapsto f(x) \mapsto g(f(x))\)</span>, etcétera. Una visualización luciría más o menos así: <img src='https://upload.wikimedia.org/wikipedia/commons/6/65/FunctionMachinesComposition.svg' width=300></p>
-</dd>
-<dt class="label" id="id6"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dt class="label" id="id8"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
 <dd><p>La elección de una función no lineal (tanh, ReLU, etc.) es una cuestión técnica que tiene que ver con el problema a tratar y con cómo fluyen a través de ellas los gradientes. Dado que nuestro problema es relativamente simple, podemos usar cualquiera. Por otro lado, aunque suene extraño que nuestro modelo pueda arrojar probabilidades negativas, eso no sucederá siempre y cuando nuestras entradas estén en el rango de valores que seleccionamos para el entrenamiento (<em>i. e.</em>, 0 a 5 en ambas variables). Si, por ejemplo, dijéramos que la calificación es 30 y el sentimiento 20, nuestro modelo interpretaría esto como una probabilidad de sarcasmo negativa. Es obligado mencionar <a class="reference external" href="https://cds.cern.ch/record/154856/files/pre-27827.pdf/">el paper</a> en el que el gran Feynman explica qué sentido tiene hablar de probabilidades negativas.</p>
 </dd>
 </dl>

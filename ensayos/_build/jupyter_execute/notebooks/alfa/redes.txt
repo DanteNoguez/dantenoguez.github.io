@@ -2,40 +2,133 @@
 
 import matplotlib.pyplot as plt
 import numpy as np
-
-a = np.arange(0, 13, 2) 
-b = 5
-def f(a, b): return a*b
-c = f(a, b)
-
-fig, ax = plt.subplots(figsize=(10, 7))
-ax.plot(a, c, marker='o', color='blue') 
-ax.set_facecolor('black')
-ax.set_xlabel('Valores de a')
-ax.set_ylabel('Valores de c')
-ax.hlines(y=10, xmin=0, xmax=2, linewidth=1, color='white', linestyles='dashed')
-ax.vlines(x=2, ymin=0, ymax=10, linewidth=1, color='white', linestyles='dashed')
-plt.show()
-
 import pandas as pd
-d = {'Valores de a': a, 'Valores de b': b, 'Valores de c': c}
+
+x = np.arange(0, 21, 2)
+b = 5
+def f(x, b): return x*b
+y = f(x, b)
+
+d = {'Valores de x': x, 'Valores de b': b, 'Valores de y': y}
 tabla = pd.DataFrame(data=d)
 tabla = tabla.style.hide_index()
 tabla
 
-deriv = (f(a+0.00001, b) - f(a, b)) / 0.00001
-print(f'Valores de la derivada en cada punto: {deriv}')
-
 fig, ax = plt.subplots(figsize=(10, 7))
-ax.plot(a, c, marker='o', color='blue', label='recta de la función') 
+ax.plot(x, y, marker='o', color='blue') 
+plt.xticks(ticks=x)
+plt.yticks(ticks=y)
 ax.set_facecolor('black')
-ax.set_xlabel('Valores de a')
-ax.set_ylabel('Valores de c')
-ax.axline((a[1], c[1]), slope=deriv[1], color='red', label='pendiente') # <- La pendiente es la derivada
+ax.set_xlabel('Valores de x')
+ax.set_ylabel('Valores de y')
+ax.hlines(y=10, xmin=0, xmax=2, linewidth=1, color='white', linestyles='dashed')
+ax.vlines(x=2, ymin=0, ymax=10, linewidth=1, color='white', linestyles='dashed')
+plt.show()
+
+pendiente = (y[6] - y[3]) / (x[6] - x[3])
+
+print(f'Valor de la pendiente: {pendiente}')
+fig, ax = plt.subplots(figsize=(10, 7))
+ax.plot(x, y, marker='o', color='blue', label='recta de la función') 
+plt.xticks(ticks=x)
+ax.set_facecolor('black')
+ax.set_xlabel('Valores de x')
+ax.set_ylabel('Valores de y') 
+ax.axline((x[6], y[6]), slope=pendiente, color='red', label='pendiente') 
 ax.hlines(y=10, xmin=0, xmax=2, linewidth=1, color='white', linestyles='dashed')
 ax.vlines(x=2, ymin=0, ymax=10, linewidth=1, color='white', linestyles='dashed')
 ax.legend()
 plt.show()
+
+x = np.arange(0, 6, 0.0001)
+def nolineal(x): return x**2
+y = nolineal(x)
+
+pendiente = (5**2 - 2**2) / (5 - 2)
+
+fig, ax = plt.subplots(figsize=(10, 7))
+ax.plot(x, y, color='blue', label='gráfica de la función') 
+ax.set_facecolor('black')
+ax.set_xticks(np.arange(-5, 6, 1))
+ax.set_xlabel('Valores de x')
+ax.set_ylabel('Valores de y')
+ax.set_ylim(min(y), max(y))
+ax.set_xlim(min(x), max(x))
+ax.axline((2, 4), slope=pendiente, color='red', label='pendiente?')
+ax.hlines(y=4, xmin=0, xmax=2, linewidth=1, color='white', linestyles='dashed')
+ax.hlines(y=25, xmin=0, xmax=5, linewidth=1, color='white', linestyles='dashed')
+ax.vlines(x=2, ymin=0, ymax=4, linewidth=1, color='white', linestyles='dashed')
+ax.vlines(x=5, ymin=0, ymax=25, linewidth=1, color='white', linestyles='dashed')
+ax.legend()
+plt.show()
+
+pendiente = (5**2 - 4**2) / (5 - 4)
+
+print(f'Valor de la pendiente con una secante más pequeña: {pendiente}')
+fig, ax = plt.subplots(ncols=2, figsize=(10, 7))
+ax[0].plot(x, y, color='blue', label='gráfica de la función') 
+ax[0].set_facecolor('black')
+ax[0].set_xticks(np.arange(0, 6, 1))
+ax[0].set_xlabel('Valores de x')
+ax[0].set_ylabel('Valores de y / f(x)')
+ax[0].axline((5, 25), slope=pendiente, color='red', label='pendiente?')
+ax[0].hlines(y=16, xmin=0, xmax=4, linewidth=1, color='white', linestyles='dashed')
+ax[0].hlines(y=25, xmin=0, xmax=5, linewidth=1, color='white', linestyles='dashed')
+ax[0].vlines(x=4, ymin=0, ymax=16, linewidth=1, color='white', linestyles='dashed')
+ax[0].vlines(x=5, ymin=0, ymax=25, linewidth=1, color='white', linestyles='dashed')
+ax[0].legend()
+ax[1].plot(x, y, color='blue', label='gráfica de la función') 
+ax[1].set_facecolor('black')
+ax[1].set_xticks(np.arange(-5, 6, 1))
+ax[1].set_xlabel('Valores de x')
+ax[1].set_ylabel('Valores de y / f(x)')
+ax[1].set_title('Zoom')
+ax[1].set_ylim(12, 30)
+ax[1].set_xlim(2, 7)
+ax[1].axline((5, 25), slope=pendiente, color='red', label='pendiente?')
+ax[1].hlines(y=16, xmin=0, xmax=4, linewidth=1, color='white', linestyles='dashed')
+ax[1].hlines(y=25, xmin=0, xmax=5, linewidth=1, color='white', linestyles='dashed')
+ax[1].vlines(x=4, ymin=0, ymax=16, linewidth=1, color='white', linestyles='dashed')
+ax[1].vlines(x=5, ymin=0, ymax=25, linewidth=1, color='white', linestyles='dashed')
+ax[1].legend()
+plt.show()
+
+pendiente = (5**2 - 4.99**2) / (5 - 4.99)
+
+print(f'Valor de la pendiente con una secante más pequeña: {pendiente}')
+fig, ax = plt.subplots(ncols=2, figsize=(10, 7))
+ax[0].plot(x, y, color='blue', label='gráfica de la función') 
+ax[0].set_facecolor('black')
+ax[0].set_xticks(np.arange(0, 6, 1))
+ax[0].set_xlabel('Valores de x')
+ax[0].set_ylabel('Valores de y / f(x)')
+ax[0].axline((5, 25), slope=pendiente, color='red', label='pendiente?')
+ax[0].hlines(y=4.99**2, xmin=0, xmax=4.99, linewidth=1, color='white', linestyles='dashed')
+ax[0].hlines(y=25, xmin=0, xmax=5, linewidth=1, color='white', linestyles='dashed')
+ax[0].vlines(x=4.99, ymin=0, ymax=4.99**2, linewidth=1, color='white', linestyles='dashed')
+ax[0].vlines(x=5, ymin=0, ymax=25, linewidth=1, color='white', linestyles='dashed')
+ax[0].legend()
+ax[1].plot(x, y, color='blue', label='gráfica de la función') 
+ax[1].set_facecolor('black')
+ax[1].set_xticks(np.arange(-5, 6, 1))
+ax[1].set_xlabel('Valores de x')
+ax[1].set_ylabel('Valores de y / f(x)')
+ax[1].set_title('Zoom')
+ax[1].set_ylim(22, 28)
+ax[1].set_xlim(2, 7)
+ax[1].axline((5, 25), slope=pendiente, color='red', label='pendiente?')
+ax[1].hlines(y=4.99**2, xmin=0, xmax=4.99, linewidth=1, color='white', linestyles='dashed')
+ax[1].hlines(y=25, xmin=0, xmax=5, linewidth=1, color='white', linestyles='dashed')
+ax[1].vlines(x=4.99, ymin=0, ymax=4.99**2, linewidth=1, color='white', linestyles='dashed')
+ax[1].vlines(x=5, ymin=0, ymax=25, linewidth=1, color='white', linestyles='dashed')
+ax[1].legend()
+plt.show()
+
+def derivada(f, x):
+  h = 0.001
+  return (f(x+h) - f(x)) / h
+
+derivada(nolineal, 5)
 
 tiempo = np.arange(0, 21, 1)
 def f(t): return t*0
@@ -46,7 +139,7 @@ ax.plot(tiempo, distancia, marker='o', color='blue', label='recta de la función
 ax.set_facecolor('black')
 ax.set_xlabel('Tiempo (segundos)')
 ax.set_ylabel('Distancia (metros)')
-ax.axline((tiempo[0], distancia[0]), slope=0, color='red', label='Pendiente')
+ax.axline((tiempo[0], distancia[0]), slope=0, color='red', label='derivada / pendiente')
 ax.legend()
 plt.show()
 
@@ -66,35 +159,10 @@ ax.plot(x, y, marker='o', color='blue', label='recta de la función')
 ax.set_facecolor('black')
 ax.set_xlabel('Valores de x')
 ax.set_ylabel('Valores de y')
-ax.axline((x[1], y[1]), slope=derivada, color='red', label='pendiente')
+ax.axline((x[1], y[1]), slope=derivada, color='red', label='derivada / pendiente')
 ax.hlines(y=10, xmin=0, xmax=4, linewidth=1, color='white', linestyles='dashed')
 ax.vlines(x=4, ymin=0, ymax=10, linewidth=1, color='white', linestyles='dashed')
 ax.legend()
-plt.show()
-
-xs = np.arange(1, 11, 1)
-def cub(x): return x**3
-y = cub(xs)
-
-derivs = (cub(xs+0.00001) - cub(xs)) / 0.00001
-
-fig, ax = plt.subplots(ncols=2, figsize=(10, 7))
-ax[0].plot(xs, y, marker='o', color='blue', label='gráfica de la función')
-ax[0].set_title('Gráfica')
-ax[0].set_facecolor('black')
-ax[0].set_xlabel('Valores de x')
-ax[0].set_ylabel('Valores de y')
-ax[0].axline((xs[5], y[5]), slope=derivs[5], color='red', label='tangente')
-ax[0].legend()
-ax[1].plot(xs, y, marker='o', color='blue', label='gráfica de la función') 
-ax[1].set_title('Zoom a la gráfica')
-ax[1].set_facecolor('black')
-ax[1].set_xlabel('Valores de x')
-ax[1].set_ylabel('Valores de y')
-ax[1].axline((xs[5], y[5]), slope=derivs[5], color='red', label='tangente')
-ax[1].set_xlim(xs[1], xs[7])
-ax[1].set_ylim(y[0], 600)
-ax[1].legend()
 plt.show()
 
 class Numero:
@@ -539,7 +607,7 @@ objetivos = [0.0, 1.0, 1.0, 0.0]
 predicciones = [RN(x) for x in entradas]
 predicciones
 
-fn_perdida = [(pred - obj)**2 for pred, obj in zip(predicciones, objetivos)] #MSE
+fn_perdida = [(pred - obj)**2 for pred, obj in zip(predicciones, objetivos)] #Mean Squared Error
 fn_perdida
 
 perdida = sum(fn_perdida)
@@ -557,7 +625,7 @@ for k in range(30):
   preds = [RN(x) for x in entradas]
   perdida = sum([(pred - obj)**2 for pred, obj in zip(preds, objetivos)])
 
-  # propagación hacia atrás, SGD
+  # propagación hacia atrás, Stochastic Gradient Descent
   for p in RN.parametros():
     p.grad = 0.0
   perdida.propagar()
