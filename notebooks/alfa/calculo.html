@@ -414,6 +414,11 @@ title="Print to PDF"
    Reflexiones
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#referencias">
+   Referencias
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -448,6 +453,11 @@ title="Print to PDF"
    Reflexiones
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#referencias">
+   Referencias
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -478,23 +488,23 @@ title="Print to PDF"
 <p>Este texto es la continuación de la primera parte de nuestros <a class="reference external" href="https://dantenoguez.github.io/notebooks/alfa/redes.html">Elementos de redes neuronales</a>. Mi propósito es obtener geométricamente la integral a partir de la derivada.</p>
 <section id="la-integral-demostrada-segun-el-orden-geometrico">
 <h2>La integral demostrada según el orden geométrico<a class="headerlink" href="#la-integral-demostrada-segun-el-orden-geometrico" title="Permalink to this headline">#</a></h2>
-<p>De la misma forma que la derivada es la pendiente, podemos entender a la integral definida como el área debajo de un segmento de la función. Por ejemplo:</p>
+<p>Así como la derivada nace de la pendiente, podemos entender a la integral a partir del área. En particular, la integral nos ayuda a determinar el área bajo cualquier segmento de una función.</p>
+<p>Por ejemplo, digamos que tengo la siguiente función cuadrática y deseo obtener el área del segmento denotado por las líneas punteadas:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> 
-<span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">b</span>
-<span class="n">c</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span> 
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span> 
 <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="n">x</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Valores de x&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Valores de c&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">c</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">xmin</span><span class="o">=</span><span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">xmax</span><span class="o">=</span><span class="n">x</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="n">c</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="n">c</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Valores de y / f(x)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mi">10</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="n">y</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -503,35 +513,198 @@ title="Print to PDF"
 <img alt="../../_images/calculo_5_0.png" src="../../_images/calculo_5_0.png" />
 </div>
 </div>
-<p>La integral determinaría el área desde <span class="math notranslate nohighlight">\(x=6\)</span> hasta <span class="math notranslate nohighlight">\(x=12\)</span>, y para abordar este problema geométricamente podemos dividir al área en dos figuras tales que:</p>
+<p>Una posible aproximación podría obtenerse mediante las áreas del rectángulo y el triángulo que pueden formarse debajo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="n">x</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Valores de x&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Valores de y / f(x)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mi">10</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="n">y</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axline</span><span class="p">((</span><span class="mi">11</span><span class="p">,</span> <span class="mi">11</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span> <span class="n">slope</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="mi">11</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/calculo_7_0.png" src="../../_images/calculo_7_0.png" />
+</div>
+</div>
+<p>Donde:</p>
 <div class="math notranslate nohighlight">
 \[
-Rectángulo = base \times altura = (12 - 6)(30) = 180
+\text{Rectángulo} = base \times altura = x \cdot f(x) = (12 - 10)(100) = 200
 \]</div>
 <div class="math notranslate nohighlight">
 \[
-Triángulo = \frac{1}{2} \times base \times altura = \frac{base \times altura}{2} = \frac{(12-6)(60-30)}{2} = 90
+\text{Triángulo} = \frac{1}{2} \times base \times altura = \frac{x \cdot f(x)}{2} = \frac{(12-10)(144-100)}{2} = 44
 \]</div>
 <div class="math notranslate nohighlight">
 \[
-\text{Área total} = 180 + 90 = 270
+\text{Área total} = 200+44 = 244
 \]</div>
-<p>Pero podemos plantear el problema también así:</p>
+<p>Pero también se nos podría ocurrir una aproximación más sencilla, aunque un poco menos exacta, a saber, determinar únicamente el área del rectángulo que ocupa esa área:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="n">x</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Valores de x&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Valores de f(x)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">144</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mi">12</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="n">y</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/calculo_9_0.png" src="../../_images/calculo_9_0.png" />
+</div>
+</div>
+<p>Teniendo como resultado:</p>
 <div class="math notranslate nohighlight">
 \[
-\int_{a}^{b}f(x)dx 
+\text{Rectángulo} = x \cdot f(x) = (12 - 10)(144) = 288
 \]</div>
-<p>Y para resolverlo, utilizar la fórmula:</p>
+<p>Sin embargo, sabemos que estos cálculos son inexactos y trabajosos. También sabemos que las funciones pueden adquirir formas más complejas donde el procedimiento de dibujar figuras sería trabajoso e ineficiente. Al mismo tiempo, los «trucos» del cálculo diferencial pueden sugerirnos que debe existir una solución. ¿Qué tal si empezamos por aproximarnos al número correcto con rectángulos más pequeños?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">250</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Valores de x&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Valores de f(x)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mf">10.5</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">10</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mf">10.5</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mi">10</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">10.5</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mf">10.5</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mf">10.5</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mf">10.5</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mf">10.5</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">10.5</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mf">10.5</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mf">10.5</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mf">11.5</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">11</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mf">11.5</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mi">11</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">11.5</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mi">11</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mf">11.5</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mf">11.5</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mf">11.5</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">11.5</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mf">11.5</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mf">11.5</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/calculo_11_0.png" src="../../_images/calculo_11_0.png" />
+</div>
+</div>
+<p>Ahora tengo cuatro rectángulos con una base de <span class="math notranslate nohighlight">\(0.5\)</span>, cuyas áreas puedo determinar de la siguiente manera:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\text{Rectángulo 1} = x_1 \cdot f(x_1) = (10.5 - 10)(100) = 50 \\
+\text{Rectángulo 2} = x_2 \cdot f(x_2) = (11 - 10.5)(121) = 60.5 \\
+\text{Rectángulo 3} = x_3 \cdot f(x_3) = (11.5 - 10.5)(132.25) = 66.12 \\
+\text{Rectángulo 4} = x_4 \cdot f(x_4) = (12 - 11.5)(144) = 72 \\
+\end{split}\]</div>
+<p>Finalmente, para obtener el área total, sumo entre sí todos los valores: <span class="math notranslate nohighlight">\(50+60.5+66.12+72 = 248.62\)</span></p>
+<p>Nos hemos aproximado mejor al resultado y nuestro número luce similar a nuestro primer cálculo. Ahora, para entrar de lleno en el cálculo infinitesimal, nos hace falta involucrarnos con el paradójico y enredoso mundo de lo infinito. ¿No sería más acertado un resultado si utilizáramos <span class="math notranslate nohighlight">\(10\)</span> rectángulos en lugar de <span class="math notranslate nohighlight">\(4\)</span>? Es más, ¿por qué no usar mil, un millón o, mejor todavía, infinitos rectángulos para realizar nuestro cálculo? Esa es la esencia del cálculo integral y, ya familiarizados con la derivada, puede parecernos razonable e intuitivo.</p>
+<p>Intentémoslo programáticamente, puesto que manualmente sería un desastre. Obtengamos <span class="math notranslate nohighlight">\(2100\)</span> valores de <span class="math notranslate nohighlight">\(x\)</span>, desde <span class="math notranslate nohighlight">\(0\)</span> hasta <span class="math notranslate nohighlight">\(20.999\)</span> en intervalos de <span class="math notranslate nohighlight">\(0.01\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+
+<span class="sa">f</span><span class="s1">&#39;Valores de x: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="si">}</span><span class="s1"> | Muestra de 5 valores: </span><span class="si">{</span><span class="n">x</span><span class="p">[</span><span class="mi">401</span><span class="p">:</span><span class="mi">406</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Valores de x: 2100 | Muestra de 10 valores: [4.01 4.02 4.03 4.04 4.05]&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>De la misma forma, obtenemos sus valores correspondientes de <span class="math notranslate nohighlight">\(y\)</span> con <span class="math notranslate nohighlight">\(f(x) = x^2\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="sa">f</span><span class="s1">&#39;Valores de y: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="si">}</span><span class="s1"> | Muestra de 5 valores correspondientes a cada valor de x anterior: </span><span class="si">{</span><span class="n">y</span><span class="p">[</span><span class="mi">401</span><span class="p">:</span><span class="mi">406</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Valores de y: 2100 | Muestra de 5 valores correspondientes a cada valor de x anterior: [16.0801 16.1604 16.2409 16.3216 16.4025]&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora, para obtener el área dentro de las coordenadas <span class="math notranslate nohighlight">\((x_1=10, y_1=100), (x_2=12, y_2=144)\)</span>, podemos obtener cientos de rectángulos con una base o distancia entre las <span class="math notranslate nohighlight">\(x\)</span> de <span class="math notranslate nohighlight">\(0.01\)</span>. La altura de cada rectángulo será el valor de <span class="math notranslate nohighlight">\(y\)</span> que corresponda a la <span class="math notranslate nohighlight">\(x\)</span> en cuestión.</p>
+<p>Para ello, tomamos los valores de <span class="math notranslate nohighlight">\(y\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sa">f</span><span class="s1">&#39;Número de valores de y (alturas): </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">1000</span><span class="p">:</span><span class="mi">1200</span><span class="p">])</span><span class="si">}</span><span class="s1"> | Muestra de valores de y: </span><span class="si">{</span><span class="n">y</span><span class="p">[</span><span class="mi">1001</span><span class="p">:</span><span class="mi">1006</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Número de valores de y (alturas): 200 | Muestra de valores de y: [100.2001 100.4004 100.6009 100.8016 101.0025]&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Y multiplicaremos cada una de estas alturas por una base <span class="math notranslate nohighlight">\(x\)</span> de <span class="math notranslate nohighlight">\(0.01\)</span> para obtener el área de cada mini rectángulo. Finalmente, sumaremos todas estas áreas individuales entre sí para obtener el área total:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">1000</span><span class="p">:</span><span class="mi">1200</span><span class="p">])</span><span class="o">*</span><span class="mf">0.01</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>242.4467000000001
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nuestro experimento ha sido exitoso y hemos obtenido el mejor resultado hasta ahora. Antes de continuar, detengámonos un poco para aterrizar nuestras ideas, formalizarlas y corroborar que nuestro trabajo sea correcto.</p>
+<p>Hasta el momento, hemos dicho que el área de cada uno de los rectángulos infinitamente delgados que hemos sugerido es igual a la altura (es decir, <span class="math notranslate nohighlight">\(f(x)\)</span>) multiplicada por la base, que en este caso sería una distancia o diferencia infinitamente pequeña entre las <span class="math notranslate nohighlight">\(x\)</span>, es decir, cercana a <span class="math notranslate nohighlight">\(0\)</span>, justo como con las derivadas; pero ahora, en lugar de utilizar <span class="math notranslate nohighlight">\(h\)</span> para expresar esta idea, utilizaremos <span class="math notranslate nohighlight">\(dx\)</span> porque expresa mejor la idea de una diferencia pequeña entre las <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<p>En ese sentido, tenemos que cada área de nuestros rectángulos es <span class="math notranslate nohighlight">\(f(x) \cdot dx\)</span>. Finalmente, para integrar o sumar entre sí todas estas áreas pequeñas y obtener el área total, podemos utilizar una letra «s» alargada: <span class="math notranslate nohighlight">\(\int\)</span>. También indicaremos que esta suma se realizará con las áreas de todos los rectángulos desde <span class="math notranslate nohighlight">\(x_1\)</span> hasta <span class="math notranslate nohighlight">\(x_n\)</span> o, para no confundirnos con tantas <span class="math notranslate nohighlight">\(x\)</span>, desde <span class="math notranslate nohighlight">\(a\)</span> hasta <span class="math notranslate nohighlight">\(b\)</span>, obteniendo la siguiente expresión:</p>
 <div class="math notranslate nohighlight">
 \[
-\int_{a}^{b}x^ndx = \frac{x^{n+1}}{n + 1} + C, \ n \neq -1
+\int_{a}^{b}f(x) \cdot dx
 \]</div>
-<p>Utilizando una constante <span class="math notranslate nohighlight">\(C = 0\)</span>, tenemos que:</p>
+<p>Bien, hemos obtenido la fórmula de una integral. Ahora, ¿cómo podemos resolver nuestro problema con esta expresión? Para saberlo solo nos hace falta una intuición que, aunque contraintuitiva, es en realidad bastante simple —y fundamental para nuestro razonamiento. Notemos, en primer lugar, que hasta el momento hemos estado multiplicando un cambio en <span class="math notranslate nohighlight">\(x\)</span> (<em>i. e.</em>, <span class="math notranslate nohighlight">\(dx\)</span>) por un cambio en <span class="math notranslate nohighlight">\(y\)</span> (<em>i. e.</em>, <span class="math notranslate nohighlight">\(f(x)\)</span> o <span class="math notranslate nohighlight">\(dy\)</span>). Recordemos también que, cuando calculábamos la derivada, dividíamos un cambio en <span class="math notranslate nohighlight">\(y\)</span> entre un cambio en <span class="math notranslate nohighlight">\(x\)</span> (<em>i. e.</em>, <span class="math notranslate nohighlight">\(\frac{dy}{dx}\)</span>). ¿Qué quiere decir esto? Si la multiplicación y la división son operaciones opuestas, ¿podemos sugerir que la derivada y la integral también lo son?</p>
 <div class="math notranslate nohighlight">
 \[
-\int_{x=6}^{x=12}(x^1 \cdot b)dx = \frac{x^2 \cdot 5}{2} = \frac{12^2 \cdot 5}{2} - \frac{6^2 \cdot 5}{2} = \frac{144 \cdot 5}{2} - \frac{36 \cdot 5}{2} = \frac{720}{2} - \frac{180}{2} = 360 - 90 = 270
+\int_{a}^{b}f(x)dx = \int_{10}^{12} x^2 dx
 \]</div>
-<p>La diferencia sustancial es la misma que con las derivadas: obtener el área debajo de un segmento de una función no lineal mediante figuras geométricas sería inexacto y tedioso, de manera que el cálculo integral resuelve este problema.</p>
+<div class="math notranslate nohighlight">
+\[
+\int_{x=10}^{x=12}(x^2)dx = \frac{x^3}{3} = \frac{12^3}{3} - \frac{10^3}{3} = 576-333.33 = 242.67
+\]</div>
 </section>
 <section id="teorema-fundamental-del-calculo">
 <h2>Teorema fundamental del cálculo<a class="headerlink" href="#teorema-fundamental-del-calculo" title="Permalink to this headline">#</a></h2>
@@ -540,7 +713,20 @@ Triángulo = \frac{1}{2} \times base \times altura = \frac{base \times altura}{2
 <section id="reflexiones">
 <h2>Reflexiones<a class="headerlink" href="#reflexiones" title="Permalink to this headline">#</a></h2>
 <p>Curiosamente, la palabra «cálculo» viene del latín <a class="reference external" href="https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.04.0059:entry=calculus"><em>calculus</em>,</a> cuyo significado es «pequeña piedra». Calcular, en las épocas antiguas, implicaba el uso de piedritas que se iban contando una tras otra, justo como cuando éramos pequeños hacíamos con el ábaco.</p>
-<p>El cálculo lidia con cambios infinitamente pequeños —de ahí su nombre «cálculo infinitesimal»—. Inicialmente, estos «cambios pequeños» se concibieron como trucos prácticos que facilitaban cálculos como los que hemos hecho, pero nunca hubo una justificación matemáticamente rigurosa para proceder así, «imaginando» figuras infinitamente pequeñas. De ahí precisamente que Newton se hubiera negado a publicar su trabajo de cálculo y que Leibniz haya afirmado que lidiar con lo infinitamente pequeño era una simple ficción mental que facilitaba ciertos cálculos en la práctica.</p>
+<p>El cálculo lidia con cambios infinitamente pequeños —de ahí su nombre «cálculo infinitesimal»—. Inicialmente, estos «cambios pequeños» se concibieron como trucos prácticos que facilitaban cálculos como los que hemos hecho, pero nunca hubo una justificación matemáticamente rigurosa para proceder así, «imaginando» figuras infinitamente pequeñas. De ahí precisamente que Newton se hubiera negado a publicar su trabajo de cálculo y que Leibniz haya afirmado que lidiar con lo infinitamente pequeño era una simple ficción mental que facilitaba ciertos cálculos en la práctica. De ahí también que ideas como una «secante infinitamente pequeña que se confunde con un punto» suenen a paradoja.</p>
+<p>Mi intención en estas lecciones ha sido sembrar un entendimiento elemental, intuitivo y conceptual del cálculo infinitesimal. A mi juicio, este tipo de entendimiento racional —fundamentado en las causas de las cosas—, además de ser el más importante, brilla por su ausencia en la penosa mayoría de libros, lecciones y conferencias de matemáticas. Complementar estas lecciones con el estudio de ciertas reglas para derivar o integrar es bastante sencillo, mientras que intuir las causas detrás de cada fórmula, en abstracto, es increíblemente difícil y, sin embargo, el sistema educativo y los matemáticos le han fallado a millones de jóvenes estudiantes al asumir que tal cosa es posible. Me parece un fracaso estrepitoso y este ha sido mi humilde intento de remediarlo de alguna forma.</p>
+</section>
+<section id="referencias">
+<h2>Referencias<a class="headerlink" href="#referencias" title="Permalink to this headline">#</a></h2>
+<p>Durante la redacción de mis textos sobre derivadas e integrales, además de los cursos de Khan Academy, fueron particularmente útiles los siguientes videos de YouTube:</p>
+<ul class="simple">
+<li><p>Las lecciones de Eddie Woo sobre cálculo <a class="reference external" href="https://youtu.be/tt2DGYOi3hc">diferencial</a> e <a class="reference external" href="https://youtube.com/playlist?list=PLnoC_Rna8pUTFq279Nr0pE--H0OZKIxGU">integral</a>.</p></li>
+<li><p><em>This Is the Calculus They Won’t Teach You</em> de <a class="reference external" href="https://youtu.be/5M2RWtD4EzI">A Well-Rested Dog</a>.</p></li>
+<li><p><em>Why is calculus so… EASY?</em> de <a class="reference external" href="https://youtu.be/kuOxDh3egN0">Mathologer</a>.</p></li>
+<li><p><em>Understand Calculus in 35 Minutes</em> de <a class="reference external" href="https://youtu.be/WsQQvHm4lSw">The Organic Chemistry Tutor</a>.</p></li>
+</ul>
+<p>Según recuerdo, la lección del <a class="reference external" href="https://youtu.be/_6-zwdrqD3U">Traductor de Ingeniería</a> sobre derivadas tiene un buen enfoque, aunque tiende a hacer las cosas más complicadas de lo que son. De la misma forma, los videos de <a class="reference external" href="https://youtu.be/WUvTyaaNkzM">3Blue1Brown</a>, aunque buenos a ratos, siempre me confunden y me dejan huecos entre las ideas. En cualquier caso, ambos merecen mención.</p>
+<p>Finalmente, aunque solo he hojeado unas páginas, me parece que <em>Calculus made easy</em> de <a class="reference external" href="https://calculusmadeeasy.org">Thompson</a> es un buen libro.</p>
 </section>
 </section>
 
