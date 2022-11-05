@@ -3,18 +3,93 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-x = np.arange(0, 21, 2) 
-b = 5
-def f(x, b): return x*b
-c = f(x, b)
+x = np.arange(0, 21, 2)
+def f(x): return x**2
+y = f(x)
 
 fig, ax = plt.subplots(figsize=(10, 7))
-ax.plot(x, c, marker='o', color='blue') 
+ax.plot(x, y, color='blue') 
 plt.xticks(ticks=x)
 ax.set_facecolor('black')
 ax.set_xlabel('Valores de x')
-ax.set_ylabel('Valores de c')
-ax.hlines(y=c[3], xmin=x[3], xmax=x[6], linewidth=1, color='white', linestyles='dashed')
-ax.vlines(x=x[3], ymin=0, ymax=c[3], linewidth=1, color='white', linestyles='dashed')
-ax.vlines(x=x[6], ymin=0, ymax=c[6], linewidth=1, color='white', linestyles='dashed')
+ax.set_ylabel('Valores de y / f(x)')
+ax.hlines(y=0, xmin=10, xmax=12, linewidth=1, color='white', linestyles='dashed')
+ax.vlines(x=10, ymin=0, ymax=10**2, linewidth=1, color='white', linestyles='dashed')
+ax.vlines(x=12, ymin=0, ymax=y[6], linewidth=1, color='white', linestyles='dashed')
 plt.show()
+
+x = np.arange(0, 21, 2)
+def f(x): return x**2
+y = f(x)
+
+fig, ax = plt.subplots(figsize=(10, 7))
+ax.plot(x, y, color='blue') 
+plt.xticks(ticks=x)
+ax.set_facecolor('black')
+ax.set_xlabel('Valores de x')
+ax.set_ylabel('Valores de y / f(x)')
+ax.hlines(y=0, xmin=10, xmax=12, linewidth=1, color='white', linestyles='dashed')
+ax.hlines(y=100, xmin=10, xmax=12, linewidth=1, color='white', linestyles='dashed')
+ax.vlines(x=10, ymin=0, ymax=10**2, linewidth=1, color='white', linestyles='dashed')
+ax.vlines(x=12, ymin=0, ymax=y[6], linewidth=1, color='white', linestyles='dashed')
+ax.axline((11, 11**2), slope=2*11, color='white', linestyle='dashed') 
+plt.show()
+
+x = np.arange(0, 21, 2)
+def f(x): return x**2
+y = f(x)
+
+fig, ax = plt.subplots(figsize=(10, 7))
+ax.plot(x, y, color='blue') 
+plt.xticks(ticks=x)
+ax.set_facecolor('black')
+ax.set_xlabel('Valores de x')
+ax.set_ylabel('Valores de f(x)')
+ax.hlines(y=0, xmin=10, xmax=12, linewidth=1, color='white', linestyles='dashed')
+ax.hlines(y=144, xmin=10, xmax=12, linewidth=1, color='white', linestyles='dashed')
+ax.vlines(x=10, ymin=0, ymax=12**2, linewidth=1, color='white', linestyles='dashed')
+ax.vlines(x=12, ymin=0, ymax=y[6], linewidth=1, color='white', linestyles='dashed')
+plt.show()
+
+x = np.arange(0, 21, 0.5)
+def f(x): return x**2
+y = f(x)
+
+fig, ax = plt.subplots(figsize=(10, 7))
+ax.plot(x, y, color='blue') 
+plt.xticks(ticks=np.arange(0,21,2))
+ax.set_ylim(-1, 250)
+ax.set_xlim(8, 16)
+ax.set_facecolor('black')
+ax.set_xlabel('Valores de x')
+ax.set_ylabel('Valores de f(x)')
+ax.hlines(y=0, xmin=10, xmax=10.5, linewidth=1, color='white', linestyles='dashed')
+ax.hlines(y=10**2, xmin=10, xmax=10.5, linewidth=1, color='white', linestyles='dashed')
+ax.vlines(x=10, ymin=0, ymax=10**2, linewidth=1, color='white', linestyles='dashed')
+ax.vlines(x=10.5, ymin=0, ymax=10.5**2, linewidth=1, color='white', linestyles='dashed')
+ax.hlines(y=0, xmin=10.5, xmax=11, linewidth=1, color='white', linestyles='dashed')
+ax.hlines(y=10.5**2, xmin=10.5, xmax=11, linewidth=1, color='white', linestyles='dashed')
+ax.vlines(x=10.5, ymin=0, ymax=10.5**2, linewidth=1, color='white', linestyles='dashed')
+ax.vlines(x=11, ymin=0, ymax=10.5**2, linewidth=1, color='white', linestyles='dashed')
+ax.hlines(y=0, xmin=11, xmax=11.5, linewidth=1, color='white', linestyles='dashed')
+ax.hlines(y=11**2, xmin=11, xmax=11.5, linewidth=1, color='white', linestyles='dashed')
+ax.vlines(x=11, ymin=0, ymax=11**2, linewidth=1, color='white', linestyles='dashed')
+ax.vlines(x=11.5, ymin=0, ymax=11**2, linewidth=1, color='white', linestyles='dashed')
+ax.hlines(y=0, xmin=11.5, xmax=12, linewidth=1, color='white', linestyles='dashed')
+ax.hlines(y=11.5**2, xmin=11.5, xmax=12, linewidth=1, color='white', linestyles='dashed')
+ax.vlines(x=11.5, ymin=0, ymax=11.5**2, linewidth=1, color='white', linestyles='dashed')
+ax.vlines(x=12, ymin=0, ymax=11.5**2, linewidth=1, color='white', linestyles='dashed')
+plt.show()
+
+x = np.arange(0, 21, 0.01)
+
+f'Valores de x: {len(x)} | Muestra de 5 valores: {x[401:406]}'
+
+def f(x): return x**2
+y = f(x)
+
+f'Valores de y: {len(y)} | Muestra de 5 valores correspondientes a cada valor de x anterior: {y[401:406]}'
+
+f'Número de valores de y (alturas): {len(y[1000:1200])} | Muestra de valores de y: {y[1001:1006]}'
+
+sum(y[1000:1200])*0.01
