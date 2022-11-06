@@ -22,7 +22,7 @@
 
 **Desabastecimiento**. Falta de álbumes de ABBA (famosa banda sueca de música pop) en un establecimiento comercial o población.
 
-**Diafragma**. Fragmento de un día, generalmente breve. *Recuerdo perfectamente el diafragma en que me enamoré de ti*.
+**Diafragma**. Fragmento de un día, generalmente breve: «Recuerdo perfectamente el diafragma en que me enamoré de ti».
 
 **Dostoyevski**. Dos juguetes rusos. Etimológicamente, esta palabra plurilingüe está compuesta por el número dos del español como prefijo, el sustantivo *toy* (en español, juguete) del inglés y el sufijo *evski*, utilizado para caracterizar cosas rusas en la lengua del país más extenso del mundo.
 

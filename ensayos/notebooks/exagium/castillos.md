@@ -6,6 +6,11 @@ Que todavía hoy estimemos el valor y la inteligencia de los hombres mediante la
 
 Querer ser juzgado por las obras propias, arrogarse el título de mártir, redentor de la humanidad o estandarte de la ilustración tiene mucho más de vanidad y de necedad que de inteligencia. Nosotros, que con los demás tenemos la cortesía de ser olvidados y con nosotros mismos la honestidad intelectual suficiente para sabernos meros mortales, somos por lo menos lo suficientemente inteligentes para comprender que la eternidad y la inmortalidad son invenciones espantosas de gente espantosa, y que la perfecta inutilidad de todas las cosas siempre nos dejará con la maravillosa alternativa de consagrar la belleza.
 
+<p align="right"> <i>
+2020
+</i>
+</p>
+
 ---
 
 *And so castles made of sand / Slips into the sea... eventually...*
