@@ -67,6 +67,6 @@ La nostalgia es perversa porque, a fuerza de romantizar el pasado nada más, los
 
 
 [^1]: Como alternativa a esas tecniquerías pseudocientíficas, yo proponía un acercamiento tipo Luboš Motl, pero su blog fue censurado en 2021. Sim embargo, *The precautionary principle* de [Nassim Taleb](https://arxiv.org/pdf/1410.5787.pdf), entre algunas otras de sus ideas, también me ayudaron a forjar un entendimiento apropiado del coronavirus.
-[^2]: Según recuerdo, la autora criticaba a quienes «no sabían ni calcular una derivada», pero al mismo tiempo criticaban las predicciones que los «expertos» hacían sobre el coronavirus.
-[^3]: Esta expresión —escrita en tono ridículo y condescendiente— pretendía ser una burla del texto original, puesto que la autora utilizaba la misma expresión, aunque con una idea distinta.
+[^2]: Según recuerdo, la autora se quejaba de quienes «no sabían ni calcular una derivada» y al mismo tiempo se «atrevían» a criticar las predicciones que los «expertos» hacían sobre el coronavirus.
+[^3]: Esta expresión ridícula y condescendiente pretendía ser una burla del texto original, el cual terminaba exactamente con el mismo tono.
 
