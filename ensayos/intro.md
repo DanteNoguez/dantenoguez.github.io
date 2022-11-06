@@ -17,3 +17,13 @@ url={https://dantenoguez.github.io/},
 year={2022}
 }
 ```
+
+### Música
+Mis álbumes más escuchados del último mes (~octubre):
+```{figure} ../../img/octubre22.jpeg
+---
+width: 100%
+name: octubre22
+---
+Imagen generada con [tapmusic](https://www.tapmusic.net/).
+```
