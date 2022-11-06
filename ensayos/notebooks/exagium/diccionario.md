@@ -24,11 +24,11 @@
 
 **Diafragma**. Fragmento de un día, generalmente breve: «Recuerdo perfectamente el diafragma en que me enamoré de ti».
 
-**Dostoyevski**. Dos juguetes rusos. Etimológicamente, esta palabra plurilingüe está compuesta por el número dos del español como prefijo, el sustantivo *toy* (en español, juguete) del inglés y el sufijo *evski*, utilizado para caracterizar cosas rusas en la lengua del país más extenso del mundo.
+**Dostoyevski**. Dos juguetes rusos. Etimológicamente, esta palabra plurilingüe está compuesta por el número dos del español como prefijo, el sustantivo «*toy*» (en español, «juguete») del inglés y el sufijo «-*evski*», utilizado para caracterizar cosas rusas en la lengua del país más extenso del mundo.
 
 **Estado**. Forma de organización política fantástica sugerida a mediados del siglo XV por Pedro de Corral[^2].
 
-**Estupefacto**. Fenómeno extraño que ocurre cuando un estúpido enuncia un hecho (del latín *facto*) real y verdadero.
+**Estupefacto**. Fenómeno extraño que ocurre cuando un estúpido enuncia un hecho (del latín «*facto*») verdadero.
 
 **Etiología**. Estudio científico de la población etíope y sus principales grupos étnicos: oromo, ahmara, tigray, sidama, hadiya y somalíes.
 
@@ -48,7 +48,7 @@
 
 **Hipócrita.** Crítica realizada a personas con hipo.
 
-**Holograma**. Aroma peculiar que ciertos ancianos desprenden[^4] (la palabra se compone por los vocablos *olor* y *grandma*, es decir, «abuela» en inglés). En diccionarios antiguos se ha asentado la forma originaria «olograma», ya hoy caída en desuso.
+**Holograma**. Aroma peculiar que ciertos ancianos desprenden[^4]. La palabra se compone por los vocablos «olor» y «*grandma*», es decir, «abuela» en inglés. En diccionarios antiguos se ha asentado la forma originaria «olograma», ya hoy caída en desuso.
 
 **Hombre**. Animal racional que se molesta sobremanera cuando se le pide actuar conforme a los dictados de la razón.
 
