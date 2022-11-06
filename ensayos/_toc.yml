@@ -27,3 +27,5 @@ parts:
   chapters:
   - file: notebooks/exagium/tzompantli
   - file: notebooks/exagium/castillos
+  - file: notebooks/exagium/diccionario
+  - file: notebooks/exagium/escribir
