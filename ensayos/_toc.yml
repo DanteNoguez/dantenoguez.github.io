@@ -17,6 +17,7 @@ parts:
 - caption: Elementorum Politicæ Œconomicæ Iurisprudentiæ
   chapters:
   - file: notebooks/beta/iurisprudentiae
+  - file: notebooks/beta/schumpeter
 
 - caption: Elementorum Poeticæ
   chapters:
@@ -29,3 +30,4 @@ parts:
   - file: notebooks/exagium/castillos
   - file: notebooks/exagium/diccionario
   - file: notebooks/exagium/escribir
+  - file: notebooks/exagium/coronavirus
