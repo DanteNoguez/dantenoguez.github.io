@@ -17,3 +17,8 @@ url={https://dantenoguez.github.io/},
 year={2022}
 }
 ```
+
+### Referencias
+
+```{bibliography}
+```
