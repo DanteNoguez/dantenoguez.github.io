@@ -6,7 +6,7 @@
 
 **Sueño coprolálico**, *29 de mayo 2016*
 
-Esta madrugada me he levantado para correr al baño a causa de un sueño rarísimo que tuve. Resulta ser que, en mi sueño, todo el arte se hacía con mierda. Se escribía con mierda, se pintaba con mierda, se hacían esculturas de mierda. Los artistas trabajaban en una especie de «fábrica de arte». Al iniciar sus jornadas, tomaban una suerte de laxante para tener material para sus obras, y llevaban puestos pañales que les permitían guardar la mierda para posteriormente usarla. Luego de haber observado a cientos de ellos haciendo su «arte», era mi turno. Yo también quería ser artista. Entonces pues, me puse mi pañal, tomé mi laxante y esperé el efecto. El efecto sí que lo hubo, pero cuando el efecto se manifestó en mí con tanto «realismo», se fue todo lo demás y me quedé solo con él. Desperté y corrí al baño.
+Esta madrugada me he levantado para correr al baño a causa de un sueño rarísimo que tuve. Resulta ser que, en mi sueño, todo el arte se hacía con mierda. Se escribía con mierda, se pintaba con mierda, se hacían esculturas de mierda. Los artistas trabajaban en una especie de «fábrica de arte». Al iniciar sus jornadas, tomaban una suerte de laxante para tener material para sus obras, y llevaban puestos pañales que les permitían guardar la mierda para posteriormente usarla. Luego de haber observado a cientos de ellos haciendo su «arte», era mi turno. Yo también quería ser artista. Entonces pues, me puse mi pañal, tomé mi laxante y esperé el efecto. El efecto sí que lo hubo, pero cuando se manifestó en mí con tanto «realismo», se fue todo lo demás y me quedé solo con él. Desperté y corrí al baño.
 
 <br>
 <p align="center"> <b>
