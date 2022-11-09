@@ -4,7 +4,7 @@
 </b>
 </p>
 
-**Sueño coprolálico**, *29 de mayo 2016*
+**Sueño coprolálico**, *29 de mayo, 2016*
 
 Esta madrugada me he levantado para correr al baño a causa de un sueño rarísimo que tuve. Resulta ser que, en mi sueño, todo el arte se hacía con mierda. Se escribía con mierda, se pintaba con mierda, se hacían esculturas de mierda. Los artistas trabajaban en una especie de «fábrica de arte». Al iniciar sus jornadas, tomaban una suerte de laxante para tener material para sus obras, y llevaban puestos pañales que les permitían guardar la mierda para posteriormente usarla. Luego de haber observado a cientos de ellos haciendo su «arte», era mi turno. Yo también quería ser artista. Entonces pues, me puse mi pañal, tomé mi laxante y esperé el efecto. El efecto sí que lo hubo, pero cuando se manifestó en mí con tanto «realismo», se fue todo lo demás y me quedé solo con él. Desperté y corrí al baño.
 
@@ -14,7 +14,7 @@ Esta madrugada me he levantado para correr al baño a causa de un sueño rarísi
 </b>
 </p>
 
-**Sueño coprolálico II**, *6 de febrero 2017*
+**Sueño coprolálico II**, *6 de febrero, 2017*
 
 Mientras me encontraba esta mañana entre los brazos de Morfeo, soñé que caminaba por el centro de la Pátzcuaro y de pronto me entraban unas ganas inmensas de cagar. Tales eran mis ganas que me escabullí, sin pedir permiso, hasta el baño de un negocio que había cerca. Cuando ya estaba sentado en el retrete, escuché algunas voces preguntándole y vendiéndole cosas a la dueña del lugar, quien les contestó con tono lacónico: «Yo no sé, pero pueden preguntarle al que está en el baño». Dicho y hecho: escuché el cuchicheo acercarse a la puerta hasta que la abrieron. Eran tres mujeres las que habían entrado como Pedro por su casa. Yo pensé que el asunto debía ser importante como para molestar al rey mientras está en su trono.
 
@@ -40,7 +40,7 @@ En cuanto dije aquello, abrieron la puerta y empezaron a salir. «Por fin podré
 </b>
 </p>
 
-**Una noche improductiva**, *25 febrero 2018*
+**Una noche improductiva**, *25 de febrero, 2018*
 
 Anoche soñé que leía, con detenimiento minucioso, las cuestiones del *Liber viginti quattuor philosophorum*. Estaban todas escritas en idiomas desconocidos. Recuerdo uno en particular que adiviné —dentro del sueño mismo— combinación de alemán y latín. Ahora sí que puedo decir —con Xul Solar—: ha sido una noche bastante improductiva. Solo he tenido tiempo de inventar doce idiomas.
 
@@ -60,6 +60,16 @@ Paso días enteros leyendo y mis sueños son confusión de páginas que leo y de
 </b>
 </p>
 
+**Ô ma mère Intelligence**, *17 de agosto, 2022*
+
+Anoche tuve el sueño más preocupante y desolador: alguien era más inteligente que yo.
+
+<br>
+<p align="center"> <b>
+§
+</b>
+</p>
+
 **Crónica de una muerte anunciada**, *2016?*
 
 Soñé que me caía de un trampolín y me moría. Cuando me levanté ya era solo un fantasma y nadie me escuchaba. Pasaron otros fantasmas —en realidad, lucían exactamente como personas cualesquiera— junto a mí, les pregunté si estaba muerto y me dijeron «Ellos —los niños que brincaban en el parque— te lo harán saber». Me lo hicieron saber cuando intenté hablarles y no me escuchaban. Después, fui con los fantasmas a una cabaña cerca del mar. Veíamos a los niños jugar en el jardín.
@@ -70,9 +80,9 @@ Soñé que me caía de un trampolín y me moría. Cuando me levanté ya era solo
 </b>
 </p>
 
-**Volver al pasado**, *2017?*
+**Déjà vu**, *2017?*
 
-Soñé que viajaba al pasado y me quedaba estancado en un solo día: lo vivía una y otra vez. En algún punto, me encontraba en una recámara y cuando levanté la mirada, vi a mi hermano sentado en la cama de otra recámara (parecido a como en casa de mis padres se ve de un cuarto a otro). Lo veía con un triciclo, o algún artefacto color rojo. También escuchaba a mi papá llamándolo.
+Soñé que viajaba al pasado y me quedaba estancado en un solo día: lo vivía una y otra vez.
 
 <br>
 <p align="center"> <b>

@@ -7,7 +7,7 @@ logo: logo.png
 sphinx:
   config:
     html_show_copyright: false
-    html_baseurl: 'https://dantenoguez.github.io/intro.html'
+    html_baseurl: 'https://dantenoguez.github.io/'
     bibtex_reference_style: author_year
     bibtex_bibfiles: references.bib
   extra_extensions:
