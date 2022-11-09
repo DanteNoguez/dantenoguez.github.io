@@ -1,14 +1,12 @@
 # Diccionario fantástico de la lengua española
 
-**Ambidextro**. Trastorno genético caracterizado por el desarrollo de dos manos derechas en un cuerpo humano. Esta anomalía fue descrita por primera vez por el Dr. Thomas Browne.
+**Ambidextro**. Trastorno genético caracterizado por el desarrollo de dos manos derechas en un cuerpo humano.
 
-**Autocorrector**. Automóvil que auxilia a conductores alcoholizados a conducir correctamente mediante complejos modelos de aprendizaje profundo.
+**Autocorrector**. Automóvil que, mediante inteligencia artificial, auxilia a conductores alcoholizados a conducir correctamente.
 
 **Automatizar**. Término acuñado por Wolfgang von Kempelen[^1], utilizado para referirse al engaño —generalmente llevado a cabo ante personas de clase alta— consistente en exhibir artefactos supuestamente autónomos con el fin de obtener beneficios económicos. En su acepción más moderna, este engaño es llevado a cabo por empresarios para obtener inversiones millonarias en Silicon Valley.
 
 **Banco**. Asiento en el que se agrupan conjuntos de peces dedicados a ofrecer servicios financieros.
-
-**Barbarie**. Dícese de cualquiera que enseña la barba mientras ríe. Similar a la expresión *grinning like a Cheshire cat* («sonreír como un gato de Cheshire»).
 
 **Barómetro**. Instrumento científico ficticio ideado por Borges para despistar entrevistadores.
 
@@ -20,51 +18,57 @@
 
 **Condescendiente**. Que tiene una hija o hijo.
 
+**Consistencia**. Falta de imaginación.
+
 **Desabastecimiento**. Falta de álbumes de ABBA (famosa banda sueca de música pop) en un establecimiento comercial o población.
 
 **Diafragma**. Fragmento de un día, generalmente breve: «Recuerdo perfectamente el diafragma en que me enamoré de ti».
 
-**Dostoyevski**. Dos juguetes rusos. Etimológicamente, esta palabra plurilingüe está compuesta por el número dos del español como prefijo, el sustantivo «*toy*» (en español, «juguete») del inglés y el sufijo «-*evski*», utilizado para caracterizar cosas rusas en la lengua del país más extenso del mundo.
+**Dostoyevskis**. Dos juguetes rusos.
+
+**Escuela**. Establecimiento público donde se instruye a los jóvenes sobre cualquier materia, excepto aquellas que son importantes.
 
 **Estado**. Forma de organización política fantástica sugerida a mediados del siglo XV por Pedro de Corral[^2].
 
-**Estupefacto**. Fenómeno extraño que ocurre cuando un estúpido enuncia un hecho (del latín «*facto*») verdadero.
+**Estupefacto**. Fenómeno extraño que ocurre cuando un estúpido enuncia un hecho (del latín «*factum*») verdadero.
 
 **Etiología**. Estudio científico de la población etíope y sus principales grupos étnicos: oromo, ahmara, tigray, sidama, hadiya y somalíes.
 
-**Fénix**. Supuesta ave que renace cíclicamente de las cenizas de su predecesor. Se describe como única en su especie; Thomas Browne utilizó un pasaje bíblico[^3] para demostrar la imposibilidad lógica de su existencia.
+**Fénix**. Supuesta ave que renace cíclicamente de las cenizas de su predecesor. El Dr. Thomas Browne utilizó un pasaje bíblico[^3] para demostrar la imposibilidad lógica de su existencia.
 
 **Filosofía**. Práctica universitaria orientada a enseñar teorías que posteriormente podrán ser utilizadas para enseñarse en la universidad.
 
-**Frenología**. Disciplina científica orientada al estudio de dispositivos mecánicos denominados frenos, y sus efectos energéticos en sistemas en movimiento.
+**Frenología**. Disciplina científica enfocada en el estudio de dispositivos mecánicos denominados «frenos», y sus efectos energéticos en sistemas en movimiento.
 
 **Fundamentalista**. Funda o cubierta con poderes psíquicos.
 
-**Gafapasta**. Pasta española preparada con gafas.
+**Gafapasta**. Preparación culinaria de origen español, elaborada con pasta y aderezada con gafas.
+
+**Gastrónomo**. Cocinero que ha superado el bachillerato.
 
 **Granola**. Ola de grandes dimensiones.
 
-**Herramienta**. Instrumento que siempre yerra en su función.
+**Herramienta**. Instrumento que siempre erra en su función.
 
 **Hipócrita.** Crítica realizada a personas con hipo.
 
 **Holograma**. Aroma peculiar que ciertos ancianos desprenden[^4]. La palabra se compone por los vocablos «olor» y «*grandma*», es decir, «abuela» en inglés. En diccionarios antiguos se ha asentado la forma originaria «olograma», ya hoy caída en desuso.
 
-**Hombre**. Animal racional que se molesta sobremanera cuando se le pide actuar conforme a los dictados de la razón.
+**Hombre**. Animal racional que se molesta cuando se le pide actuar conforme a los dictados de la razón.
 
 **Idealista.** Expresión con la que se anuncia que se está en posesión de una ocurrencia.
 
-**Impuesto**. Aportación monetaria realizada por los ciudadanos de una sociedad para que los gobernantes puedan costear inquietudes nacionales: viajes, promociones, jets o mansiones para ellos y sus allegados.
+**Impuesto**. Aportación monetaria realizada por los ciudadanos de una sociedad para que los gobernantes puedan costear inquietudes nacionales: yates, jets o mansiones para ellos y sus allegados.
 
 **Influencer**. Persona que contagia el virus de la influenza.
 
-**Instagramer**. Adjetivo utilizado para denominar mujeres con inclinación pélvica anterior o, en su caso, hombres con niveles bajos de testosterona que procuran aparentar lo contrario mediante cierto tipo de conductas (ostentaciones de recursos, agresividad, estatus o parejas sexuales).
+**Instagramer**. Adjetivo utilizado para denominar mujeres con inclinación pélvica anterior o, en su caso, hombres que recurren a prácticas engañosas para aparentar altos niveles de testosterona.
 
 **Libertarismo**. Incapacidad patológica para idear proyectos políticos realizables.
 
 **Literatura**. Arte de enunciar verdades comunes con grandilocuencia mientras se busca empleo.
 
-**Materialismo**. Corriente de pensamiento con pretensiones científicas improvisada por personas sin estudios científicos.
+**Materialismo**. Corriente filosófica con pretensiones científicas, generalmente improvisada por personas sin estudios científicos.
 
 **Mecánico**. *Adj*. desp. Hombre de poca higiene que suele llevar los pantalones a la mitad de los glúteos.
 
@@ -74,9 +78,13 @@
 
 **Meteorología**. Ciencia dedicada al estudio de los meteoritos.
 
-**Mitología**. Disciplina pseudocientífica que durante el siglo XIV se popularizó por sus análisis psicológicos de sujetos mitómanos (*i. e*., mentirosos compulsivos).
+**Mitología**. Disciplina pseudocientífica que durante el siglo XIV se popularizó por su estudio de los sujetos mitómanos (*i. e*., mentirosos compulsivos).
 
-**Nostalgia**. Sentimiento tendiente a romantizar o glorificar el pasado. Abunda principalmente en personas con vidas mediocres o con cierta predisposición a tomar malas decisiones.
+**Nostalgia**. Tristeza provocada por la romantización o glorificación de momentos ordinarios del pasado.
+
+**Ocaso**. Torpe imitación de la obra de Turner que la naturaleza suele llevar a cabo.
+
+**Opinión**. Valoración completamente errónea que se forma una persona respecto de algo.
 
 **Oxímoron[^5]**. Supuesta enfermedad con manifestaciones variadas provocada por una capacidad atrofiada para respirar oxígeno. Proviene del griego *oxús* (ὀξύς), que significa «ácido»[^6] y *mōrós* (*μωρός*), que significa «tonto». Históricamente ha existido la hipótesis —refutada científicamente después— de que ciertas personas «oximorónicas» no tienen la capacidad de oxigenar apropiadamente su cerebro, por lo que su inteligencia se ve afectada considerablemente como consecuencia.
 
@@ -94,11 +102,11 @@
 
 **Seriedad**. Actitud solemne ideada por personas anodinas y ordinarias para aparentar importancia.
 
-**Teoreticismo**. Corriente epistemológica que considera más real la palabra «unicornio» que un caballo de carne y hueso.
+**Teoreticismo**. Corriente filosófica que considera más real a la palabra «unicornio» que a un caballo de carne y hueso.
 
-**Testosterona**. Unidad de medida utilizada para calcular el posicionamiento jerárquico de determinados individuos o grupos en una sociedad: «Según sus niveles de testosterona, los aliados feministas podrían encontrarse en el escalafón más bajo de la sociedad occidental».
+**Testosterona**. Unidad de medida utilizada para calcular el posicionamiento jerárquico de determinados individuos o grupos en una sociedad: «Según sus niveles de testosterona, los llamados 'ofendiditos' podrían encontrarse en el escalafón más bajo de la sociedad occidental».
 
-**Tolerón**. Unidad de medida de la tolerancia. *Se estima que la tolerancia de Hitler con los animales era de 9.8 Tolerones*. (*Símb*. Tol).
+**Tolerón**. Unidad de medida de la tolerancia: «Se estima que la tolerancia del gobierno a la libertad de prensa es de 0.16 Tolerones». (*Símb*. Tol).
 
 **Tortuoso**. Bestia fantástica con cuerpo de tortuga y cabeza de oso.
 
@@ -127,4 +135,4 @@ El propio Ignaz Moscheles señaló en su momento que, cuando Beethoven y Mälzel
 
 [^6]: Equivocadamente, Lavoisier denominó oxígeno a dicho gas porque creía que era un componente fundamental en todos los ácidos. Su equivocación, sin embargo, perduró terminológicamente.
 
-[^7]: Si bien este vocablo atestigua un fenómeno extendido antiguamente en Mesoamérica, la arqueología y algunos relatos históricos nos han descubierto que también ha ocurrido en otras culturas —sin contacto con las mesoamericanas—: bajo el reinado de Alaudín Khalji, se construyó la *Chor Minar* (‘torre de ladrones’) donde, a través de huecos diseñados *ad hoc*, se exhibían cráneos de prisioneros mongoles ejecutados (en tiempos de guerra, se exhibían los cráneos de los cabecillas —nunca mejor dicho— mientras se apilaban en pirámide los de los demás soldados); Tamerlán (ca. 1336-1405), cabeza del imperio Gurkani, mandaba edificar torres con los cráneos de las poblaciones conquistadas; en el *Akbarnama de Abul Fazl* (II, XI, 41) y la *Muntakhab-ut-Tawarikh de Badayuni* (II, 17) se relata la edificación de un alminar con las cabezas de los suris asesinados durante la segunda Batalla de Panipat (esta práctica sería habitual durante el gobierno del imperio mogol, imperio fundado por un descendiente del mismísimo Tamerlán); finalmente, sabemos también que el visir Hurshid Pasha ordenó erigir la *Ćele kula* (‘torre de cráneos’) para empalar las cabezas de los rebeldes caídos durante la Batalla de Čegar. Los entomólogos han descrito cómo hormigas de la especie *Formica archboldi* «coleccionan» cráneos de hormigas *Odontomachus*, lo cual les permite impregnarse de su olor para camuflarse entre ellas y asesinarlas o, en su caso, para esconderse de hormigas «secuestradoras». Para mayores detalles, consúltese [mi artículo](https://algarabia.com/breve-apunte-sobre-el-tzompantli/) al respecto.
+[^7]: Si bien este vocablo atestigua un fenómeno extendido antiguamente en Mesoamérica, la arqueología y algunos relatos históricos nos han descubierto que también ha ocurrido en otras culturas —sin contacto con las mesoamericanas—: bajo el reinado de Alaudín Khalji, se construyó la *Chor Minar* (‘torre de ladrones’) donde, a través de huecos diseñados *ad hoc*, se exhibían cráneos de prisioneros mongoles ejecutados (en tiempos de guerra, se exhibían los cráneos de los cabecillas —nunca mejor dicho— mientras se apilaban en pirámide los de los demás soldados); Tamerlán (ca. 1336-1405), cabeza del imperio Gurkani, mandaba edificar torres con los cráneos de las poblaciones conquistadas; en el *Akbarnama de Abul Fazl* (II, XI, 41) y la *Muntakhab-ut-Tawarikh de Badayuni* (II, 17) se relata la edificación de un alminar con las cabezas de los suris asesinados durante la segunda Batalla de Panipat (esta práctica sería habitual durante el gobierno del imperio mogol, imperio fundado por un descendiente del mismísimo Tamerlán); finalmente, sabemos también que el visir Hurshid Pasha ordenó erigir la *Ćele kula* (‘torre de cráneos’) para empalar las cabezas de los rebeldes caídos durante la Batalla de Čegar.
