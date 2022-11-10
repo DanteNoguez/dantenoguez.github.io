@@ -30,7 +30,7 @@
 
 **Estado**. Forma de organización política fantástica sugerida a mediados del siglo XV por Pedro de Corral[^2].
 
-**Estupefacto**. Fenómeno extraño que ocurre cuando un estúpido enuncia un hecho (del latín «*factum*») verdadero.
+**Estupefacto**. Fenómeno extraño que ocurre cuando un estúpido enuncia un hecho —del latín «factum»— verdadero.
 
 **Etiología**. Estudio científico de la población etíope y sus principales grupos étnicos: oromo, ahmara, tigray, sidama, hadiya y somalíes.
 
@@ -52,7 +52,7 @@
 
 **Hipócrita.** Crítica realizada a personas con hipo.
 
-**Holograma**. Aroma peculiar que ciertos ancianos desprenden[^4]. La palabra se compone por los vocablos «olor» y «*grandma*», es decir, «abuela» en inglés. En diccionarios antiguos se ha asentado la forma originaria «olograma», ya hoy caída en desuso.
+**Holograma**. Aroma peculiar que ciertos ancianos desprenden[^4]. La palabra se compone por los vocablos «olor» y «grandma», es decir, «abuela» en inglés. En diccionarios antiguos se ha asentado la forma originaria «olograma», ya hoy caída en desuso.
 
 **Hombre**. Animal racional que se molesta cuando se le pide actuar conforme a los dictados de la razón.
 
@@ -86,7 +86,7 @@
 
 **Opinión**. Valoración completamente errónea que se forma una persona respecto de algo.
 
-**Oxímoron[^5]**. Supuesta enfermedad con manifestaciones variadas provocada por una capacidad atrofiada para respirar oxígeno. Proviene del griego *oxús* (ὀξύς), que significa «ácido»[^6] y *mōrós* (*μωρός*), que significa «tonto». Históricamente ha existido la hipótesis —refutada científicamente después— de que ciertas personas «oximorónicas» no tienen la capacidad de oxigenar apropiadamente su cerebro, por lo que su inteligencia se ve afectada considerablemente como consecuencia.
+**Oxímoron[^5]**. Supuesta enfermedad con manifestaciones variadas provocada por una capacidad atrofiada para respirar oxígeno. Proviene del griego «ὀξύς» [*oxús*], que significa «ácido»[^6], y «μωρός» [*mōrós*], que significa «tonto». Históricamente ha existido la hipótesis —refutada científicamente después— de que ciertas personas «oximorónicas» no tienen la capacidad de oxigenar apropiadamente su cerebro, por lo que su inteligencia se ve afectada considerablemente como consecuencia.
 
 **Parámetro**. Presupuesto que algunas personas destinan a transportarse en tren subterráneo.
 
@@ -110,7 +110,7 @@
 
 **Tortuoso**. Bestia fantástica con cuerpo de tortuga y cabeza de oso.
 
-**Tzompantli**. Del náhuatl *tzontli* (cabellos o cabeza) y *pantli* (hilera), se utiliza para denominar a los palos donde se ensartaban las cabezas de individuos sacrificados[^7].
+**Tzompantli**. Del náhuatl *tzontli* («cabellos» o «cabeza») y *pantli* («hilera»), se utiliza para denominar a los palos donde se ensartaban las cabezas de individuos sacrificados[^7].
 
 **Villano.** Interjección utilizada para expresar asombro o alivio tras divisar una llanura: «¡Villano! ¡Villano con mis propios ojos!».
 
