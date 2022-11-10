@@ -4,7 +4,7 @@ El título de este blog está inspirado en los Elementos de Euclides: mi intenci
 ### Sobre mí
 Mi nombre es Dante Noguez, soy CEO de Dezvolta, ingeniero en *machine learning*, abogado constitucionalista, especialista en la literatura de [Jorge Luis Borges](https://www.amazon.com/Oh-tiempo-tus-pirámides-ensayos-ebook/dp/B08K3QGZTM/), ex jugador profesional de [Halo](https://halotracker.com/halo-infinite/profile/xbl/Magnustein/overview) y estudioso de economía austríaca, biología conductual, materialismo filosófico, música afroamericana, ajedrez, artes marciales mixtas *et quid non*.
 
-dante@dezvolta.com.mx
+$\rightarrow$ dante@dezvolta.com.mx
 
 ### Citas
 Si deseas citar el material de este blog, puedes utilizar el siguiente formato BibTeX:
