@@ -38,4 +38,5 @@ html:
   use_repository_button: true
   favicon: "logo.png"
   google_analytics_id: "G-C9T8ZX64EM"
+  baseurl: "https://dantenoguez.github.io/intro.html"
 

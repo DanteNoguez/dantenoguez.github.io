@@ -4,7 +4,7 @@
 
 **Autocorrector**. Automóvil que, mediante inteligencia artificial, auxilia a conductores alcoholizados a conducir correctamente.
 
-**Automatizar**. Término acuñado por Wolfgang von Kempelen[^1], utilizado para referirse al engaño —generalmente llevado a cabo ante personas de clase alta— consistente en exhibir artefactos supuestamente autónomos con el fin de obtener beneficios económicos. En su acepción más moderna, este engaño es llevado a cabo por empresarios para obtener inversiones millonarias en Silicon Valley.
+**Automatizar**. Término acuñado por Wolfgang von Kempelen[^1], utilizado para referirse al engaño consistente en exhibir artefactos supuestamente autónomos con el fin de obtener beneficios económicos. En su acepción más moderna, este engaño es llevado a cabo por empresarios para obtener inversiones millonarias en Silicon Valley.
 
 **Banco**. Asiento en el que se agrupan conjuntos de peces dedicados a ofrecer servicios financieros.
 
@@ -58,7 +58,7 @@
 
 **Idealista.** Expresión con la que se anuncia que se está en posesión de una ocurrencia.
 
-**Impuesto**. Aportación monetaria realizada por los ciudadanos de una sociedad para que los gobernantes puedan costear inquietudes nacionales: yates, jets o mansiones para ellos y sus allegados.
+**Impuesto**. Aportación monetaria realizada por los ciudadanos de una sociedad para que los gobernantes puedan costear inquietudes nacionales, tales como yates, jets o mansiones para ellos y sus allegados.
 
 **Influencer**. Persona que contagia el virus de la influenza.
 
@@ -94,7 +94,7 @@
 
 **Resbalar**. Vaca que en lugar de mugir emite balidos.
 
-**Secturnial**. *Adj*. Vocablo pergeñado por Nikolái Gógol para referirse a ciertos ambientes oníricos de sus cuentos.
+**Secturnial**. *Adj*. Vocablo pergeñado por Nikolái Gógol para referirse a ciertos personajes y ambientes oníricos de sus cuentos.
 
 **Sepulcro**. Expresión con la que una madre inculca la higiene a sus hijos.
 
