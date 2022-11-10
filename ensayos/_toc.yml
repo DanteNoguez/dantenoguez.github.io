@@ -31,4 +31,4 @@ parts:
   - file: notebooks/exagium/diccionario
   - file: notebooks/exagium/escribir
   - file: notebooks/exagium/coronavirus
-  - file: notebooks/exagium/sueños
+  - file: notebooks/exagium/secturnial
