@@ -494,30 +494,39 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="elementos-de-programacion">
 <h1>Elementos de programación<a class="headerlink" href="#elementos-de-programacion" title="Permalink to this headline">#</a></h1>
+<p>El maestro Corominas ha observado que, etimológicamente, la palabra «función» remite al ‘cumplimiento’ o ‘ejecución (de algo)’. En el habla común, utilizamos esta idea para fererirnos a la tarea que corresponde realizar a un instrumento, entidad o persona. Aunque con diferencias sutiles, esta idea de «función» también subyace las matemáticas, las ciencias computacionales, los lenguajes de programación y la inteligencia artificial. «Función» es un término tan elemental para todas estas disciplinas y tan intuitivo a todos nosotros en el habla cotidiana, que lo utilizaremos como base en este texto para entender los rudimentos mismos de dichas disciplinas.</p>
 <section id="i-funciones-matematicas-computacionales-programaticas-y-paradigmaticas">
 <h2>I. Funciones matemáticas, computacionales, programáticas y paradigmáticas<a class="headerlink" href="#i-funciones-matematicas-computacionales-programaticas-y-paradigmaticas" title="Permalink to this headline">#</a></h2>
-<p>La función matemática, además de ser parte constitutiva de todo modelo de <em>deep learning</em>, se utiliza también para definir el propio concepto de «CPU» y tiene su equivalente informático en todos los lenguajes de programación. Básicamente, podemos concebir a las computadoras, la programación y la inteligencia artificial como funciones de distinta naturaleza y, por ello, es fundamental entender su significado.</p>
-<p>En general, el esquema para representar una función es el siguiente:</p>
+<p>Cuando cotidianamente hablamos de la «función (de algo)», podemos decir que nos estamos refiriendo a la operación que se realiza sobre un objeto para obtener un resultado deseado. La función del refrigerador, por ejemplo, consiste en mantener una determinada temperatura en su interior, es decir, refrigerar. Como resultado, los alimentos que guardamos en él se conservan en buen estado. Siguiendo esta línea, podemos esquematizar la función del refrigerador («refrigeración») de la siguiente manera:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Alimento → Refrigeración → Conservación del alimento
+</pre></div>
+</div>
+<p>Ilustrativamente, podemos también representar este esquema bajo la siguiente forma:</p>
 <img src="https://upload.wikimedia.org/wikipedia/commons/7/79/FunctionMachine.svg" alt="Esquema de una función" width=200/>
-<p>Podemos definir entonces a una función como una «serie de operaciones que se realizan sobre un valor de entrada para dar como resultado un valor de salida». Ejemplifiquémoslo en lengua paladina con una pizza. Digamos que la pizza es la «salida», los ingredientes la «entrada» y la «función» es mi receta de cocina:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Entrada («input») -&gt; Función («computación», «algoritmo») -&gt; Salida («output»)
-Ingredientes -&gt; Receta (preparación) -&gt; Pizza
+<p>Donde de la generalización del esquema inicial, se desprende que la función denota la operación o serie de operaciones que se realizan sobre un valor de «entrada» (en nuestro ejemplo, los alimentos) para dar como resultado un valor de «salida» (la conservación del alimento a baja temperatura). En otras palabras, el núcleo de una función está en definir una o más operaciones que se realizan con el valor de entrada para transformarlo de alguna forma y dar como resultado un valor de salida. Pongamos varios ejemplos para asimilar esto de mejor manera:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Entrada («input») → Función («computación», «algoritmo») → Salida («output»)
+Ingredientes → Receta (preparación) → Pizza
+Libro → Lectura (interpretación) → Aprendizaje
+Inversión → Producción → Negocio
+Hipótesis → Experimentación → Descubrimiento científico
+Ley (Poder Legislativo) → Interpretación (P. Judicial) → Ejecución (P. Ejecutivo)
 </pre></div>
 </div>
-<p>Como decía, la esencia de la función está en definir una o más operaciones que se realizarán con el valor de entrada para transformarlo y dar como resultado un valor de «salida». Este paradigma es utilizado por la mayoría de informáticos para abordar casi cualquier tema:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Libro</span> <span class="o">-&gt;</span> <span class="n">Interpretación</span> <span class="o">-&gt;</span> <span class="n">Aprendizaje</span>
-<span class="n">Inversión</span> <span class="o">-&gt;</span> <span class="n">Producción</span> <span class="o">-&gt;</span> <span class="n">Negocio</span>
-<span class="n">Hipótesis</span> <span class="o">-&gt;</span> <span class="n">Experimentación</span> <span class="o">-&gt;</span> <span class="n">Descubrimiento</span> <span class="n">científico</span>
-<span class="n">Ley</span> <span class="p">(</span><span class="n">Poder</span> <span class="n">Legislativo</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Interpretación</span> <span class="p">(</span><span class="n">P</span><span class="o">.</span> <span class="n">Judicial</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Ejecución</span> <span class="p">(</span><span class="n">P</span><span class="o">.</span> <span class="n">Ejecutivo</span><span class="p">)</span>
+<p>A su vez, cualquiera de estas funciones puede descomponerse en muchas otras. Por ejemplo, podemos descomponer cada parte del paradigma estatal anterior según el funcionamiento interno de cada Poder:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Propuesta de ley → Revisión (votación, aprobación) → Nueva ley
+Ley → Interpretación → Sentencia, jurisprudencia
+Sentencia → Ejecución de la sentencia → Justicia
 </pre></div>
 </div>
-<p>A su vez, cualquiera de estos esquemas puede descomponerse en muchos otros. Por ejemplo, podemos descomponer cada parte del paradigma estatal anterior según el funcionamiento interno de cada Poder:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Propuesta</span> <span class="n">de</span> <span class="n">ley</span> <span class="o">-&gt;</span> <span class="n">Revisión</span> <span class="p">(</span><span class="n">votación</span><span class="p">,</span> <span class="n">aprobación</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Nueva</span> <span class="n">ley</span>
-<span class="n">Ley</span> <span class="o">-&gt;</span> <span class="n">Interpretación</span> <span class="o">-&gt;</span> <span class="n">Sentencia</span><span class="p">,</span> <span class="n">jurisprudencia</span>
-<span class="n">Sentencia</span> <span class="o">-&gt;</span> <span class="n">Ejecución</span> <span class="n">coactiva</span> <span class="n">de</span> <span class="n">la</span> <span class="n">sentencia</span> <span class="o">-&gt;</span> <span class="n">Justicia</span>
-</pre></div>
-</div>
-<p>Matemáticamente, las funciones son lo mismo (aunque con algún ligero matiz; en rigor, se trata de una relación unívoca de dependencia entre un elemento de un conjunto y otro elemento de otro conjunto), pero se escriben y representan de distinta manera. La notación matemática más común de función es <span class="math notranslate nohighlight">\(f(x)\)</span>; su representación más común es una gráfica. Ejemplifiquemos con el caso <span class="math notranslate nohighlight">\(f(x) = x^{2}\)</span>. Según nuestro esquema, la entrada es cualquier número (que representaremos con una <span class="math notranslate nohighlight">\(x\)</span>), la operación (función) que realizaremos sobre ella es elevarla al cuadrado y eso tendrá como resultado otro número, que podemos denominar con la letra <span class="math notranslate nohighlight">\(y\)</span>:</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Leibniz no solo acuñó el término «función», sino también «variable», «constante», «coordinada», «ecuación diferencial». En palabras de Dietrich Mahnke —a quien, por cierto, mencionamos también en <a class="reference external" href="https://dantenoguez.github.io/notebooks/poeticae/borges.html#apendice">nuestro texto</a> a propósito de Borges—, este valioso manuscrito de Leibniz contenía ya el gérmen de varios conceptos importantes de la matemática moderna: la serie de Taylor, el cálculo infinitesimal y las funciones.</p>
+</aside>
+<p>Como decía, esta forma paradigmática —modélica, base— de entender la función nos dará la clave para entender una infinidad de conceptos y fenómenos en un número de disciplinas. En realidad, la génesis de esta idea de función está en las matemáticas. Más particularmente, en un manuscrito de 1673 pergeñado por el gran Gottfried Leibniz, el cual se titula <em>Methodus tangen­tium inversa seu de functionibus</em><a class="footnote-reference brackets" href="#id2" id="id1">1</a> («El método inverso de tangentes, o sobre las funciones»).</p>
+<p>Desarrollado ulteriormente por otro coloso —nuestro maestro Leonhard Euler—, este entendimiento de la función tiene precisamente el mismo sentido que le hemos estado dando. Para no perder el rigor, especifiquemos brevemente a qué nos referimos. Aunque haya diferentes formas de definir una función matemática, utilicemos la más común: la función es una relación unívoca de dependencia entre un elemento de un conjunto y otro elemento de otro conjunto.</p>
+<p>Vayamos por partes: los conjuntos son grupos o colecciones de números, elementos u objetos con características en común. Los números pares, por ejemplo, pueden entenderse como un conjunto: <span class="math notranslate nohighlight">\(\{2, 4, 6, ...\}\)</span>. La definición del conjunto «números pares» expresa claramente que dicho conjunto solo puede contener números que tienen como múltiplo al número dos.</p>
+<p>Luego, se dice que hay una relación entre elementos de un conjunto con elementos de otro. Siguiendo nuestro ejemplo, puedo decir que el conjunto <span class="math notranslate nohighlight">\(\{6, 12, 18, ...\}\)</span> está relacionado con el conjunto de los números pares en función de una multiplicación por el número <span class="math notranslate nohighlight">\(3\)</span>. Así, el conjunto de los números pares sería la entrada, y este segundo conjunto sería la salida. En ese sentido, la relación entre los elementos de ambos conjuntos se da según las reglas u operaciones que una función define (en este caso, una multiplicación por <span class="math notranslate nohighlight">\(3\)</span>). Cada valor de salida depende enteramente de las operaciones que se realicen con el valor de entrada, y esta dependencia es unívoca porque a cada valor de entrada únicamente puede corresponderle un valor de salida. Es imposible, por ejemplo, que al número <span class="math notranslate nohighlight">\(2\)</span> como valor de entrada, le correspondan los números <span class="math notranslate nohighlight">\(7\)</span>, <span class="math notranslate nohighlight">\(10\)</span> y <span class="math notranslate nohighlight">\(24\)</span> del conjunto de salida, puesto que <span class="math notranslate nohighlight">\(2 \times 3 = 6\)</span>, de manera que exclusivamente el número <span class="math notranslate nohighlight">\(6\)</span> del conjunto de salida le corresponde al <span class="math notranslate nohighlight">\(2\)</span>. En una palabra: la multiplicación es una función, y cuando multiplicamos solo podemos tener un único resultado válido como respuesta.</p>
+<p>En matemáticas, veremos asimismo que la notación y representación de una función tienen una forma particular. La notación matemática más común para denotar una función es <span class="math notranslate nohighlight">\(f(x)\)</span>; su representación más común es una gráfica con coordenadas cartesianas. Ejemplifiquemos con el caso <span class="math notranslate nohighlight">\(f(x) = x^{2}\)</span>. Según nuestro esquema, la entrada es cualquier número (que representaremos con una <span class="math notranslate nohighlight">\(x\)</span>), la operación (función) que realizaremos sobre ella es elevarla al cuadrado, lo cual tendrá como resultado (salida) otro número, que podemos denominar con la letra <span class="math notranslate nohighlight">\(y\)</span>:</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>Las funciones también se pueden escribir utilizando una flecha de mapeo, como por ejemplo: <span class="math notranslate nohighlight">\(x \mapsto x^2\)</span>, que equivale a nuestro ejemplo <span class="math notranslate nohighlight">\(f(x) = x^{2}\)</span>. Sin embargo, es preferible acostumbrarnos a este último modo de formularlas, puesto que es el más habitual.</p>
@@ -525,14 +534,15 @@ Ingredientes -&gt; Receta (preparación) -&gt; Pizza
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \ x \to f(x) \to y \\
+\ x \to x^{2} \to y \\ 
 \end{split}\]</div>
-<p>El hecho de que esta notación matemática nos resulte más confusa se debe a su nivel de abstracción. En realidad, el uso de letras (<span class="math notranslate nohighlight">\(x, y\)</span>, etcétera) en lugar de números es una convención académica utilizada para facilitar la definición de reglas generales. Dichas letras comunican al lector que son variables, es decir, que su valor puede variar dependiendo del contexto. Las matemáticas siempre demandan la generalización abstracta de las formulaciones y expresiones propias de su campo, de manera que este tipo de «tecniquerías» son indispensables. Además, sería increíblemente trabajoso —e incluso confuso— escribir expresiones matemáticas complejas con un estilo diferente (<em>e. g</em>., «si tenemos una función matemática de cualquier número que es igual a dicho número elevado al cuadrado») al tradicional <span class="math notranslate nohighlight">\(f(x) = x^{2}\)</span> (se lee: «efe de equis igual a equis cuadrada»).</p>
+<p>El hecho de que esta notación matemática pueda parecernos confusa se debe a su nivel de abstracción. En realidad, el uso de letras (<span class="math notranslate nohighlight">\(x, y\)</span>, etcétera) en lugar de números es una convención académica utilizada para facilitar la definición de reglas generales. Dichas letras comunican al lector que son variables, es decir, que su valor puede variar dependiendo del contexto. Las matemáticas siempre demandan la generalización de las formulaciones y expresiones propias de su campo, de manera que este tipo de «tecniquerías» son indispensables. Por lo demás, sería increíblemente trabajoso —e incluso confuso— escribir expresiones matemáticas complejas con un estilo diferente (<em>e. g</em>., «si tenemos una función matemática de cualquier número que es igual a dicho número elevado al cuadrado») al tradicional <span class="math notranslate nohighlight">\(f(x) = x^{2}\)</span> (se lee: «efe de equis igual a equis cuadrada»).</p>
 <p>A veces, la función se acompaña de la definición de su dominio, es decir, se puede señalar qué tipo de objeto es la entrada que introduciremos en la función. Por ejemplo:</p>
 <div class="math notranslate nohighlight">
 \[
 \ f(x) = x^{2}, \ \ \ x\in\mathbb{R}\
 \]</div>
-<p><span class="math notranslate nohighlight">\(\in\)</span> significa «pertenece a» y <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> se utiliza para representar a los números reales. Entonces la última expresión la leeríamos como «donde equis pertenece al conjunto de los números reales».</p>
+<p>Donde <span class="math notranslate nohighlight">\(\in\)</span> significa «pertenece a» y <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> se utiliza para representar a los números reales. Entonces la última expresión la leeríamos como «donde equis pertenece al conjunto de los números reales».</p>
 <p>Un principio elemental de la comunicación es la economía del lenguaje: el lenguaje siempre debe ser lo más claro y simple posible. Paradójicamente, esta notación es la más simple que existe, y cualquier otra forma de comunicar fórmulas matemáticas sería ineficiente y confusa. En realidad, la notación matemática solo nos resulta extraña por falta de hábito y eso es algo completamente normal.</p>
 <p>Volviendo a lo nuestro, veamos por fin la representación gráfica de una función matemática:</p>
 <div class="cell docutils container">
@@ -891,15 +901,7 @@ Ingredientes -&gt; Receta (preparación) -&gt; Pizza
 </div>
 <p>Como decíamos: primero nadie la usa, después pocas personas, luego crece rápidamente y al final se estanca. En este caso, <span class="math notranslate nohighlight">\(x\)</span> representa el paso en el tiempo e <span class="math notranslate nohighlight">\(y\)</span> el número de personas que utilizan una palabra.</p>
 <p>Esta función puede utilizarse para representar el número de infectados por COVID-19, el desarrollo de un embrión, el crecimiento de una nueva industria y miles cosas más. De la misma manera, se le pueden dar usos más complejos: por ejemplo, se puede utilizar para diagnosticar enfermedades con modelos matemáticos (modelos de inteligencia artificial). Su utilidad depende enteramente de nosotros.</p>
-<p><strong>Conclusión: función en sentido eidético</strong></p>
-<p>Aunque gracias al maestro Corominas podamos ilustrar etimológicamente el concepto del vocablo «función», aludiendo a su significado en latín —‘cumplimiento’ o ‘ejecución (de algo)’—, lo cierto es que esta idea se puede ilustrar de mucho mejor manera si observamos la convergencia entre los conceptos que vimos. En esencia, cuando cotidianamente hablamos de la «función (de algo)», nos estamos refiriendo exactamente a lo mismo que hemos venido hablando: la operación que se realiza sobre algo para obtener un resultado deseado. La función del refrigerador, por ejemplo, consiste en mantener una determinada temperatura en su interior. Como resultado, los alimentos que guardamos en él se conservan en buen estado. Así, tenemos que:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Alimento -&gt; Refrigeración -&gt; Conservación del alimento
-</pre></div>
-</div>
-<p>En las siguientes secciones profundizaremos en nuestro estudio técnico de las funciones programáticas y computacionales.</p>
-<br>
 </section>
-<hr class="docutils" />
 <section id="ii-algoritmos">
 <h2>II. Algoritmos<a class="headerlink" href="#ii-algoritmos" title="Permalink to this headline">#</a></h2>
 <p>Para hablar de algoritmos nos atendremos a lo que Donald Knuth —prominente programador— ha sentenciado sobre ellos. En esencia, un algoritmo consiste en un conjunto finito de reglas o instrucciones ordenadas cuyo fin es resolver un tipo de problema específico.</p>
@@ -1066,7 +1068,7 @@ Si m es menor que n:
 <p>La mayoría de las computadoras utilizan 8 dígitos o <em>bits</em> (lo cual quiere decir «dígito binario», en inglés «<em>bi</em>nary dig<em>it</em>») a la vez, de manera que el número 3 sería <code class="docutils literal notranslate"><span class="pre">00000011</span></code>. Cada conjunto de 8 <em>bits</em> se denomina <em>byte</em>.</p>
 <p>Aunque en los humanos el sistema decimal prevalezca por sernos más intuitivo, lo cierto es que una vez más estamos hablando de una convención. Xul Solar, por ejemplo, fue un hombre singular que sostuvo durante mucho tiempo que el sistema duodecimal de numeración es superior al decimal. En su vida personal y profesional, Xul Solar utilizaba ese sistema.</p>
 <p>El sistema binario, por otro lado, es especialmente conveniente para las computadoras por la sencilla razón de que facilita la traducción de ceros y unos a señales eléctricas: el cero indica apagado; el uno, encendido. El transistor cumple con la función de representar eléctricamente los unos y ceros de la computadora, realizando operaciones con ellos al prenderse y apagarse continuamente. Un procesador de computadora está compuesto de millones de transistores representando unos y ceros. Un transistor puede representar cientos de miles de millones de ceros y unos por segundo; el transistor más pequeño de nuestros días es más o menos 50,000 veces más delgado que un cabello.</p>
-<p>El sistema binario fue formulado por Leibniz, quien por cierto también pergeñó el término matemático de «función», y también probablemente utilizó el término «algoritmo» en sentido moderno por primera vez. Leibniz fue colega de Johann Bernoulli, quien a su vez fue mentor de Euler.</p>
+<p>El sistema binario fue formulado nada más y nada menos que por nuestro viejo amigo Leibniz, quien también probablemente utilizó el término «algoritmo» en sentido moderno por primera vez. Leibniz fue colega de Johann Bernoulli, quien a su vez fue mentor de nuestro otro amigo Leonhard Euler.</p>
 <p><img src="https://raw.githubusercontent.com/DanteNoguez/CalculusRatiocinator/main/data/img/euler.png" height=300 width=300 alt="euler"/> <img src="https://raw.githubusercontent.com/DanteNoguez/CalculusRatiocinator/main/data/img/leibniz.png" height=300 width=300 alt="leibniz"/> <img src="https://raw.githubusercontent.com/DanteNoguez/CalculusRatiocinator/main/data/img/turing.png" height=300 width=300 alt="alan turing"/></p>
 <p>Naturalmente, el sistema binario, además de representar números, puede también representar letras, imágenes, videos, música y todo aquello que vemos en la pantalla de una computadora. Para ello, se han convenido distintas combinaciones de código binario para representar ciertos caracteres. La letra «A», por ejemplo, se representa con el número 65, que en binario es <code class="docutils literal notranslate"><span class="pre">01000001</span></code>; ASCII y Unicode son códigos estándar para representar el alfabeto y algunos caracteres especiales.</p>
 <p>Por otro lado, el estándar para representar colores es RGB, el cual indica la cantidad de rojo, verde y azul que contiene el color a representar. Cada píxel de las pantallas de las computadoras utiliza tres <em>bytes</em> para representar un color. Veamos esto ejemplificado con la imagen de un número:</p>
@@ -1105,7 +1107,7 @@ Si m es menor que n:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f759b285650&gt;
 </pre></div>
 </div>
-<img alt="../../_images/programacion_25_1.png" src="../../_images/programacion_25_1.png" />
+<img alt="../../_images/programacion_24_1.png" src="../../_images/programacion_24_1.png" />
 </div>
 </div>
 <p>Ahora veamos más de cerca el valor de cada píxel si consideramos una escala de colores del 0 (blanco) al 1 (negro):</p>
@@ -1953,6 +1955,12 @@ Si m es menor que n:
 </div>
 <p>Mientras más nos acercamos a la imagen, mejor vemos los píxeles (los pequeños cuadros coloreados) que representan el número. Así, sabemos ya que la máquina más poderosa creada por el humano consiste en enormes secuencias de números.</p>
 <p>El problema radica precisamente en eso: estas secuencias son gigantescas, de manera que comunicarnos con la computadora en ese lenguaje sería un martirio. Por ello, los lenguajes de programación facilitan dicha comunicación, puesto que la computadora sabe traducir a su lenguaje las instrucciones que le damos mediante un programa. Como veremos más adelante, apenas unas cuantas líneas de código son necesarias para crear un programa de inteligencia artificial.</p>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Para saber más, véanse <a class="reference external" href="https://journals.openedition.org/cultura/1998"><em>El concepto leibniziano matemático de función en 1673</em></a> y <a class="reference external" href="https://www.jstor.org/stable/41133244"><em>The Inverse Method of Tangents: A Dialogue between Leibniz and Newton (1675-1677)</em></a>.</p>
+</dd>
+</dl>
 </section>
 </section>
 
