@@ -6,7 +6,7 @@ The name of this blog is inspired by Euclid's Elements, since I intend to write 
 * **ELEMENTORUM POLITICÆ ŒCONOMICÆ IURISPRUDENTIÆ**. Where I mainly discuss topics related to law, economics and politics.
 * **ELEMENTORUM POETICÆ**. Where I mainly discuss literary things.
 * **ELEMENTORUM PHILOSOPHIÆ**. Where I mainly discuss my philosophical views.
-* **EXAGIUM**. Where I write uncategorized intuitions *a vuelapluma*.
+* **EXAGIUM**. Where I write uncategorized thoughts *a vuelapluma*.
 
 ## Work in progress
 
