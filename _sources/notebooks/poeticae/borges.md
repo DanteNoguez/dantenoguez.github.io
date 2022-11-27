@@ -11,7 +11,7 @@ El notable principio atribuido a Parménides, *ex nihilo nihil fit*, es pasado p
 ​
 El título de este texto es una clara referencia al artículo de Borges titulado *Kafka y sus precursores*, donde Georgie enlista algunas obras y pensadores que pudieron influir a Kafka. Nosotros intentaremos hacer algo similar, adelantando por lo pronto una premisa importante: Borges utiliza los más variados detritos de la historia universal (fundamentalmente filosófica y literaria) para subordinarlos a la estética y, a su través, «comunicar experiencias de su vida, \[...] sin indiscreción y sin impudor también»[^1].
 
-### § II. Las esferas de Borges
+### § II. La esfera de Borges
 
 Si bien es común que la crítica literaria se utilice como pretexto para especular o conjeturar ocurrencias, nuestro método será distinto y nos ceñiremos únicamente a hablar y emitir juicios sobre aquellas cuestiones que objetivamente nos lo permitan hacerlo. Comencemos entonces.
 
