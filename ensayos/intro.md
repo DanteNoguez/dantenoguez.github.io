@@ -19,11 +19,11 @@ year={2022}
 ```
 
 ### Música
-Mis álbumes más escuchados del último mes (~octubre):
-```{figure} img/octubre22.jpeg
+Mis álbumes más escuchados del último mes (~noviembre):
+```{figure} img/nov22.jpeg
 ---
 width: 100%
-name: octubre22
+name: nov22
 ---
 Imagen generada con [tapmusic](https://www.tapmusic.net/).
 ```

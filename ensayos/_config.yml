@@ -13,6 +13,7 @@ sphinx:
   extra_extensions:
     - sphinx_sitemap
     - sphinxcontrib.bibtex
+    - sphinx_proof
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html

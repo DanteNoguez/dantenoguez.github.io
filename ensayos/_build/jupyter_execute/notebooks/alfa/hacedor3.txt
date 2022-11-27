@@ -1,0 +1,268 @@
+import torch
+import torch.nn.functional as F
+from torch import nn
+import numpy as np
+import matplotlib.pyplot as plt
+
+!wget https://github.com/DanteNoguez/CalculusRatiocinator/raw/main/data/nombres.txt
+
+nombres = open('nombres.txt', 'r').read().splitlines()
+nombres[:8]
+
+len(nombres)
+
+V = sorted(set(''.join(nombres)))
+paf = {p:f+1 for f, p in enumerate(V)}
+paf['.'] = 0
+fap = {f:p for p,f in paf.items()}
+print(fap)
+
+nombres[:3]
+
+block_size = 3 # longitud del contexto
+def construir_dataset(nombres):
+  X, Y = [], []
+  for n in nombres:
+    #print(f'nombre: {n}')
+    contexto = [0] * block_size
+    for c in n + '.':
+      ix = paf[c]
+      X.append(contexto)
+      Y.append(ix)
+      #print(''.join(fap[i] for i in contexto), '----> ', fap[ix])
+      contexto = contexto[1:] + [ix]
+  
+  X = torch.tensor(X) # contexto
+  Y = torch.tensor(Y) # objetivo
+  return X, Y
+
+construir_dataset(nombres[:3])
+
+import random
+random.shuffle(nombres)
+n1 = int(0.8*len(nombres))
+n2 = int(0.9*len(nombres))
+
+Xtr, Ytr = construir_dataset(nombres[:n1])
+Xdev, Ydev = construir_dataset(nombres[n1:n2])
+Xte, Yte = construir_dataset(nombres[n2:])
+X, Y = construir_dataset(nombres)
+
+X.shape, Xtr.shape, Xdev.shape, Xte.shape
+
+emb_dim = 10 # cada embedding tendrá 10 dimensiones
+h = 200 # cada capa tendrá 200 unidades (hidden units)
+vocab_size = len(fap) #tamaño del vocabulario
+
+C = torch.randn(vocab_size, emb_dim) # tabla de consulta
+H = torch.randn((emb_dim*block_size, h)) # pesos ocultos
+d = torch.randn(h) # sesgos ocultos
+U = torch.randn(h, vocab_size) # pesos de la segunda capa
+b = torch.randn(vocab_size) # sesgos de la segunda capa
+
+parametros = [C, H, d, U, b]
+
+print(sum(p.nelement() for p in parametros)) # número total de parámetros
+for p in parametros:
+  p.requires_grad = True
+
+max_steps = 10000 
+batch_size = 32
+paso_i = []
+perdidas_i = []
+
+for i in range(max_steps):
+  #minibatch («minilote»)
+  ix = torch.randint(0, Xtr.shape[0], (batch_size,))
+
+  # propagación hacia delante
+  emb = C[Xtr[ix]]
+  a = torch.tanh(emb.view(-1, emb_dim*block_size) @ H + d)
+  logits = a @ U + b
+  perdida = F.cross_entropy(logits, Ytr[ix])
+  
+  # propagación hacia atrás
+  for p in parametros:
+    p.grad = None
+  perdida.backward()
+
+  # actualización
+  lr = 0.1 if i < 5000 else 0.01
+  for p in parametros:
+    p.data += -lr * p.grad
+
+  # registrar estadísticas
+  paso_i.append(i)
+  perdidas_i.append(perdida.item())
+
+plt.plot(paso_i, perdidas_i);
+
+@torch.no_grad() # decorador
+def perdida_split(split):
+  x,y = {'train': (Xtr, Ytr),
+         'val': (Xdev, Ydev),
+         'test': (Xte, Yte)}[split]
+  emb = C[x]
+  a = torch.tanh(emb.view(-1, emb_dim*block_size) @ H + d)
+  logits = a @ U + b
+  perdida = F.cross_entropy(logits, y)
+  print(split, perdida.item())
+
+perdida_split('train')
+perdida_split('val')
+perdida_split('test')
+
+-torch.tensor(1/27.0).log() # negative log likelihood
+
+logits_ej = torch.randn(4)
+probs_ej = torch.softmax(logits_ej, dim=0)
+perdida_ej = -probs_ej[2].log()
+
+logits_ej, probs_ej, perdida_ej
+
+logits_ej = torch.randn(4) * 10 # multiplicamos por 10 los logits
+probs_ej = torch.softmax(logits_ej, dim=0)
+perdida_ej = -probs_ej[2].log()
+
+logits_ej, probs_ej, perdida_ej
+
+C = torch.randn(vocab_size, emb_dim) # tabla de consulta
+H = torch.randn((emb_dim*block_size, h)) # pesos ocultos
+d = torch.randn(h) # sesgos ocultos
+
+U = torch.randn(h, vocab_size) * 0.01 # pesos de la segunda capa
+b = torch.randn(vocab_size) * 0.0 # sesgos de la segunda capa
+
+parametros = [C, H, d, U, b]
+for p in parametros:
+  p.requires_grad = True
+
+max_steps = 10000 
+batch_size = 32
+paso_i = []
+perdidas_i = []
+
+for i in range(max_steps):
+  #minibatch («minilote»)
+  ix = torch.randint(0, Xtr.shape[0], (batch_size,))
+
+  # propagación hacia delante
+  emb = C[Xtr[ix]]
+  a = torch.tanh(emb.view(-1, emb_dim*block_size) @ H + d)
+  logits = a @ U + b
+  perdida = F.cross_entropy(logits, Ytr[ix])
+  
+  # propagación hacia atrás
+  for p in parametros:
+    p.grad = None
+  perdida.backward()
+
+  # actualización
+  lr = 0.1 if i < 5000 else 0.01
+  for p in parametros:
+    p.data += -lr * p.grad
+
+  # registrar estadísticas
+  paso_i.append(i)
+  perdidas_i.append(perdida.item())
+
+plt.plot(paso_i, perdidas_i);
+
+perdida_split('train')
+perdida_split('val')
+perdida_split('test')
+
+plt.hist(a.view(-1).tolist(), 50);
+
+plt.hist((emb.view(-1, emb_dim*block_size) @ H + d).view(-1).tolist(), 50);
+
+plt.figure(figsize=(20,10))
+plt.imshow(a.abs() > 0.99, cmap='gray', interpolation='nearest')
+
+C = torch.randn(vocab_size, emb_dim) # tabla de consulta
+H = torch.randn((emb_dim*block_size, h)) * 0.3 # pesos ocultos
+d = torch.randn(h) * 0.01 # sesgos ocultos
+U = torch.randn(h, vocab_size) * 0.01 # pesos de la segunda capa
+b = torch.randn(vocab_size) * 0.0
+
+parametros = [C, H, d, U, b]
+for p in parametros:
+  p.requires_grad = True
+
+for i in range(max_steps):
+  #minibatch («minilote»)
+  ix = torch.randint(0, Xtr.shape[0], (batch_size,))
+
+  # propagación hacia delante
+  emb = C[Xtr[ix]]
+  a = torch.tanh(emb.view(-1, emb_dim*block_size) @ H + d)
+  logits = a @ U + b
+  perdida = F.cross_entropy(logits, Ytr[ix])
+  
+  # propagación hacia atrás
+  for p in parametros:
+    p.grad = None
+  perdida.backward()
+
+  # actualización
+  lr = 0.1 if i < 5000 else 0.01
+  for p in parametros:
+    p.data += -lr * p.grad
+
+perdida_split('train')
+perdida_split('val')
+perdida_split('test')
+
+plt.figure(figsize=(20,10))
+plt.imshow(a.abs() > 0.99, cmap='gray', interpolation='nearest')
+
+(5/3) / 30**0.5 # elevar a 0.5 es equivalente a obtener la raíz cuadrada
+
+x = torch.randn(1000, 10)
+w = torch.randn(10, 200)
+y = x @ w
+print(x.mean(), x.std())
+print(y.mean(), y.std())
+plt.figure(figsize=(20,5))
+plt.subplot(121)
+plt.hist(x.view(-1).tolist(), 50, density=True);
+plt.subplot(122)
+plt.hist(y.view(-1).tolist(), 50, density=True);
+
+x = torch.randn(1000, 10)
+w = torch.randn(10, 200) * 1 / 10**0.5
+y = x @ w
+print(x.mean(), x.std())
+print(y.mean(), y.std())
+plt.figure(figsize=(20,5))
+plt.subplot(121)
+plt.hist(x.view(-1).tolist(), 50, density=True);
+plt.subplot(122)
+plt.hist(y.view(-1).tolist(), 50, density=True);
+
+
+
+
+
+
+
+
+
+
+
+block_size = 3
+for _ in range(20):
+  out = []
+  context = [0] * block_size
+  while True:
+    emb = C[torch.tensor([context])]
+    a = torch.tanh(emb.view(1, -1) @ H + d)
+    logits = a @ U + b
+    probs = F.softmax(logits, dim=1)
+    ix = torch.multinomial(probs, num_samples=1).item()
+    context = context[1:] + [ix]
+    out.append(ix)
+    if ix == 0:
+      break
+
+  print(''.join(fap[i] for i in out))
