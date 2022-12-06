@@ -456,6 +456,11 @@ title="Print to PDF"
    )
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pytorch">
+   PyTorch
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -499,6 +504,11 @@ title="Print to PDF"
    )
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pytorch">
+   PyTorch
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -527,25 +537,6 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!wget https://github.com/DanteNoguez/CalculusRatiocinator/raw/main/data/nombres.txt
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2022-11-27 00:38:45--  https://github.com/DanteNoguez/CalculusRatiocinator/raw/main/data/nombres.txt
-Resolving github.com (github.com)... 140.82.112.4
-Connecting to github.com (github.com)|140.82.112.4|:443... connected.
-HTTP request sent, awaiting response... 302 Found
-Location: https://raw.githubusercontent.com/DanteNoguez/CalculusRatiocinator/main/data/nombres.txt [following]
---2022-11-27 00:38:45--  https://raw.githubusercontent.com/DanteNoguez/CalculusRatiocinator/main/data/nombres.txt
-Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.108.133, 185.199.109.133, 185.199.110.133, ...
-Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.108.133|:443... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 165469 (162K) [text/plain]
-Saving to: ‘nombres.txt’
-
-nombres.txt         100%[===================&gt;] 161.59K  --.-KB/s    in 0.006s  
-
-2022-11-27 00:38:45 (24.5 MB/s) - ‘nombres.txt’ saved [165469/165469]
 </pre></div>
 </div>
 </div>
@@ -692,9 +683,9 @@ ose ----&gt;  .
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(torch.Size([165469, 3]),
- torch.Size([132371, 3]),
- torch.Size([16543, 3]),
- torch.Size([16555, 3]))
+ torch.Size([132452, 3]),
+ torch.Size([16468, 3]),
+ torch.Size([16549, 3]))
 </pre></div>
 </div>
 </div>
@@ -791,9 +782,9 @@ ose ----&gt;  .
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train 2.11030912399292
-val 2.1716668605804443
-test 2.1950204372406006
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train 2.1176223754882812
+val 2.1515469551086426
+test 2.1483922004699707
 </pre></div>
 </div>
 </div>
@@ -1111,7 +1102,7 @@ tensor(-0.0028) tensor(0.9878)
 </section>
 <section id="normalizacion-por-lotes-batch-normalization">
 <h2>Normalización por lotes (<em>batch normalization</em>)<a class="headerlink" href="#normalizacion-por-lotes-batch-normalization" title="Permalink to this headline">#</a></h2>
-<p>Una técnica que cumple la misma función, pero se utiliza más ampliamente por sus propiedades, es la llamada <a class="reference external" href="https://arxiv.org/abs/1502.03167">«normalización por lotes»</a>. En esencia, podemos prescindir de las fórmulas de Kaiming He y generalizar todavía más su solución. Para ello, normalizamos directamente la distribución de valores.</p>
+<p>Una técnica que cumple la misma función, pero que se utiliza más ampliamente por sus propiedades, es la llamada <a class="reference external" href="https://arxiv.org/abs/1502.03167">«normalización por lotes»</a>. En esencia, podemos prescindir de las fórmulas de Kaiming He y generalizar todavía más su solución. Para ello, normalizamos directamente la distribución de valores de cada matriz de pesos. El algoritmo luce así:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{array}{rlr|}
@@ -1119,11 +1110,247 @@ tensor(-0.0028) tensor(0.9878)
 &amp; \text { Parameters to be learned: } \gamma, \beta \\
 \text { Output: } &amp; \left\{y_i=\mathrm{BN}_{\gamma, \beta}\left(x_i\right)\right\} &amp; \\
 \mu_{\mathcal{B}} &amp; \leftarrow \frac{1}{m} \sum_{i=1}^m x_i &amp; / / \text { mini-batch mean } \\
-\sigma_{\mathcal{B}}^2 &amp; \leftarrow \frac{1}{m} \sum_{i=1}^m\left(x_i-\mu_{\mathcal{B}}\right)^2 &amp; / / \text { mini-batch mini-batch variance } \\
+\sigma_{\mathcal{B}}^2 &amp; \leftarrow \frac{1}{m} \sum_{i=1}^m\left(x_i-\mu_{\mathcal{B}}\right)^2 &amp; / / \text { mini-batch variance } \\
 \widehat{x}_i &amp; \leftarrow \frac{x_i-\mu_{\mathcal{B}}}{\sqrt{\sigma_{\mathcal{B}}^2+\epsilon}} &amp; \quad / / \text { normalize } \\
 y_i &amp; \leftarrow \gamma \widehat{x}_i+\beta \equiv \operatorname{BN}_{\gamma, \beta}\left(x_i\right) &amp; / / \text { scale and shift }
 \end{array}
 \end{split}\]</div>
+<p>Y aunque parezca complicado, la implementación programática es bastante sencilla:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">,</span> <span class="n">emb_dim</span><span class="p">)</span> <span class="c1"># tabla de consulta</span>
+<span class="n">H</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">((</span><span class="n">emb_dim</span><span class="o">*</span><span class="n">block_size</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span> <span class="o">*</span> <span class="mf">0.3</span> <span class="c1"># pesos ocultos</span>
+<span class="c1">#d = torch.randn(h) * 0.01 # sesgos ocultos</span>
+<span class="n">U</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.01</span> <span class="c1"># pesos de la segunda capa</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.0</span>
+
+<span class="n">bngain</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span> <span class="c1"># gamma</span>
+<span class="n">bnbias</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span> <span class="c1"># beta</span>
+<span class="n">bnmean_running</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
+<span class="n">bnstd_running</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
+
+<span class="n">parametros</span> <span class="o">=</span> <span class="p">[</span><span class="n">C</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">bngain</span><span class="p">,</span> <span class="n">bnbias</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">parametros</span><span class="p">:</span>
+  <span class="n">p</span><span class="o">.</span><span class="n">requires_grad</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_steps</span><span class="p">):</span>
+  <span class="c1">#minibatch («minilote»)</span>
+  <span class="n">ix</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Xtr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">(</span><span class="n">batch_size</span><span class="p">,))</span>
+
+  <span class="c1"># propagación hacia delante</span>
+  <span class="n">emb</span> <span class="o">=</span> <span class="n">C</span><span class="p">[</span><span class="n">Xtr</span><span class="p">[</span><span class="n">ix</span><span class="p">]]</span>
+  <span class="n">pre_a</span> <span class="o">=</span> <span class="n">emb</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">emb_dim</span><span class="o">*</span><span class="n">block_size</span><span class="p">)</span> <span class="o">@</span> <span class="n">H</span> <span class="c1">#+ d</span>
+  <span class="c1"># BatchNorm</span>
+  <span class="c1"># -----</span>
+  <span class="n">bnmean_i</span> <span class="o">=</span> <span class="n">pre_a</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">keepdim</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+  <span class="n">bnstd_i</span> <span class="o">=</span>  <span class="n">pre_a</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">keepdim</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+  <span class="n">pre_a</span> <span class="o">=</span> <span class="n">bngain</span> <span class="o">*</span> <span class="p">(</span><span class="n">pre_a</span> <span class="o">-</span> <span class="n">bnmean_i</span><span class="p">)</span> <span class="o">/</span> <span class="n">bnstd_i</span> <span class="o">+</span> <span class="n">bnbias</span>
+  <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+    <span class="n">bnmean_running</span> <span class="o">=</span> <span class="mf">0.999</span> <span class="o">*</span> <span class="n">bnmean_running</span> <span class="o">+</span> <span class="mf">0.001</span> <span class="o">*</span> <span class="n">bnmean_i</span>
+    <span class="n">bnstd_running</span> <span class="o">=</span> <span class="mf">0.999</span> <span class="o">*</span> <span class="n">bnstd_running</span> <span class="o">+</span> <span class="mf">0.001</span> <span class="o">*</span> <span class="n">bnstd_i</span> 
+  <span class="c1"># -----</span>
+  <span class="n">a</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">pre_a</span><span class="p">)</span>
+  <span class="n">logits</span> <span class="o">=</span> <span class="n">a</span> <span class="o">@</span> <span class="n">U</span> <span class="o">+</span> <span class="n">b</span>
+  <span class="n">perdida</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">cross_entropy</span><span class="p">(</span><span class="n">logits</span><span class="p">,</span> <span class="n">Ytr</span><span class="p">[</span><span class="n">ix</span><span class="p">])</span>
+  
+  <span class="c1"># propagación hacia atrás</span>
+  <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">parametros</span><span class="p">:</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">grad</span> <span class="o">=</span> <span class="kc">None</span>
+  <span class="n">perdida</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+
+  <span class="c1"># actualización</span>
+  <span class="n">lr</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5000</span> <span class="k">else</span> <span class="mf">0.01</span>
+  <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">parametros</span><span class="p">:</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">data</span> <span class="o">+=</span> <span class="o">-</span><span class="n">lr</span> <span class="o">*</span> <span class="n">p</span><span class="o">.</span><span class="n">grad</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">()</span> <span class="c1"># decorador</span>
+<span class="k">def</span> <span class="nf">perdida_split</span><span class="p">(</span><span class="n">split</span><span class="p">):</span>
+  <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;train&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">Xtr</span><span class="p">,</span> <span class="n">Ytr</span><span class="p">),</span>
+         <span class="s1">&#39;val&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">Xdev</span><span class="p">,</span> <span class="n">Ydev</span><span class="p">),</span>
+         <span class="s1">&#39;test&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">Xte</span><span class="p">,</span> <span class="n">Yte</span><span class="p">)}[</span><span class="n">split</span><span class="p">]</span>
+  <span class="n">emb</span> <span class="o">=</span> <span class="n">C</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
+  <span class="n">pre_a</span> <span class="o">=</span> <span class="n">emb</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">emb_dim</span><span class="o">*</span><span class="n">block_size</span><span class="p">)</span> <span class="o">@</span> <span class="n">H</span> <span class="o">+</span> <span class="n">d</span>
+  <span class="n">pre_a</span> <span class="o">=</span> <span class="n">bngain</span> <span class="o">*</span> <span class="p">(</span><span class="n">pre_a</span> <span class="o">-</span> <span class="n">bnmean_running</span><span class="p">)</span> <span class="o">/</span> <span class="n">bnstd_running</span> <span class="o">+</span> <span class="n">bnbias</span>
+  <span class="n">a</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">pre_a</span><span class="p">)</span>
+  <span class="n">logits</span> <span class="o">=</span> <span class="n">a</span> <span class="o">@</span> <span class="n">U</span> <span class="o">+</span> <span class="n">b</span>
+  <span class="n">perdida</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">cross_entropy</span><span class="p">(</span><span class="n">logits</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">split</span><span class="p">,</span> <span class="n">perdida</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+
+<span class="n">perdida_split</span><span class="p">(</span><span class="s1">&#39;train&#39;</span><span class="p">)</span>
+<span class="n">perdida_split</span><span class="p">(</span><span class="s1">&#39;val&#39;</span><span class="p">)</span>
+<span class="n">perdida_split</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train 1.9545596837997437
+val 1.9609586000442505
+test 1.9600375890731812
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="pytorch">
+<h2>PyTorch<a class="headerlink" href="#pytorch" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Linear</span><span class="p">:</span>
+  
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fan_in</span><span class="p">,</span> <span class="n">fan_out</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">weight</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">((</span><span class="n">fan_in</span><span class="p">,</span> <span class="n">fan_out</span><span class="p">))</span> <span class="o">/</span> <span class="n">fan_in</span><span class="o">**</span><span class="mf">0.5</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">bias</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">fan_out</span><span class="p">)</span> <span class="k">if</span> <span class="n">bias</span> <span class="k">else</span> <span class="kc">None</span>
+  
+  <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">out</span> <span class="o">=</span> <span class="n">x</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">bias</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">out</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bias</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">out</span>
+  
+  <span class="k">def</span> <span class="nf">parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">weight</span><span class="p">]</span> <span class="o">+</span> <span class="p">([]</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">bias</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">bias</span><span class="p">])</span>
+
+
+<span class="k">class</span> <span class="nc">BatchNorm1d</span><span class="p">:</span>
+  
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">eps</span> <span class="o">=</span> <span class="n">eps</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">momentum</span> <span class="o">=</span> <span class="n">momentum</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">training</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="c1"># parameters (trained with backprop)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">gamma</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">beta</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
+    <span class="c1"># buffers (trained with a running &#39;momentum update&#39;)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">running_mean</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">running_var</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
+  
+  <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="c1"># calculate the forward pass</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">training</span><span class="p">:</span>
+      <span class="n">xmean</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">keepdim</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># batch mean</span>
+      <span class="n">xvar</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">keepdim</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># batch variance</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="n">xmean</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">running_mean</span>
+      <span class="n">xvar</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">running_var</span>
+    <span class="n">xhat</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">xmean</span><span class="p">)</span> <span class="o">/</span> <span class="n">torch</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">xvar</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">eps</span><span class="p">)</span> <span class="c1"># normalize to unit variance</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gamma</span> <span class="o">*</span> <span class="n">xhat</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">beta</span>
+    <span class="c1"># update the buffers</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">training</span><span class="p">:</span>
+      <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">running_mean</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">momentum</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">running_mean</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">momentum</span> <span class="o">*</span> <span class="n">xmean</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">running_var</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">momentum</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">running_var</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">momentum</span> <span class="o">*</span> <span class="n">xvar</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">out</span>
+  
+  <span class="k">def</span> <span class="nf">parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">gamma</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">beta</span><span class="p">]</span>
+
+<span class="k">class</span> <span class="nc">Tanh</span><span class="p">:</span>
+  <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">out</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">out</span>
+  <span class="k">def</span> <span class="nf">parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">emb_dim</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># cada embedding tendrá 10 dimensiones</span>
+<span class="n">block_size</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mi">200</span> <span class="c1"># cada capa tendrá 200 unidades (hidden units)</span>
+<span class="n">vocab_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">fap</span><span class="p">)</span> <span class="c1">#tamaño del vocabulario</span>
+
+<span class="n">C</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">,</span> <span class="n">emb_dim</span><span class="p">)</span> <span class="c1"># tabla de consulta</span>
+<span class="n">layers</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">Linear</span><span class="p">(</span><span class="n">emb_dim</span> <span class="o">*</span> <span class="n">block_size</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span> <span class="n">BatchNorm1d</span><span class="p">(</span><span class="n">h</span><span class="p">),</span> <span class="n">Tanh</span><span class="p">(),</span>
+    <span class="n">Linear</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span> <span class="n">BatchNorm1d</span><span class="p">(</span><span class="n">h</span><span class="p">),</span> <span class="n">Tanh</span><span class="p">(),</span>
+    <span class="n">Linear</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span> <span class="n">BatchNorm1d</span><span class="p">(</span><span class="n">h</span><span class="p">),</span> <span class="n">Tanh</span><span class="p">(),</span>
+    <span class="n">Linear</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span> <span class="n">BatchNorm1d</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">),</span>
+<span class="p">]</span>
+
+<span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+  <span class="n">layers</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">gamma</span> <span class="o">*=</span> <span class="mf">0.1</span>
+  <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="n">layers</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">layer</span><span class="p">,</span> <span class="n">Linear</span><span class="p">):</span>
+      <span class="n">layer</span><span class="o">.</span><span class="n">weight</span> <span class="o">*=</span> <span class="mf">1.0</span>
+
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span><span class="n">C</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">p</span> <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="n">layers</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">layer</span><span class="o">.</span><span class="n">parameters</span><span class="p">()]</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">nelement</span><span class="p">()</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">parameters</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">parameters</span><span class="p">:</span>
+  <span class="n">p</span><span class="o">.</span><span class="n">requires_grad</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>92924
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">perdida_i</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">ud</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">max_steps</span> <span class="o">=</span> <span class="mi">10000</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_steps</span><span class="p">):</span>
+  <span class="c1">#minibatch («minilote»)</span>
+  <span class="n">ix</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Xtr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">(</span><span class="n">batch_size</span><span class="p">,))</span>
+
+  <span class="c1"># propagación hacia delante</span>
+  <span class="n">emb</span> <span class="o">=</span> <span class="n">C</span><span class="p">[</span><span class="n">Xtr</span><span class="p">[</span><span class="n">ix</span><span class="p">]]</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="n">emb</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">emb</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+  <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="n">layers</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">layer</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+  <span class="n">perdida</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">cross_entropy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">Ytr</span><span class="p">[</span><span class="n">ix</span><span class="p">])</span>
+  
+  <span class="c1"># propagación hacia atrás</span>
+  <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="n">layers</span><span class="p">:</span>
+    <span class="n">layer</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">retain_grad</span><span class="p">()</span>
+  <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">parameters</span><span class="p">:</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">grad</span> <span class="o">=</span> <span class="kc">None</span>
+  <span class="n">perdida</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+
+  <span class="c1"># actualización</span>
+  <span class="n">lr</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5000</span> <span class="k">else</span> <span class="mf">0.01</span>
+  <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">parametros</span><span class="p">:</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">data</span> <span class="o">+=</span> <span class="o">-</span><span class="n">lr</span> <span class="o">*</span> <span class="n">p</span><span class="o">.</span><span class="n">grad</span>
+
+  <span class="c1"># estadísticas</span>
+  <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">1000</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="c1"># print every once in a while</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s1">7d</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">max_steps</span><span class="si">:</span><span class="s1">7d</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">perdida</span><span class="o">.</span><span class="n">item</span><span class="p">()</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+  <span class="n">perdidas_i</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">perdida</span><span class="o">.</span><span class="n">log10</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+  <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+    <span class="n">ud</span><span class="o">.</span><span class="n">append</span><span class="p">([((</span><span class="n">lr</span><span class="o">*</span><span class="n">p</span><span class="o">.</span><span class="n">grad</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">()</span> <span class="o">/</span> <span class="n">p</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">std</span><span class="p">())</span><span class="o">.</span><span class="n">log10</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">parameters</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      0/  10000: 3.3156
+   1000/  10000: 3.2813
+   2000/  10000: 3.2792
+   3000/  10000: 3.3146
+   4000/  10000: 3.3071
+   5000/  10000: 3.2983
+   6000/  10000: 3.2956
+   7000/  10000: 3.2848
+   8000/  10000: 3.2666
+   9000/  10000: 3.3004
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">block_size</span> <span class="o">=</span> <span class="mi">3</span>
