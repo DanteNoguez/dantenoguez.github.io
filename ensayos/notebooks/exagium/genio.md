@@ -26,6 +26,13 @@ Ezequiel 37, 5
 </i>
 </p>
 
+```{figure} ../../img/genio.png
+---
+width: 70%
+name: genio
+---
+```
+
 RAFAEL (el ceño fruncido, concentrado en la inspección de los libreros): Creo recordar que Borges, en más de una ocasión, se quejó de estos libritos: las Obras Completas de Reyes. Decía que, aunque exquisitamente escritas, al mismo tiempo se nota que las compuso por puro aburrimiento, colmándolas de trivialidades.
 
 LEONARDO (olfateando las hojas de un tomo): ¿Acaso uno trabaja por otra razón? El tedio vital es la fuerza creadora por excelencia. Es triste pensar que desperdiciemos tantísimo potencial humano por mor de la obligación moral de salir de la cama. En cuanto a Reyes: sí, en él siempre hay música de palabras, pero el valor de sus escritos también está en la continua insinuación de nuevas ideas. De hecho, hace poco escribí algo que me sugirió una de sus lecturas. Ya solo me hace falta ponerlo en papel.

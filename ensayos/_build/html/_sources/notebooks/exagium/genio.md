@@ -10,7 +10,7 @@ Diálogo
 </h3>
 <p align="center">
 <i>
-Personajes: LEONARDO y RAFAEL
+Personajes: LEONARDO, ALAN y RAFAEL
 <br>
 Lugar: Biblioteca de una casa en las afueras de Zapopan, con vista al bosque
 </i>
@@ -26,13 +26,24 @@ Ezequiel 37, 5
 </i>
 </p>
 
+```{figure} ../../img/genio.png
+---
+width: 70%
+name: genio
+---
+```
+
 RAFAEL (el ceño fruncido, concentrado en la inspección de los libreros): Creo recordar que Borges, en más de una ocasión, se quejó de estos libritos: las Obras Completas de Reyes. Decía que, aunque exquisitamente escritas, al mismo tiempo se nota que las compuso por puro aburrimiento, colmándolas de trivialidades.
 
-LEONARDO (olfateando las hojas de un tomo): ¿Acaso uno trabaja por otra razón? El tedio vital es la fuerza creadora por excelencia. Es triste pensar que desperdiciemos tantísimo potencial humano por mor de la obligación moral de salir de la cama. En cuanto a Reyes: sí, siempre hay música de palabras, pero el valor de sus escritos también está en la continua insinuación de nuevas ideas. De hecho, hace poco escribí algo que me sugirió una de sus lecturas. Ya solo me hace falta ponerlo en papel.
+LEONARDO (olfateando las hojas de un tomo): ¿Acaso uno trabaja por otra razón? El tedio vital es la fuerza creadora por excelencia. Es triste pensar que desperdiciemos tantísimo potencial humano por mor de la obligación moral de salir de la cama. En cuanto a Reyes: sí, en él siempre hay música de palabras, pero el valor de sus escritos también está en la continua insinuación de nuevas ideas. De hecho, hace poco escribí algo que me sugirió una de sus lecturas. Ya solo me hace falta ponerlo en papel.
 
-RAFAEL: La antiquísima y honorable ocupación de estar en la cama, que diría Chesterton. Él estaba seguro de que debemos la obra de Miguel Ángel a que dedicaba buen tiempo a estar acostado, y no pocos han dicho lo mismo del sistema de coordenadas de Descartes. Él mismo confesaba que las revelaciones le venían acostado o durmiendo, siempre al lado de su célebre estufa. La Capilla Sixtina y el sistema cartesiano son motivo suficiente para ennoblecer el gran arte aristocrático de no hacer absolutamente nada. En fin, no serás tú a quien yo deba convencer de esto. Cuéntame, ¿qué traes entre manos?
+RAFAEL: La antiquísima y honorable ocupación de estar en la cama, que diría Chesterton. Él estaba seguro de que debemos la obra de Miguel Ángel a que dedicaba su tiempo a estar acostado. Descartes también mencionó que la mayoría de sus ideas le venían estando acostado o durmiendo —al lado de su célebre estufa, por supuesto. La Capilla Sixtina y el sistema cartesiano son motivo suficiente para ennoblecer el gran arte aristocrático de no hacer absolutamente nada. En fin, no serás tú a quien yo deba convencer de esto, aunque no sé si pueda decir lo mismo de Alan.
 
-LEONARDO: Se trata de un tratadito sobre la importancia del genio. Pienso titularlo «Whim!».
+ALAN (pausando la partida de ajedrez que jugaba contra sí mismo): Pues no, no soy partidario de las trivialidades grandilocuentes, y nunca entendí ese juego presuntuoso —propio de literatos, evidentemente— de estar citando nombres para solapar las ocurrencias propias. Tampoco soy partidario de explicar las obviedades y clarísimos falsos razonamientos subyacentes a la mayoría de tonterías con que la gente se llena la cabeza, así que, en pocas palabras: por supuesto que no estoy de acuerdo con nada.
+
+RAFAEL: Ja, ja. ¡Lo siento, Leonardo, cometí un error al llamar a Alan! Sígueme contando qué traes entre manos...
+
+LEONARDO (con una ligera sonrisa, observando la reacción de Alan ante la provocación): Se trata de un tratadito sobre la importancia del genio. Pienso titularlo «Whim!».
 
 RAFAEL: ¡Ah, el dintel de Emerson! Pero entonces, ¿hablarás del genio, de Emerson o de Reyes?
 
@@ -72,7 +83,7 @@ Y si no es así, como diría Hegel, lo siento por la realidad.
 
 Huxley: The great tragedy of Science: the slaying of a beautiful hypothesis by an ugly fact.
 
-Jürgen: Hay una fealdad inherente a la «aleatoriedad», que no es sino una de las formas de la ignorancia. La ciencia ha demostrado que la verdad y la belleza son simples, y la complejidad del mundo siempre se ha debido a la constante repetición de unas cuantas leyes elementales. El científico, entonces, no es un copista de la realidad —a la manera de un geógrafo borgesiano—, sino un «compresor» de la realidad. Efectivamente, el científico anuda los rudimentos de la realidad, construyéndola; pero esa construcción no es ociosa ni redundante, sino compresiva, sintética, estilística. Enunciar las profundidades del universo con una breve ecuación de cuatro términos es belleza, es verdad y es elegancia. Y ser capaz de concatenar lógicamente estas verdades elementales entre sí para luego dar lugar a la complejidad del mundo es otra muestra de buena inteligencia. La idea del genio creador, por otro lado, además de depender de idealismos y elucubraciones *ex nihilo*, promueve también la holgazanería necesaria para nunca hacer nada que merezca interés en la vida.
+ALAN: Hay una fealdad inherente a la «aleatoriedad», que no es sino una de las formas de la ignorancia. La ciencia ha demostrado que la verdad y la belleza son simples, y la complejidad del mundo siempre se desprende de la constante repetición de unas cuantas leyes elementales. El científico no es un copista de la realidad —a la manera de un geógrafo borgesiano—, sino un «compresor» y reformulador de la realidad. Efectivamente, el científico anuda los rudimentos de la realidad, construyéndola; pero esa construcción no es ociosa ni redundante, sino compresiva, sintética, estilística. Enunciar las profundidades del universo con una breve ecuación de cuatro términos es belleza, es verdad y es elegancia. Y ser capaz de concatenar lógicamente entre sí los secretos más puros del universo es verdadera inteligencia. La idea del genio creador, por otro lado, además de ser una romantiquería, ineludiblemente concede que es posible la creación *ex nihilo*. No hablemos ya de que promueve la holgazanería necesaria para nunca hacer absolutamente nada que merezca interés.
 
 <p align="right"> <i>
 19 de noviembre, 2022
