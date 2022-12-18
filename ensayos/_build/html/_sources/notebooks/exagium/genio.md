@@ -26,7 +26,7 @@ Ezequiel 37, 5
 </i>
 </p>
 
-```{figure} ../../img/genio.png
+```{figure} ../../img/elgenio.png
 ---
 width: 70%
 name: genio
