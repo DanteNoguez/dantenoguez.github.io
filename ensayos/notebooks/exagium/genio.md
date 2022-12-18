@@ -72,6 +72,8 @@ Y si no es así, como diría Hegel, lo siento por la realidad.
 
 Huxley: The great tragedy of Science: the slaying of a beautiful hypothesis by an ugly fact.
 
+Jürgen: Hay una fealdad inherente a la «aleatoriedad», que no es sino una de las formas de la ignorancia. La ciencia ha demostrado que la verdad y la belleza son simples, y la complejidad del mundo siempre se ha debido a la constante repetición de unas cuantas leyes elementales. El científico, entonces, no es un copista de la realidad —a la manera de un geógrafo borgesiano—, sino un «compresor» de la realidad. Efectivamente, el científico anuda los rudimentos de la realidad, construyéndola; pero esa construcción no es ociosa ni redundante, sino compresiva, sintética, estilística. Enunciar las profundidades del universo con una breve ecuación de cuatro términos es belleza, es verdad y es elegancia. Y ser capaz de concatenar lógicamente estas verdades elementales entre sí para luego dar lugar a la complejidad del mundo es otra muestra de buena inteligencia. La idea del genio creador, por otro lado, además de depender de idealismos y elucubraciones *ex nihilo*, promueve también la holgazanería necesaria para nunca hacer nada que merezca interés en la vida.
+
 <p align="right"> <i>
 19 de noviembre, 2022
 </i>
