@@ -29,6 +29,7 @@ parts:
   chapters:
   # - file: notebooks/exagium/genio
   - file: notebooks/exagium/castillos
+  - file: notebooks/exagium/ia
   - file: notebooks/exagium/tzompantli
   - file: notebooks/exagium/diccionario
   - file: notebooks/exagium/escribir

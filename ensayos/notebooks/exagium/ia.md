@@ -1,0 +1,71 @@
+# Tientos cibernéticos
+
+<style>
+h3 {
+  text-align: center;
+}
+</style>
+<h3>
+Apuntes a propósito de la inteligencia artificial
+</h3>
+
+<br>
+<p align="right"> 
+I’m going to concede that super-intelligence will be real
+<br>
+and I need to devote my remaining life to it.
+<br>
+<i>
+Phil Wang
+</i>
+</p>
+<br>
+
+<p align="center"> <b>
+§
+</b>
+</p>
+
+Las arquitecturas de aprendizaje profundo que subyacen la inteligencia artificial actual están compuestas de algoritmos basados en simples expresiones matemáticas, como la multiplicación de matrices, la diferenciación y las funciones no lineales. Esto por sí mismo no es suficiente para crear una amenaza existencial para la humanidad —i. e., un superhumano.
+
+<p align="center"> <b>
+§
+</b>
+</p>
+
+Lo más extraño de la inteligencia artificial es que hay quienes, después de crear expresamente un modelo de billones de parámetros para imitar el habla humana, se horrorizan al comprobar que han creado un modelo que imita el habla humana.
+
+<p align="center"> <b>
+§
+</b>
+</p>
+
+Hace cuatro años, cuando [escribí](https://www.academia.edu/43673994/La_Cuarta_Revolucio_n_Industrial_y_la_planeacio_n_poli_tica_en_Me_xico) sobre desempleo tecnológico, la inmensa mayoría de investigadores creían que las labores artísticas[^1] no se podían automatizar porque involucraban «imaginación», «creatividad» y otras cualidades «eminentemente humanas». Hoy son esas mismas personas las que quieren censurar las inteligencias artificiales que generan arte. De fondo, el mismo falso razonamiento prevalece: pensar que el arte se crea *ex nihilo* con varitas mágicas como el genio y la imaginación, y no mediante el aprendizaje de técnicas concretas y la inspiración tomada de cientos y miles de otras obras.
+
+<p align="center"> <b>
+§
+</b>
+</p>
+
+Me imagino que es imposible utilizar el lenguaje, e incluso pensar claramente, para aquellos que se quejan del término «inteligencia artificial». Han de creer que el cálculo infinitesimal se hace con piedritas, que los geómetras desarrollan su trabajo en la tierra, y que los filósofos pierden tiempo hablando de gnoseología cuando deberían estar predicando su amor por la sabiduría.
+
+<p align="center"> <b>
+§
+</b>
+</p>
+
+La inteligencia humana está esculpida por la evolución de nuestra especie y, por tanto, especializada en las pocas parcelas de la realidad necesarias para nuestra supervivencia. Lo mismo podemos decir de la inteligencia de cualquier otro animal. Por tanto, utilizar al humano como vara de medir la inteligencia implica un sesgo evolutivo arbitrario hacia las realidades cotidianas del humano. A su vez, esto implicaría una limitación de nuestra definición de inteligencia, así como de los posibles desarrollos de inteligencias artificiales.
+
+<p align="center"> <b>
+§
+</b>
+</p>
+
+El poco conocimiento científico que tenemos de la inteligencia y la conciencia no es suficiente para desestimar la idea de que las máquinas puedan ser inteligentes o conscientes. En cualquier caso, insisto en que los estándares humanos son una metáfora pobre para lo que la inteligencia artificial es, y una limitación para lo que podría ser.
+
+<p align="right"> <i>
+20 de diciembre, 2022
+</i>
+</p>
+
+[^1]: Establecían una penosa dicotomía entre trabajos «manuales» y «creativos» para determinar si podían ser automatizados o no. Con base en eso, aconsejaban unos planes de estudio ridículos en los que enseñarían a la gente a ser creativa e imaginativa para diferenciarse de las máquinas. Además, dado que ser chófer o manejar un taxi les parecía facilísimo, decían que esa era una labor manual que se automatizaría prontamente. Al final, resulta que manejar es infinitamente más complejo que pintar arte y escribir poesía.
