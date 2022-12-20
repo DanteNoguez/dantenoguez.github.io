@@ -68,4 +68,9 @@ El poco conocimiento científico que tenemos de la inteligencia y la conciencia 
 </i>
 </p>
 
+---
+*These were my confessions...*
+
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1Sc2RHxyKHMeyCChQTWTnp?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
 [^1]: Establecían una penosa dicotomía entre trabajos «manuales» y «creativos» para determinar si podían ser automatizados o no. Con base en eso, aconsejaban unos planes de estudio ridículos en los que enseñarían a la gente a ser creativa e imaginativa para diferenciarse de las máquinas. Además, dado que ser chófer o manejar un taxi les parecía facilísimo, decían que esa era una labor manual que se automatizaría prontamente. Al final, resulta que manejar es infinitamente más complejo que pintar arte y escribir poesía.
