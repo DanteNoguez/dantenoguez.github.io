@@ -19,11 +19,11 @@ year={2022}
 ```
 
 ### Música
-Mis álbumes más escuchados del último mes (~noviembre):
-```{figure} img/fullnov22.jpeg
+Mis álbumes más escuchados del último mes (~diciembre):
+```{figure} img/dic22.jpeg
 ---
 width: 100%
 name: fullnov22
 ---
-Imagen generada con [tapmusic](https://www.tapmusic.net/).
+Imagen generada con [tapmusic](https://www.tapmusic.net/). PS: Dado que escucho *Chanel* de Knxwledge en YouTube, se ha registrado en Lastfm bajo la autoría de los usuarios (GOV, DEAN) que subieron la canción.
 ```

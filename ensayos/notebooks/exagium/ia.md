@@ -17,7 +17,7 @@ Phil Wang
 </b>
 </p>
 
-La inteligencia artificial reemplazará a aquellos que temen ser reemplazados por ella.
+La inteligencia artificial reemplazará a quienes temen ser reemplazados por ella.
 
 <p align="center"> <b>
 §
@@ -52,14 +52,14 @@ Me imagino que es imposible utilizar el lenguaje, e incluso pensar claramente, p
 </b>
 </p>
 
-La inteligencia humana está esculpida por la evolución de nuestra especie y, por ello, especializada en las pocas parcelas de la realidad necesarias para nuestra supervivencia. Lo mismo podemos decir de la inteligencia de cualquier otro animal. Por tanto, utilizar al humano como vara de medir la inteligencia implica un sesgo evolutivo arbitrario hacia las realidades cotidianas del humano. Ese sesgo implica también una limitación de nuestra definición de inteligencia, así como de los posibles desarrollos de inteligencias artificiales.
+La inteligencia humana está determinada por la evolución de nuestra especie y, por ello, especializada en las pocas parcelas de la realidad necesarias para nuestra supervivencia. Lo mismo podemos decir de la inteligencia de cualquier otro animal. Utilizar al humano como vara de medir la inteligencia implica un sesgo evolutivo arbitrario hacia sus realidades cotidianas. Ese sesgo implica también una limitación de nuestra definición de inteligencia, así como de los posibles desarrollos de inteligencias artificiales.
 
 <p align="center"> <b>
 §
 </b>
 </p>
 
-El poco conocimiento científico que tenemos de la inteligencia y la conciencia no es suficiente para desestimar la idea de que las máquinas puedan ser inteligentes o conscientes. En cualquier caso, los estándares humanos son una metáfora pobre para lo que la inteligencia artificial es, y una limitación para lo que podría ser.
+El poco conocimiento científico que tenemos sobre la inteligencia y la conciencia no es suficiente para desestimar la idea de que las máquinas puedan ser inteligentes o conscientes. En cualquier caso, los estándares humanos son una metáfora pobre para lo que la inteligencia artificial es, y una limitación para lo que podría ser.
 
 <p align="right"> <i>
 20 de diciembre, 2022
