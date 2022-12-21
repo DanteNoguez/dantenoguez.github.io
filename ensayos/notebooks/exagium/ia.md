@@ -1,14 +1,5 @@
 # Tientos cibernéticos
 
-<style>
-h3 {
-  text-align: center;
-}
-</style>
-<h3>
-Apuntes a propósito de la inteligencia artificial
-</h3>
-
 <br>
 <p align="right"> 
 I’m going to concede that super-intelligence will be real
@@ -26,7 +17,7 @@ Phil Wang
 </b>
 </p>
 
-Las arquitecturas de aprendizaje profundo que subyacen la inteligencia artificial actual están compuestas de algoritmos basados en simples expresiones matemáticas, como la multiplicación de matrices, la diferenciación y las funciones no lineales. Esto por sí mismo no es suficiente para crear una amenaza existencial para la humanidad —i. e., un superhumano.
+La inteligencia artificial reemplazará a aquellos que temen ser reemplazados por ella.
 
 <p align="center"> <b>
 §
@@ -34,6 +25,13 @@ Las arquitecturas de aprendizaje profundo que subyacen la inteligencia artificia
 </p>
 
 Lo más extraño de la inteligencia artificial es que hay quienes, después de crear expresamente un modelo de billones de parámetros para imitar el habla humana, se horrorizan al comprobar que han creado un modelo que imita el habla humana.
+
+<p align="center"> <b>
+§
+</b>
+</p>
+
+Las arquitecturas de aprendizaje profundo que subyacen la inteligencia artificial actual están compuestas de algoritmos basados en expresiones matemáticas bastante simples, como la multiplicación de matrices, la diferenciación y las funciones no lineales. Esto por sí mismo no es suficiente para crear una amenaza existencial para la humanidad.
 
 <p align="center"> <b>
 §
@@ -54,14 +52,14 @@ Me imagino que es imposible utilizar el lenguaje, e incluso pensar claramente, p
 </b>
 </p>
 
-La inteligencia humana está esculpida por la evolución de nuestra especie y, por tanto, especializada en las pocas parcelas de la realidad necesarias para nuestra supervivencia. Lo mismo podemos decir de la inteligencia de cualquier otro animal. Por tanto, utilizar al humano como vara de medir la inteligencia implica un sesgo evolutivo arbitrario hacia las realidades cotidianas del humano. A su vez, esto implicaría una limitación de nuestra definición de inteligencia, así como de los posibles desarrollos de inteligencias artificiales.
+La inteligencia humana está esculpida por la evolución de nuestra especie y, por ello, especializada en las pocas parcelas de la realidad necesarias para nuestra supervivencia. Lo mismo podemos decir de la inteligencia de cualquier otro animal. Por tanto, utilizar al humano como vara de medir la inteligencia implica un sesgo evolutivo arbitrario hacia las realidades cotidianas del humano. Ese sesgo implica también una limitación de nuestra definición de inteligencia, así como de los posibles desarrollos de inteligencias artificiales.
 
 <p align="center"> <b>
 §
 </b>
 </p>
 
-El poco conocimiento científico que tenemos de la inteligencia y la conciencia no es suficiente para desestimar la idea de que las máquinas puedan ser inteligentes o conscientes. En cualquier caso, insisto en que los estándares humanos son una metáfora pobre para lo que la inteligencia artificial es, y una limitación para lo que podría ser.
+El poco conocimiento científico que tenemos de la inteligencia y la conciencia no es suficiente para desestimar la idea de que las máquinas puedan ser inteligentes o conscientes. En cualquier caso, los estándares humanos son una metáfora pobre para lo que la inteligencia artificial es, y una limitación para lo que podría ser.
 
 <p align="right"> <i>
 20 de diciembre, 2022
