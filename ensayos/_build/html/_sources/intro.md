@@ -23,7 +23,7 @@ Mis álbumes más escuchados del último mes (~diciembre):
 ```{figure} img/dic22.jpeg
 ---
 width: 100%
-name: fullnov22
+name: dici22
 ---
-Imagen generada con [tapmusic](https://www.tapmusic.net/). PS: Dado que escucho *Chanel* de Knxwledge en YouTube, se ha registrado en Lastfm bajo la autoría de los usuarios (GOV, DEAN) que subieron la canción.
+Imagen generada con [tapmusic](https://www.tapmusic.net/). Los meses anteriores se pueden consultar [aquí](notebooks/poeticae/musica). 
 ```
