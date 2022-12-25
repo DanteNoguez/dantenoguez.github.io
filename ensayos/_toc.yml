@@ -13,6 +13,8 @@ parts:
   - file: notebooks/alfa/hacedor
   - file: notebooks/alfa/hacedor2
   # - file: notebooks/alfa/hacedor3
+  # - file: notebooks/alfa/hacedor4
+  # - file: notebooks/alfa/ninja
   # - file: notebooks/alfa/definiciones
 
 - caption: Elementorum Politicæ Œconomicæ Iurisprudentiæ
@@ -24,6 +26,7 @@ parts:
   chapters:
   - file: notebooks/poeticae/borges
   - file: notebooks/poeticae/afro
+  # - file: notebooks/poeticae/musica
 
 - caption: Exagium
   chapters:
@@ -33,5 +36,5 @@ parts:
   - file: notebooks/exagium/tzompantli
   - file: notebooks/exagium/diccionario
   - file: notebooks/exagium/escribir
-  - file: notebooks/exagium/coronavirus
   - file: notebooks/exagium/secturnial
+  - file: notebooks/exagium/coronavirus
