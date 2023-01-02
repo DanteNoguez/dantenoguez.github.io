@@ -24,42 +24,42 @@ La inteligencia artificial reemplazará a quienes temen ser reemplazados por ell
 </b>
 </p>
 
-Lo más extraño de la inteligencia artificial es que hay quienes, después de crear expresamente un modelo de billones de parámetros para imitar el habla humana, se horrorizan al comprobar que han creado un modelo que imita el habla humana.
+Lo más extraño de la inteligencia artificial es que hay quienes, tras dedicar años a la formulación de modelos gigantescos que puedan imitar el habla humana, se horrorizan al comprobar que han creado modelos gigantescos que imitan el habla humana.
 
 <p align="center"> <b>
 §
 </b>
 </p>
 
-Las arquitecturas de aprendizaje profundo que subyacen la inteligencia artificial actual están compuestas de algoritmos basados en expresiones matemáticas bastante simples, como la multiplicación de matrices, la diferenciación y las funciones no lineales. Esto por sí mismo no es suficiente para crear una amenaza existencial para la humanidad.
+Las arquitecturas de aprendizaje profundo que subyacen la inteligencia artificial actual están catalizadas por algoritmos compuestos de expresiones matemáticas bastante simples, como la multiplicación de matrices, la diferenciación y las funciones no lineales. Esto por sí mismo no es suficiente para crear una amenaza existencial para la humanidad.
 
 <p align="center"> <b>
 §
 </b>
 </p>
 
-Hace cuatro años, cuando [escribí](https://www.academia.edu/43673994/La_Cuarta_Revolucio_n_Industrial_y_la_planeacio_n_poli_tica_en_Me_xico) sobre desempleo tecnológico, la inmensa mayoría de investigadores creían que las labores artísticas[^1] no se podían automatizar porque involucraban «imaginación», «creatividad» y otras cualidades «eminentemente humanas». Hoy son esas mismas personas las que quieren censurar las inteligencias artificiales que generan arte. De fondo, el mismo falso razonamiento prevalece: pensar que el arte se crea *ex nihilo* con varitas mágicas como el genio y la imaginación, y no mediante el aprendizaje de técnicas concretas y la inspiración tomada de cientos y miles de otras obras.
+Hace cuatro años, cuando [escribí](https://www.academia.edu/43673994/La_Cuarta_Revolucio_n_Industrial_y_la_planeacio_n_poli_tica_en_Me_xico) sobre desempleo tecnológico, la inmensa mayoría de investigadores creían que las labores artísticas[^1] no se podían automatizar porque involucraban «imaginación», «creatividad» y otras cualidades «eminentemente humanas». Hoy son esas mismas personas las que quieren censurar precisamente aquellas inteligencias artificiales que son capaces de generar arte. De fondo, el mismo falso razonamiento prevalece: creer que el arte se crea *ex nihilo* con varitas mágicas como el genio y la imaginación, y no mediante el aprendizaje de técnicas concretas y la inspiración tomada de cientos de otras obras.
 
 <p align="center"> <b>
 §
 </b>
 </p>
 
-Me imagino que es imposible utilizar el lenguaje, e incluso pensar claramente, para aquellos que se quejan del término «inteligencia artificial». Han de creer que el cálculo infinitesimal se hace con piedritas, que los geómetras desarrollan su trabajo en la tierra, y que los filósofos pierden tiempo hablando de gnoseología cuando deberían estar predicando su amor por la sabiduría.
+Me imagino que es imposible utilizar el lenguaje, e incluso pensar claramente, para aquellos que se quejan del término «inteligencia artificial». Han de creer que el cálculo infinitesimal se hace con piedritas, que los geómetras van al campo a trabajar con la tierra, y que los filósofos pierden tiempo hablando de gnoseología cuando deberían estar predicando su amor por la sabiduría.
 
 <p align="center"> <b>
 §
 </b>
 </p>
 
-La inteligencia humana está determinada por la evolución de nuestra especie y, por ello, especializada en las pocas parcelas de la realidad necesarias para nuestra supervivencia. Lo mismo podemos decir de la inteligencia de cualquier otro animal. Utilizar al humano como vara de medir la inteligencia implica un sesgo evolutivo arbitrario hacia sus realidades cotidianas. Ese sesgo implica también una limitación de nuestra definición de inteligencia, así como de los posibles desarrollos de inteligencias artificiales.
+La inteligencia humana está determinada por la evolución de la especie y, por ello, especializada en las pocas parcelas de la realidad necesarias para su supervivencia. Lo mismo podemos decir de la inteligencia de cualquier otro animal. Utilizar al humano como vara de medir la inteligencia implica un sesgo evolutivo arbitrario hacia sus realidades cotidianas. Ese sesgo implica también una limitación de nuestra definición de inteligencia, así como de los posibles desarrollos de inteligencias artificiales.
 
 <p align="center"> <b>
 §
 </b>
 </p>
 
-El poco conocimiento científico que tenemos sobre la inteligencia y la conciencia no es suficiente para desestimar la idea de que las máquinas puedan ser inteligentes o conscientes. En cualquier caso, los estándares humanos son una metáfora pobre para lo que la inteligencia artificial es, y una limitación para lo que podría ser.
+El poco conocimiento científico que tenemos sobre la inteligencia y la conciencia no es suficiente para desestimar la idea de que las máquinas puedan ser inteligentes o conscientes. De cualquier forma, los estándares humanos son una metáfora pobre para lo que la inteligencia artificial es, y una limitación para lo que podría ser.
 
 <p align="right"> <i>
 20 de diciembre, 2022
