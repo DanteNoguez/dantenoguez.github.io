@@ -39,3 +39,17 @@ name: dic22
 ---
 Omisiones importantes: Chanel de Knxwledge, Pale blue dancer de Jamie xx, Hania Rani en KEXP.
 ```
+
+<p align="center">
+<i>
+Año 2022
+</i>
+</p>
+
+```{figure} ../../img/2022.jpeg
+---
+width: 100%
+name: 2022
+---
+Resumen completo consultable [aquí](https://t.co/VmJMKQflns).
+```
