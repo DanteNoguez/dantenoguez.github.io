@@ -121,4 +121,12 @@ https://www.themarginalian.org/2016/06/29/schopenhauer-genius/
 
 https://plato.stanford.edu/search/searcher.py?query=genius
 
+Heidegger - Boredom / Lars Svendsen
+
+https://plato.stanford.edu/entries/heidegger-aesthetics/
+https://plato.stanford.edu/entries/progress/
+https://plato.stanford.edu/entries/kant-aesthetics/
+https://plato.stanford.edu/entries/schopenhauer-aesthetics/#Gen
+https://plato.stanford.edu/entries/aesthetics-19th-romantic/
+
 Du Bos: England is supposedly unable to produce painters of the first rank because the climate is too cold.
