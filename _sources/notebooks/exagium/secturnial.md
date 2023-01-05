@@ -70,6 +70,18 @@ Anoche tuve el sueño más preocupante y desolador: alguien era más inteligente
 </b>
 </p>
 
+**Sueño de Guso**, *3 de enero, 2023*
+
+Soñé que Guso Macedo presumía haber descubierto un número primo más grande que los de Mersenne. Había ideado el número para un cuento de ficción y lo denominó «lambda-2». Un matemático leyó el cuento y comprobó que verdaderamente era el número primo más grande conocido.
+
+---
+
+<br>
+<p align="center"> <b>
+§
+</b>
+</p>
+
 **Crónica de una muerte anunciada**, *2016?*
 
 Soñé que era un niño y me caía de un trampolín. Cuando me levanté, noté que ninguno de los demás niños del parque me escuchaba. Junto a mí pasó caminando un grupo de hombres —que luego adiviné fantasmas—, y al preguntarles si estaba muerto me respondieron «Ellos —los niños que brincaban en el parque— te lo harán saber». Dado que ninguno respondía a mis llamados, asumí que verdaderamente había muerto. Después, acompañé a los fantasmas a una cabaña cerca del mar. Veíamos a los niños jugar en el jardín.
