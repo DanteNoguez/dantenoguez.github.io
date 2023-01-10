@@ -74,6 +74,16 @@ Anoche tuve el sueño más preocupante y desolador: alguien era más inteligente
 
 Soñé que Guso Macedo presumía haber descubierto un número primo más grande que los de Mersenne. Había ideado el número para un cuento de ficción y lo denominó «lambda-2». Un matemático leyó el cuento y comprobó que verdaderamente era el número primo más grande conocido.
 
+<br>
+<p align="center"> <b>
+§
+</b>
+</p>
+
+**El grito**, *10 de enero, 2023*
+
+Anoche soñé que una fuerte tormenta me tomaba por sorpresa al carminar por la calle Romero. Al pasar cerca de la tienda de don Pancho, lo escuché gritar que me colocara encima de una especie de registro subterráneo. Pensé que lo haría volar —conmigo encima— para sacarme de la tormenta. Como no podíamos vernos y el ruido de la lluvia era intenso, don Pancho me gritaba preguntándome si ya estaba listo. Yo le respondía —también gritando— que sí, pero no me escuchaba. Después de un par de intentos fallidos, me preparé para gritar con fuerza, pero el grito terminé dándolo verdaderamente y desperté a mi novia, quien luego me despertó a mí porque estaba asustada.
+
 ---
 
 <br>
