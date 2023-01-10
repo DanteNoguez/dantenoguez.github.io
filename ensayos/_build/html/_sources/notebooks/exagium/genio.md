@@ -106,7 +106,7 @@ LEONARDO: A estas alturas, lo que la gente llama genio es un simple incentivo so
 
 ALAN: Contrario a lo que pasa con tu teoría, la idea de progreso compresivo es, en sí misma, una demostración de progreso compresivo. En sí misma contiene un principio fundamental para entender un sinfín de fenómenos humanos que hasta hoy los filósofos solo han oscurecido.
 
-LEONARDO: La genialidad, como supo ver Gödel, no está en los postulados autocontenidos de los sistemas, sino precisamente en aquellas verdades que los sistemas no pueden deducir por sí mismos.
+LEONARDO: La genialidad, como supo ver Gödel, no está en los postulados autocontenidos de los sistemas, sino precisamente en aquellas verdades que no se pueden deducir desde los sistemas mismos.
 
 
 <p align="right"> <i>
