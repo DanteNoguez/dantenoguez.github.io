@@ -84,6 +84,20 @@ Soñé que Guso Macedo presumía haber descubierto un número primo más grande 
 
 Anoche soñé que una fuerte tormenta me tomaba por sorpresa al carminar por la calle Romero. Al pasar cerca de la tienda de don Pancho, lo escuché gritar que me colocara encima de una especie de registro subterráneo. Pensé que lo haría volar —conmigo encima— para sacarme de la tormenta. Como no podíamos vernos y el ruido de la lluvia era intenso, don Pancho me gritaba preguntándome si ya estaba listo. Yo le respondía —también gritando— que sí, pero no me escuchaba. Después de un par de intentos fallidos, me preparé para gritar con fuerza, pero el grito terminé dándolo verdaderamente y desperté a mi novia, quien luego me despertó a mí porque estaba asustada.
 
+<br>
+<p align="center"> <b>
+§
+</b>
+</p>
+
+**Falsa memoria de Jeff Beck**, *14 de enero, 2023*
+
+Soñé que conocía a un familiar lejano cuando visitaba la casa de mis tíos. Venía del norte, era amigable y amabilísimo, físicamente similar a Ritchie Valens. Nunca me animaba a entablar una conversación con él más allá de ciertas cortesías y saludos, aunque alguna vez llegué a decirle que me gustaba la guitarra y solo me respondió con una sonrisa. Pasados algunos días, mientras caminaba en la calle, escuché en los noticieros que había fallecido Jeff Beck, aquel legendario guitarrista que había desaparecido de la vida pública hacía décadas, asqueado por la fama y el dinero. Contrariado, me acerqué a uno de los televisores que anunciaban la noticia. De pronto, mostraron una fotografía de aquel tío lejano que tanta curiosidad me causaba. Él era precisamente Jeff Beck, un Jeff Beck ya irreconocible. Al día siguiente lo comentaba con todos en la familia, y todos afirmaban —sin inmutarse— que ya conocían este prodigioso secreto, este secreto de familia. Mientras cenábamos, le platiqué todo a mi papá, añadiendo: «Esto es lo más raro que me ha pasado en la vida».
+
+Descansa en paz, Jeff.
+
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1Qd3CUBmJMBOmapxPYY6pZ?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe> 
+
 ---
 
 <br>
