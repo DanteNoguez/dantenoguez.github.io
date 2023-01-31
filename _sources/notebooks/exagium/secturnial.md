@@ -60,6 +60,26 @@ Paso días enteros leyendo y mis sueños son confusión de páginas que leo y de
 </b>
 </p>
 
+**Like a stone**, *29 de noviembre, 2020*
+
+Anoche soñé que estaba con Ilaria Bazzea y unos amigos en un jardín. De pronto, comenzamos a ver en el horizonte un montón de gente corriendo hacia nosotros. Inmediatamente después, mis amigos empezaron a gritar que nos fuéramos de ahí, que venían por nosotros. Nos subimos a un autobús; Ilaria y yo nos quedamos solos en la parte de atrás. El autobús comenzó a acelerar y la gente que nos perseguía tocaba las ventanas como si quisieran que los dejáramos entrar. Pocos segundos después comencé a notar que en el aire estaban flotando unas espantosas torrentes de piedras; de un momento para otro, las piedras comenzaron a volar hacia nosotros, rompiendo vidrios, explotando cosas y partiendo cráneos en su camino. Llegamos a refugiarnos en una torre. Las piedras seguían volando, destruyendo y matando a nuestro alrededor. Yo pregunté si eso era algún fenómeno natural conocido y alguien me respondió con cierta ironía si parecía que lo fuera. Noté que las piedras, después de caídas al suelo, se levantaban de nuevo y se dirigían implacablemente hacia direcciones distintas. Si yo sostenía una piedra, se detenía; pero si la soltaba, se levantaba y se iba a matar y a destruir.
+
+<br>
+<p align="center"> <b>
+§
+</b>
+</p>
+
+**Life is strange**, *22 de mayo, 2022*
+
+Soñé que todos mis primos tenían esposas con embarazos extraordinarios. Una tenía la barriga gigantesca, otra estaba embarazada de ancianas, otra tenía muchos años embarazada, otras dos compartían el mismo vientre.
+
+<br>
+<p align="center"> <b>
+§
+</b>
+</p>
+
 **Ô ma mère Intelligence**, *17 de agosto, 2022*
 
 Anoche tuve el sueño más preocupante y desolador: alguien era más inteligente que yo.
@@ -97,6 +117,17 @@ Soñé que conocía a un familiar lejano cuando visitaba la casa de mis tíos. V
 Descansa en paz, Jeff.
 
 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1Qd3CUBmJMBOmapxPYY6pZ?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe> 
+
+<br>
+<p align="center"> <b>
+§
+</b>
+</p>
+
+**The virgin's slumber song**, *27 de enero, 2023*
+
+Soñé con una melodía tan bella que me llenaba de lágrimas. En mi sueño, alguien se la atribuía a Beethoven. Creo que las ganas de llorar me despertaron ligeramente en la madrugada. Hice una nota mental para recordarla al despertar por la mañana, pero la olvidé por completo.
+
 
 ---
 
