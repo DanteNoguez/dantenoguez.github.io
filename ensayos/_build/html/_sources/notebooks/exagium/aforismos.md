@@ -77,7 +77,7 @@ Es sabido que para estudiar a Alan Turing un domingo por la mañana, el mejor lu
 </b>
 </p>
 
-Es triste que Elon Musk y compañía insistan en una hipótesis tan mentalmente ineficiente como aquella de que vivimos en una simulación, o en una computadora. El demonio maligno cartesiano es tan filosóficamente antiguo como aburrido y superfluo. Ex falso quodlibet.
+Es triste que Elon Musk y compañía insistan en una hipótesis tan mentalmente ineficiente como aquella de que vivimos en una simulación, o en una computadora. El demonio maligno cartesiano es tan filosóficamente antiguo como aburrido y superfluo. *Ex falso quodlibet*.
 
 <br>
 <p align="center"> <b>
@@ -85,7 +85,7 @@ Es triste que Elon Musk y compañía insistan en una hipótesis tan mentalmente 
 </b>
 </p>
 
-—Have you ever gotten a Snapchat from a girl—?
+—Have you ever gotten a Snapchat from a girl—? <br>
 —No. Let's play bullet, e4 (clicks). Ok, let's play the Ruy López: Nf3 (clicks). Bb5 (clicks). He plays d6 immediately, let's take on c6 (clicks). Nice.
 
 <br>

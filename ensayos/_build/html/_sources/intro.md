@@ -27,3 +27,28 @@ name: dici22
 ---
 Imagen generada con [tapmusic](https://www.tapmusic.net/). Los meses anteriores se pueden consultar [aquí](notebooks/poeticae/musica). 
 ```
+
+### Referencias bibliográficas
+Euler, Leonhard: Elementos de álgebra <br>
+Epp, Susanna: Matemáticas discretas <br>
+Cummings, Jay: Proofs; Real analysis <br>
+Aleksandrov, Kolmogorov y Lavrent'ev: Mathematics <br>
+Feynman, Richard: Lecciones de física <br>
+Sapolsky, Robert: [Human behavioral biology](https://www.youtube.com/playlist?list=PL848F2368C90DDC3D) <br>
+Nagel y Newman: Gödel's proof <br>
+Petzold, Charles: The Annotated Turing <br>
+Schmidhuber, Jürgen: Driven by compression progress <br>
+Zhang, Aston: Dive into deep learning <br>
+Karpathy, Andrej: [Neural networks: zero to hero](https://www.youtube.com/watch?v=VMj-3S1tku0&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ) <br>
+Tao, Terence: [What's new blog](https://terrytao.wordpress.com) <br>
+Schmidhuber, Jürgen: [AI blog](https://people.idsia.ch/~juergen/) <br>
+Ciechanowski, Bartosz: [Blog](https://ciechanow.ski) <br>
+Menger, Carl: Principios de economía <br>
+Schumpeter, Joseph: Historia del análisis económico <br>
+Máynez, Eduardo: Introducción al estudio del Derecho <br>
+SCJN: [Jurisprudencia](https://sjf2.scjn.gob.mx/busqueda-principal-tesis) <br>
+Platón: Diálogos <br>
+Wilde, Oscar: Obras completas <br>
+Borges, Jorge Luis: Obras completas <br>
+Bueno, Gustavo: Ensayos materialistas; Teoría del cierre categorial <br>
+Thiel, Peter: Zero to one <br>
