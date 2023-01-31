@@ -108,6 +108,10 @@ ALAN: Contrario a lo que pasa con tu teoría, la idea de progreso compresivo es,
 
 LEONARDO: La genialidad, como supo ver Gödel, no está en los postulados autocontenidos de los sistemas, sino precisamente en aquellas verdades que no se pueden deducir desde los sistemas mismos.
 
+“Though this be madness, yet there is method in 't.”
+
+"The tigers of wrath are wiser than the horses of instruction."
+
 
 <p align="right"> <i>
 19 de noviembre, 2022

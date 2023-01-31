@@ -31,10 +31,11 @@ parts:
 - caption: Exagium
   chapters:
   # - file: notebooks/exagium/genio
-  - file: notebooks/exagium/castillos
   - file: notebooks/exagium/tzompantli
   - file: notebooks/exagium/diccionario
   - file: notebooks/exagium/escribir
   - file: notebooks/exagium/secturnial
+  - file: notebooks/exagium/castillos
+  - file: notebooks/exagium/aforismos
   - file: notebooks/exagium/ia
   - file: notebooks/exagium/coronavirus
