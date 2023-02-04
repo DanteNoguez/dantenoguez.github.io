@@ -37,8 +37,8 @@ Feynman, Richard: Lecciones de física <br>
 Sapolsky, Robert: [Human behavioral biology](https://www.youtube.com/playlist?list=PL848F2368C90DDC3D) <br>
 Nagel y Newman: Gödel's proof <br>
 Petzold, Charles: The Annotated Turing <br>
-Schmidhuber, Jürgen: Driven by compression progress, [AI blog](https://people.idsia.ch/~juergen/) <br>
 Zhang, Aston: Dive into deep learning <br>
+Schmidhuber, Jürgen: Driven by compression progress, [AI blog](https://people.idsia.ch/~juergen/) <br>
 Karpathy, Andrej: [Neural networks: zero to hero](https://www.youtube.com/watch?v=VMj-3S1tku0&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ) <br>
 Tao, Terence: [What's new blog](https://terrytao.wordpress.com) <br>
 Ciechanowski, Bartosz: [Blog](https://ciechanow.ski) <br>
