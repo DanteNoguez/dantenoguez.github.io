@@ -30,13 +30,15 @@
 
 **Estado**. Forma de organización política fantástica sugerida a mediados del siglo XV por Pedro de Corral[^2].
 
-**Estupefacto**. Fenómeno extraño que ocurre cuando un estúpido enuncia un hecho —del latín «factum»— verdadero.
+**Estupefacto**. Fenómeno extraño que ocurre cuando un estúpido enuncia un hecho verdadero.
 
 **Etiología**. Estudio científico de la población etíope y sus principales grupos étnicos: oromo, ahmara, tigray, sidama, hadiya y somalíes.
 
 **Fénix**. Supuesta ave que renace cíclicamente de las cenizas de su predecesor. El Dr. Thomas Browne utilizó un pasaje bíblico[^3] para demostrar la imposibilidad lógica de su existencia.
 
 **Filosofía**. Práctica universitaria orientada a enseñar teorías que posteriormente podrán ser utilizadas para enseñarse en la universidad.
+
+**Filósofo**. Puesto de trabajo asignado a una persona tras ser despedida: «Te informamos que has sido promovido al cargo de filósofo».
 
 **Frenología**. Disciplina científica enfocada en el estudio de dispositivos mecánicos denominados «frenos», y sus efectos energéticos en sistemas en movimiento.
 
@@ -72,7 +74,7 @@
 
 **Mecánico**. *Adj*. desp. Hombre de poca higiene que suele llevar los pantalones a la mitad de los glúteos.
 
-**Medicina**. Ciencia dedicada al estudio de la amputación, extirpación, mutilación, combustión y, en algunos casos, saboteo de extremidades, órganos o cualesquiera otra partes de cuerpos humanos enfermos.
+**Medicina**. Ciencia dedicada al estudio de la amputación, extirpación, mutilación, combustión y, en algunos casos, saboteo de extremidades, órganos o cualesquieras otra partes de cuerpos humanos enfermos.
 
 **Metafísica**. Meta establecida en una sesión de acondicionamiento físico.
 
