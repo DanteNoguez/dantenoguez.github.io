@@ -128,6 +128,14 @@ Descansa en paz, Jeff.
 
 Soñé con una melodía tan bella que me llenaba de lágrimas. En mi sueño, alguien se la atribuía a Beethoven. Creo que las ganas de llorar me despertaron ligeramente en la madrugada. Hice una nota mental para recordarla al despertar por la mañana, pero la olvidé por completo.
 
+<br>
+<p align="center"> <b>
+§
+</b>
+</p>
+
+**Dream of you and I**, *18 de febrero, 2023*
+Mientras Elizabeth me contaba lo que soñó anoche, nos damos cuenta de que siempre, sea cual sea el sueño, aparecen de la nada un montón de animales —leones, cocodrilos e incluso dinosaurios— en sus sueños.
 
 ---
 
