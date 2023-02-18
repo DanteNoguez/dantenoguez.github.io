@@ -24,6 +24,8 @@
 
 **Diafragma**. Fragmento de un día, generalmente breve: «Recuerdo perfectamente el diafragma en que me enamoré de ti».
 
+**Disciplina**. Medicamento utilizado con frecuencia para sedar a ciertas personas con la finalidad de que realicen tareas espantosamente anodinas.
+
 **Dostoyevskis**. Dos juguetes rusos.
 
 **Escuela**. Establecimiento público donde se instruye a los jóvenes sobre cualquier materia, excepto aquellas que son importantes.
