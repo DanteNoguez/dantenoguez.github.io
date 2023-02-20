@@ -137,6 +137,15 @@ Soñé con una melodía tan bella que me llenaba de lágrimas. En mi sueño, alg
 **Dream of you and I**, *18 de febrero, 2023*
 Mientras Elizabeth me contaba lo que soñó anoche, nos damos cuenta de que siempre, sea cual sea el sueño, aparecen de la nada un montón de animales —leones, cocodrilos e incluso dinosaurios— en sus sueños.
 
+<br>
+<p align="center"> <b>
+§
+</b>
+</p>
+
+**Out for blood**, *20 de febrero, 2023*
+Mi novia suele burlarse de la frecuencia con la que, al lavarme las manos, me corto el pulgar con el aireador del grifo (justo arriba de la uña, en la articulación interfalángica). Soy brusco para lavar mis manos y por alguna razón los lavamanos me resultan increíblemente incómodos y estrechos. Anoche soñé que me hacía una herida así. Al intentar lavarla para que no se infectara, el agua del grifo me erosionaba paulatinamente el dedo. Podía ver la parte mutilada y llena de sangre que iba quedando. Con cada chorro de agua se me caía más el dedo. Mi extrañeza me impedía reaccionar, así que continué lavándola hasta que me erosionó todos los dedos. Cuando por fin la retiré, mis dedos comenzaron a regenerarse poco a poco.
+
 ---
 
 <br>
