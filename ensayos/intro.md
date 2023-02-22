@@ -20,7 +20,7 @@ year={2022}
 
 ### Música
 Mis álbumes más escuchados del último mes (~enero):
-```{figure} img/ene23.jpeg
+```{figure} img/ene2023.jpeg
 ---
 width: 100%
 name: ene23
