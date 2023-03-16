@@ -189,3 +189,13 @@ Soñé que acababa de despertar y veía por la ventana una ola gigantesca que se
 **Young man at window**, *2019?*
 
 Soñé que despertaba después de pasar mucho tiempo dormido. Tanto tiempo había dormido que no recordaba quién era. Estaba en una habitación pequeña de un edificio, y junto a la cama había un buró con un pequeño mantel blanco. Encima del buró había una agenda: vi un par de nombres en ella, los revisé detenidamente, pasaba uno a uno y pensaba «No soy este, ni este, ni este… pues a ver…». Dicho esto, me levanté de la cama para mirar por la ventana. Veía pasar a las demás personas, observándolas, tratando de averiguar si alguna de esas personas que pasaba era yo.
+
+<br>
+<p align="center"> <b>
+§
+</b>
+</p>
+
+**El espadachín**, *2002?*
+
+En mi infancia, durante mucho tiempo tuve el sueño recurrente de un «espadachín» (un guerrero con yelmo) entrando en mi habitación y apuntándome al cuello con su espada. Siempre despertaba alertado.
