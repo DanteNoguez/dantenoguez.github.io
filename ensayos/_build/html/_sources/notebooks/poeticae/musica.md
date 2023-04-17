@@ -53,3 +53,16 @@ name: 2022
 ---
 Resumen completo consultable [aquí](https://t.co/VmJMKQflns).
 ```
+
+<p align="center">
+<i>
+Enero, 2023
+</i>
+</p>
+
+```{figure} ../../img/ene2023.jpeg
+---
+width: 100%
+name: ene23
+---
+```
