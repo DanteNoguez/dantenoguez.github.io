@@ -19,11 +19,11 @@ year={2022}
 ```
 
 ### Música
-Mis álbumes más escuchados del último mes (~enero):
-```{figure} img/ene2023.jpeg
+Mis álbumes más escuchados del último mes (~abril):
+```{figure} img/abr2023.jpeg
 ---
 width: 100%
-name: ene23
+name: abr23
 ---
 Imagen generada con [tapmusic](https://www.tapmusic.net/). Los meses anteriores se pueden consultar [aquí](notebooks/poeticae/musica). 
 ```
