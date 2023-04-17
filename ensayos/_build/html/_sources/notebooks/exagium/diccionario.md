@@ -6,9 +6,13 @@
 
 **Automatizar**. Término acuñado por Wolfgang von Kempelen[^1], utilizado para referirse al engaño consistente en exhibir artefactos supuestamente autónomos con el fin de obtener beneficios económicos. En su acepción más moderna, este engaño es llevado a cabo por empresarios para obtener inversiones millonarias en Silicon Valley.
 
+**Autorretrato**. Retrato de un automóvil.
+
 **Banco**. Asiento en el que se agrupan conjuntos de peces dedicados a ofrecer servicios financieros.
 
 **Barómetro**. Instrumento científico ficticio ideado por Borges para despistar entrevistadores.
+
+**Clasismo**. Ideología y personalidad propias de fanáticos a las clases escolares. Los adeptos a este tipo de corriente ideológica se caracterizan por su incapacidad para afrontar problemas de la vida real, coexistir en entornos no burocráticos y generar un sustento económico independiente de los fondos públicos o las becas.
 
 **Codo**. Unidad de medida utilizada por personas mezquinas o tacañas.
 
@@ -39,8 +43,6 @@
 **Fénix**. Supuesta ave que renace cíclicamente de las cenizas de su predecesor. El Dr. Thomas Browne utilizó un pasaje bíblico[^3] para demostrar la imposibilidad lógica de su existencia.
 
 **Filosofía**. Práctica universitaria orientada a enseñar teorías que posteriormente podrán ser utilizadas para enseñarse en la universidad.
-
-**Filósofo**. Puesto de trabajo asignado a una persona tras ser despedida: «Te informamos que has sido promovido al cargo de filósofo».
 
 **Frenología**. Disciplina científica enfocada en el estudio de dispositivos mecánicos denominados «frenos», y sus efectos energéticos en sistemas en movimiento.
 
@@ -111,6 +113,8 @@
 **Testosterona**. Unidad de medida utilizada para calcular el posicionamiento jerárquico de determinados individuos o grupos en una sociedad: «Según sus niveles de testosterona, los llamados 'ofendiditos' podrían encontrarse en el escalafón más bajo de la sociedad occidental».
 
 **Tolerón**. Unidad de medida de la tolerancia: «Se estima que la tolerancia del gobierno a la libertad de prensa es de 0.16 Tolerones». (*Símb*. Tol).
+
+**Topología**. Disciplina biológica que se encarga del estudio científico de los topos. Se considera a Darwin el primer topólogo de la historia, pues inauguró este campo de estudio al señalar como ejemplo de su teoría de la selección natural que los topos no necesitan el sentido de la vista en los ambientes subterráneos, y que mantenerla supondría un exceso de energía inútil.
 
 **Tortuoso**. Bestia fantástica con cuerpo de tortuga y cabeza de oso.
 
