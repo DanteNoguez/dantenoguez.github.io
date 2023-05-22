@@ -12,6 +12,7 @@ parts:
   - file: notebooks/alfa/calculo
   - file: notebooks/alfa/hacedor
   - file: notebooks/alfa/hacedor2
+  - file: notebooks/alfa/digitalbio
   # - file: notebooks/alfa/hacedor3
   # - file: notebooks/alfa/hacedor4
   # - file: notebooks/alfa/ninja

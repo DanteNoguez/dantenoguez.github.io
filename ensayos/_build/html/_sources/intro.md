@@ -29,25 +29,28 @@ Imagen generada con [tapmusic](https://www.tapmusic.net/). Los meses anteriores 
 ```
 
 ### Referencias bibliográficas
-Euler, Leonhard: Elementos de álgebra <br>
-Epp, Susanna: Matemáticas discretas <br>
-Cummings, Jay: Proofs; Real analysis <br>
-Aleksandrov, Kolmogorov y Lavrent'ev: Mathematics <br>
-Feynman, Richard: Lecciones de física <br>
-Sapolsky, Robert: [Human behavioral biology](https://www.youtube.com/playlist?list=PL848F2368C90DDC3D) <br>
-Nagel y Newman: Gödel's proof <br>
-Petzold, Charles: The Annotated Turing <br>
-Zhang, Aston: Dive into deep learning <br>
-Schmidhuber, Jürgen: Driven by compression progress, [AI blog](https://people.idsia.ch/~juergen/) <br>
-Karpathy, Andrej: [Neural networks: zero to hero](https://www.youtube.com/watch?v=VMj-3S1tku0&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ) <br>
-Tao, Terence: [What's new blog](https://terrytao.wordpress.com) <br>
-Ciechanowski, Bartosz: [Blog](https://ciechanow.ski) <br>
-Menger, Carl: Principios de economía <br>
-Schumpeter, Joseph: Historia del análisis económico <br>
-Máynez, Eduardo: Introducción al estudio del Derecho <br>
-SCJN: [Jurisprudencia](https://sjf2.scjn.gob.mx/busqueda-principal-tesis) <br>
-Platón: Diálogos <br>
-Wilde, Oscar: Obras completas <br>
-Borges, Jorge Luis: Obras completas <br>
-Bueno, Gustavo: Ensayos materialistas; Teoría del cierre categorial <br>
-Thiel, Peter: Zero to one <br>
+<p><center>
+<b>Euler, Leonhard:</b> Elementos de álgebra<br>
+<b>Epp, Susanna:</b> Matemáticas discretas<br>
+<b>Cummings, Jay:</b> Proofs; Real analysis<br>
+<b>Aleksandrov, Kolmogorov y Lavrent'ev:</b> Mathematics<br>
+<b>Feynman, Richard:</b> Lecciones de física<br>
+<b>Sapolsky, Robert:</b> <a href="https://www.youtube.com/playlist?list=PL848F2368C90DDC3D">Human behavioral biology</a><br>
+<b>Nagel y Newman:</b> Gödel's proof<br>
+<b>Petzold, Charles:</b> The Annotated Turing<br>
+<b>Zhang, Aston:</b> Dive into deep learning<br>
+<b>Schmidhuber, Jürgen:</b> Driven by compression progress, <a href="https://people.idsia.ch/~juergen/">AI blog</a><br>
+<b>Karpathy, Andrej:</b> <a href="https://www.youtube.com/watch?v=VMj-3S1tku0&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ">Neural networks: zero to hero</a><br>
+<b>Tao, Terence:</b> <a href="https://terrytao.wordpress.com">What's new blog</a><br>
+<b>Ciechanowski, Bartosz:</b> <a href="https://ciechanow.ski">Blog</a><br>
+<b>Eater, Ben</b>: <a href="https://youtu.be/yOyaJXpAYZQ">Canal de YouTube</a><br>
+<b>Menger, Carl:</b> Principios de economía<br>
+<b>Schumpeter, Joseph:</b> Historia del análisis económico<br>
+<b>Máynez, Eduardo:</b> Introducción al estudio del Derecho<br>
+<b>SCJN:</b> <a href="https://sjf2.scjn.gob.mx/busqueda-principal-tesis">Jurisprudencia</a><br>
+<b>Platón:</b> Diálogos<br>
+<b>Wilde, Oscar:</b> Obras completas<br>
+<b>Borges, Jorge Luis:</b> Obras completas<br>
+<b>Bueno, Gustavo:</b> Ensayos materialistas; Teoría del cierre categorial<br>
+<b>Thiel, Peter:</b> Zero to one
+</p></center>
