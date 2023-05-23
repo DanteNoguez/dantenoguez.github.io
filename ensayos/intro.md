@@ -19,18 +19,18 @@ year={2022}
 ```
 
 ### Música
-Mis álbumes más escuchados del último mes (~abril):
-```{figure} img/abr2023.jpeg
+Mis álbumes más escuchados del último mes (~mayo):
+```{figure} img/may23.jpeg
 ---
 width: 100%
-name: abr23
+name: may23
 ---
 Imagen generada con [tapmusic](https://www.tapmusic.net/). Los meses anteriores se pueden consultar [aquí](notebooks/poeticae/musica). 
 ```
 
 ### Referencias bibliográficas
 <p><center>
-<b>Euler, Leonhard:</b> Elementos de álgebra<br>
+<b>Euler, Leonhard:</b> <a href="https://archive.org/details/clasicos-de-la-matematica-introduccion-a-los-elementos-del-algebra-leonard-euler/mode/2up">Elementos de álgebra</a><br>
 <b>Epp, Susanna:</b> Matemáticas discretas<br>
 <b>Cummings, Jay:</b> Proofs; Real analysis<br>
 <b>Aleksandrov, Kolmogorov y Lavrent'ev:</b> Mathematics<br>
@@ -38,8 +38,9 @@ Imagen generada con [tapmusic](https://www.tapmusic.net/). Los meses anteriores 
 <b>Sapolsky, Robert:</b> <a href="https://www.youtube.com/playlist?list=PL848F2368C90DDC3D">Human behavioral biology</a><br>
 <b>Nagel y Newman:</b> Gödel's proof<br>
 <b>Petzold, Charles:</b> The Annotated Turing<br>
-<b>Zhang, Aston:</b> Dive into deep learning<br>
-<b>Schmidhuber, Jürgen:</b> Driven by compression progress, <a href="https://people.idsia.ch/~juergen/">AI blog</a><br>
+<b>Solomonoff, Ray</b>: <a href="https://raysolomonoff.com/publications/86.pdf">The application of algorithmic probability to problems in artificial intelligence</a><br>
+<b>Zhang, Aston:</b> <a href="https://d2l.ai/">Dive into deep learning</a><br>
+<b>Schmidhuber, Jürgen:</b> <a href="https://arxiv.org/abs/0812.4360Driven">Driven by compression progress</a>, <a href="https://people.idsia.ch/~juergen/">AI blog</a><br>
 <b>Karpathy, Andrej:</b> <a href="https://www.youtube.com/watch?v=VMj-3S1tku0&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ">Neural networks: zero to hero</a><br>
 <b>Tao, Terence:</b> <a href="https://terrytao.wordpress.com">What's new blog</a><br>
 <b>Ciechanowski, Bartosz:</b> <a href="https://ciechanow.ski">Blog</a><br>
@@ -51,6 +52,6 @@ Imagen generada con [tapmusic](https://www.tapmusic.net/). Los meses anteriores 
 <b>Platón:</b> Diálogos<br>
 <b>Wilde, Oscar:</b> Obras completas<br>
 <b>Borges, Jorge Luis:</b> Obras completas<br>
-<b>Bueno, Gustavo:</b> Ensayos materialistas; Teoría del cierre categorial<br>
-<b>Thiel, Peter:</b> Zero to one
+<b>Thiel, Peter:</b> Zero to one<br>
+<b>Bueno, Gustavo:</b>Teoría del cierre categorial<br>
 </p></center>
