@@ -66,3 +66,16 @@ width: 100%
 name: ene23
 ---
 ```
+
+<p align="center">
+<i>
+Abril, 2023
+</i>
+</p>
+
+```{figure} ../../img/abr2023.jpeg
+---
+width: 100%
+name: abr2023
+---
+```
