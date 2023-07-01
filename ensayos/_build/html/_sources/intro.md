@@ -1,4 +1,6 @@
-# Intro
+# Dantis Elementorum
+
+### Intro
 El título de este blog está inspirado en los Elementos de Euclides: mi intención es escribir, «según el orden geométrico», acerca de los elementos constituyentes de aquellas disciplinas en las que estoy interesado.
 
 ### Sobre mí
@@ -19,11 +21,11 @@ year={2022}
 ```
 
 ### Música
-Mis álbumes más escuchados del último mes (~mayo):
-```{figure} img/may23.jpeg
+Mis álbumes más escuchados del último mes (~junio):
+```{figure} img/jun2023.jpeg
 ---
 width: 100%
-name: may23
+name: jun23
 ---
 Imagen generada con [tapmusic](https://www.tapmusic.net/). Los meses anteriores se pueden consultar [aquí](notebooks/poeticae/musica). 
 ```
