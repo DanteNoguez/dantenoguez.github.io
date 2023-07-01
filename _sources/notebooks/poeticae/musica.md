@@ -79,3 +79,30 @@ width: 100%
 name: abr2023
 ---
 ```
+
+<p align="center">
+<i>
+Mayo, 2023
+</i>
+</p>
+
+```{figure} ../../img/may23.jpeg
+---
+width: 100%
+name: may2023
+---
+```
+
+<p align="center">
+<i>
+Junio, 2023
+</i>
+</p>
+
+```{figure} ../../img/jun2023.jpeg
+---
+width: 100%
+name: jun2023
+---
+Omisiones importantes: Drake AI, Travis Scott AI, The Weeknd AI.
+```

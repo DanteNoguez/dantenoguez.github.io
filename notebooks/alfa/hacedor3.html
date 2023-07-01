@@ -1,50 +1,68 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Elementos de procesamiento de lenguajes naturales, parte III &#8212; Dantis Elementorum</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-C9T8ZX64EM"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-C9T8ZX64EM');
+            </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -53,484 +71,341 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/alfa/hacedor3';</script>
     <link rel="canonical" href="https://dantenoguez.github.io/notebooks/alfa/hacedor3.html" />
     <link rel="shortcut icon" href="../../_static/logo.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-C9T8ZX64EM"></script>
-<script>
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){ dataLayer.push(arguments); }
-                    gtag('js', new Date());
-                    gtag('config', 'G-C9T8ZX64EM');
-                </script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../../_static/logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Dantis Elementorum</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    Intro
+                    Dantis Elementorum
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Elementorum Physicæ Mathematicæ
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Elementorum Physicæ Mathematicæ</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="programacion.html">
-   Elementos de programación
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="redes.html">
-   Elementos de redes neuronales
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="calculo.html">
-   Elementos de cálculo infinitesimal
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="hacedor.html">
-   Elementos de procesamiento de lenguajes naturales, o El Hacedor
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="hacedor2.html">
-   Elementos de procesamiento de lenguajes naturales, parte II
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="programacion.html">Elementos de programación</a></li>
+<li class="toctree-l1"><a class="reference internal" href="redes.html">Elementos de redes neuronales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calculo.html">Elementos de cálculo infinitesimal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hacedor.html">Elementos de procesamiento de lenguajes naturales, o El Hacedor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hacedor2.html">Elementos de procesamiento de lenguajes naturales, parte II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="digitalbio.html">Elementos de biología digital</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Elementorum Politicæ Œconomicæ Iurisprudentiæ
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Elementorum Politicæ Œconomicæ Iurisprudentiæ</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../beta/iurisprudentiae.html">
-   Elementos de leyes, o Nova methodus discendæ iurisprudentiæ
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../beta/schumpeter.html">
-   Notas a Schumpeter
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../beta/iurisprudentiae.html">Elementos de leyes, o Nova methodus discendæ iurisprudentiæ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../beta/schumpeter.html">Notas a Schumpeter</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Elementorum Poeticæ
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Elementorum Poeticæ</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../poeticae/borges.html">
-   Elementos de literatura borgesiana, o Borges y sus precursores
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../poeticae/afro.html">
-   Elementos de música afroamericana
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../poeticae/borges.html">Elementos de literatura borgesiana, o Borges y sus precursores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../poeticae/afro.html">Elementos de música afroamericana</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Exagium
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Exagium</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../exagium/tzompantli.html">
-   Breve ensayo sobre el tzompantli
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../exagium/diccionario.html">
-   Diccionario fantástico de la lengua española
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../exagium/escribir.html">
-   Escribir ¿para qué?
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../exagium/secturnial.html">
-   Relatos secturniales
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../exagium/castillos.html">
-   La importancia de ser olvidado
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../exagium/aforismos.html">
-   Cuaderno de notas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../exagium/ia.html">
-   Tientos cibernéticos
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../exagium/coronavirus.html">
-   Bitácora del confinamiento
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../exagium/tzompantli.html">Breve ensayo sobre el tzompantli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exagium/diccionario.html">Diccionario fantástico de la lengua española</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exagium/escribir.html">Escribir ¿para qué?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exagium/secturnial.html">Relatos secturniales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exagium/castillos.html">La importancia de ser olvidado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exagium/aforismos.html">Cuaderno de notas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exagium/ia.html">Tientos cibernéticos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exagium/coronavirus.html">Bitácora del confinamiento</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/DanteNoguez/Ensayos/main?urlpath=tree/ensayos/notebooks/alfa/hacedor3.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/DanteNoguez/Ensayos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/DanteNoguez/Ensayos/issues/new?title=Issue%20on%20page%20%2Fnotebooks/alfa/hacedor3.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/alfa/hacedor3.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
 
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/DanteNoguez/Ensayos"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/DanteNoguez/Ensayos/issues/new?title=Issue%20on%20page%20%2Fnotebooks/alfa/hacedor3.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../_sources/notebooks/alfa/hacedor3.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#inicializacion-de-pesos-y-sesgos">
-   Inicialización de pesos y sesgos
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#propiedades-de-la-tangente-hiperbolica">
-   Propiedades de la tangente hiperbólica
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#inicializacion-kaiming">
-   Inicialización Kaiming
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#normalizacion-por-lotes-batch-normalization">
-   Normalización por lotes (
-   <em>
-    batch normalization
-   </em>
-   )
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pytorch">
-   PyTorch
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Elementos de procesamiento de lenguajes naturales, parte III</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#inicializacion-de-pesos-y-sesgos">
-   Inicialización de pesos y sesgos
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#propiedades-de-la-tangente-hiperbolica">
-   Propiedades de la tangente hiperbólica
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#inicializacion-kaiming">
-   Inicialización Kaiming
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#normalizacion-por-lotes-batch-normalization">
-   Normalización por lotes (
-   <em>
-    batch normalization
-   </em>
-   )
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pytorch">
-   PyTorch
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Elementos de procesamiento de lenguajes naturales, parte III</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inicializacion-de-pesos-y-sesgos">Inicialización de pesos y sesgos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades-de-la-tangente-hiperbolica">Propiedades de la tangente hiperbólica</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inicializacion-kaiming">Inicialización Kaiming</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normalizacion-por-lotes-batch-normalization">Normalización por lotes (<em>batch normalization</em>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch">PyTorch</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="elementos-de-procesamiento-de-lenguajes-naturales-parte-iii">
-<h1>Elementos de procesamiento de lenguajes naturales, parte III<a class="headerlink" href="#elementos-de-procesamiento-de-lenguajes-naturales-parte-iii" title="Permalink to this headline">#</a></h1>
+<h1>Elementos de procesamiento de lenguajes naturales, parte III<a class="headerlink" href="#elementos-de-procesamiento-de-lenguajes-naturales-parte-iii" title="Permalink to this heading">#</a></h1>
 <p>Continuando nuestra última lección, nos adentraremos en el mundo de las «tecniquerías», procurando continuar con la optimización de nuestra red neuronal. En particular, aprenderemos sobre la normalización de lotes (<em>batch normalization</em>),</p>
 <p>Para ello, utilizaremos los mismos datos y el mismo código que implementamos con base en el <em>paper</em> <a class="reference external" href="https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf">A Neural Probabilistic Language Model</a>.</p>
 <div class="cell docutils container">
@@ -768,7 +643,7 @@ ose ----&gt;  .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/hacedor3_13_0.png" src="../../_images/hacedor3_13_0.png" />
+<img alt="../../_images/6ef1a3628c1dfacc417007a9f9fca79e26bc8422112e1be9a5f10ac19c05b56c.png" src="../../_images/6ef1a3628c1dfacc417007a9f9fca79e26bc8422112e1be9a5f10ac19c05b56c.png" />
 </div>
 </div>
 <p>Una función que nos permite obtener más fácilmente el valor actual de la función de pérdida, según queramos analizar uno u otro <em>split</em> —conjunto de datos—. Nuestra función estará precedida por un «decorador». En esencia, un decorador altera la función que precede (o que «decora»). En este caso, el decorador que utilizamos indica al programa que no debe rastrear los gradientes de nuestros parámetros. Así, nuestro programa fluye con mayor rapidez, puesto que disminuye su carga de trabajo.</p>
@@ -800,7 +675,7 @@ test 2.1483922004699707
 </div>
 </div>
 <section id="inicializacion-de-pesos-y-sesgos">
-<h2>Inicialización de pesos y sesgos<a class="headerlink" href="#inicializacion-de-pesos-y-sesgos" title="Permalink to this headline">#</a></h2>
+<h2>Inicialización de pesos y sesgos<a class="headerlink" href="#inicializacion-de-pesos-y-sesgos" title="Permalink to this heading">#</a></h2>
 <p>Nuestra inicialización debería ser equivalente a <span class="math notranslate nohighlight">\(\frac{1}{27}\)</span>, puesto que cualquier carácter debería ser igualmente probable que los demás antes de entrenar la red. Sin embargo, nuestra pérdida inicial es muchísimo peor. Según nuestro razonamiento, más bien deberíamos esperar una pérdida de:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -910,7 +785,7 @@ test 2.1483922004699707
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/hacedor3_25_0.png" src="../../_images/hacedor3_25_0.png" />
+<img alt="../../_images/7b61aa00cf657f18cd34337ad0f389d179efda402260cb188c50065d4a9ebf6d.png" src="../../_images/7b61aa00cf657f18cd34337ad0f389d179efda402260cb188c50065d4a9ebf6d.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -932,7 +807,7 @@ test 1.9303653240203857
 <p>Nuestro gráfico de la pérdida ahora luce diferente, y nuestra pérdida final es mejor debido a que no desperdiciamos etapas de entrenamiento.</p>
 </section>
 <section id="propiedades-de-la-tangente-hiperbolica">
-<h2>Propiedades de la tangente hiperbólica<a class="headerlink" href="#propiedades-de-la-tangente-hiperbolica" title="Permalink to this headline">#</a></h2>
+<h2>Propiedades de la tangente hiperbólica<a class="headerlink" href="#propiedades-de-la-tangente-hiperbolica" title="Permalink to this heading">#</a></h2>
 <p>En nuestra <span class="xref myst">primera lección</span> sobre redes neuronales, implementamos el cálculo del gradiente de la tangente hiperbólica con la fórmula <code class="docutils literal notranslate"><span class="pre">(1</span> <span class="pre">-</span> <span class="pre">t**2)</span></code>. Por otro lado, la tangente hiperbólica «aplasta» nuestros parámetros durante el entrenamiento, dejándolos en valores que van del 0 al 1. Si somos cuidadosos, notaremos que cuando hacemos propagación hacia atrás, nuestros parámetros que después de la tangente hiperbólica sean 1 o -1, tendrán un gradiente de 0 y, por tanto, no serán entrenados. Su «influencia» en el resultado de la red neuronal será también 0.</p>
 <p>Ahora, procuraremos cuidar que nuestra red no padezca de este problema. Analicemos, por ejemplo, cómo están distribuidos nuestros parámetros después de aplicarles la tangente hiperbólica (esta es nuestra variable <code class="docutils literal notranslate"><span class="pre">a</span></code>):</p>
 <div class="cell docutils container">
@@ -942,7 +817,7 @@ test 1.9303653240203857
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/hacedor3_28_0.png" src="../../_images/hacedor3_28_0.png" />
+<img alt="../../_images/06bd02d078743acbf7cb82ff72606147ffcd9e2a21b256ad77a0f52b14eac5dc.png" src="../../_images/06bd02d078743acbf7cb82ff72606147ffcd9e2a21b256ad77a0f52b14eac5dc.png" />
 </div>
 </div>
 <p>Por otra parte, estos son nuestros valores antes de pasar por <code class="docutils literal notranslate"><span class="pre">tanh</span></code>:</p>
@@ -953,7 +828,7 @@ test 1.9303653240203857
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/hacedor3_30_0.png" src="../../_images/hacedor3_30_0.png" />
+<img alt="../../_images/71828a6dc00e842b9958534f5bf7517c55ebb8a6755d45a7ee61d9d5891d5108.png" src="../../_images/71828a6dc00e842b9958534f5bf7517c55ebb8a6755d45a7ee61d9d5891d5108.png" />
 </div>
 </div>
 <p>Podemos ver que nuestros valores tienen valores extremos que, en consecuencia, terminan en las «colas» (<em>tails</em>) de la tangente hiperbólica, es decir, con valores de -1 y 1. Para visualizar esto de mejor manera, pongamos que todos los valores que sean -1 y 1 sean blancos, y negros si tienen cualquier otro valor:</p>
@@ -968,7 +843,7 @@ test 1.9303653240203857
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f6b04ac19d0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/hacedor3_32_1.png" src="../../_images/hacedor3_32_1.png" />
+<img alt="../../_images/3aedfdba15130b7e53c3882302659111e829cbd2a53206ad1f7c2a3584d9b0a4.png" src="../../_images/3aedfdba15130b7e53c3882302659111e829cbd2a53206ad1f7c2a3584d9b0a4.png" />
 </div>
 </div>
 <p>Hay una cantidad ingente de blancos y esto es una mala señal, puesto que implica que muchos de nuestros parámetros no están aprendiendo nada. La solución es idéntica a nuestro ejercicio anterior: si evitamos valores extremos, minimizando los valores iniciales de los parámetros y sesgos de la primera capa, entonces deberíamos obtener una mejor y más compacta distribución de valores, evitando así valores extremos y mejorando el entrenamiento. Comprobémoslo:</p>
@@ -1039,13 +914,13 @@ test 1.916183590888977
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f6b04a74ed0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/hacedor3_37_1.png" src="../../_images/hacedor3_37_1.png" />
+<img alt="../../_images/0aa4d20f569e731b93bcebaa24a52396e5f07b70c1b9448f499f321c29568e93.png" src="../../_images/0aa4d20f569e731b93bcebaa24a52396e5f07b70c1b9448f499f321c29568e93.png" />
 </div>
 </div>
 <p>Ahora nuestra pérdida mejoró y predomina el negro —valores distintos de -1 y 1— en nuestra red.</p>
 </section>
 <section id="inicializacion-kaiming">
-<h2>Inicialización Kaiming<a class="headerlink" href="#inicializacion-kaiming" title="Permalink to this headline">#</a></h2>
+<h2>Inicialización Kaiming<a class="headerlink" href="#inicializacion-kaiming" title="Permalink to this heading">#</a></h2>
 <p>La generalización y formalización de nuestro razonamiento fue llevada a cabo por Kaiming He en un <a class="reference external" href="https://arxiv.org/abs/1502.01852"><em>paper</em> del 2015</a>. Análisis matemáticos mediante, descubrió que cuando utilizamos la tangente hiperbólica, nuestros pesos iniciales deben estar escalados por la fórmula <span class="math notranslate nohighlight">\(\frac{\frac{5}{3}}{\sqrt{\text{fan-in}}}\)</span>, donde <em>fan-in</em> —una expresión tomada de los circuitos eléctricos— es el número de <em>inputs</em> que toman nuestros pesos (en nuestro caso, <code class="docutils literal notranslate"><span class="pre">emb_dim*block_size</span></code>). Por tanto, nuestra inicialización debería estar escalada por <span class="math notranslate nohighlight">\(\frac{\frac{5}{3}}{\sqrt{\text{fan-in}}} = \frac{\frac{5}{3}}{\sqrt{\text{emb_dim x block_size}}} = \frac{\frac{5}{3}}{\sqrt{30}}\)</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1081,7 +956,7 @@ test 1.916183590888977
 tensor(-0.0133) tensor(3.1457)
 </pre></div>
 </div>
-<img alt="../../_images/hacedor3_41_1.png" src="../../_images/hacedor3_41_1.png" />
+<img alt="../../_images/75e6ad267172f2542e71c6efe449e7cfc252ba6dc08de7bdba100080e36191ec.png" src="../../_images/75e6ad267172f2542e71c6efe449e7cfc252ba6dc08de7bdba100080e36191ec.png" />
 </div>
 </div>
 <p>Si al inicio los valores de <code class="docutils literal notranslate"><span class="pre">x</span></code> iban del -4 al 4, tras ser multiplicados por <code class="docutils literal notranslate"><span class="pre">w</span></code> ahora van del -15 al 15. Hay valores más alejados del centro de la distribución que antes, por lo que la desviación estándar es más alta. Recordemos que esto arruinaba la tangente hiperbólica. Pero si minimizamos los valores de <code class="docutils literal notranslate"><span class="pre">w</span></code>, al multiplicarlos por <code class="docutils literal notranslate"><span class="pre">x</span></code> la distribución no se expanderá. Todavía mejor: podemos minimizar los valores de <code class="docutils literal notranslate"><span class="pre">w</span></code> de tal forma que <code class="docutils literal notranslate"><span class="pre">x</span></code> mantenga exactamente la misma distribución. Para ello utilizamos las fórmulas de Kaiming He. En este ejemplo, dado que solo multiplicamos y no usamos <code class="docutils literal notranslate"><span class="pre">tanh</span></code>, la fórmula es <span class="math notranslate nohighlight">\(\frac{1}{\sqrt{\text{fan-in}}}\)</span>:</p>
@@ -1105,13 +980,13 @@ tensor(-0.0133) tensor(3.1457)
 tensor(-0.0028) tensor(0.9878)
 </pre></div>
 </div>
-<img alt="../../_images/hacedor3_43_1.png" src="../../_images/hacedor3_43_1.png" />
+<img alt="../../_images/e40eb02bec8f4645a450f7d7bb6443f5e72ff3de23a686e1418147c89cf923f1.png" src="../../_images/e40eb02bec8f4645a450f7d7bb6443f5e72ff3de23a686e1418147c89cf923f1.png" />
 </div>
 </div>
 <p>Aunque los valores cambiaran, la desviación estándar permanece igual.</p>
 </section>
 <section id="normalizacion-por-lotes-batch-normalization">
-<h2>Normalización por lotes (<em>batch normalization</em>)<a class="headerlink" href="#normalizacion-por-lotes-batch-normalization" title="Permalink to this headline">#</a></h2>
+<h2>Normalización por lotes (<em>batch normalization</em>)<a class="headerlink" href="#normalizacion-por-lotes-batch-normalization" title="Permalink to this heading">#</a></h2>
 <p>Una técnica que cumple la misma función, pero que se utiliza más ampliamente por sus propiedades, es la llamada <a class="reference external" href="https://arxiv.org/abs/1502.03167">«normalización por lotes»</a>. En esencia, podemos prescindir de las fórmulas de Kaiming He y generalizar todavía más su solución. Para ello, normalizamos directamente la distribución de valores de cada matriz de pesos. El algoritmo luce así:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1212,7 +1087,7 @@ test 1.9600375890731812
 </div>
 </section>
 <section id="pytorch">
-<h2>PyTorch<a class="headerlink" href="#pytorch" title="Permalink to this headline">#</a></h2>
+<h2>PyTorch<a class="headerlink" href="#pytorch" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Linear</span><span class="p">:</span>
@@ -1422,7 +1297,7 @@ alberijonelicio.
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./notebooks/alfa"
         },
         predefinedOutput: true
@@ -1430,35 +1305,84 @@ alberijonelicio.
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inicializacion-de-pesos-y-sesgos">Inicialización de pesos y sesgos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades-de-la-tangente-hiperbolica">Propiedades de la tangente hiperbólica</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inicializacion-kaiming">Inicialización Kaiming</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normalizacion-por-lotes-batch-normalization">Normalización por lotes (<em>batch normalization</em>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch">PyTorch</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Dante Noguez<br/>
-  
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By Dante Noguez
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
