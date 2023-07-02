@@ -4,7 +4,7 @@
 El título de este blog está inspirado en los Elementos de Euclides: mi intención es escribir, «según el orden geométrico», acerca de los elementos constituyentes de aquellas disciplinas en las que estoy interesado.
 
 ### Sobre mí
-Mi nombre es Dante Noguez, soy director de machine learning en Odyseus, abogado constitucionalista, especialista en la literatura de [Jorge Luis Borges](https://www.amazon.com/Oh-tiempo-tus-pirámides-ensayos-ebook/dp/B08K3QGZTM/), ex jugador profesional de [Halo](https://halotracker.com/halo-infinite/profile/xbl/Magnustein/overview) y estudioso de matemáticas, ciencias computacionales, economía austríaca, biología conductual, materialismo filosófico, música afroamericana, ajedrez, artes marciales mixtas *et quid non*.
+Mi nombre es Dante Noguez, soy director de machine learning en [Odyseus](https://odyseus.ai/), abogado constitucionalista, especialista en la literatura de [Jorge Luis Borges](https://www.amazon.com/Oh-tiempo-tus-pirámides-ensayos-ebook/dp/B08K3QGZTM/), ex jugador profesional de [Halo](https://halotracker.com/halo-infinite/profile/xbl/Magnustein/overview) y estudioso de matemáticas, ciencias computacionales, economía austríaca, biología conductual, materialismo filosófico, música afroamericana, ajedrez, artes marciales mixtas *et quid non*.
 
 $\rightarrow$ dante@odyseus.ai
 
