@@ -11,6 +11,7 @@ Octubre, 2022
 width: 100%
 name: oct22
 ---
+En Halloween pude presenciar la magia de [Beach House](https://youtu.be/AREPpuV-goU) en vivo.
 ```
 
 <p align="center">

@@ -27,11 +27,12 @@ The name of this blog is inspired by Euclid's Elements, since I intend to write 
 
 ## Appreciation 
 
-- [Karpathy](https://youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ) for his beautifully simple explanations on neural networks and for being a role model on teaching (and life in general).
+- [Karpathy](https://youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ) for his beautifully simple explanations on neural networks.
+- [Jay Cummings](https://www.amazon.com.mx/Proofs-Long-Form-Mathematics-Textbook-Math/dp/B08T8JCVF1) for his truly marvelous math books, and for being such a brilliant and patient teacher.
 - [Ciechanowski](https://ciechanow.ski/) for his wonderful work and for being an enourmous source of inspiration.
 - [Feynman](https://www.feynmanlectures.caltech.edu/info/) for his absolutely brilliant work.
 - [Sapolsky](https://youtube.com/playlist?list=PL848F2368C90DDC3D) for his delightful lectures and his awesome work.
-- [Khan Academy](http://khanacademy.org) for their very intuitive and nice math courses.
+- [Khan Academy](http://khanacademy.org) for their work in general, and their math courses in particular.
 
 ## Citations
 
