@@ -1,68 +1,50 @@
 
-
 <!DOCTYPE html>
 
-
-<html lang="en" >
-
+<html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Elementos de procesamiento de lenguajes naturales, parte II &#8212; Dantis Elementorum</title>
-  
-  
-  
-  <script data-cfasync="false">
-    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
-  </script>
-  
+    
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
-  
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/design-tabs.js"></script>
-    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-C9T8ZX64EM"></script>
-    <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){ dataLayer.push(arguments); }
-                gtag('js', new Date());
-                gtag('config', 'G-C9T8ZX64EM');
-            </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -71,95 +53,71 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/alfa/hacedor2';</script>
     <link rel="canonical" href="https://dantenoguez.github.io/notebooks/alfa/hacedor2.html" />
     <link rel="shortcut icon" href="../../_static/logo.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Elementos de biología digital" href="digitalbio.html" />
     <link rel="prev" title="Elementos de procesamiento de lenguajes naturales, o El Hacedor" href="hacedor.html" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-C9T8ZX64EM"></script>
+<script>
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){ dataLayer.push(arguments); }
+                    gtag('js', new Date());
+                    gtag('config', 'G-C9T8ZX64EM');
+                </script>
+
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
 
-  
-  
-  <a class="skip-link" href="#main-content">Skip to main content</a>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
-<form class="bd-search d-flex align-items-center"
-      action="../../search.html"
-      method="get">
-  <i class="fa-solid fa-magnifying-glass"></i>
-  <input type="search"
-         class="form-control"
-         name="q"
-         id="search-input"
-         placeholder="Search this book..."
-         aria-label="Search this book..."
-         autocomplete="off"
-         autocorrect="off"
-         autocapitalize="off"
-         spellcheck="false"/>
-  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
-  
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
-  
-  <div class="bd-container">
-    <div class="bd-container__inner bd-page-width">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
         
-
-  
-  <div class="sidebar-header-items sidebar-primary__section">
-    
-    
-    
-    
-  </div>
-  
-    <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item">
-  
-
-<a class="navbar-brand logo" href="../../intro.html">
-  
-  
-  
-  
-    
-    
       
-    
-    
-    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
-  
-  
-</a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item navbar-nav active">
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Dantis Elementorum</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -168,244 +126,390 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Elementorum Physicæ Mathematicæ</span></p>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Elementorum Physicæ Mathematicæ
+ </span>
+</p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="programacion.html">Elementos de programación</a></li>
-<li class="toctree-l1"><a class="reference internal" href="redes.html">Elementos de redes neuronales</a></li>
-<li class="toctree-l1"><a class="reference internal" href="calculo.html">Elementos de cálculo infinitesimal</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hacedor.html">Elementos de procesamiento de lenguajes naturales, o El Hacedor</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Elementos de procesamiento de lenguajes naturales, parte II</a></li>
-<li class="toctree-l1"><a class="reference internal" href="digitalbio.html">Elementos de biología digital</a></li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="programacion.html">
+   Elementos de programación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="redes.html">
+   Elementos de redes neuronales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="calculo.html">
+   Elementos de cálculo infinitesimal
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hacedor.html">
+   Elementos de procesamiento de lenguajes naturales, o El Hacedor
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Elementos de procesamiento de lenguajes naturales, parte II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="digitalbio.html">
+   Elementos de biología digital
+  </a>
+ </li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Elementorum Politicæ Œconomicæ Iurisprudentiæ</span></p>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Elementorum Politicæ Œconomicæ Iurisprudentiæ
+ </span>
+</p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../beta/iurisprudentiae.html">Elementos de leyes, o Nova methodus discendæ iurisprudentiæ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../beta/schumpeter.html">Notas a Schumpeter</a></li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../beta/iurisprudentiae.html">
+   Elementos de leyes, o Nova methodus discendæ iurisprudentiæ
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../beta/schumpeter.html">
+   Notas a Schumpeter
+  </a>
+ </li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Elementorum Poeticæ</span></p>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Elementorum Poeticæ
+ </span>
+</p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../poeticae/borges.html">Elementos de literatura borgesiana, o Borges y sus precursores</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../poeticae/afro.html">Elementos de música afroamericana</a></li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../poeticae/borges.html">
+   Elementos de literatura borgesiana, o Borges y sus precursores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../poeticae/afro.html">
+   Elementos de música afroamericana
+  </a>
+ </li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Exagium</span></p>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Exagium
+ </span>
+</p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../exagium/tzompantli.html">Breve ensayo sobre el tzompantli</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../exagium/diccionario.html">Diccionario fantástico de la lengua española</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../exagium/escribir.html">Escribir ¿para qué?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../exagium/secturnial.html">Relatos secturniales</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../exagium/castillos.html">La importancia de ser olvidado</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../exagium/aforismos.html">Cuaderno de notas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../exagium/ia.html">Tientos cibernéticos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../exagium/coronavirus.html">Bitácora del confinamiento</a></li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exagium/tzompantli.html">
+   Breve ensayo sobre el tzompantli
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exagium/diccionario.html">
+   Diccionario fantástico de la lengua española
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exagium/escribir.html">
+   Escribir ¿para qué?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exagium/secturnial.html">
+   Relatos secturniales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exagium/castillos.html">
+   La importancia de ser olvidado
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exagium/aforismos.html">
+   Cuaderno de notas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exagium/ia.html">
+   Tientos cibernéticos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exagium/coronavirus.html">
+   Bitácora del confinamiento
+  </a>
+ </li>
 </ul>
 
     </div>
 </nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
     </div>
-  
-  
-  <div class="sidebar-primary-items__end sidebar-primary__section">
-  </div>
-  
-  <div id="rtd-footer-container"></div>
+    <div id="rtd-footer-container"></div>
+</div>
 
 
-      </div>
-      
-      <main id="main-content" class="bd-main">
-        
-        
+          
 
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
 <div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
 
-          <div class="bd-content">
-            <div class="bd-article-container">
-              
-              <div class="bd-header-article">
-<div class="header-article-items header-article__inner">
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
   
-    <div class="header-article-items__start">
-      
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <span class="fa-solid fa-bars"></span>
-</label></div>
-      
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
     </div>
-  
-  
-    <div class="header-article-items__end">
-      
-        <div class="header-article-item">
-
-<div class="article-header-buttons">
-
-
-
-
-
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
   </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/DanteNoguez/Ensayos" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/DanteNoguez/Ensayos/issues/new?title=Issue%20on%20page%20%2Fnotebooks/alfa/hacedor2.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
-
-
-
-
-
-<div class="dropdown dropdown-download-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
-    <i class="fas fa-download"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="../../_sources/notebooks/alfa/hacedor2.ipynb" target="_blank"
-   class="btn btn-sm btn-download-source-button dropdown-item"
-   title="Download source file"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="btn__text-container">.ipynb</span>
-</a>
-</li>
-      
-      
-      
-      
+  <div class="menu-dropdown__content">
+    <ul>
       <li>
-<button onclick="window.print()"
-  class="btn btn-sm btn-download-pdf-button dropdown-item"
-  title="Print to PDF"
-  data-bs-placement="left" data-bs-toggle="tooltip"
+        <a href="https://mybinder.org/v2/gh/DanteNoguez/Ensayos/main?urlpath=tree/ensayos/notebooks/alfa/hacedor2.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
 >
   
 
-<span class="btn__icon-container">
-  <i class="fas fa-file-pdf"></i>
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
   </span>
-<span class="btn__text-container">.pdf</span>
-</button>
-</li>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
       
-  </ul>
+    </ul>
+  </div>
 </div>
-
-
-
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
-  title="Fullscreen mode"
-  data-bs-placement="bottom" data-bs-toggle="tooltip"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
 >
   
 
-<span class="btn__icon-container">
+<span class="headerbtn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-
-<script>
-document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
   </button>
-`);
-</script>
-
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
-</div></div>
-      
-    </div>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/DanteNoguez/Ensayos"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
   
-</div>
-</div>
-              
-              
 
-<div id="jb-print-docs-body" class="onlyprint">
-    <h1>Elementos de procesamiento de lenguajes naturales, parte II</h1>
-    <!-- Table of contents -->
-    <div id="print-main-content">
-        <div id="jb-print-toc">
-            
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#un-modelo-neuronal-probabilistico-de-lenguaje">Un modelo neuronal probabilístico de lenguaje</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimizacion-de-modelos-neuronales-conjuntos-de-datos-sobreajuste-tasa-de-aprendizaje-y-lotes">Optimización de modelos neuronales: conjuntos de datos, sobreajuste, tasa de aprendizaje y lotes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ensayo-de-un-modelo-con-hiperparametros-optimos">Ensayo de un modelo con hiperparámetros óptimos</a></li>
-</ul>
-            </nav>
-        </div>
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/DanteNoguez/Ensayos/issues/new?title=Issue%20on%20page%20%2Fnotebooks/alfa/hacedor2.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/notebooks/alfa/hacedor2.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
     </div>
 </div>
 
-              
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#un-modelo-neuronal-probabilistico-de-lenguaje">
+   Un modelo neuronal probabilístico de lenguaje
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#optimizacion-de-modelos-neuronales-conjuntos-de-datos-sobreajuste-tasa-de-aprendizaje-y-lotes">
+   Optimización de modelos neuronales: conjuntos de datos, sobreajuste, tasa de aprendizaje y lotes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ensayo-de-un-modelo-con-hiperparametros-optimos">
+   Ensayo de un modelo con hiperparámetros óptimos
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Elementos de procesamiento de lenguajes naturales, parte II</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#un-modelo-neuronal-probabilistico-de-lenguaje">
+   Un modelo neuronal probabilístico de lenguaje
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#optimizacion-de-modelos-neuronales-conjuntos-de-datos-sobreajuste-tasa-de-aprendizaje-y-lotes">
+   Optimización de modelos neuronales: conjuntos de datos, sobreajuste, tasa de aprendizaje y lotes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ensayo-de-un-modelo-con-hiperparametros-optimos">
+   Ensayo de un modelo con hiperparámetros óptimos
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
                 
-<div id="searchbox"></div>
-                <article class="bd-article" role="main">
-                  
+              <div>
+                
   <section class="tex2jax_ignore mathjax_ignore" id="elementos-de-procesamiento-de-lenguajes-naturales-parte-ii">
-<h1>Elementos de procesamiento de lenguajes naturales, parte II<a class="headerlink" href="#elementos-de-procesamiento-de-lenguajes-naturales-parte-ii" title="Permalink to this heading">#</a></h1>
+<h1>Elementos de procesamiento de lenguajes naturales, parte II<a class="headerlink" href="#elementos-de-procesamiento-de-lenguajes-naturales-parte-ii" title="Permalink to this headline">#</a></h1>
 <p>Siguiendo nuestra lección anterior, optimizaremos nuestro modelo de red neuronal para crear nombres. Ahora, lo haremos en el estilo del <em>paper</em> <a class="reference external" href="https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf">Bengio et. al, 2003</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -476,7 +580,7 @@ document.write(`
 </div>
 </div>
 <section id="un-modelo-neuronal-probabilistico-de-lenguaje">
-<h2>Un modelo neuronal probabilístico de lenguaje<a class="headerlink" href="#un-modelo-neuronal-probabilistico-de-lenguaje" title="Permalink to this heading">#</a></h2>
+<h2>Un modelo neuronal probabilístico de lenguaje<a class="headerlink" href="#un-modelo-neuronal-probabilistico-de-lenguaje" title="Permalink to this headline">#</a></h2>
 <p>Primero, comenzaremos dividiendo nuestros datos en «bloques». Por ejemplo, en nuestro modelo de bigramas, el bloque contenía un solo carácter, puesto que realizábamos la predicción a partir de una letra; pero podemos aumentar el «contexto» de nuestras predicciones para involucrar más letras al momento de predecir la siguiente. Veamos, por ejemplo, cómo luciría nuestro tratamiento de los datos si hiciéramos bloques de tres caracteres para predecir el siguiente:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -671,7 +775,7 @@ Tres bloques del embedding, correspondientes a «..m», «.ma» y «mar»: tenso
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">metodo1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">emb</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">:],</span> <span class="n">emb</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">:],</span> <span class="n">emb</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">:]],</span> <span class="mi">1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;Ahora, en lugar de estar contenidos en bloques de tres filas: </span>
-<span class="si">{</span><span class="n">emb</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span>
+<span class="si">{</span><span class="n">emb</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"></span>
 <span class="s2">Estarían contenidos en bloques de una fila (seis columnas):</span>
 <span class="si">{</span><span class="n">metodo1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
@@ -701,7 +805,7 @@ tensor([ 1.1950, -1.6664,  1.1950, -1.6664,  1.1950, -1.6664])
 </div>
 </div>
 </div>
-<p>Pero el método más eficiente<a class="footnote-reference brackets" href="#id4" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> y simple es <code class="docutils literal notranslate"><span class="pre">view</span></code>. Como primer argumento, colocaremos <code class="docutils literal notranslate"><span class="pre">-1</span></code> para que de esta forma PyTorch infiera el tamaño de la dimensión 0 que debería tener el tensor (sería, pues, equivalente a colocar <code class="docutils literal notranslate"><span class="pre">emb[0].shape</span></code>), y como segundo argumento <code class="docutils literal notranslate"><span class="pre">6</span></code> porque queremos que el tensor tenga las 6 columnas correspondientes a un bloque de tres <em>tokens</em>:</p>
+<p>Pero el método más eficiente<a class="footnote-reference brackets" href="#id4" id="id1">1</a> y simple es <code class="docutils literal notranslate"><span class="pre">view</span></code>. Como primer argumento, colocaremos <code class="docutils literal notranslate"><span class="pre">-1</span></code> para que de esta forma PyTorch infiera el tamaño de la dimensión 0 que debería tener el tensor (sería, pues, equivalente a colocar <code class="docutils literal notranslate"><span class="pre">emb[0].shape</span></code>), y como segundo argumento <code class="docutils literal notranslate"><span class="pre">6</span></code> porque queremos que el tensor tenga las 6 columnas correspondientes a un bloque de tres <em>tokens</em>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">emb</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">emb</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span> <span class="c1"># esta es la variable x del paper</span>
@@ -717,11 +821,11 @@ tensor([ 1.1950, -1.6664,  1.1950, -1.6664,  1.1950, -1.6664])
 </div>
 <p>Ahora ya tenemos lo suficiente para definir más variables:</p>
 <blockquote>
-<div><p>“Let <span class="math notranslate nohighlight">\(h\)</span> be the number of hidden units<a class="footnote-reference brackets" href="#id5" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>, and <span class="math notranslate nohighlight">\(m\)</span> the number of features associated with each word. When no direct connections from word features to outputs are desired, the matrix <span class="math notranslate nohighlight">\(W\)</span> is set to 0 . The free parameters of the model are the output biases <span class="math notranslate nohighlight">\(b\)</span> (with <span class="math notranslate nohighlight">\(|V|\)</span> elements), the hidden layer biases <span class="math notranslate nohighlight">\(d\)</span> (with <span class="math notranslate nohighlight">\(h\)</span> elements), the hidden-to-output weights <span class="math notranslate nohighlight">\(U\)</span> (a <span class="math notranslate nohighlight">\(|V| \times h\)</span> matrix), the word features to output weights <span class="math notranslate nohighlight">\(W\)</span> (a <span class="math notranslate nohighlight">\(|V| \times(n-1) m\)</span> matrix), the hidden layer weights <span class="math notranslate nohighlight">\(H\)</span> (a <span class="math notranslate nohighlight">\(h \times(n-1) m\)</span> matrix), and the word features <span class="math notranslate nohighlight">\(C\)</span>(a <span class="math notranslate nohighlight">\(|V| \times m\)</span> matrix <span class="math notranslate nohighlight">\()\)</span>: <span class="math notranslate nohighlight">\(\theta=(b, d, W, U, H, C)\)</span>”.</p>
+<div><p>“Let <span class="math notranslate nohighlight">\(h\)</span> be the number of hidden units<a class="footnote-reference brackets" href="#id5" id="id2">2</a>, and <span class="math notranslate nohighlight">\(m\)</span> the number of features associated with each word. When no direct connections from word features to outputs are desired, the matrix <span class="math notranslate nohighlight">\(W\)</span> is set to 0 . The free parameters of the model are the output biases <span class="math notranslate nohighlight">\(b\)</span> (with <span class="math notranslate nohighlight">\(|V|\)</span> elements), the hidden layer biases <span class="math notranslate nohighlight">\(d\)</span> (with <span class="math notranslate nohighlight">\(h\)</span> elements), the hidden-to-output weights <span class="math notranslate nohighlight">\(U\)</span> (a <span class="math notranslate nohighlight">\(|V| \times h\)</span> matrix), the word features to output weights <span class="math notranslate nohighlight">\(W\)</span> (a <span class="math notranslate nohighlight">\(|V| \times(n-1) m\)</span> matrix), the hidden layer weights <span class="math notranslate nohighlight">\(H\)</span> (a <span class="math notranslate nohighlight">\(h \times(n-1) m\)</span> matrix), and the word features <span class="math notranslate nohighlight">\(C\)</span>(a <span class="math notranslate nohighlight">\(|V| \times m\)</span> matrix <span class="math notranslate nohighlight">\()\)</span>: <span class="math notranslate nohighlight">\(\theta=(b, d, W, U, H, C)\)</span>”.</p>
 </div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sa">f</span><span class="s1">&#39;Número de features (m), es decir, número de componentes de cada bloque: </span><span class="si">{</span><span class="n">C</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s1"> | Número de elementos por bloque «(n-1)m»: </span><span class="si">{</span><span class="n">emb</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s1"> | Elementos de |V|: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">V</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sa">f</span><span class="s1">&#39;Número de features (m), es decir, número de componentes de cada bloque: </span><span class="si">{</span><span class="n">C</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s1"> | Número de elementos por bloque «(n-1)m»: </span><span class="si">{</span><span class="n">emb</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s1"> | Elementos de |V|: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">V</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -800,10 +904,10 @@ tensor([ 1.1950, -1.6664,  1.1950, -1.6664,  1.1950, -1.6664])
 <p>Ejemplifiquemos: si nuestro <em>input</em> es «mar» (<code class="docutils literal notranslate"><span class="pre">emb[3]</span></code>), nuestra probabilidad debe ser alta para que el número del <em>embedding</em> que represente la letra «i» de «María» sea un <em>output</em>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;En un inicio, cada letra de «mar» correspondía a su índice en el vocabulario: </span><span class="si">{</span><span class="n">X</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span>
-<span class="s2">Cuando pasamos estos índices a una matriz para que fueran representados por dos números, obtuvimos: </span><span class="si">{</span><span class="n">emb</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span>
-<span class="s2">Al mismo tiempo, la letra «i» fue guardada como objetivo en Y, siendo su índice: </span><span class="si">{</span><span class="n">Y</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span>
-<span class="s2">De manera que la probabilidad de nuestra red neuronal debe ser alta para el número que representa la letra «i» en el embedding: </span><span class="si">{</span><span class="o">-</span><span class="n">prob</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">[</span><span class="mi">3</span><span class="p">]]</span><span class="si">}</span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;En un inicio, cada letra de «mar» correspondía a su índice en el vocabulario: </span><span class="si">{</span><span class="n">X</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">Cuando pasamos estos índices a una matriz para que fueran representados por dos números, obtuvimos: </span><span class="si">{</span><span class="n">emb</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">Al mismo tiempo, la letra «i» fue guardada como objetivo en Y, siendo su índice: </span><span class="si">{</span><span class="n">Y</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">De manera que la probabilidad de nuestra red neuronal debe ser alta para el número que representa la letra «i» en el embedding: </span><span class="si">{</span><span class="o">-</span><span class="n">prob</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="n">Y</span><span class="p">[</span><span class="mi">3</span><span class="p">]]</span><span class="si">}</span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -893,8 +997,8 @@ De manera que la probabilidad de nuestra red neuronal debe ser alta para el núm
 <p>Bien, hemos conseguido un resultado decente en nuestro ejemplo. Ahora es momento de entrenar nuestra red con todos los nombres a la vez.</p>
 </section>
 <section id="optimizacion-de-modelos-neuronales-conjuntos-de-datos-sobreajuste-tasa-de-aprendizaje-y-lotes">
-<h2>Optimización de modelos neuronales: conjuntos de datos, sobreajuste, tasa de aprendizaje y lotes<a class="headerlink" href="#optimizacion-de-modelos-neuronales-conjuntos-de-datos-sobreajuste-tasa-de-aprendizaje-y-lotes" title="Permalink to this heading">#</a></h2>
-<p>Primero hacen falta algunos ajustes. Por una parte, evitaremos que nuestro modelo «memorice» o «sobreajuste» cada <em>output</em> correspondiente a cada <em>input</em> (a este sobreajuste se le llama <em>overfitting</em>), puesto que queremos nombres nuevos y originales y no una regurgitación de los que estamos utilizando. Para ello, se han desarrollado un número de técnicas en <em>deep learning</em>; pero de momento, utilizaremos una de las más elementales, y consiste en separar nuestros datos en tres partes: entrenamiento, validación y prueba. Entrenaremos nuestro modelo con una cantidad razonable de nombres (el 80 % de ellos), definimos nuestros parámetros —en rigor, hiperparámetros<a class="footnote-reference brackets" href="#id6" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>— con los datos de validación (10 % de nuestros nombres) y verificamos que el modelo sepa generalizar su aprendizaje con los datos destinados a las pruebas (último 10 % de nombres).</p>
+<h2>Optimización de modelos neuronales: conjuntos de datos, sobreajuste, tasa de aprendizaje y lotes<a class="headerlink" href="#optimizacion-de-modelos-neuronales-conjuntos-de-datos-sobreajuste-tasa-de-aprendizaje-y-lotes" title="Permalink to this headline">#</a></h2>
+<p>Primero hacen falta algunos ajustes. Por una parte, evitaremos que nuestro modelo «memorice» o «sobreajuste» cada <em>output</em> correspondiente a cada <em>input</em> (a este sobreajuste se le llama <em>overfitting</em>), puesto que queremos nombres nuevos y originales y no una regurgitación de los que estamos utilizando. Para ello, se han desarrollado un número de técnicas en <em>deep learning</em>; pero de momento, utilizaremos una de las más elementales, y consiste en separar nuestros datos en tres partes: entrenamiento, validación y prueba. Entrenaremos nuestro modelo con una cantidad razonable de nombres (el 80 % de ellos), definimos nuestros parámetros —en rigor, hiperparámetros<a class="footnote-reference brackets" href="#id6" id="id3">3</a>— con los datos de validación (10 % de nuestros nombres) y verificamos que el modelo sepa generalizar su aprendizaje con los datos destinados a las pruebas (último 10 % de nombres).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
@@ -1070,7 +1174,7 @@ De manera que la probabilidad de nuestra red neuronal debe ser alta para el núm
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/27aec81735e1176c1e0f8ba1cfeb43cb3fd209ce21bc7f9adb3299e6c2f0fa55.png" src="../../_images/27aec81735e1176c1e0f8ba1cfeb43cb3fd209ce21bc7f9adb3299e6c2f0fa55.png" />
+<img alt="../../_images/hacedor2_59_0.png" src="../../_images/hacedor2_59_0.png" />
 </div>
 </div>
 <p>Pero <span class="math notranslate nohighlight">\(10^{-3} = 0.001\)</span> y <span class="math notranslate nohighlight">\(10{^0} = 1\)</span>, de manera que utilizar este truco nos ayuda a obtener un cambio exponencial en nuestras tasas de aprendizaje. Ahora, nuestros 1000 números serán exponentes de 10 y lucirán así:</p>
@@ -1084,7 +1188,7 @@ De manera que la probabilidad de nuestra red neuronal debe ser alta para el núm
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/54ae7fd0bfa5e4ff4f1316019b161b16b79ddc4e7ad27e2d2bdf832078b9fd3b.png" src="../../_images/54ae7fd0bfa5e4ff4f1316019b161b16b79ddc4e7ad27e2d2bdf832078b9fd3b.png" />
+<img alt="../../_images/hacedor2_61_0.png" src="../../_images/hacedor2_61_0.png" />
 </div>
 </div>
 <p>Ahora, para elegir el número correcto en este rango, podemos registrar nuestras pérdidas correspondientes a cada tasa durante el entrenamiento:</p>
@@ -1128,7 +1232,7 @@ De manera que la probabilidad de nuestra red neuronal debe ser alta para el núm
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a7e5bb9ed1cc05a022a322ba2e1e5e5986e5f012835de5064861a364a6a81057.png" src="../../_images/a7e5bb9ed1cc05a022a322ba2e1e5e5986e5f012835de5064861a364a6a81057.png" />
+<img alt="../../_images/hacedor2_64_0.png" src="../../_images/hacedor2_64_0.png" />
 </div>
 </div>
 <p>En el gráfico podemos apreciar que nuestra tasa de aprendizaje óptima —es decir, la que mejor minimiza la pérdida— se encuentra alrededor de <span class="math notranslate nohighlight">\(10^{-1}\)</span> (es decir, <span class="math notranslate nohighlight">\(0.1\)</span>), de manera que podemos utilizar esta tasa con mayor confianza para entrenar todos nuestros parámetros con los datos de <code class="docutils literal notranslate"><span class="pre">Xtr</span></code>.</p>
@@ -1171,7 +1275,7 @@ De manera que la probabilidad de nuestra red neuronal debe ser alta para el núm
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/726f660ee1c8b35a1f38c3a55648289d0e729f46007656f5052c4930bd9492bd.png" src="../../_images/726f660ee1c8b35a1f38c3a55648289d0e729f46007656f5052c4930bd9492bd.png" />
+<img alt="../../_images/hacedor2_67_0.png" src="../../_images/hacedor2_67_0.png" />
 </div>
 </div>
 <p>Debido a que entrenamos nuestros parámetros en lotes, la función de pérdida tiene algo de ruido cuando se acerca a su valor mínimo. Comprobemos ahora la pérdida que tenemos en <code class="docutils literal notranslate"><span class="pre">Xdev</span></code>:</p>
@@ -1203,14 +1307,14 @@ De manera que la probabilidad de nuestra red neuronal debe ser alta para el núm
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3d974ff646299147d3e540348b4b0e56398a7d8cb9f657ac4467848299b8afad.png" src="../../_images/3d974ff646299147d3e540348b4b0e56398a7d8cb9f657ac4467848299b8afad.png" />
+<img alt="../../_images/hacedor2_71_0.png" src="../../_images/hacedor2_71_0.png" />
 </div>
 </div>
 <p>Como vemos, las vocales —junto con la «y», aunque sin la «i»— aparecen agrupadas entre sí: esto quiere decir que nuestro modelo las interpreta como letras similares. Lo mismo aplica para las consonantes.</p>
 <p>Hasta el momento, no hemos conseguido mejorar nuestro modelo anterior. En la práctica, la optimización de modelos se hace con un número de pruebas que contengan hiperparámetros distintos. Podemos, por ejemplo, aumentar nuestros parámetros, nuestro <em>embedding</em>, nuestras capas, probar nuevas tasas de aprendizaje, entrenar el modelo por más tiempo, etcétera. Intentemos hacer un poco de todo para finalizar esta lección:</p>
 </section>
 <section id="ensayo-de-un-modelo-con-hiperparametros-optimos">
-<h2>Ensayo de un modelo con hiperparámetros óptimos<a class="headerlink" href="#ensayo-de-un-modelo-con-hiperparametros-optimos" title="Permalink to this heading">#</a></h2>
+<h2>Ensayo de un modelo con hiperparámetros óptimos<a class="headerlink" href="#ensayo-de-un-modelo-con-hiperparametros-optimos" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">nombres</span><span class="p">)</span>
@@ -1352,18 +1456,17 @@ geria.
 </div>
 <p>Indudablemente, estos nombres son más respetables.</p>
 <hr class="footnotes docutils" />
-<aside class="footnote brackets" id="id4" role="note">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
-<p>El método <code class="docutils literal notranslate"><span class="pre">view</span></code> es eficiente porque <a class="reference external" href="http://blog.ezyang.com/2019/05/pytorch-internals/">no requiere de nuevo espacio</a> en la memoria de nuestra computadora, sino que utiliza el mismo tensor para reacomodarlo de manera distinta. Conforme nuestros programas se vuelvan más complejos, debemos procurar eficientar al máximo nuestros recursos computacionales. Para un acercamiento más general al tema, véase el <a class="reference external" href="https://horace.io/brrr_intro.html">artículo de Horace He</a>.</p>
-</aside>
-<aside class="footnote brackets" id="id5" role="note">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
-<p>En <em>deep learning</em>, el término <em>hidden</em> («oculto») se utiliza para referirse a componentes de una red neuronal que no son «visibles» ni como entradas ni como salidas de la red. Se trata de entradas o salidas que se procesan internamente por la red neuronal antes de arrojar un resultado final. La <em>hidden unit</em>, en ese sentido, se refiere a cada unidad o componente de una capa oculta (<em>hidden layer</em>) en la red. Podemos entenderla como sinónimo de «nodo» o «neurona».</p>
-</aside>
-<aside class="footnote brackets" id="id6" role="note">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
-<p>Se denominan «parámetros» a los números o coeficientes que la red neuronal aprende y determina durante el entrenamiento (por ejemplo, los números de los pesos y los sesgos). Por otra parte, los «hiperparámetros» son aquellos que nosotros definimos manualmente según la naturaleza de cada problema, y que optimizamos mediante pruebas con distintos valores (por ejemplo, nuestras unidades ocultas <span class="math notranslate nohighlight">\(h\)</span>).</p>
-</aside>
+<dl class="footnote brackets">
+<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>El método <code class="docutils literal notranslate"><span class="pre">view</span></code> es eficiente porque <a class="reference external" href="http://blog.ezyang.com/2019/05/pytorch-internals/">no requiere de nuevo espacio</a> en la memoria de nuestra computadora, sino que utiliza el mismo tensor para reacomodarlo de manera distinta. Conforme nuestros programas se vuelvan más complejos, debemos procurar eficientar al máximo nuestros recursos computacionales. Para un acercamiento más general al tema, véase el <a class="reference external" href="https://horace.io/brrr_intro.html">artículo de Horace He</a>.</p>
+</dd>
+<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>En <em>deep learning</em>, el término <em>hidden</em> («oculto») se utiliza para referirse a componentes de una red neuronal que no son «visibles» ni como entradas ni como salidas de la red. Se trata de entradas o salidas que se procesan internamente por la red neuronal antes de arrojar un resultado final. La <em>hidden unit</em>, en ese sentido, se refiere a cada unidad o componente de una capa oculta (<em>hidden layer</em>) en la red. Podemos entenderla como sinónimo de «nodo» o «neurona».</p>
+</dd>
+<dt class="label" id="id6"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dd><p>Se denominan «parámetros» a los números o coeficientes que la red neuronal aprende y determina durante el entrenamiento (por ejemplo, los números de los pesos y los sesgos). Por otra parte, los «hiperparámetros» son aquellos que nosotros definimos manualmente según la naturaleza de cada problema, y que optimizamos mediante pruebas con distintos valores (por ejemplo, nuestras unidades ocultas <span class="math notranslate nohighlight">\(h\)</span>).</p>
+</dd>
+</dl>
 </section>
 </section>
 
@@ -1379,7 +1482,7 @@ geria.
             mode: "python"
         },
         kernelOptions: {
-            name: "python3",
+            kernelName: "python3",
             path: "./notebooks/alfa"
         },
         predefinedOutput: true
@@ -1387,100 +1490,49 @@ geria.
     </script>
     <script>kernelName = 'python3'</script>
 
-                </article>
+              </div>
               
-
-              
-              
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
-<div class="prev-next-area">
-    <a class="left-prev"
-       href="hacedor.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Elementos de procesamiento de lenguajes naturales, o El Hacedor</p>
-      </div>
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="hacedor.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Elementos de procesamiento de lenguajes naturales, o El Hacedor</p>
+        </div>
     </a>
-    <a class="right-next"
-       href="digitalbio.html"
-       title="next page">
-      <div class="prev-next-info">
+    <a class='right-next' id="next-link" href="digitalbio.html" title="next page">
+    <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Elementos de biología digital</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
-</div></div>
-  
-</div>
-
-                </footer>
-              
-            </div>
-            
-            
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#un-modelo-neuronal-probabilistico-de-lenguaje">Un modelo neuronal probabilístico de lenguaje</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimizacion-de-modelos-neuronales-conjuntos-de-datos-sobreajuste-tasa-de-aprendizaje-y-lotes">Optimización de modelos neuronales: conjuntos de datos, sobreajuste, tasa de aprendizaje y lotes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ensayo-de-un-modelo-con-hiperparametros-optimos">Ensayo de un modelo con hiperparámetros óptimos</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
-              
-            
-          </div>
-          <footer class="bd-footer-content">
-            
-<div class="bd-footer-content__inner container">
-  
-  <div class="footer-item">
-    
-<p class="component-author">
-By Dante Noguez
-</p>
-
-  </div>
-  
-  <div class="footer-item">
-    
-  </div>
-  
-  <div class="footer-item">
-    
-  </div>
-  
-  <div class="footer-item">
-    
-  </div>
-  
-</div>
-          </footer>
-        
-
-      </main>
     </div>
-  </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Dante Noguez<br/>
+  
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
-  <footer class="bd-footer">
-  </footer>
+
   </body>
 </html>
