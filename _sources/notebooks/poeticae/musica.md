@@ -107,3 +107,17 @@ name: jun2023
 ---
 Omisiones importantes: Drake AI, Travis Scott AI, The Weeknd AI.
 ```
+
+<p align="center">
+<i>
+Julio-Agosto, 2023
+</i>
+</p>
+
+```{figure} ../../img/ago23.jpeg
+---
+width: 100%
+name: ago2023
+---
+Lamento decir que ya casi no me gusta escuchar música.
+```

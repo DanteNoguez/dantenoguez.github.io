@@ -75,6 +75,8 @@ LEONARDO:
 <iframe width="100%" height="152" src="https://www.youtube.com/embed/_3EuiU1qdpE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
  ---
+ <!---
+No hay manera de legitimar objetivamente... para decir que la improvisación es una forma superior de pensamiento, más allá de porque las ideas románticas de ciertos filósofos sientan mejor con tus manías personales.
 
 Dicen que Nietzsche y Wilde son escritores para adolescentes y no me aparece que haya mejor elogio que ese. Solo en la furia rebelde de la juventud se deja ver el ímpetu reformador del genio. 
 
@@ -136,3 +138,4 @@ https://plato.stanford.edu/entries/schopenhauer-aesthetics/#Gen
 https://plato.stanford.edu/entries/aesthetics-19th-romantic/
 
 Du Bos: England is supposedly unable to produce painters of the first rank because the climate is too cold.
+-->
