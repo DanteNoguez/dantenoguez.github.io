@@ -1,50 +1,68 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Elementos de redes neuronales &#8212; Dantis Elementorum</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-C9T8ZX64EM"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-C9T8ZX64EM');
+            </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -53,71 +71,95 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/alfa/redes';</script>
     <link rel="canonical" href="https://dantenoguez.github.io/notebooks/alfa/redes.html" />
     <link rel="shortcut icon" href="../../_static/logo.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Elementos de cálculo infinitesimal" href="calculo.html" />
     <link rel="prev" title="Elementos de programación" href="programacion.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-C9T8ZX64EM"></script>
-<script>
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){ dataLayer.push(arguments); }
-                    gtag('js', new Date());
-                    gtag('config', 'G-C9T8ZX64EM');
-                </script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../../_static/logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Dantis Elementorum</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -126,420 +168,247 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Elementorum Physicæ Mathematicæ
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Elementorum Physicæ Mathematicæ</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="programacion.html">
-   Elementos de programación
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Elementos de redes neuronales
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="calculo.html">
-   Elementos de cálculo infinitesimal
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="hacedor.html">
-   Elementos de procesamiento de lenguajes naturales, o El Hacedor
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="hacedor2.html">
-   Elementos de procesamiento de lenguajes naturales, parte II
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="digitalbio.html">
-   Elementos de biología digital
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="programacion.html">Elementos de programación</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Elementos de redes neuronales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calculo.html">Elementos de cálculo infinitesimal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hacedor.html">Elementos de procesamiento de lenguajes naturales, o El Hacedor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hacedor2.html">Elementos de procesamiento de lenguajes naturales, parte II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="digitalbio.html">Elementos de biología digital</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Elementorum Politicæ Œconomicæ Iurisprudentiæ
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Elementorum Politicæ Œconomicæ Iurisprudentiæ</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../beta/iurisprudentiae.html">
-   Elementos de leyes, o Nova methodus discendæ iurisprudentiæ
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../beta/schumpeter.html">
-   Notas a Schumpeter
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../beta/iurisprudentiae.html">Elementos de leyes, o Nova methodus discendæ iurisprudentiæ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../beta/schumpeter.html">Notas a Schumpeter</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Elementorum Poeticæ
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Elementorum Poeticæ</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../poeticae/borges.html">
-   Elementos de literatura borgesiana, o Borges y sus precursores
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../poeticae/afro.html">
-   Elementos de música afroamericana
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../poeticae/borges.html">Elementos de literatura borgesiana, o Borges y sus precursores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../poeticae/afro.html">Elementos de música afroamericana</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Exagium
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Exagium</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../exagium/tzompantli.html">
-   Breve ensayo sobre el tzompantli
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../exagium/diccionario.html">
-   Diccionario fantástico de la lengua española
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../exagium/escribir.html">
-   Escribir ¿para qué?
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../exagium/secturnial.html">
-   Relatos secturniales
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../exagium/castillos.html">
-   La importancia de ser olvidado
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../exagium/aforismos.html">
-   Cuaderno de notas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../exagium/ia.html">
-   Tientos cibernéticos
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../exagium/coronavirus.html">
-   Bitácora del confinamiento
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../exagium/tzompantli.html">Breve ensayo sobre el tzompantli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exagium/diccionario.html">Diccionario fantástico de la lengua española</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exagium/escribir.html">Escribir ¿para qué?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exagium/secturnial.html">Relatos secturniales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exagium/castillos.html">La importancia de ser olvidado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exagium/aforismos.html">Cuaderno de notas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exagium/ia.html">Tientos cibernéticos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exagium/coronavirus.html">Bitácora del confinamiento</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/DanteNoguez/Ensayos/main?urlpath=tree/ensayos/notebooks/alfa/redes.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/DanteNoguez/Ensayos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/DanteNoguez/Ensayos/issues/new?title=Issue%20on%20page%20%2Fnotebooks/alfa/redes.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/alfa/redes.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
 
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/DanteNoguez/Ensayos"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/DanteNoguez/Ensayos/issues/new?title=Issue%20on%20page%20%2Fnotebooks/alfa/redes.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../_sources/notebooks/alfa/redes.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#la-derivada-demostrada-segun-el-orden-geometrico">
-   La derivada demostrada según el orden geométrico
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pero-para-que-sirve-la-derivada">
-   Pero ¿para qué sirve la derivada?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pequegrad">
-   Pequegrad
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#la-regla-de-la-cadena-propagacion-hacia-atras">
-   La regla de la cadena: propagación hacia atrás
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#perceptron-multicapa">
-   Perceptrón multicapa
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bibliografia-recomendada">
-   Bibliografía recomendada
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Elementos de redes neuronales</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#la-derivada-demostrada-segun-el-orden-geometrico">
-   La derivada demostrada según el orden geométrico
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pero-para-que-sirve-la-derivada">
-   Pero ¿para qué sirve la derivada?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pequegrad">
-   Pequegrad
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#la-regla-de-la-cadena-propagacion-hacia-atras">
-   La regla de la cadena: propagación hacia atrás
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#perceptron-multicapa">
-   Perceptrón multicapa
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bibliografia-recomendada">
-   Bibliografía recomendada
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Elementos de redes neuronales</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-derivada-demostrada-segun-el-orden-geometrico">La derivada demostrada según el orden geométrico</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pero-para-que-sirve-la-derivada">Pero ¿para qué sirve la derivada?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pequegrad">Pequegrad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-regla-de-la-cadena-propagacion-hacia-atras">La regla de la cadena: propagación hacia atrás</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perceptron-multicapa">Perceptrón multicapa</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliografia-recomendada">Bibliografía recomendada</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="elementos-de-redes-neuronales">
-<h1>Elementos de redes neuronales<a class="headerlink" href="#elementos-de-redes-neuronales" title="Permalink to this headline">#</a></h1>
+<h1>Elementos de redes neuronales<a class="headerlink" href="#elementos-de-redes-neuronales" title="Permalink to this heading">#</a></h1>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p><em>Como prerrequisitos para esta lección, sugiero leer la <a class="reference external" href="https://dantenoguez.github.io/notebooks/alfa/programacion.html">lección anterior</a> y el artículo de Khan Academy sobre la <a class="reference external" href="https://es.khanacademy.org/math/cc-eighth-grade-math/cc-8th-linear-equations-functions/8th-slope/a/slope-from-two-points">pendiente matemática</a>.</em></p>
@@ -562,7 +431,7 @@ title="Print to PDF"
 </div>
 </div>
 <section id="la-derivada-demostrada-segun-el-orden-geometrico">
-<h2>La derivada demostrada según el orden geométrico<a class="headerlink" href="#la-derivada-demostrada-segun-el-orden-geometrico" title="Permalink to this headline">#</a></h2>
+<h2>La derivada demostrada según el orden geométrico<a class="headerlink" href="#la-derivada-demostrada-segun-el-orden-geometrico" title="Permalink to this heading">#</a></h2>
 <p>Las redes neuronales son gigantescas funciones matemáticas. La característica distintiva de estas funciones, que catalizan gran parte de lo que hoy se denomina «inteligencia artificial» (aunque, más estrictamente, deberíamos hablar de «aprendizaje profundo» o <em>deep learning</em>), es que pueden «aprender» a refinar, optimizar y generalizar las «reglas» (parámetros) que las componen. Tal proceso de aprendizaje consiste en la iteración de operaciones matemáticas propias del cálculo diferencial y vectorial. Por ello, para poder formular una red neuronal, procuraremos primero entender intuitivamente a la derivada: esa médula matemática del aprendizaje.</p>
 <p>Para tal propósito, construiremos la derivada desde cero, utilizando apenas unas cuantas nociones básicas de geometría.</p>
 <p>En geometría, denominamos «pendiente» al valor de la inclinación de una recta. Conceptualmente, la pendiente puede ser interpretada como la proporción del cambio que hay entre las variables <span class="math notranslate nohighlight">\(x\)</span> y <span class="math notranslate nohighlight">\(y\)</span> de la recta. En otras palabras, la pendiente mide qué tanto influye <span class="math notranslate nohighlight">\(x\)</span> en el valor de <span class="math notranslate nohighlight">\(y\)</span>, o qué tanto cambia <span class="math notranslate nohighlight">\(y\)</span> cuando avanzamos en <span class="math notranslate nohighlight">\(x\)</span>. Supongamos, por ejemplo, la recta de una función que podemos definir como <span class="math notranslate nohighlight">\(f(x, b) = x \cdot b\)</span>, donde:</p>
@@ -668,7 +537,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/redes_7_0.png" src="../../_images/redes_7_0.png" />
+<img alt="../../_images/83de4665974c3cf8aa3acc9da3cad4a38d8e1947ad7b168c5c58deed7c6d5bdc.png" src="../../_images/83de4665974c3cf8aa3acc9da3cad4a38d8e1947ad7b168c5c58deed7c6d5bdc.png" />
 </div>
 </div>
 <p>Ahora, ¿cómo puedo saber cuánto está influyendo cada valor de <span class="math notranslate nohighlight">\(x\)</span> en cada valor de <span class="math notranslate nohighlight">\(y\)</span>? Es decir, si paso de <span class="math notranslate nohighlight">\(x=2\)</span> a <span class="math notranslate nohighlight">\(x=4\)</span>, ¿qué le pasa a <span class="math notranslate nohighlight">\(y\)</span>? <span class="math notranslate nohighlight">\(y\)</span> avanza desde <span class="math notranslate nohighlight">\(10\)</span> hasta <span class="math notranslate nohighlight">\(20\)</span>, es decir, cinco veces <span class="math notranslate nohighlight">\(x\)</span>: <span class="math notranslate nohighlight">\(5 \times 2 = 10\)</span>. Y si paso de <span class="math notranslate nohighlight">\(x=4\)</span> a <span class="math notranslate nohighlight">\(x=6\)</span>, es decir, si avanzo dos «pasos» en <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span> nuevamente avanza cinco veces lo que avancé en <span class="math notranslate nohighlight">\(x\)</span>, pasando de <span class="math notranslate nohighlight">\(20\)</span> a <span class="math notranslate nohighlight">\(30\)</span>.</p>
@@ -717,7 +586,7 @@ Pendiente = \frac{y_2 - y_1}{x_2 - x_1} = \frac{60 - 10}{12 - 2} = \frac{50}{10}
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Valor de la pendiente: 5.0
 </pre></div>
 </div>
-<img alt="../../_images/redes_9_1.png" src="../../_images/redes_9_1.png" />
+<img alt="../../_images/b8c65436183dd53125284f131aabecdc2793046d526bc7162d9dd26009045014.png" src="../../_images/b8c65436183dd53125284f131aabecdc2793046d526bc7162d9dd26009045014.png" />
 </div>
 </div>
 <p>La pendiente es idéntica a la recta porque, como decíamos, la recta tiene la misma inclinación —pendiente— en todos sus puntos. Ahora, el problema con la pendiente es que esta propiedad es al mismo tiempo una limitación fundamental: la pendiente solo es válida para una recta o función lineal.</p>
@@ -749,7 +618,7 @@ Pendiente = \frac{y_2 - y_1}{x_2 - x_1} = \frac{60 - 10}{12 - 2} = \frac{50}{10}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/redes_11_0.png" src="../../_images/redes_11_0.png" />
+<img alt="../../_images/6e3b35a5c9c6202da51c3362206f7684b9afdb8a71e2b7ec2209bdb39a5bc46b.png" src="../../_images/6e3b35a5c9c6202da51c3362206f7684b9afdb8a71e2b7ec2209bdb39a5bc46b.png" />
 </div>
 </div>
 <p>Para calcular la inclinación de la función (es decir, la curva azul) cuando <span class="math notranslate nohighlight">\(x=5\)</span>, he utilizado la fórmula de la pendiente tomando como referencia los puntos <span class="math notranslate nohighlight">\(x_1=2, x_2=5\)</span>, de tal manera que:</p>
@@ -757,7 +626,7 @@ Pendiente = \frac{y_2 - y_1}{x_2 - x_1} = \frac{60 - 10}{12 - 2} = \frac{50}{10}
 \[
 Pendiente = \frac{y_2 - y_1}{x_2 - x_1} = \frac{25 - 4}{5 - 2} = \frac{21}{3} = 7
 \]</div>
-<p>Pero la realidad es que mi función no cambió en esa proporción con respecto al punto <span class="math notranslate nohighlight">\(x=5\)</span>: esa pendiente de <span class="math notranslate nohighlight">\(7\)</span> corresponde a la secante<a class="footnote-reference brackets" href="#id5" id="id1">1</a> que atraviesa la función, no a la «pendiente» del punto <span class="math notranslate nohighlight">\(x=5\)</span>. La gráfica evidencia que el resultado es inexacto: queda claro que la función tiene una inclinación distinta a la de la recta roja.</p>
+<p>Pero la realidad es que mi función no cambió en esa proporción con respecto al punto <span class="math notranslate nohighlight">\(x=5\)</span>: esa pendiente de <span class="math notranslate nohighlight">\(7\)</span> corresponde a la secante<a class="footnote-reference brackets" href="#id5" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> que atraviesa la función, no a la «pendiente» del punto <span class="math notranslate nohighlight">\(x=5\)</span>. La gráfica evidencia que el resultado es inexacto: queda claro que la función tiene una inclinación distinta a la de la recta roja.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>Tengamos en mente lo siguiente: nuestra función es curva porque su inclinación siempre cambia, y su inclinación siempre cambia porque cada valor de <span class="math notranslate nohighlight">\(x\)</span> influye en <span class="math notranslate nohighlight">\(y\)</span> de manera distinta. Intuitivamente, cuando <span class="math notranslate nohighlight">\(x=4\)</span>, <span class="math notranslate nohighlight">\(y\)</span> resulta de <span class="math notranslate nohighlight">\(4^2\)</span>, es decir, <span class="math notranslate nohighlight">\(y\)</span> resulta de multiplicar <span class="math notranslate nohighlight">\(4 \times 4\)</span>; pero cuando <span class="math notranslate nohighlight">\(x=5\)</span>, <span class="math notranslate nohighlight">\(y\)</span> aumenta en una proporción diferente: <span class="math notranslate nohighlight">\(5 \times 5\)</span>. Por contra, las rectas o funciones lineales siempre cambian en la misma proporción —anteriormente, siempre se multiplicaba cada <span class="math notranslate nohighlight">\(x\)</span> por <span class="math notranslate nohighlight">\(5\)</span>—, de manera que su inclinación es única y constante.</p>
@@ -803,7 +672,7 @@ Pendiente = \frac{y_2 - y_1}{x_2 - x_1} = \frac{25 - 4}{5 - 2} = \frac{21}{3} = 
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Valor de la pendiente con una secante más pequeña: 9.0
 </pre></div>
 </div>
-<img alt="../../_images/redes_13_1.png" src="../../_images/redes_13_1.png" />
+<img alt="../../_images/8a1ba7a697012e7333a878585e69f8ca9cc154d059df4aa43b2839d7446ff6b5.png" src="../../_images/8a1ba7a697012e7333a878585e69f8ca9cc154d059df4aa43b2839d7446ff6b5.png" />
 </div>
 </div>
 <p>Gráficamente podemos comprobar que hemos obtenido un mucho mejor resultado: la secante que trazamos tiene una inclinación similar a la de la curva de la función. Pero las líneas punteadas —las cuales denotan los puntos que hemos tomado como referencia para calcular la pendiente— nos indican que todavía podemos mejorar, tomando como referencia coordenadas más cercanas entre sí.</p>
@@ -858,7 +727,7 @@ Pendiente = \frac{y_2 - y_1}{x_2 - x_1} = \frac{25 - 4}{5 - 2} = \frac{21}{3} = 
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Valor de la pendiente con una secante más pequeña: 9.990000000000023
 </pre></div>
 </div>
-<img alt="../../_images/redes_15_1.png" src="../../_images/redes_15_1.png" />
+<img alt="../../_images/beaf72a4871ea88918f0d1ecd521e2063bdaf30876bfb4d09067f64291797899.png" src="../../_images/beaf72a4871ea88918f0d1ecd521e2063bdaf30876bfb4d09067f64291797899.png" />
 </div>
 </div>
 <p>En esencia, hemos minimizado las distancias entre <span class="math notranslate nohighlight">\(x_2\)</span> y <span class="math notranslate nohighlight">\(x_1\)</span> al utilizar los valores <span class="math notranslate nohighlight">\(x_2=5, x_1=4.99\)</span> para obtener un resultado más riguroso. Gráficamente, corroboramos que nuestro resultado es más exacto: la línea que podemos trazar con la pendiente obtenida es casi idéntica a la función, al punto que la opaca cuando la miramos desde cerca. Suponiendo, como en nuestro dibujo anterior, que llamemos <span class="math notranslate nohighlight">\(h\)</span> a la distancia entre las <span class="math notranslate nohighlight">\(x\)</span>, nuestra fórmula actual para la pendiente de esta tangente o secante infinitamente pequeña luce así:</p>
@@ -949,7 +818,7 @@ nx^{n-1} = 2(5)^{2-1} = 10
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/redes_20_0.png" src="../../_images/redes_20_0.png" />
+<img alt="../../_images/6957750a89c2e84e1c7e10fc4bbfc8a58d81833e9d4a0fa9d2c62c51b7860e0c.png" src="../../_images/6957750a89c2e84e1c7e10fc4bbfc8a58d81833e9d4a0fa9d2c62c51b7860e0c.png" />
 </div>
 </div>
 <p>Veamos un último ejemplo, ahora con la función suma: mi variable <span class="math notranslate nohighlight">\(x\)</span> tendrá valores del <span class="math notranslate nohighlight">\(0\)</span> al <span class="math notranslate nohighlight">\(12\)</span> con intervalos de <span class="math notranslate nohighlight">\(2\)</span>, mientras que mi función es <span class="math notranslate nohighlight">\(x+6\)</span>. Mi tabla de valores entonces debería quedar así:</p>
@@ -1030,14 +899,14 @@ nx^{n-1} = 2(5)^{2-1} = 10
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/redes_24_0.png" src="../../_images/redes_24_0.png" />
+<img alt="../../_images/497f99c4848de769f76752ec759b7db960d6366cff8fab48a4bbb3b64dbd6ca8.png" src="../../_images/497f99c4848de769f76752ec759b7db960d6366cff8fab48a4bbb3b64dbd6ca8.png" />
 </div>
 </div>
 <p>La inclinación de la recta es menor porque <span class="math notranslate nohighlight">\(y\)</span> aumenta lentamente en proporción a <span class="math notranslate nohighlight">\(x\)</span>, de <span class="math notranslate nohighlight">\(2\)</span> en <span class="math notranslate nohighlight">\(2\)</span>. Una vez más: únicamente estamos averiguando la proporción que hay entre los valores de <span class="math notranslate nohighlight">\(x\)</span> y de <span class="math notranslate nohighlight">\(y\)</span>. Si cada valor de <span class="math notranslate nohighlight">\(x\)</span> aumenta significativamente cada valor correspondiente de la función, entonces nuestra derivada será alta y la inclinación de la recta será empinada.</p>
 <p>Por otra parte, cuando cada valor de la función aumenta poco conforme hacemos más grande nuestra variable de entrada, entonces la derivada será pequeña y la inclinación será poca.</p>
 </section>
 <section id="pero-para-que-sirve-la-derivada">
-<h2>Pero ¿para qué sirve la derivada?<a class="headerlink" href="#pero-para-que-sirve-la-derivada" title="Permalink to this headline">#</a></h2>
+<h2>Pero ¿para qué sirve la derivada?<a class="headerlink" href="#pero-para-que-sirve-la-derivada" title="Permalink to this heading">#</a></h2>
 <p>Imaginemos que tenemos dos variables: <span class="math notranslate nohighlight">\(x = -2\)</span> y <span class="math notranslate nohighlight">\(y = 3\)</span>. La función <span class="math notranslate nohighlight">\(f(x, y)\)</span> las multiplica y su resultado es <span class="math notranslate nohighlight">\(-6\)</span>. Sin embargo, queremos alterar ese resultado para que sea <span class="math notranslate nohighlight">\(0\)</span> y tenemos una restricción: la única manera de hacerlo es a través de las variables de entrada. Para ello, podríamos pensar en aumentar o disminuir las entradas en pasos pequeños y probar aleatoriamente hasta conseguir el resultado.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -1047,7 +916,7 @@ nx^{n-1} = 2(5)^{2-1} = 10
 <p>Si recordamos la lección aprendida en las derivadas, se nos puede ocurrir utilizarlas para resolver este problema: dado que la derivada me dice el impacto que tiene una variable de entrada en la función, ¿será posible utilizarla para alterar el resultado de la función? Es decir, si la derivada me dice la magnitud del impacto que una varible tiene en el resultado, entonces debería poder utilizar esa información para influir en el resultado de manera más eficiente. Por ejemplo, si la derivada me indica que una variable influye positivamente en la función, pero yo quiero disminuirla, entonces sabré más o menos la magnitud en que debo disminuir esa variable, y así sucesivamente.</p>
 </section>
 <section id="pequegrad">
-<h2>Pequegrad<a class="headerlink" href="#pequegrad" title="Permalink to this headline">#</a></h2>
+<h2>Pequegrad<a class="headerlink" href="#pequegrad" title="Permalink to this heading">#</a></h2>
 <p>Para entender mejor la posible solución planteada, crearemos programáticamente la clase <code class="docutils literal notranslate"><span class="pre">Numero</span></code>, es decir, formularemos una estructura que nos permita definir, modificar y operar con números. De momento, cada <code class="docutils literal notranslate"><span class="pre">Numero</span></code> tendrá las siguientes propiedades: un <code class="docutils literal notranslate"><span class="pre">valor</span></code>, un par de valores <code class="docutils literal notranslate"><span class="pre">previos</span></code> para el caso de que el <code class="docutils literal notranslate"><span class="pre">valor</span></code> haya sido generado mediante una operación (por ejemplo, <span class="math notranslate nohighlight">\(2\)</span> y <span class="math notranslate nohighlight">\(2\)</span> en el caso de que multiplicados hayan generado el número <span class="math notranslate nohighlight">\(4\)</span>), la <code class="docutils literal notranslate"><span class="pre">operación</span></code> que generó dicho valor (en nuestro ejemplo, la multiplicación) y una etiqueta en caso de que queramos asociar nuestro <code class="docutils literal notranslate"><span class="pre">valor</span></code> a una variable. Por ahora, únicamente tendremos las operaciones de suma, multiplcación, resta y división:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1159,7 +1028,7 @@ nx^{n-1} = 2(5)^{2-1} = 10
 </div>
 </div>
 </div>
-<p>Finalmente, visualizamos la función<a class="footnote-reference brackets" href="#id6" id="id2">2</a>. El problema a resolver consiste en influir en los valores de la función <span class="math notranslate nohighlight">\(L\)</span> para llevarla a <span class="math notranslate nohighlight">\(0\)</span>.</p>
+<p>Finalmente, visualizamos la función<a class="footnote-reference brackets" href="#id6" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>. El problema a resolver consiste en influir en los valores de la función <span class="math notranslate nohighlight">\(L\)</span> para llevarla a <span class="math notranslate nohighlight">\(0\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">graficar</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
@@ -1167,9 +1036,9 @@ nx^{n-1} = 2(5)^{2-1} = 10
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/redes_34_0.svg" src="../../_images/redes_34_0.svg" /></div>
+<img alt="../../_images/ffb0554f4cdbb82d6eec858d6db576dbe80c979f9b42e1ebd103a57ea46cac67.svg" src="../../_images/ffb0554f4cdbb82d6eec858d6db576dbe80c979f9b42e1ebd103a57ea46cac67.svg" /></div>
 </div>
-<p>Como decíamos, intuitivamente creemos que la derivada puede ayudarnos: con la derivada sabemos qué impacto tiene cada variable en el resultado final <span class="math notranslate nohighlight">\(L\)</span>. En ese sentido, lo que tendremos que hacer primero es calcular la derivada de <span class="math notranslate nohighlight">\(L\)</span> con respecto a cada variable<a class="footnote-reference brackets" href="#id7" id="id3">3</a>.</p>
+<p>Como decíamos, intuitivamente creemos que la derivada puede ayudarnos: con la derivada sabemos qué impacto tiene cada variable en el resultado final <span class="math notranslate nohighlight">\(L\)</span>. En ese sentido, lo que tendremos que hacer primero es calcular la derivada de <span class="math notranslate nohighlight">\(L\)</span> con respecto a cada variable<a class="footnote-reference brackets" href="#id7" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>.</p>
 <p>En principio, la derivada de <span class="math notranslate nohighlight">\(L\)</span> con respecto a sí misma es <span class="math notranslate nohighlight">\(1\)</span>: aunque suene absurdo y evidente a la vez, el cambio en <span class="math notranslate nohighlight">\(L\)</span> es proporcional (idéntico) a sí mismo. Ahora, la derivada de <span class="math notranslate nohighlight">\(L\)</span> con respecto a <span class="math notranslate nohighlight">\(f\)</span> y <span class="math notranslate nohighlight">\(e\)</span> la podemos averiguar con la fórmula que veníamos utilizando:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1217,7 +1086,7 @@ nx^{n-1} = 2(5)^{2-1} = 10
 <p>Ahora que ya tenemos esta información, queremos continuar al nodo anterior: las derivadas con respecto a <span class="math notranslate nohighlight">\(c\)</span> y <span class="math notranslate nohighlight">\(d\)</span>. Pero aquí hay una sutileza que, bien entendida, nos dará la clave de las redes neuronales: debemos obtener la derivada de <span class="math notranslate nohighlight">\(L\)</span> con respecto a <span class="math notranslate nohighlight">\(c\)</span> y <span class="math notranslate nohighlight">\(d\)</span>, no la derivada de <span class="math notranslate nohighlight">\(e\)</span> con respecto a ellas. Entonces, ¿cómo podemos averiguar el impacto que <span class="math notranslate nohighlight">\(c\)</span> y <span class="math notranslate nohighlight">\(d\)</span> tienen en <span class="math notranslate nohighlight">\(L\)</span> a través de <span class="math notranslate nohighlight">\(e\)</span>? Para hacer este cálculo solo hace falta una intuición bastante simple.</p>
 </section>
 <section id="la-regla-de-la-cadena-propagacion-hacia-atras">
-<h2>La regla de la cadena: propagación hacia atrás<a class="headerlink" href="#la-regla-de-la-cadena-propagacion-hacia-atras" title="Permalink to this headline">#</a></h2>
+<h2>La regla de la cadena: propagación hacia atrás<a class="headerlink" href="#la-regla-de-la-cadena-propagacion-hacia-atras" title="Permalink to this heading">#</a></h2>
 <p>Tomemos prestada la analogía de George Simmons: si una bicicleta es dos veces más rápida que una persona corriendo, y un automóvil cuatro veces más rápido que una bicicleta, entonces el automóvil es <span class="math notranslate nohighlight">\(2 \times 4 = 8\)</span> veces más rápido que una persona corriendo.</p>
 <p>De igual forma, si queremos saber la influencia que <span class="math notranslate nohighlight">\(c\)</span> tiene en <span class="math notranslate nohighlight">\(L\)</span>, solo debemos obtener la derivada de <span class="math notranslate nohighlight">\(e\)</span> con respecto a <span class="math notranslate nohighlight">\(c\)</span>, y multiplicarla por la derivada de <span class="math notranslate nohighlight">\(L\)</span> con respecto a <span class="math notranslate nohighlight">\(e\)</span>. Es decir, debemos multiplicar la fuerza de <span class="math notranslate nohighlight">\(c\)</span> en <span class="math notranslate nohighlight">\(e\)</span> y la de <span class="math notranslate nohighlight">\(e\)</span> en <span class="math notranslate nohighlight">\(L\)</span> para saber con cuánta fuerza influye <span class="math notranslate nohighlight">\(c\)</span> en <span class="math notranslate nohighlight">\(L\)</span>. Lo mismo vale para <span class="math notranslate nohighlight">\(d\)</span> y todas las demás; a esta regla se le llama «regla de la cadena» (y mediante ella se realiza la «propagación hacia atrás» en el campo de la inteligencia artificial).</p>
 <p>Ahora, para obtener la derivada de <span class="math notranslate nohighlight">\(e\)</span> con respecto a <span class="math notranslate nohighlight">\(c\)</span>, recordemos otro patrón que vimos: en una suma, la derivada nos daba como resultado <span class="math notranslate nohighlight">\(1\)</span> porque la función avanzaba en la misma proporción que avanzaba la variable. Verifiquémoslo:</p>
@@ -1474,7 +1343,7 @@ nx^{n-1} = 2(5)^{2-1} = 10
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/redes_44_0.svg" src="../../_images/redes_44_0.svg" /></div>
+<img alt="../../_images/b7494524cd3f98bfe1df8b762be73bf71162fa09561d354292f3c869b3f3e762.svg" src="../../_images/b7494524cd3f98bfe1df8b762be73bf71162fa09561d354292f3c869b3f3e762.svg" /></div>
 </div>
 <p>Ahora obtendremos las derivadas, pero programática en vez de manualmente:</p>
 <div class="cell docutils container">
@@ -1485,7 +1354,7 @@ nx^{n-1} = 2(5)^{2-1} = 10
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/redes_46_0.svg" src="../../_images/redes_46_0.svg" /></div>
+<img alt="../../_images/5e5c7077e2c62a693ab0673a20e12c2f6f0bfb88ac1342d7f9f5ed866e230c18.svg" src="../../_images/5e5c7077e2c62a693ab0673a20e12c2f6f0bfb88ac1342d7f9f5ed866e230c18.svg" /></div>
 </div>
 <p>Bien. Ahora pongamos en práctica nuestra intuición: dado que el gradiente (o derivada global, o la colección de derivadas parciales de <span class="math notranslate nohighlight">\(L\)</span> con respecto a cada variable) nos dice la «fuerza» con la que cada número aumenta el resultado final de la función, podemos utilizar esa misma fuerza para alterar nuestros valores y, con ello, aumentar el valor de <span class="math notranslate nohighlight">\(L\)</span>. La bondad de utilizar el gradiente es que nos indica la «dirección» y la magnitud en la que debemos modificar cada valor para aumentar el resultado final, es decir: aumentar el valor de cada variable en la misma dirección del gradiente, contribuye a elevar el valor de la función global. Incluso si el gradiente tiene un valor negativo, eso indicaría que el valor de la variable debe disminuir para incrementar la función. De igual forma, si lo que queremos es disminuir el valor de una función, solo debemos ir en la dirección opuesta —<em>i. e.</em>, negativa— al gradiente.</p>
 <p>Las siguientes imágenes ilustran con flechas azules la dirección del gradiente, y en blanco y negro a los valores de la función (el negro indica los valores más altos). Como digo, el gradiente indica la dirección en la que la función aumenta su valor:</p>
@@ -1510,7 +1379,7 @@ nx^{n-1} = 2(5)^{2-1} = 10
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/redes_48_0.svg" src="../../_images/redes_48_0.svg" /></div>
+<img alt="../../_images/4109df9dc37a3ef874d2e9c525927d1351130bccbd856542311d3c8e6407a038.svg" src="../../_images/4109df9dc37a3ef874d2e9c525927d1351130bccbd856542311d3c8e6407a038.svg" /></div>
 </div>
 <p>Bien, parece que nuestro método funciona. Sin embargo, comprobamos que quizá nuestra fuerza es elevada, puesto que disminuyó mucho el resultado. Probablemente tengamos un mejor resultado si hacemos esto con todas nuestras variables, pero con una fuerza más atenuada (<span class="math notranslate nohighlight">\(0.01\)</span>):</p>
 <div class="cell docutils container">
@@ -1535,7 +1404,7 @@ nx^{n-1} = 2(5)^{2-1} = 10
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/redes_50_0.svg" src="../../_images/redes_50_0.svg" /></div>
+<img alt="../../_images/292aa95acad81ef9c0792575a873b6fe0ca47d36e906cebd1a2a9e364d371c6c.svg" src="../../_images/292aa95acad81ef9c0792575a873b6fe0ca47d36e906cebd1a2a9e364d371c6c.svg" /></div>
 </div>
 <p>Aunque no hayamos conseguido un resultado de exactamente 0, nos hemos aproximado significativamente con nuestro nuevo método programático. Pronto explotaremos el verdadero poder detrás de esta nueva herramienta nuestra, aunque desde ya podamos proclamar —con Françoise Hardy— ¡voilà! Esta es la esencia del aprendizaje en una red neuronal.</p>
 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/4YIZP4nlw3jV5DkXGB56iG?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
@@ -1547,7 +1416,7 @@ Benoît Mandelbrot</p>
 </aside>
 </section>
 <section id="perceptron-multicapa">
-<h2>Perceptrón multicapa<a class="headerlink" href="#perceptron-multicapa" title="Permalink to this headline">#</a></h2>
+<h2>Perceptrón multicapa<a class="headerlink" href="#perceptron-multicapa" title="Permalink to this heading">#</a></h2>
 <p>Anteriormente, construimos una especie de neurona; sin embargo, el poder de una red neuronal consiste en que tiene millones de neuronas, todas optimizando sus valores para darnos el resultado que deseamos (en nuestro ejemplo: <span class="math notranslate nohighlight">\(0\)</span>).</p>
 <p>A continuación, construiremos una red neuronal llamada «perceptrón multicapa» (<em>Multilayer Perceptron</em> o MLP en inglés) que nos permitirá resolver problemas prácticos. Como ejemplo, la entrenaremos para que identifique sarcasmo en reseñas de películas.</p>
 <aside class="margin sidebar">
@@ -1592,11 +1461,11 @@ Benoît Mandelbrot</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/redes_54_0.svg" src="../../_images/redes_54_0.svg" /></div>
+<img alt="../../_images/d28664f133e78cf9f5ac292e99d79ebe596b4a69e26ad471ea620ba0eee9d909.svg" src="../../_images/d28664f133e78cf9f5ac292e99d79ebe596b4a69e26ad471ea620ba0eee9d909.svg" /></div>
 </div>
 <p>Por el momento, nuestros valores son aleatorios y todo funciona mal. La calificación y el sentimiento que asignamos son <span class="math notranslate nohighlight">\(5\)</span>, pero la neurona indica que la reseña es sarcástica porque da <span class="math notranslate nohighlight">\(\approx1\)</span> como resultado. Al contrario, queremos que el sarcasmo sea <span class="math notranslate nohighlight">\(0\)</span> en este caso. Podemos optimizarla programáticamente ahora que ya conocemos la propagación hacia atrás.</p>
 <p>Primero, crearemos la clase <code class="docutils literal notranslate"><span class="pre">Neurona</span></code> para crear una estructura como la anterior. Al pasar nuestras variables por la <code class="docutils literal notranslate"><span class="pre">Neurona</span></code>, obtendremos un <code class="docutils literal notranslate"><span class="pre">peso</span></code> y un <code class="docutils literal notranslate"><span class="pre">sesgo</span></code> por cada una. Hecho esto, realizaremos operaciones con el peso, el sesgo y las entradas para transformar las entradas y, con ello, obtengamos al final el resultado deseado. Por ejemplo: si mis entradas son <span class="math notranslate nohighlight">\(5\)</span> y <span class="math notranslate nohighlight">\(5\)</span> —como en nuestro ejemplo—, nosotros queremos encontrar unos pesos y sesgos tales que, multiplicados y sumados por <span class="math notranslate nohighlight">\(5\)</span> y <span class="math notranslate nohighlight">\(5\)</span>, nos den como resultado un <span class="math notranslate nohighlight">\(0\)</span>, puesto que <span class="math notranslate nohighlight">\(5\)</span> y <span class="math notranslate nohighlight">\(5\)</span> significa ausencia de sarcasmo en este caso. Al mismo tiempo, queremos que esos mismos pesos y sesgos, por ejemplo al ser multiplicados y sumados por un sentimiento de <span class="math notranslate nohighlight">\(5\)</span> y una calificación de <span class="math notranslate nohighlight">\(1\)</span>, nos arrojen <span class="math notranslate nohighlight">\(1\)</span> como resultado, puesto que eso indicaría sarcasmo.</p>
-<p>Para obtener como resultado una probabilidad de sarcasmo del <span class="math notranslate nohighlight">\(0\)</span> al <span class="math notranslate nohighlight">\(1\)</span>, utilizaremos la función tangente hiperbólica, la cual es muy similar a las que vimos con anterioridad (sigmoide, ReLU, softmax): cuando nuestros valores la atraviesen, ella nos dará como resultado un valor del <span class="math notranslate nohighlight">\(-1\)</span> al <span class="math notranslate nohighlight">\(1\)</span><a class="footnote-reference brackets" href="#id8" id="id4">4</a>.</p>
+<p>Para obtener como resultado una probabilidad de sarcasmo del <span class="math notranslate nohighlight">\(0\)</span> al <span class="math notranslate nohighlight">\(1\)</span>, utilizaremos la función tangente hiperbólica, la cual es muy similar a las que vimos con anterioridad (sigmoide, ReLU, softmax): cuando nuestros valores la atraviesen, ella nos dará como resultado un valor del <span class="math notranslate nohighlight">\(-1\)</span> al <span class="math notranslate nohighlight">\(1\)</span><a class="footnote-reference brackets" href="#id8" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
@@ -1635,7 +1504,7 @@ Benoît Mandelbrot</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/redes_57_0.svg" src="../../_images/redes_57_0.svg" /></div>
+<img alt="../../_images/98b71e1ccb2b4a31e95c4f377bc09c7dbd2bdf163d862d00e644b8e2445cbc17.svg" src="../../_images/98b71e1ccb2b4a31e95c4f377bc09c7dbd2bdf163d862d00e644b8e2445cbc17.svg" /></div>
 </div>
 <p>Nuestros pesos y sesgos tienen valores aleatorios, de manera que esto sigue sin funcionar. Para optimizarlos apropiadamente, será mejor crear una arquitectura más robusta. Entendámonos: será difícil que encontremos un par de pesos tales que, multiplicados por nuestras dos entradas, reflejen apropiadamente el sarcasmo como queremos. Si tenemos más pesos, probablemente sea más fácil encontrar una combinación de números que arroje los resultados que queremos.</p>
 <p>Para ello, crearemos una red neuronal. Lo único que nos falta es una forma de conectar varias neuronas entre sí, así podremos tener más pesos y sesgos que entrenar, lo cual se traduce en mejor desempeño.</p>
@@ -1679,7 +1548,7 @@ Benoît Mandelbrot</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/redes_61_0.svg" src="../../_images/redes_61_0.svg" /></div>
+<img alt="../../_images/7a37908d780ca547927215c442f15836ecfa58c4dddcdf13ec1ab7f991544f27.svg" src="../../_images/7a37908d780ca547927215c442f15836ecfa58c4dddcdf13ec1ab7f991544f27.svg" /></div>
 </div>
 <p>Ahora veamos una red neuronal de la especie perceptrón multicapa:</p>
 <div class="cell docutils container">
@@ -1692,7 +1561,7 @@ Benoît Mandelbrot</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/redes_63_0.svg" src="../../_images/redes_63_0.svg" /></div>
+<img alt="../../_images/4d7d0ac151612c02c57e37c6b191fa14dd832d6d8fe6bf2ae12728e5879c559d.svg" src="../../_images/4d7d0ac151612c02c57e37c6b191fa14dd832d6d8fe6bf2ae12728e5879c559d.svg" /></div>
 </div>
 <p>Como vemos, únicamente estamos interconectando y creando más neuronas para que nuestro modelo tenga más potencia. Al mismo tiempo, vemos que una neurona interconecta las entradas entre sí a través de pesos y sesgos. Los pesos y sesgos, además de realizar operaciones diferenciables (es decir, que podemos derivar), nos ayudarán a ir midiendo la relevancia de cada entrada para, con base en el gradiente, ajustarse en proporción a dicha relevancia. De igual forma, los pesos y sesgos articularán el patrón de números que en este caso necesitamos para convertir cada combinación de entradas en una probabilidad de sarcasmo.</p>
 <p>Ahora manos a la obra. Daremos a nuestro modelo cuatro entradas de entrenamiento (es decir, serán ejemplos para que la red neuronal aprenda): cada entrada tendrá el sentimiento y la calificación asignada, así como el valor de sarcasmo objetivo que deseamos:</p>
@@ -1770,7 +1639,7 @@ Benoît Mandelbrot</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/redes_72_0.svg" src="../../_images/redes_72_0.svg" /></div>
+<img alt="../../_images/f27eabbc4321f0980a05e2d61a50c5907741f075aa57e66d9b422d535777a25e.svg" src="../../_images/f27eabbc4321f0980a05e2d61a50c5907741f075aa57e66d9b422d535777a25e.svg" /></div>
 </div>
 <p>Esto ya luce mucho más como una red neuronal. Calcular manualmente todos los gradientes sería engorroso; pero la programación nos permite apalancarnos de los algoritmos, las matemáticas y las computadoras para explotar su potencial a gran escala.</p>
 <p>Echemos un vistazo a nuestros parámetros (o sea, pesos y sesgos):</p>
@@ -1940,7 +1809,7 @@ Benoît Mandelbrot</p>
 <p>Nuestra red neuronal considera que existe un <span class="math notranslate nohighlight">\(\approx90 \%\)</span> de probabilidad de que sea sarcasmo. Nada mal.</p>
 </section>
 <section id="bibliografia-recomendada">
-<h2>Bibliografía recomendada<a class="headerlink" href="#bibliografia-recomendada" title="Permalink to this headline">#</a></h2>
+<h2>Bibliografía recomendada<a class="headerlink" href="#bibliografia-recomendada" title="Permalink to this heading">#</a></h2>
 <p><strong>framework</strong> Rumelhart, D. E.; Hinton, G. E.; y Mcclelland, J. L. A General Framework for Parallel Distributed Processing. En Rumelhart, D. E. &amp; Mcclelland, J. L., editores, <em>Parallel Distributed Processing: Explorations in the Microstructure of Cognition, Vol. 1: Foundations</em>, pp. 45–76. MIT Press, Cambridge, MA, 1986. <a class="reference external" href="https://www.cs.toronto.edu/~hinton/absps/pdp2.pdf">URL</a>.</p>
 <p><strong>backprop</strong> Rumelhart, David E.; Hinton, Geoffrey E.; y Williams, Ronald J. Learning representations by back-propagating errors. <em>Nature, Vol. 323</em>(6088), 533-536, 1986. <a class="reference external" href="https://www.cs.toronto.edu/~hinton/absps/naturebp.pdf">URL</a>.</p>
 <p><strong>zhang2021dive</strong> Zhang, Aston; Lipton, Zachary C.; Li, Mu y Smola, Alexander J. <em>Dive into Deep Learning</em>, 2021. <a class="reference external" href="https://d2l.ai/">URL</a>.</p>
@@ -1948,20 +1817,22 @@ Benoît Mandelbrot</p>
 <p><strong>CS231n</strong> Karpathy, Andrej y Li, Fei-Fei. <em>CS231n: Deep Learning for Computer Vision</em>, 2016. <a class="reference external" href="https://youtube.com/playlist?list=PLkt2uSq6rBVctENoVBg1TpCC7OQi31AlC">URL</a>.</p>
 <p><em>Posdata: También recomiendo <a class="reference external" href="http://karpathy.github.io/neuralnets/"><em>Hacker’s guide to Neural Networks</em></a>, de Andrej Karpathy, aunque él niegue su utilidad.</em></p>
 <hr class="footnotes docutils" />
-<dl class="footnote brackets">
-<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>La palabra «secante» significa «cortar» en latín (<em>secare</em>), de manera que la línea secante es aquella que corta una figura cuando la toca en dos puntos. Por otro lado, la palabra «tangente» significa «tocar» en latín (<em>tangere</em>), de manera que la tangente es una línea que apenas toca en un punto a otra figura. La palabra «tangible» viene de la misma raíz y de ahí su significado también.</p>
-</dd>
-<dt class="label" id="id6"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p>A operar con varias funciones concatenadas entre sí se le denomina «composición de funciones». La composición o concatenación de funciones consiste en tomar la salida de una función para pasarla como entrada de otra, y así sucesivamente. Según el esquema de nuestra primera lección, podríamos expresarlo como <span class="math notranslate nohighlight">\(x \mapsto f(x) \mapsto g(f(x))\)</span>, etcétera. Una visualización luciría más o menos así: <img src='https://upload.wikimedia.org/wikipedia/commons/6/65/FunctionMachinesComposition.svg' width=300></p>
-</dd>
-<dt class="label" id="id7"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
-<dd><p>El nombre técnico de esta derivada es «derivada parcial», puesto que la función <span class="math notranslate nohighlight">\(L\)</span> está compuesta de múltiples variables que, a su vez, están concatenadas entre sí mediante otras funciones (suma y multiplicación). En ese sentido, <span class="math notranslate nohighlight">\(L\)</span> es una función compuesta, y deseamos saber la derivada (parcial) de dicha función con respecto a cada variable que la compone o, en otras palabras, queremos determinar de qué forma está influyendo cada variable en el resultado de la función. En síntesis, si tenemos solo una variable en la función, entonces hablamos de derivada; pero si tenemos más de una variable y estimamos la derivada con respecto a cada variable individual, entonces hablamos de derivada parcial. La derivada parcial utiliza la notación <span class="math notranslate nohighlight">\(\frac{\partial y(x, z)}{\partial x}\)</span> con una letra «d» cursiva (<span class="math notranslate nohighlight">\(\partial\)</span>) para distinguirse. Debemos ser cuidadosos de no confundirla con delta, la «d» griega (<span class="math notranslate nohighlight">\(\delta\)</span>).</p>
-</dd>
-<dt class="label" id="id8"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
-<dd><p>La elección de una función no lineal (tanh, ReLU, etc.) es una cuestión técnica que tiene que ver con el problema a tratar y con cómo fluyen a través de ellas los gradientes. Dado que nuestro problema es relativamente simple, podemos usar cualquiera. Por otro lado, aunque suene extraño que nuestro modelo pueda arrojar probabilidades negativas, eso no sucederá siempre y cuando nuestras entradas estén en el rango de valores que seleccionamos para el entrenamiento (<em>i. e.</em>, 0 a 5 en ambas variables). Si, por ejemplo, dijéramos que la calificación es 30 y el sentimiento 20, nuestro modelo interpretaría esto como una probabilidad de sarcasmo negativa. Es obligado mencionar <a class="reference external" href="https://cds.cern.ch/record/154856/files/pre-27827.pdf/">el paper</a> en el que el gran Feynman explica qué sentido tiene hablar de probabilidades negativas.</p>
-</dd>
-</dl>
+<aside class="footnote brackets" id="id5" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>La palabra «secante» significa «cortar» en latín (<em>secare</em>), de manera que la línea secante es aquella que corta una figura cuando la toca en dos puntos. Por otro lado, la palabra «tangente» significa «tocar» en latín (<em>tangere</em>), de manera que la tangente es una línea que apenas toca en un punto a otra figura. La palabra «tangible» viene de la misma raíz y de ahí su significado también.</p>
+</aside>
+<aside class="footnote brackets" id="id6" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>A operar con varias funciones concatenadas entre sí se le denomina «composición de funciones». La composición o concatenación de funciones consiste en tomar la salida de una función para pasarla como entrada de otra, y así sucesivamente. Según el esquema de nuestra primera lección, podríamos expresarlo como <span class="math notranslate nohighlight">\(x \mapsto f(x) \mapsto g(f(x))\)</span>, etcétera. Una visualización luciría más o menos así: <img src='https://upload.wikimedia.org/wikipedia/commons/6/65/FunctionMachinesComposition.svg' width=300></p>
+</aside>
+<aside class="footnote brackets" id="id7" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
+<p>El nombre técnico de esta derivada es «derivada parcial», puesto que la función <span class="math notranslate nohighlight">\(L\)</span> está compuesta de múltiples variables que, a su vez, están concatenadas entre sí mediante otras funciones (suma y multiplicación). En ese sentido, <span class="math notranslate nohighlight">\(L\)</span> es una función compuesta, y deseamos saber la derivada (parcial) de dicha función con respecto a cada variable que la compone o, en otras palabras, queremos determinar de qué forma está influyendo cada variable en el resultado de la función. En síntesis, si tenemos solo una variable en la función, entonces hablamos de derivada; pero si tenemos más de una variable y estimamos la derivada con respecto a cada variable individual, entonces hablamos de derivada parcial. La derivada parcial utiliza la notación <span class="math notranslate nohighlight">\(\frac{\partial y(x, z)}{\partial x}\)</span> con una letra «d» cursiva (<span class="math notranslate nohighlight">\(\partial\)</span>) para distinguirse. Debemos ser cuidadosos de no confundirla con delta, la «d» griega (<span class="math notranslate nohighlight">\(\delta\)</span>).</p>
+</aside>
+<aside class="footnote brackets" id="id8" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">4</a><span class="fn-bracket">]</span></span>
+<p>La elección de una función no lineal (tanh, ReLU, etc.) es una cuestión técnica que tiene que ver con el problema a tratar y con cómo fluyen a través de ellas los gradientes. Dado que nuestro problema es relativamente simple, podemos usar cualquiera. Por otro lado, aunque suene extraño que nuestro modelo pueda arrojar probabilidades negativas, eso no sucederá siempre y cuando nuestras entradas estén en el rango de valores que seleccionamos para el entrenamiento (<em>i. e.</em>, 0 a 5 en ambas variables). Si, por ejemplo, dijéramos que la calificación es 30 y el sentimiento 20, nuestro modelo interpretaría esto como una probabilidad de sarcasmo negativa. Es obligado mencionar <a class="reference external" href="https://cds.cern.ch/record/154856/files/pre-27827.pdf/">el paper</a> en el que el gran Feynman explica qué sentido tiene hablar de probabilidades negativas.</p>
+</aside>
 </section>
 </section>
 
@@ -1977,7 +1848,7 @@ Benoît Mandelbrot</p>
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./notebooks/alfa"
         },
         predefinedOutput: true
@@ -1985,49 +1856,103 @@ Benoît Mandelbrot</p>
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="programacion.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Elementos de programación</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="programacion.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Elementos de programación</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="calculo.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="calculo.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Elementos de cálculo infinitesimal</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Dante Noguez<br/>
-  
-</p>
-        </footer>
-    </div>
-    
-</div>
-
-
       </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-derivada-demostrada-segun-el-orden-geometrico">La derivada demostrada según el orden geométrico</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pero-para-que-sirve-la-derivada">Pero ¿para qué sirve la derivada?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pequegrad">Pequegrad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-regla-de-la-cadena-propagacion-hacia-atras">La regla de la cadena: propagación hacia atrás</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perceptron-multicapa">Perceptrón multicapa</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliografia-recomendada">Bibliografía recomendada</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dante Noguez
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

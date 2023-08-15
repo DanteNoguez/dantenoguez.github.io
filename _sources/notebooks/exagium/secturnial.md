@@ -156,7 +156,7 @@ Mi novia suele burlarse de la frecuencia con la que, al lavarme las manos, me co
 
 **Gracias a la vida**, *12 de agosto, 2023*
 
-Soñé que estaba en casa de mi abuelita Ofelia con ella y mis tías. Estaba limpiando el patio, pero me sentía cansado. Recuerdo un pequeño charco de agua tornasolado en el suelo. De pronto, alguien me preguntaba «¿Por qué te esfuerzas tanto, si nada importa y encima estás cansado?». Yo le respondía: «Por el tacto con el agua, por la sensación de las piedras en mis manos, por amor a la vida nada más». 
+Soñé que estaba en casa de mi abuelita Ofelia con ella y mis tías. Estaba limpiando el patio, pero me sentía cansado. Recuerdo un pequeño charco de agua tornasolado en el suelo. De pronto, alguien me preguntaba «¿Por qué te esfuerzas tanto, si nada importa y encima estás cansado?». Yo le respondía: «Por el tacto con el agua, por la sensación de las piedras en mis manos, por amor a la vida nada más».
 
 ---
 
