@@ -148,6 +148,16 @@ Mientras Elizabeth me contaba lo que soñó anoche, nos damos cuenta de que siem
 
 Mi novia suele burlarse de la frecuencia con la que, al lavarme las manos, me corto el pulgar con el aireador del grifo (justo arriba de la uña, en la articulación interfalángica). Soy brusco para lavar mis manos y por alguna razón los lavamanos me resultan increíblemente incómodos y estrechos. Anoche soñé que me hacía una herida así. Al intentar lavarla para que no se infectara, el agua del grifo me erosionaba paulatinamente el dedo. Podía ver la parte mutilada y llena de sangre que iba quedando. Con cada chorro de agua se me caía más el dedo. Mi extrañeza me impedía reaccionar, así que continué lavándola hasta que me erosionó todos los dedos. Cuando por fin la retiré, mis dedos comenzaron a regenerarse poco a poco.
 
+<br>
+<p align="center"> <b>
+§
+</b>
+</p>
+
+**Gracias a la vida**, *12 de agosto, 2023*
+
+Soñé que estaba en casa de mi abuelita Ofelia con ella y mis tías. Estaba limpiando el patio, pero me sentía cansado. Recuerdo un pequeño charco de agua tornasolado en el suelo. De pronto, alguien me preguntaba «¿Por qué te esfuerzas tanto, si nada importa y encima estás cansado?». Yo le respondía: «Por el tacto con el agua, por la sensación de las piedras en mis manos, por amor a la vida nada más».
+
 ---
 
 <br>
