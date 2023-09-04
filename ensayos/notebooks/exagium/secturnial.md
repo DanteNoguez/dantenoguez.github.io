@@ -158,6 +158,16 @@ Mi novia suele burlarse de la frecuencia con la que, al lavarme las manos, me co
 
 Soñé que estaba en casa de mi abuelita Ofelia con ella y mis tías. Estaba limpiando el patio, pero me sentía cansado. Recuerdo un pequeño charco de agua tornasolado en el suelo. De pronto, alguien me preguntaba «¿Por qué te esfuerzas tanto, si nada importa y encima estás cansado?». Yo le respondía: «Por el tacto con el agua, por la sensación de las piedras en mis manos, por amor a la vida nada más».
 
+<br>
+<p align="center"> <b>
+§
+</b>
+</p>
+
+**The great gig in the sky**, *4 de septiembre, 2023*
+
+Soñé que estaba grabando con una cámara digital a tres figuras extremadamente delgadas (con extremidades al estilo daliniano) bailando en la calle. Después, entramos a un pasillo y mi primo David aparece de la nada, colocándome un micrófono alrededor del cuello. Me dice que estoy transmitiendo para un canal de radio. Salimos del pasillo y llegamos a las gradas de un campo de futbol asediado por la luz del día; a lo lejos se ve la luna roja, y en las gradas algo de gente observando lo que parece ser un eclipse lunar. Mi primo me pide que comente las circunstancias para nuestra audiencia. Me pregunto si realmente hay audiencia alguna, y él solo añade «los domingos tenemos $5x$ nuestra audiencia habitual». De pronto, el color rojo de la luna empieza a derretirse en la forma de un líquido negro. Nos quedamos viendo con extrañamiento y comienza a evaporarse como humo. A los pocos segundos, una parte de la luna explota y el resto se «cae», desaparece de nuestra vista y todos entran en pánico. El miedo me despierta ligeramente, pero todavía alcanzo a ver cómo se cae el telón que teníamos en frente. Era un truco visual empleado por un empresario brasileño; los noticieros comienzan a repudiarlo; la luna continúa ahí, incólume, fija, más grande de lo habitual. Me despierto por completo, pero no puedo quitarme la imagen de la cabeza y continúo imaginando una luna gigantesca colapsando con la tierra por algunos minutos.
+
 ---
 
 <br>
