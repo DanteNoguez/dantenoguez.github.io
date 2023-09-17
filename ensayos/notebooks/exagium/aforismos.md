@@ -1,5 +1,13 @@
 # Cuaderno de notas
 
+<br>
+<p align="center"> <b>
+§
+</b>
+</p>
+
+To read a book all the way through is a dreadful mannerism of the uneducated.
+
 <p align="center"> <b>
 §
 </b>

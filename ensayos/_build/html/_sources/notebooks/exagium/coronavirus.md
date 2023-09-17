@@ -31,16 +31,6 @@ $4$. Por último, volviendo a la verdadera materia de la discusión y al punto q
 </b>
 </p>
 
-*15 de noviembre, 2020*
-
-To read books all the way through is a dreadful mannerism of the uneducated.
-
-<br>
-<p align="center"> <b>
-§
-</b>
-</p>
-
 *20 de diciembre, 2020*
 
 Que el ave de Minerva sólo emprenda el vuelo llegado el crepúsculo es una manera romántica y eufemística de decir que el filósofo no sirve para nada, salvo para —como el [Capitán *A posteriori*](https://youtu.be/NfQjSopKKgs)— coleccionar datos, agregarles una cita de Platón y criticar con indignación los errores del pasado. Lo que los filósofos han escrito sobre el coronavirus en este último año no ha sido sólo el reflejo de lo que para ellos implica desobedecer esa máxima, sino también el perfecto monumento a su ocupación, la de escribir acerca de todo sin enterarse de absolutamente nada. El coronavirus los ha doblegado y degradado por completo, pero ojalá también los aleccione sobre un principio fundamental del entendimiento: que su verdadero alcance se mide con predicciones, no con narraciones ni con retrospecciones.
