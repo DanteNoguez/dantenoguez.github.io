@@ -1,4 +1,4 @@
-# La importancia de Oscar Wilde
+# The importance of being Wilde
 
 ```{margin}
 *Vulgar habit that is people have nowadays of asking one, after one has given them an idea, whether one is serious or not.* <br>

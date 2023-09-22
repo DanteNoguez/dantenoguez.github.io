@@ -1,4 +1,4 @@
-# Cuaderno de notas
+# A few maxims for the instruction of the over-educated
 
 <br>
 <p align="center"> <b>
@@ -110,4 +110,12 @@ Habrá un colapso mental masivo cuando los estatistas se den cuenta de que las p
 </b>
 </p>
 
-Las redes sociales promueven el penoso hábito de glorificar las naderías personales.
+Social media perpetuates the unfortunate custom of aggrandizing personal nothings.
+
+<br>
+<p align="center"> <b>
+§
+</b>
+</p>
+
+Inteligencia es la capacidad de concebir formas de aburrimiento sofisticadas.
