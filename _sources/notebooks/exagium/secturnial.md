@@ -168,6 +168,16 @@ Soñé que estaba en casa de mi abuelita Ofelia con ella y mis tías. Estaba lim
 
 Soñé que estaba grabando con una cámara digital a tres figuras extremadamente delgadas (con extremidades al estilo daliniano) bailando en la calle. Después, entramos a un pasillo y mi primo David aparece de la nada, colocándome un micrófono alrededor del cuello. Me dice que estoy transmitiendo para un canal de radio. Salimos del pasillo y llegamos a las gradas de un campo de futbol asediado por la luz del día; a lo lejos se ve la luna roja, y en las gradas algo de gente observando lo que parece ser un eclipse lunar. Mi primo me pide que comente las circunstancias para nuestra audiencia. Me pregunto si realmente hay audiencia alguna, y él solo añade «los domingos tenemos $5x$ nuestra audiencia habitual». De pronto, el color rojo de la luna empieza a derretirse en la forma de un líquido negro. Nos quedamos viendo con extrañamiento y comienza a evaporarse como humo. A los pocos segundos, una parte de la luna explota y el resto se «cae», desaparece de nuestra vista y todos entran en pánico. El miedo me despierta ligeramente, pero todavía alcanzo a ver cómo se cae el telón que teníamos en frente. Era un truco visual empleado por un empresario brasileño; los noticieros comienzan a repudiarlo; la luna continúa ahí, incólume, fija, más grande de lo habitual. Me despierto por completo, pero no puedo quitarme la imagen de la cabeza y continúo imaginando una luna gigantesca colapsando con la tierra por algunos minutos.
 
+<br>
+<p align="center"> <b>
+§
+</b>
+</p>
+
+**The shining**, *17 de septiembre, 2023*
+
+El fin de semana pasado vi *The shining* con Elizabeth. En ella, hay una escena recurrente en la que un mar de sangre invade una habitación. Creo que por esa razón soñé esa misma noche que una ola gigante de agua negra invadía la ciudad. Al verla casi cubrir el cielo frente a mí, supe que no podía escapar de ella, pero no entendí la actitud indiferente de la gente a mi alrededor que solo parecía esperar pacientemente para morir. Estábamos en la gasolinera de La Catrina en Pátzcuaro cuando el <s>vinoso</s> monstruoso ponto llegó. Al principio solo pude ver a la gente reír alegremente mientras era arrastrada por el agua entre las calles, pero llegó un punto en el que, dentro del agua, ya solo veía oscuridad y la risa alegre de los demás se fue distorsionando hasta lograr una carcajada espantosa al unísono.
+
 ---
 
 <br>
