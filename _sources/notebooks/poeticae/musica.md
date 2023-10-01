@@ -120,3 +120,16 @@ width: 100%
 name: ago2023
 ---
 ```
+
+<p align="center">
+<i>
+Septiembre, 2023
+</i>
+</p>
+
+```{figure} ../../img/sep2023.jpeg
+---
+width: 100%
+name: sep2023
+---
+```
