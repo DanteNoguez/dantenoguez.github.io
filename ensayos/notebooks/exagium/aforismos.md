@@ -119,3 +119,11 @@ Social media perpetuates the unfortunate custom of aggrandizing personal nothing
 </p>
 
 Inteligencia es la capacidad de concebir formas de aburrimiento sofisticadas.
+
+<br>
+<p align="center"> <b>
+§
+</b>
+</p>
+
+Nada más es asomarse un poco al mundo cotidiano y empezar a escuchar un montón de estupideces.
