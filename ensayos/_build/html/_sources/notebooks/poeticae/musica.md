@@ -6,7 +6,7 @@ Octubre, 2022
 </i>
 </p>
 
-```{figure} ../../img/octubre22.jpeg
+```{figure} ../../img/musica/octubre22.jpeg
 ---
 width: 100%
 name: oct22
@@ -20,7 +20,7 @@ Noviembre, 2022
 </i>
 </p>
 
-```{figure} ../../img/fullnov22.jpeg
+```{figure} ../../img/musica/fullnov22.jpeg
 ---
 width: 100%
 name: nov22
@@ -33,7 +33,7 @@ Diciembre, 2022
 </i>
 </p>
 
-```{figure} ../../img/dic22.jpeg
+```{figure} ../../img/musica/dic22.jpeg
 ---
 width: 100%
 name: dic22
@@ -47,7 +47,7 @@ Año 2022
 </i>
 </p>
 
-```{figure} ../../img/2022.jpeg
+```{figure} ../../img/musica/2022.jpeg
 ---
 width: 100%
 name: 2022
@@ -61,7 +61,7 @@ Enero, 2023
 </i>
 </p>
 
-```{figure} ../../img/ene2023.jpeg
+```{figure} ../../img/musica/ene2023.jpeg
 ---
 width: 100%
 name: ene23
@@ -74,7 +74,7 @@ Abril, 2023
 </i>
 </p>
 
-```{figure} ../../img/abr2023.jpeg
+```{figure} ../../img/musica/abr2023.jpeg
 ---
 width: 100%
 name: abr2023
@@ -87,7 +87,7 @@ Mayo, 2023
 </i>
 </p>
 
-```{figure} ../../img/may23.jpeg
+```{figure} ../../img/musica/may23.jpeg
 ---
 width: 100%
 name: may2023
@@ -100,7 +100,7 @@ Junio, 2023
 </i>
 </p>
 
-```{figure} ../../img/jun2023.jpeg
+```{figure} ../../img/musica/jun2023.jpeg
 ---
 width: 100%
 name: jun2023
@@ -114,7 +114,7 @@ Agosto, 2023
 </i>
 </p>
 
-```{figure} ../../img/ago2023.jpeg
+```{figure} ../../img/musica/ago2023.jpeg
 ---
 width: 100%
 name: ago2023
@@ -127,9 +127,22 @@ Septiembre, 2023
 </i>
 </p>
 
-```{figure} ../../img/sep2023.jpeg
+```{figure} ../../img/musica/sep2023.jpeg
 ---
 width: 100%
 name: sep2023
+---
+```
+
+<p align="center">
+<i>
+Octubre, 2023
+</i>
+</p>
+
+```{figure} ../../img/musica/oct23.jpeg
+---
+width: 100%
+name: oct2023
 ---
 ```
