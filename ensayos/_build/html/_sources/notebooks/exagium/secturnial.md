@@ -178,6 +178,16 @@ Soñé que estaba grabando con una cámara digital a tres figuras extremadamente
 
 El fin de semana pasado vi *The shining* con Elizabeth. En ella, hay una escena recurrente en la que un mar de sangre invade una habitación. Creo que por esa razón soñé esa misma noche que una ola gigante de agua negra invadía la ciudad. Al verla casi cubrir el cielo frente a mí, supe que no podía escapar de ella, pero no entendí la actitud indiferente de la gente a mi alrededor que solo parecía esperar pacientemente para morir. Estábamos en la gasolinera de La Catrina en Pátzcuaro cuando el <s>vinoso</s> monstruoso ponto llegó. Al principio solo pude ver a la gente reír alegremente mientras era arrastrada por el agua entre las calles, pero llegó un punto en el que, dentro del agua, ya solo veía oscuridad y la risa alegre de los demás se fue distorsionando hasta lograr una carcajada espantosa al unísono.
 
+<br>
+<p align="center"> <b>
+§
+</b>
+</p>
+
+**Toxicity**, *27 de noviembre, 2023*
+
+Mi extraña obsesión con la batería de El Estepario Siberiano me ha llevado a soñar que tocaba la batería para una banda musical improvisada. Mi adicional obsesión con Miles Bonham me ha llevado a soñar que también cantaba afinadamente. Entre sueños quise memorizar una melodía simple que era capaz de tocar, pero, como siempre, la olvidé al despertar.
+
 ---
 
 <br>

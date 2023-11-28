@@ -127,3 +127,11 @@ Inteligencia es la capacidad de concebir formas de aburrimiento sofisticadas.
 </p>
 
 Nada más es asomarse un poco al mundo cotidiano y empezar a escuchar un montón de estupideces.
+
+<br>
+<p align="center"> <b>
+§
+</b>
+</p>
+
+La naturaleza de las matemáticas es más profunda que «una pizarra y un lápiz» y más fundamental que unas cuantas «relaciones formales entre expresiones abstractas». Su esencia está en la lógica misma del universo, aunque sus artificios metodológicos convenzan al incauto de lo contrario.
