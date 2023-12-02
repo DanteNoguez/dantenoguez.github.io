@@ -146,3 +146,16 @@ width: 100%
 name: oct2023
 ---
 ```
+
+<p align="center">
+<i>
+Noviembre, 2023
+</i>
+</p>
+
+```{figure} ../../img/musica/nov23.jpeg
+---
+width: 100%
+name: nov2023
+---
+```
