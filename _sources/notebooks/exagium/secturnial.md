@@ -186,7 +186,7 @@ El fin de semana pasado vi *The shining* con Elizabeth. En ella, hay una escena 
 
 **Toxicity**, *27 de noviembre, 2023*
 
-Mi extraña obsesión con la batería de El Estepario Siberiano me ha llevado a soñar que tocaba la batería para una banda musical improvisada. Mi adicional obsesión con Miles Bonham me ha llevado a soñar que también cantaba afinadamente. Entre sueños quise memorizar una melodía simple que era capaz de tocar, pero, como siempre, la olvidé al despertar.
+Mi extraña obsesión con los videos de El Estepario Siberiano me ha llevado a soñar que tocaba la batería para una banda musical improvisada. Mi adicional obsesión con Miles Bonham me ha llevado a soñar que también cantaba afinadamente. Entre sueños quise memorizar una melodía simple que era capaz de tocar, pero, como siempre, la olvidé al despertar.
 
 ---
 
