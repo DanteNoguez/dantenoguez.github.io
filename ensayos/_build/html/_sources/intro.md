@@ -27,7 +27,7 @@ Mis álbumes más escuchados del último mes (noviembre):
 width: 100%
 name: nov23
 ---
-Imagen generada con [tapmusic](https://www.tapmusic.net/). Los meses anteriores se pueden consultar [aquí](notebooks/poeticae/musica). 
+Imagen generada con [tapmusic](https://www.tapmusic.net/). Los meses anteriores se pueden consultar [aquí](notebooks/poeticae/musica).
 ```
 
 ### Referencias bibliográficas
