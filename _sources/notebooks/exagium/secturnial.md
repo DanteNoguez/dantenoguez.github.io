@@ -188,6 +188,16 @@ El fin de semana pasado vi *The shining* con Elizabeth. En ella, hay una escena 
 
 Mi extraña obsesión con los videos de El Estepario Siberiano me ha llevado a soñar que tocaba la batería para una banda musical improvisada. Mi adicional obsesión con Miles Bonham me ha llevado a soñar que también cantaba afinadamente. Entre sueños quise memorizar una melodía simple que era capaz de tocar, pero, como siempre, la olvidé al despertar.
 
+<br>
+<p align="center"> <b>
+§
+</b>
+</p>
+
+**OK Computer**, *2 de diciembre, 2023*
+
+Últimamente, ha sido recurrente que «programe» durante la fase hipnagógica de mis sueños, esa a la que Dalí tanto aludía como catalizadora de su obra. Anoche, por ejemplo, hice *debugging* «entre sueños», pero apenas recuerdo cómo razonaba sobre el código que escribía. Entre sueños también, el 11 de noviembre visualicé el lugar exacto en mi base de código donde debía introducir las líneas que minimizarían la percepción de latencia que produce el bot telefónico al responder. Al despertar, agregué el código, ejecuté el programa y funcionó (aunque requirió algún refinamiento adicional, naturalmente). Antes de eso, hubo días en que tenía pesadillas donde codificaba y decodificaba los bytes que produce el sintetizador de voz. Es un poco como cuando pasé meses leyendo a Borges, y soñaba con fragmentos de sus textos, hojas de libros y literatura onírica sin sentido.
+
 ---
 
 <br>
