@@ -198,6 +198,16 @@ Mi extraña obsesión con los videos de El Estepario Siberiano me ha llevado a s
 
 Últimamente, ha sido recurrente que «programe» durante la fase hipnagógica de mis sueños, esa a la que Dalí tanto aludía como catalizadora de su obra. Anoche, por ejemplo, hice *debugging* «entre sueños», pero apenas recuerdo cómo razonaba sobre el código que escribía. Entre sueños también, el 11 de noviembre visualicé el lugar exacto en mi base de código donde debía introducir las líneas que minimizarían la percepción de latencia que produce el bot telefónico al responder. Al despertar, agregué el código, ejecuté el programa y funcionó (aunque requirió algún refinamiento adicional, naturalmente). Antes de eso, hubo días en que tenía pesadillas donde codificaba y decodificaba los bytes que produce el sintetizador de voz. Es un poco como cuando pasé meses leyendo a Borges, y soñaba con fragmentos de sus textos, hojas de libros y literatura onírica sin sentido.
 
+<br>
+<p align="center"> <b>
+§
+</b>
+</p>
+
+**I'll come running**, *19 de febrero, 2024*
+
+Soñé que iba a un parque con temática caricaturesca ambientada en los 1800. Dentro del lugar había calles empedradas, pequeños castillos y casitas peculiares. El parque era tan concurrido que gente solitaria y adinerada había empezado a comprar casas dentro del parque para habitarlas. Cuando los visitantes se paseaban cerca de sus casas, o se quedaban parados a observarlas, los solitarios habitantes salían e intentaban entablar conversaciones de manera forzosa con los visitantes. Cuando una señora de esas quiso platicar conmigo, intenté alejarme caminando, pero me siguió, así que aceleré el paso hasta que pude perderme y la señora tuvo que conformarse con perseguir a otra persona que caminaba por ahí.
+
 ---
 
 <br>
@@ -251,5 +261,4 @@ Soñé que despertaba después de pasar mucho tiempo dormido. Tanto tiempo habí
 En mi infancia, durante mucho tiempo tuve el sueño recurrente de un «espadachín» (un guerrero con yelmo) entrando en mi habitación y apuntándome al cuello con su espada. Siempre despertaba alertado.
 
 ---
-[^1]: Ayer vi la película de Melancolía y me hizo recordar este sueño. Un horrendo[^2] planeta acechando a la tierra y colapsando contra ella al final son escenas muy similares a las de mi sueño; igualmente, la esfera de las Vegas que está hoy en boga es similar al «telón» de mi sueño. Mi sueño «Déjà vu» lo tuve antes de ver la película de *El día de la marmota*. A veces es ligeramente decepcionante que la entropía de las permutaciones de ideas humanamente posibles sea tan baja o, en términos más borgesianos, que el número de posibles entonaciones de metáforas sea tan bajo.
-[^2]: En las [reseñas de Mubi](https://mubi.com/es/mx/films/melancholia-2011) hay continuas referencias a la «estética» de la película. Es la estética de lo horrendo, de lo espantoso, de lo *effroyable*.
+[^1]: Ayer vi la película de Melancolía y me hizo recordar este sueño. Un horrendo planeta acechando a la tierra y colapsando contra ella al final son escenas muy similares a las de mi sueño; igualmente, la esfera de las Vegas que está hoy en boga es similar al «telón» de mi sueño. Mi sueño «Déjà vu» lo tuve antes de ver la película de *El día de la marmota*. A veces es ligeramente decepcionante que la entropía de las permutaciones de ideas humanamente posibles sea tan baja o, en términos más borgesianos, que el número de posibles entonaciones de metáforas sea tan bajo. (En las [reseñas de Mubi](https://mubi.com/es/mx/films/melancholia-2011) hay continuas referencias a la «estética» de la película. Es la estética de lo horrendo, de lo espantoso, de lo *effroyable*).

@@ -159,3 +159,16 @@ width: 100%
 name: nov2023
 ---
 ```
+
+<p align="center">
+<i>
+Diciembre, 2023 - Febrero, 2024
+</i>
+</p>
+
+```{figure} ../../img/musica/dic23-feb24.jpeg
+---
+width: 100%
+name: 2024
+---
+```
