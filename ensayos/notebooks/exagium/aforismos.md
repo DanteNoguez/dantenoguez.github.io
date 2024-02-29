@@ -6,6 +6,14 @@
 </b>
 </p>
 
+Acabo de abrirme un blog. Es importante contar con un medio para expresar genialidades.
+
+<br>
+<p align="center"> <b>
+§
+</b>
+</p>
+
 To read a book all the way through is a dreadful mannerism of the uneducated.
 
 <p align="center"> <b>
