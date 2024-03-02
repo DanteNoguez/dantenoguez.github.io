@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Elementos de procesamiento de lenguajes naturales, parte III &#8212; Dantis Elementorum</title>
   
@@ -19,44 +18,42 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-C9T8ZX64EM"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -64,17 +61,21 @@
                 gtag('js', new Date());
                 gtag('config', 'G-C9T8ZX64EM');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-C9T8ZX64EM');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/alfa/hacedor3';</script>
     <link rel="canonical" href="https://dantenoguez.github.io/notebooks/alfa/hacedor3.html" />
-    <link rel="shortcut icon" href="../../_static/logo.png"/>
+    <link rel="icon" href="../../_static/logo.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -86,10 +87,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -130,11 +130,16 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -149,6 +154,7 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../../intro.html">
@@ -167,7 +173,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -359,6 +376,7 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -368,6 +386,7 @@ document.write(`
   </button>
 `);
 </script>
+
 
 <script>
 document.write(`
@@ -413,10 +432,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="elementos-de-procesamiento-de-lenguajes-naturales-parte-iii">
-<h1>Elementos de procesamiento de lenguajes naturales, parte III<a class="headerlink" href="#elementos-de-procesamiento-de-lenguajes-naturales-parte-iii" title="Permalink to this heading">#</a></h1>
+<h1>Elementos de procesamiento de lenguajes naturales, parte III<a class="headerlink" href="#elementos-de-procesamiento-de-lenguajes-naturales-parte-iii" title="Link to this heading">#</a></h1>
 <p>Continuando nuestra última lección, nos adentraremos en el mundo de las «tecniquerías», procurando continuar con la optimización de nuestra red neuronal. En particular, aprenderemos sobre la normalización de lotes (<em>batch normalization</em>),</p>
 <p>Para ello, utilizaremos los mismos datos y el mismo código que implementamos con base en el <em>paper</em> <a class="reference external" href="https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf">A Neural Probabilistic Language Model</a>.</p>
 <div class="cell docutils container">
@@ -432,7 +451,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!wget https://github.com/DanteNoguez/CalculusRatiocinator/raw/main/data/nombres.txt
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">DanteNoguez</span><span class="o">/</span><span class="n">CalculusRatiocinator</span><span class="o">/</span><span class="n">raw</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">nombres</span><span class="o">.</span><span class="n">txt</span>
 </pre></div>
 </div>
 </div>
@@ -686,7 +705,7 @@ test 2.1483922004699707
 </div>
 </div>
 <section id="inicializacion-de-pesos-y-sesgos">
-<h2>Inicialización de pesos y sesgos<a class="headerlink" href="#inicializacion-de-pesos-y-sesgos" title="Permalink to this heading">#</a></h2>
+<h2>Inicialización de pesos y sesgos<a class="headerlink" href="#inicializacion-de-pesos-y-sesgos" title="Link to this heading">#</a></h2>
 <p>Nuestra inicialización debería ser equivalente a <span class="math notranslate nohighlight">\(\frac{1}{27}\)</span>, puesto que cualquier carácter debería ser igualmente probable que los demás antes de entrenar la red. Sin embargo, nuestra pérdida inicial es muchísimo peor. Según nuestro razonamiento, más bien deberíamos esperar una pérdida de:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -818,8 +837,8 @@ test 1.9303653240203857
 <p>Nuestro gráfico de la pérdida ahora luce diferente, y nuestra pérdida final es mejor debido a que no desperdiciamos etapas de entrenamiento.</p>
 </section>
 <section id="propiedades-de-la-tangente-hiperbolica">
-<h2>Propiedades de la tangente hiperbólica<a class="headerlink" href="#propiedades-de-la-tangente-hiperbolica" title="Permalink to this heading">#</a></h2>
-<p>En nuestra <span class="xref myst">primera lección</span> sobre redes neuronales, implementamos el cálculo del gradiente de la tangente hiperbólica con la fórmula <code class="docutils literal notranslate"><span class="pre">(1</span> <span class="pre">-</span> <span class="pre">t**2)</span></code>. Por otro lado, la tangente hiperbólica «aplasta» nuestros parámetros durante el entrenamiento, dejándolos en valores que van del 0 al 1. Si somos cuidadosos, notaremos que cuando hacemos propagación hacia atrás, nuestros parámetros que después de la tangente hiperbólica sean 1 o -1, tendrán un gradiente de 0 y, por tanto, no serán entrenados. Su «influencia» en el resultado de la red neuronal será también 0.</p>
+<h2>Propiedades de la tangente hiperbólica<a class="headerlink" href="#propiedades-de-la-tangente-hiperbolica" title="Link to this heading">#</a></h2>
+<p>En nuestra <a class="reference internal" href="#"><span class="xref myst">primera lección</span></a> sobre redes neuronales, implementamos el cálculo del gradiente de la tangente hiperbólica con la fórmula <code class="docutils literal notranslate"><span class="pre">(1</span> <span class="pre">-</span> <span class="pre">t**2)</span></code>. Por otro lado, la tangente hiperbólica «aplasta» nuestros parámetros durante el entrenamiento, dejándolos en valores que van del 0 al 1. Si somos cuidadosos, notaremos que cuando hacemos propagación hacia atrás, nuestros parámetros que después de la tangente hiperbólica sean 1 o -1, tendrán un gradiente de 0 y, por tanto, no serán entrenados. Su «influencia» en el resultado de la red neuronal será también 0.</p>
 <p>Ahora, procuraremos cuidar que nuestra red no padezca de este problema. Analicemos, por ejemplo, cómo están distribuidos nuestros parámetros después de aplicarles la tangente hiperbólica (esta es nuestra variable <code class="docutils literal notranslate"><span class="pre">a</span></code>):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -931,7 +950,7 @@ test 1.916183590888977
 <p>Ahora nuestra pérdida mejoró y predomina el negro —valores distintos de -1 y 1— en nuestra red.</p>
 </section>
 <section id="inicializacion-kaiming">
-<h2>Inicialización Kaiming<a class="headerlink" href="#inicializacion-kaiming" title="Permalink to this heading">#</a></h2>
+<h2>Inicialización Kaiming<a class="headerlink" href="#inicializacion-kaiming" title="Link to this heading">#</a></h2>
 <p>La generalización y formalización de nuestro razonamiento fue llevada a cabo por Kaiming He en un <a class="reference external" href="https://arxiv.org/abs/1502.01852"><em>paper</em> del 2015</a>. Análisis matemáticos mediante, descubrió que cuando utilizamos la tangente hiperbólica, nuestros pesos iniciales deben estar escalados por la fórmula <span class="math notranslate nohighlight">\(\frac{\frac{5}{3}}{\sqrt{\text{fan-in}}}\)</span>, donde <em>fan-in</em> —una expresión tomada de los circuitos eléctricos— es el número de <em>inputs</em> que toman nuestros pesos (en nuestro caso, <code class="docutils literal notranslate"><span class="pre">emb_dim*block_size</span></code>). Por tanto, nuestra inicialización debería estar escalada por <span class="math notranslate nohighlight">\(\frac{\frac{5}{3}}{\sqrt{\text{fan-in}}} = \frac{\frac{5}{3}}{\sqrt{\text{emb_dim x block_size}}} = \frac{\frac{5}{3}}{\sqrt{30}}\)</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -997,7 +1016,7 @@ tensor(-0.0028) tensor(0.9878)
 <p>Aunque los valores cambiaran, la desviación estándar permanece igual.</p>
 </section>
 <section id="normalizacion-por-lotes-batch-normalization">
-<h2>Normalización por lotes (<em>batch normalization</em>)<a class="headerlink" href="#normalizacion-por-lotes-batch-normalization" title="Permalink to this heading">#</a></h2>
+<h2>Normalización por lotes (<em>batch normalization</em>)<a class="headerlink" href="#normalizacion-por-lotes-batch-normalization" title="Link to this heading">#</a></h2>
 <p>Una técnica que cumple la misma función, pero que se utiliza más ampliamente por sus propiedades, es la llamada <a class="reference external" href="https://arxiv.org/abs/1502.03167">«normalización por lotes»</a>. En esencia, podemos prescindir de las fórmulas de Kaiming He y generalizar todavía más su solución. Para ello, normalizamos directamente la distribución de valores de cada matriz de pesos. El algoritmo luce así:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1098,7 +1117,7 @@ test 1.9600375890731812
 </div>
 </section>
 <section id="pytorch">
-<h2>PyTorch<a class="headerlink" href="#pytorch" title="Permalink to this heading">#</a></h2>
+<h2>PyTorch<a class="headerlink" href="#pytorch" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Linear</span><span class="p">:</span>
@@ -1324,7 +1343,7 @@ alberijonelicio.
               
               
                 <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                  
 <div class="prev-next-area">
 </div>
                 </footer>
@@ -1334,6 +1353,7 @@ alberijonelicio.
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1367,6 +1387,7 @@ By Dante Noguez
   
   <div class="footer-item">
     
+
   </div>
   
   <div class="footer-item">
@@ -1386,8 +1407,8 @@ By Dante Noguez
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>
