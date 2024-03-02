@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Elementos de cálculo infinitesimal &#8212; Dantis Elementorum</title>
   
@@ -19,44 +18,42 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-C9T8ZX64EM"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -64,17 +61,21 @@
                 gtag('js', new Date());
                 gtag('config', 'G-C9T8ZX64EM');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-C9T8ZX64EM');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/alfa/calculo';</script>
     <link rel="canonical" href="https://dantenoguez.github.io/notebooks/alfa/calculo.html" />
-    <link rel="shortcut icon" href="../../_static/logo.png"/>
+    <link rel="icon" href="../../_static/logo.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Elementos de procesamiento de lenguajes naturales, o El Hacedor" href="hacedor.html" />
@@ -88,10 +89,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -132,11 +132,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -151,6 +154,7 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../../intro.html">
@@ -169,7 +173,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -361,6 +376,7 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -370,6 +386,7 @@ document.write(`
   </button>
 `);
 </script>
+
 
 <script>
 document.write(`
@@ -414,13 +431,13 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="elementos-de-calculo-infinitesimal">
-<h1>Elementos de cálculo infinitesimal<a class="headerlink" href="#elementos-de-calculo-infinitesimal" title="Permalink to this heading">#</a></h1>
+<h1>Elementos de cálculo infinitesimal<a class="headerlink" href="#elementos-de-calculo-infinitesimal" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install matplotlib --upgrade
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">matplotlib</span> <span class="o">--</span><span class="n">upgrade</span>
 </pre></div>
 </div>
 </div>
@@ -435,7 +452,7 @@ document.write(`
 </div>
 <p>Este texto es la continuación de la primera parte de nuestros <a class="reference external" href="https://dantenoguez.github.io/notebooks/alfa/redes.html">Elementos de redes neuronales</a>. Mi propósito es obtener geométricamente la integral a partir de la derivada.</p>
 <section id="la-integral-demostrada-segun-el-orden-geometrico">
-<h2>La integral demostrada según el orden geométrico<a class="headerlink" href="#la-integral-demostrada-segun-el-orden-geometrico" title="Permalink to this heading">#</a></h2>
+<h2>La integral demostrada según el orden geométrico<a class="headerlink" href="#la-integral-demostrada-segun-el-orden-geometrico" title="Link to this heading">#</a></h2>
 <p>Así como la derivada nace de la pendiente, podemos entender a la integral a partir del área. En particular, la integral nos ayuda a determinar el área bajo cualquier segmento de una función.</p>
 <p>Por ejemplo, digamos que tengo la siguiente función cuadrática y deseo obtener el área del segmento denotado por las líneas punteadas:</p>
 <div class="cell docutils container">
@@ -641,7 +658,7 @@ document.write(`
 <figure class="align-default" id="integral">
 <a class="reference internal image-reference" href="../../_images/integral.gif"><img alt="../../_images/integral.gif" src="../../_images/integral.gif" style="width: 70%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Nuestro método consiste en minimizar «infinitamente» el ancho de cada rectángulo para obtener cientos de ellos. A medida que aumentamos los rectángulos, nuestro cálculo del área bajo la curva se vuelve más exacta; en el límite, nuestro cálculo es preciso. <em>Shout out</em> a Bernhard Riemann.</span><a class="headerlink" href="#integral" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Nuestro método consiste en minimizar «infinitamente» el ancho de cada rectángulo para obtener cientos de ellos. A medida que aumentamos los rectángulos, nuestro cálculo del área bajo la curva se vuelve más exacta; en el límite, nuestro cálculo es preciso. <em>Shout out</em> a Bernhard Riemann.</span><a class="headerlink" href="#integral" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Nuestro experimento ha sido exitoso y hemos obtenido el mejor resultado hasta ahora. Antes de continuar, detengámonos un poco para aterrizar nuestras ideas, formalizarlas y corroborar que nuestro trabajo sea correcto.</p>
@@ -663,18 +680,18 @@ document.write(`
 \]</div>
 </section>
 <section id="teorema-fundamental-del-calculo">
-<h2>Teorema fundamental del cálculo<a class="headerlink" href="#teorema-fundamental-del-calculo" title="Permalink to this heading">#</a></h2>
+<h2>Teorema fundamental del cálculo<a class="headerlink" href="#teorema-fundamental-del-calculo" title="Link to this heading">#</a></h2>
 <p>Por último, el teorema fundamental del cálculo estatuye que la derivación y la integración son operaciones inversas. Mientras que la derivación consiste fundamentalmente en una operación de división y con ella obtenemos —en dos dimensiones— la pendiente de la tangente a un punto, la integración fundamentalmente consiste en una multiplicación para obtener el área bajo la curva de la función entre dos puntos dados.</p>
 </section>
 <section id="reflexiones">
-<h2>Reflexiones<a class="headerlink" href="#reflexiones" title="Permalink to this heading">#</a></h2>
+<h2>Reflexiones<a class="headerlink" href="#reflexiones" title="Link to this heading">#</a></h2>
 <p>Curiosamente, la palabra «cálculo» viene del latín <a class="reference external" href="https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.04.0059:entry=calculus"><em>calculus</em>,</a> cuyo significado es «pequeña piedra». Calcular, en las épocas antiguas, implicaba el uso de piedritas que se iban contando una tras otra, justo como cuando éramos pequeños hacíamos con el ábaco.</p>
 <p>El cálculo lidia con cambios infinitamente pequeños —de ahí su nombre «cálculo infinitesimal». Inicialmente, estos «cambios pequeños» se concibieron como trucos prácticos que facilitaban cálculos como los que hemos hecho, pero nunca hubo una justificación matemáticamente rigurosa para proceder así, «imaginando» figuras infinitamente pequeñas. De ahí precisamente que Newton se hubiera negado a publicar su trabajo de cálculo y que Leibniz haya afirmado que lidiar con lo infinitamente pequeño era una simple ficción mental que facilitaba ciertos cálculos en la práctica. De ahí también que ideas como una «secante infinitamente pequeña que se confunde con un punto» suenen a paradoja.</p>
 <p>Mi intención en estas lecciones ha sido sembrar un entendimiento elemental, intuitivo y conceptual del cálculo infinitesimal. A mi juicio, este tipo de entendimiento racional —fundamentado en las causas de las cosas—, además de ser el más importante, brilla por su ausencia en la penosa mayoría de escuelas, libros, lecciones y conferencias de matemáticas.</p>
 <p>Complementar estas lecciones con el estudio de ciertas reglas para derivar o integrar es bastante sencillo, mientras que proceder inversamente es increíblemente difícil. Intuir las razones detrás de cada detalle en una fórmula matemática abstracta —escrita con símbolos griegos, cursivas y letras arcaicas— es, a lo mucho, posible tras años de entrenamiento en las artes oscuras y profundidades de las matemáticas; sin embargo, al enseñar matemáticas, el sistema educativo y los matemáticos asumen que cualquier joven estudiante, sin motivación alguna para hacerlo, es perfectamente capaz de tal proeza. Considero esto un fracaso estrepitoso y mi trabajo ha sido un humilde intento de remediarlo de alguna forma.</p>
 </section>
 <section id="referencias">
-<h2>Referencias<a class="headerlink" href="#referencias" title="Permalink to this heading">#</a></h2>
+<h2>Referencias<a class="headerlink" href="#referencias" title="Link to this heading">#</a></h2>
 <p>Durante la redacción de mis textos sobre derivadas e integrales, además de los cursos de Khan Academy, fueron particularmente útiles los siguientes videos de YouTube:</p>
 <ul class="simple">
 <li><p>Las lecciones de Eddie Woo sobre cálculo <a class="reference external" href="https://youtu.be/tt2DGYOi3hc">diferencial</a> e <a class="reference external" href="https://youtu.be/_hf3JowQfKM">integral</a>.</p></li>
@@ -715,7 +732,7 @@ document.write(`
               
               
                 <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="redes.html"
@@ -743,6 +760,7 @@ document.write(`
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -775,6 +793,7 @@ By Dante Noguez
   
   <div class="footer-item">
     
+
   </div>
   
   <div class="footer-item">
@@ -794,8 +813,8 @@ By Dante Noguez
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

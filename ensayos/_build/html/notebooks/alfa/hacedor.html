@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Elementos de procesamiento de lenguajes naturales, o El Hacedor &#8212; Dantis Elementorum</title>
   
@@ -19,44 +18,42 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-C9T8ZX64EM"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -64,17 +61,21 @@
                 gtag('js', new Date());
                 gtag('config', 'G-C9T8ZX64EM');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-C9T8ZX64EM');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/alfa/hacedor';</script>
     <link rel="canonical" href="https://dantenoguez.github.io/notebooks/alfa/hacedor.html" />
-    <link rel="shortcut icon" href="../../_static/logo.png"/>
+    <link rel="icon" href="../../_static/logo.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Elementos de procesamiento de lenguajes naturales, parte II" href="hacedor2.html" />
@@ -88,10 +89,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -132,11 +132,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -151,6 +154,7 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../../intro.html">
@@ -169,7 +173,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -361,6 +376,7 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -370,6 +386,7 @@ document.write(`
   </button>
 `);
 </script>
+
 
 <script>
 document.write(`
@@ -414,10 +431,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="elementos-de-procesamiento-de-lenguajes-naturales-o-el-hacedor">
-<h1>Elementos de procesamiento de lenguajes naturales, o El Hacedor<a class="headerlink" href="#elementos-de-procesamiento-de-lenguajes-naturales-o-el-hacedor" title="Permalink to this heading">#</a></h1>
+<h1>Elementos de procesamiento de lenguajes naturales, o El Hacedor<a class="headerlink" href="#elementos-de-procesamiento-de-lenguajes-naturales-o-el-hacedor" title="Link to this heading">#</a></h1>
 <p>Este texto está inspirado en <a class="reference external" href="https://github.com/karpathy/makemore">makemore</a> de Andrej Karpathy. A continuación, crearemos un modelo de lenguaje basado en bigramas. Utilizando 21,209 nombres argentinos como base, nuestro modelo aprenderá patrones estadísticos para idear nuevos nombres en español.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -443,7 +460,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!wget https://github.com/DanteNoguez/CalculusRatiocinator/raw/main/data/nombres.txt
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">DanteNoguez</span><span class="o">/</span><span class="n">CalculusRatiocinator</span><span class="o">/</span><span class="n">raw</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">nombres</span><span class="o">.</span><span class="n">txt</span>
 </pre></div>
 </div>
 </div>
@@ -489,7 +506,7 @@ document.write(`
 </div>
 </div>
 <section id="bigrama">
-<h2>Bigrama<a class="headerlink" href="#bigrama" title="Permalink to this heading">#</a></h2>
+<h2>Bigrama<a class="headerlink" href="#bigrama" title="Link to this heading">#</a></h2>
 <p>Primero, formaremos bigramas (pares) de caracteres por cada nombre que hay en nuestro conjunto de datos. Al final e inicio de cada nombre, agregaremos un <em>token</em> <code class="docutils literal notranslate"><span class="pre">.</span></code> para indicar el inicio y fin de dicho nombre:</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -947,7 +964,7 @@ promedio del logaritmo negativo: 2.3054254055023193
 </div>
 </section>
 <section id="red-neuronal">
-<h2>Red neuronal<a class="headerlink" href="#red-neuronal" title="Permalink to this heading">#</a></h2>
+<h2>Red neuronal<a class="headerlink" href="#red-neuronal" title="Link to this heading">#</a></h2>
 <p>Ahora que tenemos una función de pérdida, podemos adaptar nuestro modelo a una red neuronal y optimizarlo. Crearemos bigramas de la misma manera, pero ahora crearemos un vector <span class="math notranslate nohighlight">\(x\)</span> con el primer elemento del bigrama y otro <span class="math notranslate nohighlight">\(y\)</span> con el segundo. Las <span class="math notranslate nohighlight">\(x\)</span> serán entonces nuestras entradas y las <span class="math notranslate nohighlight">\(y\)</span> nuestros objetivos:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1212,7 +1229,7 @@ a .
 <p>Exactamente lo mismo, aunque de manera más eficiente, sucede cuando multiplicamos ambas matrices. En síntesis: al multiplicar nuestra matriz <code class="docutils literal notranslate"><span class="pre">w</span></code> por la matriz <code class="docutils literal notranslate"><span class="pre">xenc</span></code>, cada columna de pesos evalúa cada vector de <code class="docutils literal notranslate"><span class="pre">xenc</span></code>. Es decir, obtenemos una matriz de dimensiones 3x4 donde cada fila corresponde a cada vector (<em>i. e.</em>, cada carácter), pero esta fila tiene 4 valores correspondientes a la evaluación del vector por cada una de las columnas de la matriz <code class="docutils literal notranslate"><span class="pre">w</span></code>.</p>
 </section>
 <section id="hacia-la-formulacion-de-un-modelo">
-<h2>Hacia la formulación de un modelo<a class="headerlink" href="#hacia-la-formulacion-de-un-modelo" title="Permalink to this heading">#</a></h2>
+<h2>Hacia la formulación de un modelo<a class="headerlink" href="#hacia-la-formulacion-de-un-modelo" title="Link to this heading">#</a></h2>
 <p>Antes de programar nuestra red neuronal, detengámonos a entender lo que estamos haciendo: en primer lugar, podemos conceptualizar a una red neuronal como una función: nosotros esperamos que nos proporcione un resultado con base en las entradas que le suministremos:</p>
 <img src='https://miro.medium.com/max/640/1*sPg-0hha7o3iNPjY4n-vow.jpeg' width=400 class='center'>
 <p>Lo característico de esta función es que podemos entrenarla para que se configure a sí misma, es decir, la función encontrará (o «aprenderá») los parámetros necesarios para transformar las entradas que le proporcionemos en las salidas que queremos. En este caso particular, queremos que «transforme» una letra de entrada en otra de salida, y que realice este proceso hasta conseguir un nombre. La transformación que procuraremos a continuación será lineal y se realizará mediante la matriz de pesos <code class="docutils literal notranslate"><span class="pre">w</span></code>.</p>
@@ -1584,21 +1601,23 @@ cincejumiliva.
 <p>Aunque nuestro modelo de red neuronal no haya superado al de simple conteo y probabilidad, puesto que en realidad los implementamos de tal manera que son prácticamente iguales, lo cierto es que esta estructura de red neuronal contiene ya los rudimentos esenciales para superar con creces al modelo anterior. En realidad, una implementación más compleja y óptima de nuestra red neuronal solo consistirá en cambiar la manera en que lidiamos con los datos (nuestro vocabulario, <em>tokens</em>, tabla de consulta, <code class="docutils literal notranslate"><span class="pre">xenc</span></code>, por ejemplo) y con las capas de neuronas (nuestra <code class="docutils literal notranslate"><span class="pre">W</span></code>, por ejemplo). Todo lo demás permanecerá igual. En la próxima lección profundizaremos en esto.</p>
 </section>
 <section id="bibliografia-recomendada">
-<h2>Bibliografía recomendada<a class="headerlink" href="#bibliografia-recomendada" title="Permalink to this heading">#</a></h2>
+<h2>Bibliografía recomendada<a class="headerlink" href="#bibliografia-recomendada" title="Link to this heading">#</a></h2>
 <p><strong>zhang2021dive</strong> Zhang, Aston; Lipton, Zachary C.; Li, Mu y Smola, Alexander J. <em>Dive into Deep Learning</em> (cap. 15), 2021. <a class="reference external" href="https://d2l.ai/chapter_natural-language-processing-pretraining/index.html">URL</a>.</p>
 <p><strong>voita2020nlpCourse</strong> Voita, Elena. <em>NLP Course For You</em>, 2020. <a class="reference external" href="https://lena-voita.github.io/nlp_course.html">URL</a>.</p>
 <hr class="footnotes docutils" />
-<aside class="footnote brackets" id="id4" role="note">
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id4" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
 <p>La función de pérdida siempre dependerá de la naturaleza del problema. Dado que este es un problema de clasificación relacionado con probabilidades, hemos elegido una función apta. Durante la implementación de <code class="docutils literal notranslate"><span class="pre">pequegrad</span></code>, habíamos empleado la regresión lineal.</p>
 </aside>
-<aside class="footnote brackets" id="id5" role="note">
+<aside class="footnote brackets" id="id5" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
 <p>Comúnmente se denomina capa lineal o <em>lineal layer</em> a la serie de pesos y/o sesgos que creamos para multiplicarlos y sumarlos por nuestras entradas. Como hemos visto, tanto la función multiplicación como la función suma siempre resultan una línea recta en el plano cartesiano, y de ahí el adjetivo «lineal». Estamos transformando linealmente nuestras entradas, puesto que la graficación de la multiplicación y la suma con los pesos y sesgos es una línea.</p>
 </aside>
-<aside class="footnote brackets" id="id6" role="note">
+<aside class="footnote brackets" id="id6" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
 <p>Hemos denominado «logit» al resultado de nuestra multiplicación de matrices, sin embargo, en el ámbito del <em>deep learning</em>, el término «logit» puede llegar a ser <a class="reference external" href="https://stackoverflow.com/a/50511692/19440446">bastante ambiguo</a>. En nuestro caso, denominamos así a nuestra matriz porque es la última (y única) capa de la red neuronal, y está representando un conteo en bruto de la ocurrencia de cada <span class="math notranslate nohighlight">\(x\)</span> que luego utilizaremos para convertir en probabilidades. Aunque nuestra explicación también sea insatisfactoria, debemos conformarnos con ella por el momento. La ambigüedad del término es tal que su misma composición es extraña: no está prefijado con base en «logaritmo», sino en «logístico», pues es una abreviación de «unidad logística» (<em>logistic unit</em>); pero nunca ha estado clara la razón detrás del término «logístico» en matemáticas y, para más inri, el uso de «logit» en <em>deep learning</em> no siempre tiene un fundamento matemático riguroso. En fin, no nos perdamos entre las ramas y volvamos a lo nuestro.</p>
+</aside>
 </aside>
 </section>
 </section>
@@ -1631,7 +1650,7 @@ cincejumiliva.
               
               
                 <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="calculo.html"
@@ -1659,6 +1678,7 @@ cincejumiliva.
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1691,6 +1711,7 @@ By Dante Noguez
   
   <div class="footer-item">
     
+
   </div>
   
   <div class="footer-item">
@@ -1710,8 +1731,8 @@ By Dante Noguez
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>
