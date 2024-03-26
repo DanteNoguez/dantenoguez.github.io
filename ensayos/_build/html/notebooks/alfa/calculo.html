@@ -419,7 +419,6 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-integral-demostrada-segun-el-orden-geometrico">La integral demostrada según el orden geométrico</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#teorema-fundamental-del-calculo">Teorema fundamental del cálculo</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reflexiones">Reflexiones</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referencias">Referencias</a></li>
 </ul>
@@ -641,7 +640,12 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Y multiplicaremos cada una de estas alturas por una base <span class="math notranslate nohighlight">\(x\)</span> de <span class="math notranslate nohighlight">\(0.01\)</span> para obtener el área de cada mini rectángulo. Finalmente, sumaremos todas estas áreas individuales entre sí para obtener el área total:</p>
+<p>Y multiplicaremos cada una de estas alturas por una base <span class="math notranslate nohighlight">\(x\)</span> de <span class="math notranslate nohighlight">\(0.01\)</span> para obtener el área de cada mini rectángulo. Finalmente, sumaremos todas estas áreas individuales entre sí para obtener el área total. A esta operación se le denomina suma Riemanniana, y matemáticamente se expresa así:</p>
+<div class="math notranslate nohighlight">
+\[
+\lim_{\Delta x \to 0} \sum_{i=1}^{n} f(x_i)\Delta x
+\]</div>
+<p>donde <span class="math notranslate nohighlight">\(f(x_i)\)</span> es el valor de la función en el iésimo punto, <span class="math notranslate nohighlight">\(\Delta x\)</span> es el ancho del rectángulo y <span class="math notranslate nohighlight">\(n\)</span> es el número de rectángulos. Programáticamente, se traduce así:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">1000</span><span class="p">:</span><span class="mi">1200</span><span class="p">])</span><span class="o">*</span><span class="mf">0.01</span>
@@ -668,20 +672,24 @@ document.write(`
 \[
 \int_{a}^{b}f(x) \cdot dx
 \]</div>
-<p>Bien, hemos obtenido la fórmula de una integral. Ahora, ¿cómo podemos resolver nuestro problema con esta expresión? Para saberlo solo nos hace falta una intuición que, aunque contraintuitiva, es en realidad bastante simple —y fundamental para nuestro razonamiento. Notemos, en primer lugar, que hasta el momento hemos estado multiplicando un cambio en <span class="math notranslate nohighlight">\(x\)</span> (<em>i. e.</em>, <span class="math notranslate nohighlight">\(dx\)</span>) por un cambio en <span class="math notranslate nohighlight">\(y\)</span> (<em>i. e.</em>, <span class="math notranslate nohighlight">\(f(x)\)</span> o <span class="math notranslate nohighlight">\(dy\)</span>). Recordemos también que, cuando calculábamos la derivada, dividíamos un cambio en <span class="math notranslate nohighlight">\(y\)</span> entre un cambio en <span class="math notranslate nohighlight">\(x\)</span> (<em>i. e.</em>, <span class="math notranslate nohighlight">\(\frac{dy}{dx}\)</span>). ¿Qué quiere decir esto? Si la multiplicación y la división son operaciones opuestas, ¿podemos decir que la derivada y la integral también lo son?</p>
-<p>Para obtener el área bajo la función de una derivada, utilizamos la altura de la función a partir de la cual se obtuvo dicha derivada. En consecuencia, para ir en sentido contrario y obtener el área de la función original, debemos «revertir» la derivada, es decir, utilizar la antiderivada.</p>
+<p>En realidad, para poder utilizar esta fórmula nos hace falta el teorema fundamental del cálculo. Este teorema, que es demasiado engorroso de entender, nos dice que la diferenciación (las derivadas) y la integración (las integrales) son operaciones inversas, como lo fueran la divisón y la multiplicación. Conformémonos con eso por ahora. Y, dicho eso, entendamos que podemos usar la «antiderivada»<a class="footnote-reference brackets" href="#id3" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> (la inversa de la derivada) para resolver una integral. Es decir, si la derivada y la integral son operaciones inversas, entonces simplemente invirtamos una derivada y eso debería darnos el resultado de la integral. Por ejemplo, si la derivada de <span class="math notranslate nohighlight">\(x^n\)</span> con respecto a <span class="math notranslate nohighlight">\(x\)</span> es <span class="math notranslate nohighlight">\({nx}^{n-1}\)</span>, entonces la <em>antiderivada</em> o integral de <span class="math notranslate nohighlight">\(x^n\)</span> con respecto a <span class="math notranslate nohighlight">\(x\)</span> es <span class="math notranslate nohighlight">\(\frac{x^{n+1}}{n+1}+C\)</span><a class="footnote-reference brackets" href="#id4" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>. Es decir, en lugar de restarle <span class="math notranslate nohighlight">\(1\)</span> al exponente, le sumamos <span class="math notranslate nohighlight">\(1\)</span>; y en lugar de multiplicar por el exponente, dividimos entre el exponente. Luego agregamos la constante y voilà.</p>
+<p>Ahora, para utilizar esta fórmula, solo reemplazamos los valores del intervalo [a, b] que nos interesa (en este caso, desde el punto 10 hasta el 12), reemplazamos <span class="math notranslate nohighlight">\(f(x)\)</span> por el valor de la función y obtenemos la antiderivada (que denotaremos por <span class="math notranslate nohighlight">\(F\)</span>) de la función en <span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(b\)</span>, para finalmente restar las antiderivadas entre sí.</p>
+<div class="math notranslate nohighlight">
+\[
+\int_{a}^{b}f(x)dx = F(b) - F(a)
+\]</div>
 <div class="math notranslate nohighlight">
 \[
 \int_{a}^{b}f(x)dx = \int_{10}^{12} x^2 dx
 \]</div>
 <div class="math notranslate nohighlight">
 \[
-\int_{x=10}^{x=12}(x^2)dx = \frac{x^3}{3} = \frac{12^3}{3} - \frac{10^3}{3} = 576-333.33 = 242.67
+F(x^2) = \frac{x^{n+1}}{n+1}+C = \frac{x^{2+1}}{2+1}+C = \frac{x^3}{3}
 \]</div>
-</section>
-<section id="teorema-fundamental-del-calculo">
-<h2>Teorema fundamental del cálculo<a class="headerlink" href="#teorema-fundamental-del-calculo" title="Link to this heading">#</a></h2>
-<p>Por último, el teorema fundamental del cálculo estatuye que la derivación y la integración son operaciones inversas. Mientras que la derivación consiste fundamentalmente en una operación de división y con ella obtenemos —en dos dimensiones— la pendiente de la tangente a un punto, la integración fundamentalmente consiste en una multiplicación para obtener el área bajo la curva de la función entre dos puntos dados.</p>
+<div class="math notranslate nohighlight">
+\[
+\int_{a=10}^{b=12}(x^2)dx = \left(\frac{b^{n+1}}{n+1}+C\right) - \left(\frac{a^{n+1}}{n+1}+C\right) = \frac{12^3}{3} - \frac{10^3}{3} = 576-333.33 = 242.67
+\]</div>
 </section>
 <section id="reflexiones">
 <h2>Reflexiones<a class="headerlink" href="#reflexiones" title="Link to this heading">#</a></h2>
@@ -701,6 +709,17 @@ document.write(`
 </ul>
 <p>Según recuerdo, la lección del <a class="reference external" href="https://youtu.be/_6-zwdrqD3U">Traductor de Ingeniería</a> sobre derivadas tiene un buen enfoque, aunque tiende a hacer las cosas más complicadas de lo que son. De la misma forma, los videos de <a class="reference external" href="https://youtu.be/WUvTyaaNkzM">3Blue1Brown</a>, aunque buenos a ratos, siempre me confunden y me dejan huecos entre las ideas. En cualquier caso, ambos merecen mención.</p>
 <p>Finalmente, aunque solo he hojeado unas páginas, me parece que <em>Calculus made easy</em> de <a class="reference external" href="https://calculusmadeeasy.org">Thompson</a> es un buen libro.</p>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id3" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>No es esta una expresión nuestra: realmente se le llama «antiderivada» en el mundo académico.</p>
+</aside>
+<aside class="footnote brackets" id="id4" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p><span class="math notranslate nohighlight">\(C\)</span> es una constante, y es una formalidad matemática que debemos agregar a toda antiderivada. <span class="math notranslate nohighlight">\(C\)</span> es «invisible» en la derivada porque la derivada de una constante es <span class="math notranslate nohighlight">\(0\)</span>. Esto debe tener sentido para nosotros después de haber estudiado las derivadas: si una función no cambia (es decir, es constante), entonces su derivada será <span class="math notranslate nohighlight">\(0\)</span> porque la derivada mide la tasa de cambio de la función. Un valor constante, por definición, nunca cambia.</p>
+</aside>
+</aside>
 </section>
 </section>
 
@@ -769,7 +788,6 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-integral-demostrada-segun-el-orden-geometrico">La integral demostrada según el orden geométrico</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#teorema-fundamental-del-calculo">Teorema fundamental del cálculo</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reflexiones">Reflexiones</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referencias">Referencias</a></li>
 </ul>
